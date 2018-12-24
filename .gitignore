@@ -1,0 +1,26 @@
+# ignore all files starting with .
+.*
+
+# track this file .gitignore (i.e. do NOT ignore it)
+!.gitignore
+
+# track .editorconfig file (i.e. do NOT ignore it)
+!.editorconfig
+
+# track readme.md in the root (i.e. do NOT ignore it)
+!readme.md
+
+# ignore all files that start with ~
+~*
+
+# dependencies
+/node_modules
+
+# misc
+.DS_Store
+ehthumbs.db
+Thumbs.db
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

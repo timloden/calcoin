@@ -42,11 +42,6 @@ if ( ! function_exists( 'caweb_standard_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
-		// This theme uses wp_nav_menu() in one location.
-		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'caweb-standard' ),
-		) );
-
 		/*
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
@@ -59,44 +54,11 @@ if ( ! function_exists( 'caweb_standard_setup' ) ) :
 			'caption',
 		) );
 
-		// Set up the WordPress core custom background feature.
-		add_theme_support( 'custom-background', apply_filters( 'caweb_standard_custom_background_args', array(
-			'default-color' => 'ffffff',
-			'default-image' => '',
-		) ) );
-
 		// Add theme support for selective refresh for widgets.
 		add_theme_support( 'customize-selective-refresh-widgets' );
-
-		/**
-		 * Add support for core custom logo.
-		 *
-		 * @link https://codex.wordpress.org/Theme_Logo
-		 */
-		add_theme_support( 'custom-logo', array(
-			'height'      => 250,
-			'width'       => 250,
-			'flex-width'  => true,
-			'flex-height' => true,
-		) );
 	}
 endif;
 add_action( 'after_setup_theme', 'caweb_standard_setup' );
-
-/**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- */
-function caweb_standard_content_width() {
-	// This variable is intended to be overruled from themes.
-	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
-	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-	$GLOBALS['content_width'] = apply_filters( 'caweb_standard_content_width', 640 );
-}
-add_action( 'after_setup_theme', 'caweb_standard_content_width', 0 );
 
 /**
  * Register widget area.
@@ -117,45 +79,32 @@ function caweb_standard_widgets_init() {
 add_action( 'widgets_init', 'caweb_standard_widgets_init' );
 
 /**
- * Enqueue scripts and styles.
+ * Autoload functions.
  */
-function caweb_standard_scripts() {
-	wp_enqueue_style( 'caweb-standard-style', get_stylesheet_uri() );
+function caweb_autoload() {
+	$function_path = pathinfo( __FILE__ );
 
-	wp_enqueue_script( 'caweb-standard-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
-	wp_enqueue_script( 'caweb-standard-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
+	foreach ( glob( $function_path['dirname'] . '/inc/*.php' ) as $file ) {
+		require_once $file;
 	}
 }
-add_action( 'wp_enqueue_scripts', 'caweb_standard_scripts' );
+
+add_action( 'after_setup_theme', 'caweb_autoload' );
+
+include_once('acf-fonticonpicker/acf-fonticonpicker.php');
 
 /**
- * Implement the Custom Header feature.
+ *	This will hide the Divi "Project" post type.
+ *	Thanks to georgiee (https://gist.github.com/EngageWP/062edef103469b1177bc#gistcomment-1801080) for his improved solution.
  */
-require get_template_directory() . '/inc/custom-header.php';
-
-/**
- * Custom template tags for this theme.
- */
-require get_template_directory() . '/inc/template-tags.php';
-
-/**
- * Functions which enhance the theme by hooking into WordPress.
- */
-require get_template_directory() . '/inc/template-functions.php';
-
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
-
-/**
- * Load Jetpack compatibility file.
- */
-if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/inc/jetpack.php';
+add_filter( 'et_project_posttype_args', 'mytheme_et_project_posttype_args', 10, 1 );
+function mytheme_et_project_posttype_args( $args ) {
+	return array_merge( $args, array(
+		'public'              => false,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => false,
+		'show_in_nav_menus'   => false,
+		'show_ui'             => false
+	));
 }
 

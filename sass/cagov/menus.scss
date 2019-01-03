@@ -1,0 +1,45 @@
+/*Mega Nav Columns*/
+
+.full.two-columns, .full.three-columns, .full.four-columns {
+
+	.second-level-nav,  {
+	    display: initial;
+
+	    li {
+	    	float: left;
+	    }
+	}
+}
+
+.full.two-columns .second-level-nav .unit1,
+.full.two-columns .second-level-nav .unit2,
+.full.two-columns .second-level-nav .unit3 {
+    width: 50%
+}
+
+.full.three-columns .second-level-nav .unit1,
+.full.three-columns .second-level-nav .unit2,
+.full.three-columns .second-level-nav .unit3 {
+    width: 33.33%;
+    width: calc(100% /3)
+}
+
+.full.four-columns .second-level-nav .unit1,
+.full.four-columns .second-level-nav .unit2,
+.full.four-columns .second-level-nav .unit3 {
+    width: 25%
+}
+
+@media (max-width: 767px) {
+  .full.two-columns, .full.three-columns, .full.four-columns {
+
+	.second-level-nav,  {
+		
+	    li {
+	    	float: none;
+    		width: 100% !important;
+	    }
+	}
+}
+  
+}

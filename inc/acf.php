@@ -32,3 +32,20 @@ function my_acf_settings_dir( $dir ) {
 
 // 4. Include ACF
 include_once( get_stylesheet_directory() . '/advanced-custom-fields-pro/acf.php' );
+
+
+// CAWeb Options page
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page(array(
+		'page_title' 	=> 'CAWeb Options',
+		'menu_title'	=> 'CAWeb Options',
+		'menu_slug' 	=> 'caweb-options',
+		'capability'	=> 'edit_posts',
+		'icon_url'		=> get_stylesheet_directory_uri() . '/images/caweb_logo.png',
+		'position' 		=> 2,
+		'redirect'		=> false,
+		'update_button' => __('Save Options', 'acf'),
+	));
+	
+}

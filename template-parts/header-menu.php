@@ -92,7 +92,7 @@
                                 </a>
                             </li>
 
-                <?php elseif ($parent_layout == 'image-three_quarters'): ?>
+                <?php elseif ($parent_layout == 'image-three_quarters' && $menu_type == 'megadropdown'): ?>
 
                      <div class="quarter with-image-left">
                         <div class="nav-media" style="background:url('<?php echo(esc_url($parent_bg));?>')"></div>
@@ -131,21 +131,25 @@
                             </li>
                         
                 <?php else: ?>
+                     <?php $columns = $menu_type == 'megadropdown' ? $column_size  : '' ?>
+                    <div class="full <?php echo(esc_attr($columns)); ?>">
+                        
+                       
+                        <ul class="second-level-nav">
 
-                <div class="full <?php echo (esc_attr($parent_columns)); ?>">
-                    <ul class="second-level-nav">
+                            <li class="<?php echo $unit; ?>">
+                                <a href="<?php echo $link; ?>" class="second-level-link">
+                                    <span class="ca-gov-<?php echo (esc_attr($icon)); ?>" aria-hidden="true"></span>
+                                    <?php echo (esc_attr($title)); ?>
+                                    <?php if ($description): ?>
+                                        <div class="link-description"><?php echo (esc_attr($description)); ?></div>
+                                    <?php endif; ?>
+                                </a>
+                            </li>
 
-                        <li class="<?php echo $unit; ?>">
-                            <a href="<?php echo $link; ?>" class="second-level-link">
-                                <span class="ca-gov-<?php echo (esc_attr($icon)); ?>" aria-hidden="true"></span>
-                                <?php echo (esc_attr($title)); ?>
-                                <?php if ($description): ?>
-                                    <div class="link-description"><?php echo (esc_attr($description)); ?></div>
-                                <?php endif; ?>
-                            </a>
-                        </li>
+                <?php endif; ?>
 
-                 <?php endif; ?>
+                
 
             <?php if ( !isset($menuitems[ $count + 1 ]) || $menuitems[ $count + 1 ]->menu_item_parent != $parent_id && $submenu ): ?>
 

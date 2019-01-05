@@ -27,6 +27,22 @@
 
 <body <?php body_class(); ?>>
 
+	
+	<?php if( have_rows('alert_banners', 'options') ): ?>
+		<?php while( have_rows('alert_banners', 'option') ): the_row(); ?>	
+			<?php 
+				$display_on = get_sub_field('display_on');
+				if ($display_on == 'home_page' && is_front_page()) :
+			?>
+				<?php get_template_part('template-parts/alert'); ?>
+			<?php elseif ($display_on == 'all_pages'): ?>
+				<?php get_template_part('template-parts/alert'); ?>
+			<?php endif; ?>
+
+		<?php endwhile; ?>
+
+	<?php endif; ?>
+
 	<header role="banner" id="header" class="global-header">
 		<div id="skip-to-content"><a href="#main-content">Skip to Main Content</a></div>
 		

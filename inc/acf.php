@@ -46,6 +46,18 @@ if( function_exists('acf_add_options_page') ) {
 		'position' 		=> 2,
 		'redirect'		=> false,
 		'update_button' => __('Save Options', 'acf'),
+		'updated_message'	=> __("Options Updated", 'acf'),
+	));
+
+	acf_add_options_page(array(
+		'page_title' 	=> 'Multisite Google Analytics',
+		'menu_title'	=> 'Multisite GA',
+		'menu_slug' 	=> 'caweb-multisite-ga',
+		'parent_slug'   => 'caweb-options',
+		'capability'    => 'activate_plugins',
+		'redirect'		=> false,
+		'update_button' => __('Save Options', 'acf'),
+		'updated_message'	=> __("Options Updated", 'acf'),
 	));
 	
 }

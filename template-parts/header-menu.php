@@ -1,14 +1,22 @@
 <?php
-  $menu_name = 'Header';
-  $locations = get_nav_menu_locations();
-  $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
-  $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
-  $menu_type = get_field('menu_type', wp_get_nav_menu_object($menu_name));
- 
-
+    $menu_name = 'Header';
+    $locations = get_nav_menu_locations();
+    $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
+    $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
+    $menu_type = get_field('menu_type', wp_get_nav_menu_object($menu_name));
+    $show_home_link = get_field('show_home_link', wp_get_nav_menu_object($menu_name));
 ?>
 <nav id="navigation" class="main-navigation <?php echo esc_attr($menu_type);?> auto-highlight">
 <ul id="nav_list" class="top-level-nav nav-menu">
+    <?php if ($show_home_link) :?>
+    <li class="nav-item">
+        <a href="/" class="first-level-link">
+            <span class="ca-gov-icon-home" aria-hidden="true"></span> 
+            Home
+        </a>
+    </li>
+    <?php endif; ?>
+
     <?php
     $count = 0;
     $submenu = false;

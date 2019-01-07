@@ -9,14 +9,24 @@
  * @package CAWeb_Standard
  */
 
-$menu_type = get_field('menu_type', wp_get_nav_menu_object('Header'));		
 $general_settings = get_field('general_settings', 'option');
 $logo = $general_settings['organization_logo'];
 $favicon = $general_settings['fav_icon'];
-$show_home_link = $general_settings['show_home_link'];
 $use_sticky_nav = $general_settings['use_sticky_navigation'];
 $featured_search = $general_settings['show_search_on_front_page'];
 
+$utility_header = get_field('utility_header', 'option');
+$utility_home_link = $utility_header['home_link_in_utility_header'];
+$utility_contact_page = isset($utility_header['contact_us_page']) ? $utility_header['contact_us_page'] : false;
+
+$use_utility_link_1 = isset($utility_header['use_custom_link_1']) ? $utility_header['use_custom_link_1'] : false;
+$utility_link_1 = $utility_header['custom_link_1'];
+
+$use_utility_link_2 = isset($utility_header['use_custom_link_2']) ? $utility_header['use_custom_link_2'] : false;
+$utility_link_2 = $utility_header['custom_link_2'];
+
+$use_utility_link_3 = isset($utility_header['use_custom_link_3']) ? $utility_header['use_custom_link_3'] : false;
+$utility_link_3 = $utility_header['custom_link_3'];
 
 ?>
 <!doctype html>
@@ -61,7 +71,7 @@ $featured_search = $general_settings['show_search_on_front_page'];
 		                 
 		                <ul class="utility-links social-media-links">
 		                    <li><div class="header-cagov-logo"><a href="https://ca.gov"><img src="<?php echo esc_url(get_template_directory_uri());?>/images/Ca-Gov-Logo-Gold.svg" alt="CA.gov" /></a></div></li>
-		                    <?php if ($show_home_link): ?>
+		                    <?php if ($utility_home_link): ?>
 		                    <li><a href="/"><span class="ca-gov-icon-home" aria-hidden="true"></span><span class="sr-only">Home</span></a></li>
 		                    <?php endif; ?>
 		                    <li><a href="/" class="ca-gov-icon-facebook" title="Share via Facebook"><span class="sr-only">Facebook</span></a></li>
@@ -73,8 +83,22 @@ $featured_search = $general_settings['show_search_on_front_page'];
 		            </div>
 		            <div class="half settings-links">
 		                <ul class="utility-links ">
-		                    
-		                    <li><a href="/contact.html">Contact Us</a></li>
+							<?php if ($use_utility_link_1) : ?>
+		                		<li><a href="<?php echo esc_url($utility_link_1['custom_link_1_url']); ?>"<?php if ($utility_link_1['open_custom_link_1_in_new_tab'] == 1): ?> target="_blank" <?php endif; ?> ><?php echo esc_attr($utility_link_1['custom_link_1_text']); ?></a>
+		                		</li>
+		                	<?php endif; ?>
+
+		                	<?php if ($use_utility_link_2) : ?>
+		                		<li><a href="<?php echo esc_url($utility_link_2['custom_link_2_url']); ?>"<?php if ($utility_link_2['open_custom_link_2_in_new_tab'] == 1): ?> target="_blank" <?php endif; ?>><?php echo esc_attr($utility_link_2['custom_link_2_text']); ?></a></li>
+		                	<?php endif; ?>
+
+		                	<?php if ($use_utility_link_3) : ?>
+		                		<li><a href="<?php echo esc_url($utility_link_3['custom_link_3_url']); ?>"<?php if ($utility_link_3['open_custom_link_3_in_new_tab'] == 1): ?> target="_blank" <?php endif; ?>><?php echo esc_attr($utility_link_3['custom_link_3_text']); ?></a></li>
+		                	<?php endif; ?>
+
+		                    <?php if ($utility_contact_page) : ?>
+		                    	<li><a href="<?php echo esc_url($utility_contact_page);?>">Contact Us</a></li>
+		                	<?php endif; ?>
 		                    
 		                    <li><button class="btn btn-xs btn-primary" id="settings-btn" data-toggle="collapse" href="#siteSettings"><span class="ca-gov-icon-gear" aria-hidden="true"></span> Settings</button></li>
 		                </ul>
@@ -109,9 +133,6 @@ $featured_search = $general_settings['show_search_on_front_page'];
 			<div class="header-organization-banner">
 				
 				<a href="/">
-					<?php 
-						//if (!$logo) { $logo = get_template_directory_uri() . '/images/template-logo.png'; }
-					?>
 					<img src="<?php echo esc_url($logo);?>" alt="Organization Title" />
 				</a>
 
@@ -141,7 +162,6 @@ $featured_search = $general_settings['show_search_on_front_page'];
 	        
 	        <!-- Include Navigation -->
        		
-		    	<?php //custom_menu_output('Header'); ?>
 				<?php get_template_part('template-parts/header-menu'); ?>
 	        
 	        <div id="head-search" class="search-container <?php if($featured_search) { echo('featured-search'); } ;?>">
@@ -161,6 +181,8 @@ $featured_search = $general_settings['show_search_on_front_page'];
 	        </div>
 	    
 	    </div>
+
+
 	    <div class="header-decoration"></div>
 	</header>
 

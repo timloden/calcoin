@@ -58,30 +58,6 @@
                     "mime_types": ".png, .jpg, .svg, .gif"
                 },
                 {
-                    "key": "field_5c2e9d2b477f1",
-                    "label": "Fav Icon",
-                    "name": "fav_icon",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "33",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "url",
-                    "preview_size": "full",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": ".ico, .png, .svg"
-                },
-                {
                     "key": "field_5c2e9f5185ec9",
                     "label": "Color Scheme",
                     "name": "color_scheme",
@@ -90,7 +66,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "66",
+                        "width": "",
                         "class": "",
                         "id": ""
                     },
@@ -114,6 +90,30 @@
                     "ajax": 0,
                     "return_format": "value",
                     "placeholder": ""
+                },
+                {
+                    "key": "field_5c2e9d2b477f1",
+                    "label": "Fav Icon",
+                    "name": "fav_icon",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url",
+                    "preview_size": "full",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ".ico, .png, .svg"
                 },
                 {
                     "key": "field_5c2ea08a16aee",
@@ -149,25 +149,6 @@
                     },
                     "message": "",
                     "default_value": 0,
-                    "ui": 1,
-                    "ui_on_text": "",
-                    "ui_off_text": ""
-                },
-                {
-                    "key": "field_5c2ea10c16af0",
-                    "label": "Show Home Link in Menu",
-                    "name": "show_home_link",
-                    "type": "true_false",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "33",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "",
-                    "default_value": 1,
                     "ui": 1,
                     "ui_on_text": "",
                     "ui_off_text": ""
@@ -1946,5 +1927,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1546890698
+    "modified": 1546893347
 }

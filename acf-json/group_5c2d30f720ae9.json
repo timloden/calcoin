@@ -1,24 +1,6 @@
 {
     "key": "group_5c2d30f720ae9",
     "title": "Menu Options",
-    "location": [
-        [
-            {
-                "param": "nav_menu",
-                "operator": "==",
-                "value": "all"
-            }
-        ]
-    ],
-    "menu_order": 0,
-    "position": "normal",
-    "style": "default",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": "",
-    "active": 1,
-    "description": "",
-    "modified": 1546885231,
     "fields": [
         {
             "key": "field_5c2d305f5d6e6",
@@ -47,6 +29,43 @@
             "return_format": "value",
             "ajax": 0,
             "placeholder": ""
+        },
+        {
+            "key": "field_5c33b27903a25",
+            "label": "Show Home Link?",
+            "name": "show_home_link",
+            "type": "true_false",
+            "instructions": "This will add a home link to the menu",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
-    ]
+    ],
+    "location": [
+        [
+            {
+                "param": "nav_menu",
+                "operator": "==",
+                "value": "all"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1546891945
 }

@@ -28,6 +28,9 @@ $utility_link_2 = $utility_header['custom_link_2'];
 $use_utility_link_3 = isset($utility_header['use_custom_link_3']) ? $utility_header['use_custom_link_3'] : false;
 $utility_link_3 = $utility_header['custom_link_3'];
 
+$google_settings = get_field('google', 'option');
+$meta_id = isset($google_settings['meta_id']) ? $google_settings['meta_id'] : false;
+
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -40,6 +43,10 @@ $utility_link_3 = $utility_header['custom_link_3'];
 	<link rel="apple-touch-icon" sizes="114x114" href="<?php echo esc_url(get_template_directory_uri());?>/images/apple-touch-icon-114x114.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="<?php echo esc_url(get_template_directory_uri());?>/images/apple-touch-icon-72x72.png">
 	<link rel="apple-touch-icon" href="<?php echo esc_url(get_template_directory_uri());?>/images/apple-touch-icon-57x57.png">
+
+	<?php if ($meta_id): ?>
+		<meta name="google-site-verification" content="<?php echo esc_attr($meta_id); ?>" />
+	<?php endif; ?>
 
 	<?php wp_head(); ?>
 

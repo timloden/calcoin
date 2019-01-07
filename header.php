@@ -16,7 +16,6 @@ $use_sticky_nav = $general_settings['use_sticky_navigation'];
 $featured_search = $general_settings['show_search_on_front_page'];
 
 $utility_header = get_field('utility_header', 'option');
-$utility_home_link = $utility_header['home_link_in_utility_header'];
 $utility_contact_page = isset($utility_header['contact_us_page']) ? $utility_header['contact_us_page'] : false;
 
 $use_utility_link_1 = isset($utility_header['use_custom_link_1']) ? $utility_header['use_custom_link_1'] : false;
@@ -30,6 +29,19 @@ $utility_link_3 = $utility_header['custom_link_3'];
 
 $google_settings = get_field('google', 'option');
 $meta_id = isset($google_settings['meta_id']) ? $google_settings['meta_id'] : false;
+
+$utility_header = get_field('utility_header', 'option');
+$utility_home_link = $utility_header['home_link_in_utility_header'];
+$facebook = get_field('facebook', 'option');
+$twitter = get_field('twitter', 'option');
+$flickr = get_field('flickr', 'option');
+$facebook = get_field('facebook', 'option');
+$pinterest = get_field('pinterest', 'option');
+$youtube = get_field('youtube', 'option');
+$instagram = get_field('instagram', 'option');
+$linkedin = get_field('linkedin', 'option');
+$rss = get_field('rss', 'option');
+$share_email = get_field('share_via_email', 'option');
 
 ?>
 <!doctype html>
@@ -82,14 +94,47 @@ $meta_id = isset($google_settings['meta_id']) ? $google_settings['meta_id'] : fa
 		                 
 		                <ul class="utility-links social-media-links">
 		                    <li><div class="header-cagov-logo"><a href="https://ca.gov"><img src="<?php echo esc_url(get_template_directory_uri());?>/images/Ca-Gov-Logo-Gold.svg" alt="CA.gov" /></a></div></li>
-		                    <?php if ($utility_home_link): ?>
-		                    <li><a href="/"><span class="ca-gov-icon-home" aria-hidden="true"></span><span class="sr-only">Home</span></a></li>
-		                    <?php endif; ?>
-		                    <li><a href="/" class="ca-gov-icon-facebook" title="Share via Facebook"><span class="sr-only">Facebook</span></a></li>
-		                    
-		                    <li><a href="/" class="ca-gov-icon-twitter" title="Share via Twitter"><span class="sr-only">Twitter</span></a></li>        
-		                    
-		                    <li><a href="/" class="ca-gov-icon-email" title="Share via email"><span class="sr-only">Email</span></a></li>
+		                   
+		                	<?php if ($utility_home_link): ?>
+								<li><a href="/"><span class="ca-gov-icon-home" aria-hidden="true"></span><span class="sr-only">Home</span></a></li>
+							<?php endif; ?>
+
+							<?php if ($facebook['url'] && $facebook['show_in_header'] == 1): ?>
+								<li><a href="<?php echo esc_url($facebook['url']);?>" class="ca-gov-icon-facebook" title="Share via Facebook"><span class="sr-only">Facebook</span></a></li>
+							<?php endif; ?>
+
+							<?php if ($twitter['url'] && $twitter['show_in_header'] == 1): ?>
+								<li><a href="<?php echo esc_url($twitter['url']);?>" class="ca-gov-icon-twitter" title="Share via Twitter"><span class="sr-only">Twitter</span></a></li>
+							<?php endif; ?>
+
+							<?php if ($flickr['url'] && $flickr['show_in_header'] == 1): ?>
+								<li><a href="<?php echo esc_url($flickr['url']);?>" class="ca-gov-icon-flickr" title="Share via Flickr"><span class="sr-only">Flickr</span></a></li>
+							<?php endif; ?>
+
+							<?php if ($pinterest['url'] && $pinterest['show_in_header'] == 1): ?>
+								<li><a href="<?php echo esc_url($pinterest['url']);?>" class="ca-gov-icon-pinterest" title="Share via Pinterest"><span class="sr-only">Pinterest</span></a></li>
+							<?php endif; ?>
+
+							<?php if ($youtube['url'] && $youtube['show_in_header'] == 1): ?>
+								<li><a href="<?php echo esc_url($youtube['url']);?>" class="ca-gov-icon-youtube" title="Share via YouTube"><span class="sr-only">YouTube</span></a></li>
+							<?php endif; ?>
+
+							<?php if ($instagram['url'] && $instagram['show_in_header'] == 1): ?>
+								<li><a href="<?php echo esc_url($instagram['url']);?>" class="ca-gov-icon-instagram" title="Share via Instagram"><span class="sr-only">Instagram</span></a></li>
+							<?php endif; ?>
+
+							<?php if ($linkedin['url'] && $linkedin['show_in_header'] == 1): ?>
+								<li><a href="<?php echo esc_url($linkedin['url']);?>" class="ca-gov-icon-linkedin" title="Share via LinkedIn"><span class="sr-only">LinkedIn</span></a></li>
+							<?php endif; ?>
+
+							<?php if ($rss['url'] && $rss['show_in_header'] == 1): ?>
+								<li><a href="<?php echo esc_url($rss['url']);?>" class="ca-gov-icon-rss" title="Share via RSS"><span class="sr-only">RSS</span></a></li>
+							<?php endif; ?>
+
+							<?php if ($share_email['show_in_header'] == 1): ?>
+								<li><a href="mailto:?subject=<?php bloginfo( 'name' ); ?>&body=<?php echo site_url(); ?>" class="ca-gov-icon-email" title="Share via Email"><span class="sr-only">Email</span></a></li>
+							<?php endif; ?>  
+
 		                </ul>
 		            </div>
 		            <div class="half settings-links">

@@ -21,6 +21,10 @@
 	<?php 
 		wp_head(); 
 		$menu_type = get_field('menu_type', wp_get_nav_menu_object('Header'));
+		
+		$general_settings = get_field('general_settings', 'option');
+		$logo = $general_settings['organization_logo'];
+
 	?>
 
 </head>
@@ -29,6 +33,7 @@
 
 	
 	<?php if( have_rows('alert_banners', 'options') ): ?>
+		
 		<?php while( have_rows('alert_banners', 'option') ): the_row(); ?>	
 			<?php 
 				$display_on = get_sub_field('display_on');
@@ -54,15 +59,21 @@
 		                 
 		                <ul class="utility-links social-media-links">
 		                    <li><div class="header-cagov-logo"><a href="https://ca.gov"><img src="<?php echo esc_url(get_template_directory_uri());?>/images/Ca-Gov-Logo-Gold.svg" alt="CA.gov" /></a></div></li>
+		                    
 		                    <li><a href="/"><span class="ca-gov-icon-home" aria-hidden="true"></span><span class="sr-only">Home</span></a></li>
+		                    
 		                    <li><a href="/" class="ca-gov-icon-facebook" title="Share via Facebook"><span class="sr-only">Facebook</span></a></li>
+		                    
 		                    <li><a href="/" class="ca-gov-icon-twitter" title="Share via Twitter"><span class="sr-only">Twitter</span></a></li>        
+		                    
 		                    <li><a href="/" class="ca-gov-icon-email" title="Share via email"><span class="sr-only">Email</span></a></li>
 		                </ul>
 		            </div>
 		            <div class="half settings-links">
 		                <ul class="utility-links ">
+		                    
 		                    <li><a href="/contact.html">Contact Us</a></li>
+		                    
 		                    <li><button class="btn btn-xs btn-primary" id="settings-btn" data-toggle="collapse" href="#siteSettings"><span class="ca-gov-icon-gear" aria-hidden="true"></span> Settings</button></li>
 		                </ul>
 		            </div>
@@ -94,7 +105,14 @@
 	    <!-- Include Branding -->
 	  	<div class="branding">
 			<div class="header-organization-banner">
-				<a href="/"><img src="<?php echo esc_url(get_template_directory_uri());?>/images/template-logo.png" alt="Organization Title" /></a>
+				
+				<a href="/">
+					<?php 
+						//if (!$logo) { $logo = get_template_directory_uri() . '/images/template-logo.png'; }
+					?>
+					<img src="<?php echo esc_url($logo);?>" alt="Organization Title" />
+				</a>
+
 			</div>
 		</div>
 	    

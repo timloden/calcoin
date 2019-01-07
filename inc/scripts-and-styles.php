@@ -9,17 +9,13 @@ remove_action('wp_head', 'wp_print_styles');
  * @example wp_enqueue_style($handle, $src, $deps, $ver, $media);
  */
 function caweb_styles() {
+
+	$general_settings = get_field('general_settings', 'option');
+	$color_scheme = $general_settings['color_scheme'];
+	
 	wp_enqueue_style( 'global-styles', get_template_directory_uri() . '/styles/cagov.core.min.css', [], '5.5.0', 'all' );
 
-	//wp_enqueue_style( 'mono-theme', get_template_directory_uri() . '/styles/colorscheme-mono.min.css', [], '5.5.0', 'all' );
-	wp_enqueue_style( 'oceanside-theme', get_template_directory_uri() . '/styles/colorscheme-oceanside.min.css', [], '5.5.0', 'all' );
-	//wp_enqueue_style( 'eureka-theme', get_template_directory_uri() . '/styles/colorscheme-eureka.min.css', [], '5.5.0', 'all' );
-	//wp_enqueue_style( 'orangecounty-styles', get_template_directory_uri() . '/styles/colorscheme-orangecounty.min.css', [], '5.5.0', 'all' );
-	//wp_enqueue_style( 'pasarobles-styles', get_template_directory_uri() . '/styles/colorscheme-pasarobles.min.css', [], '5.5.0', 'all' );
-	//wp_enqueue_style( 'sacramento-styles', get_template_directory_uri() . '/styles/colorscheme-sacramento.min.css', [], '5.5.0', 'all' );
-	//wp_enqueue_style( 'santabarbara-styles', get_template_directory_uri() . '/styles/colorscheme-santabarbara.min.css', [], '5.5.0', 'all' );
-	//wp_enqueue_style( 'sierra-styles', get_template_directory_uri() . '/styles/colorscheme-sierra.min.css', [], '5.5.0', 'all' );
-	//wp_enqueue_style( 'trinity-styles', get_template_directory_uri() . '/styles/colorscheme-trinity.min.css', [], '5.5.0', 'all' );
+	wp_enqueue_style( $color_scheme . '-theme', get_template_directory_uri() . '/styles/colorscheme-' . $color_scheme . '.min.css', [], '5.5.0', 'all' );
 
 	wp_enqueue_style( 'caweb-standard', get_stylesheet_uri() );
 }

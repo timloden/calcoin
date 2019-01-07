@@ -1,6 +1,24 @@
 {
     "key": "group_5c2e9795b4a5d",
     "title": "CAWeb Options",
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "caweb-options"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1546885204,
     "fields": [
         {
             "key": "field_5c2e9ca35d2f4",
@@ -1954,23 +1972,5 @@
                 }
             ]
         }
-    ],
-    "location": [
-        [
-            {
-                "param": "options_page",
-                "operator": "==",
-                "value": "caweb-options"
-            }
-        ]
-    ],
-    "menu_order": 0,
-    "position": "normal",
-    "style": "default",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": "",
-    "active": 1,
-    "description": "",
-    "modified": 1546640278
+    ]
 }

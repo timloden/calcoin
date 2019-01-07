@@ -36,6 +36,10 @@ $utility_link_3 = $utility_header['custom_link_3'];
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<link alt="Fav Icon" rel="icon" href="<?php echo esc_url($favicon); ?>">
+	<link rel="apple-touch-icon" sizes="144x144" href="<?php echo esc_url(get_template_directory_uri());?>/images/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="<?php echo esc_url(get_template_directory_uri());?>/images/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="<?php echo esc_url(get_template_directory_uri());?>/images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" href="<?php echo esc_url(get_template_directory_uri());?>/images/apple-touch-icon-57x57.png">
 
 	<?php wp_head(); ?>
 

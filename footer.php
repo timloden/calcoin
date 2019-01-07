@@ -17,13 +17,13 @@
     <div class="container">
         <div class="row">
             <div class="three-quarters">
-                <ul class="footer-links">
-                    <li><a href="#skip-to-content">Back to Top</a></li>
-                    <li><a href="/use.html">Conditions of Use</a></li>
-                    <li><a href="/privacy.html">Privacy Policy</a></li>
-                    <li><a href="/accessibility.html">Accessibility</a></li>
-                    <li><a href="/contact.html">Contact Us</a></li>
-                </ul>
+                <?php 
+                    wp_nav_menu(array(
+                        'theme_location'=> 'Footer',
+                        'menu_class' => 'footer-links',
+                        )
+                    );
+                ?>
             </div>
             <div class="quarter text-right">
                 <ul class="socialsharer-container">

@@ -1,24 +1,6 @@
 {
     "key": "group_5c2e9795b4a5d",
     "title": "CAWeb Options",
-    "location": [
-        [
-            {
-                "param": "options_page",
-                "operator": "==",
-                "value": "caweb-options"
-            }
-        ]
-    ],
-    "menu_order": 0,
-    "position": "normal",
-    "style": "default",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": "",
-    "active": 1,
-    "description": "",
-    "modified": 1546885204,
     "fields": [
         {
             "key": "field_5c2e9ca35d2f4",
@@ -100,32 +82,6 @@
                     "mime_types": ".ico, .png, .svg"
                 },
                 {
-                    "key": "field_5c2e9d8347486",
-                    "label": "Header Menu Type",
-                    "name": "header_menu_type",
-                    "type": "select",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "33",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "megadropdown": "Mega Drop Down",
-                        "dropdown": "Drop Down",
-                        "singlelevel": "Single Level"
-                    },
-                    "default_value": [],
-                    "allow_null": 0,
-                    "multiple": 0,
-                    "ui": 0,
-                    "return_format": "value",
-                    "ajax": 0,
-                    "placeholder": ""
-                },
-                {
                     "key": "field_5c2e9f5185ec9",
                     "label": "Color Scheme",
                     "name": "color_scheme",
@@ -134,7 +90,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "33",
+                        "width": "66",
                         "class": "",
                         "id": ""
                     },
@@ -1972,5 +1928,23 @@
                 }
             ]
         }
-    ]
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "caweb-options"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1546890698
 }

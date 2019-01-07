@@ -9,6 +9,15 @@
  * @package CAWeb_Standard
  */
 
+$menu_type = get_field('menu_type', wp_get_nav_menu_object('Header'));		
+$general_settings = get_field('general_settings', 'option');
+$logo = $general_settings['organization_logo'];
+$favicon = $general_settings['fav_icon'];
+$show_home_link = $general_settings['show_home_link'];
+$use_sticky_nav = $general_settings['use_sticky_navigation'];
+$featured_search = $general_settings['show_search_on_front_page'];
+
+
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -16,16 +25,9 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-	<link alt="Fav Icon" rel="icon" href="<?php the_field('fav_icon', 'option'); ?>">
+	<link alt="Fav Icon" rel="icon" href="<?php echo esc_url($favicon); ?>">
 
-	<?php 
-		wp_head(); 
-		$menu_type = get_field('menu_type', wp_get_nav_menu_object('Header'));
-		
-		$general_settings = get_field('general_settings', 'option');
-		$logo = $general_settings['organization_logo'];
-
-	?>
+	<?php wp_head(); ?>
 
 </head>
 
@@ -48,7 +50,7 @@
 
 	<?php endif; ?>
 
-	<header role="banner" id="header" class="global-header">
+	<header role="banner" id="header" class="global-header <?php if($use_sticky_nav) { echo('fixed'); } ;?>">
 		<div id="skip-to-content"><a href="#main-content">Skip to Main Content</a></div>
 		
 		<!-- Utility Header -->
@@ -59,9 +61,9 @@
 		                 
 		                <ul class="utility-links social-media-links">
 		                    <li><div class="header-cagov-logo"><a href="https://ca.gov"><img src="<?php echo esc_url(get_template_directory_uri());?>/images/Ca-Gov-Logo-Gold.svg" alt="CA.gov" /></a></div></li>
-		                    
+		                    <?php if ($show_home_link): ?>
 		                    <li><a href="/"><span class="ca-gov-icon-home" aria-hidden="true"></span><span class="sr-only">Home</span></a></li>
-		                    
+		                    <?php endif; ?>
 		                    <li><a href="/" class="ca-gov-icon-facebook" title="Share via Facebook"><span class="sr-only">Facebook</span></a></li>
 		                    
 		                    <li><a href="/" class="ca-gov-icon-twitter" title="Share via Twitter"><span class="sr-only">Twitter</span></a></li>        
@@ -142,7 +144,7 @@
 		    	<?php //custom_menu_output('Header'); ?>
 				<?php get_template_part('template-parts/header-menu'); ?>
 	        
-	        <div id="head-search" class="search-container">
+	        <div id="head-search" class="search-container <?php if($featured_search) { echo('featured-search'); } ;?>">
 	            <!-- Include Search -->
 	        	<script type="text/javascript">
 				    var cx = '001779225245372747843:9s-idxui5pk';// Step 7: Update this value with your search engine unique ID. Submit a request to the CDT Service Desk if you don't already know your unique search engine ID.

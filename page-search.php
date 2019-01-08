@@ -10,7 +10,17 @@
 
 get_header();
 ?>
-
+ <style>
+    #nav-item-search, .mobile-controls .toggle-search {
+        display:none;
+    }
+   .mobile-controls .mobile-header-icons  {
+        display: block;
+        height: 61px;
+        width: 100%;
+        cursor: default;
+   }
+</style>
 <main id="main" class="site-main">
 
 	<?php

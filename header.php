@@ -57,6 +57,8 @@ $linkedin = get_field('linkedin', 'option');
 $rss = get_field('rss', 'option');
 $share_email = get_field('share_via_email', 'option');
 
+$custom_css = get_field('custom_css', 'option');
+
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -75,6 +77,12 @@ $share_email = get_field('share_via_email', 'option');
 	<?php endif; ?>
 
 	<?php wp_head(); ?>
+
+	<?php if ($custom_css): ?>
+		<style type="text/css" media="screen">
+			<?php echo($custom_css); ?>
+		</style>
+	<?php endif; ?>
 
 </head>
 

@@ -23,7 +23,13 @@ function caweb_styles() {
 
 	wp_enqueue_style( 'caweb-standard', get_stylesheet_uri() );
 
-	
+	// custom uploaded stylesheets
+	if( have_rows('upload_css', 'options') ):		
+		while( have_rows('upload_css', 'option') ): the_row();	
+			wp_enqueue_style( 'custom-stylesheet-' . get_row_index(), get_sub_field('stylesheets'), [], '1.0.0', 'all' );
+		endwhile;
+	endif;
+
 }
 
 add_action( 'wp_enqueue_scripts', 'caweb_styles', 99 );

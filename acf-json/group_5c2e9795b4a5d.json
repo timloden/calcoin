@@ -1690,7 +1690,7 @@
                     "library": "all",
                     "min_size": "",
                     "max_size": "",
-                    "mime_types": ""
+                    "mime_types": "css"
                 }
             ]
         },
@@ -1926,5 +1926,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1546988216
+    "modified": 1546989487
 }

@@ -17,6 +17,10 @@ function caweb_styles() {
 
 	wp_enqueue_style( $color_scheme . '-theme', get_template_directory_uri() . '/styles/colorscheme-' . $color_scheme . '.min.css', [], '5.5.0', 'all' );
 
+	if (is_page_template('page-search.php')) {
+		wp_enqueue_style( 'google-search', 'http://www.google.com/cse/style/look/default.css', [], '1.0.0', 'all' );
+	}
+
 	wp_enqueue_style( 'caweb-standard', get_stylesheet_uri() );
 }
 

@@ -28,6 +28,7 @@ $use_utility_link_3 = isset($utility_header['use_custom_link_3']) ? $utility_hea
 $utility_link_3 = $utility_header['custom_link_3'];
 
 $google_settings = get_field('google', 'option');
+$search_engine_id = isset($google_settings['search_engine_id']) ? $google_settings['search_engine_id'] : false;
 $meta_id = isset($google_settings['meta_id']) ? $google_settings['meta_id'] : false;
 
 $utility_header = get_field('utility_header', 'option');
@@ -216,24 +217,30 @@ $share_email = get_field('share_via_email', 'option');
 	    
 	    <div class="navigation-search">
 	        
-	        <!-- Include Navigation -->
+	        <!-- Include Navigation <span class="ca-gov-icon-search search-icon" aria-hidden="true"></span> -->
        		
-				<?php get_template_part('template-parts/header-menu'); ?>
+			<?php get_template_part('template-parts/header-menu'); ?>
 	        
-	        <div id="head-search" class="search-container <?php if($featured_search) { echo('featured-search'); } ;?>">
+	        <div id="head-search" class="search-container <?php if($featured_search && !is_page_template('page-search.php')) { echo('featured-search'); } ;?>">
 	            <!-- Include Search -->
 	        	<script type="text/javascript">
-				    var cx = '001779225245372747843:9s-idxui5pk';// Step 7: Update this value with your search engine unique ID. Submit a request to the CDT Service Desk if you don't already know your unique search engine ID.
+				    var cx = '<?php echo esc_attr($search_engine_id);?>';// Step 7: Update this value with your search engine unique ID. Submit a request to the CDT Service Desk if you don't already know your unique search engine ID.
 				    var gcse = document.createElement('script');
 				    gcse.type = 'text/javascript';
 				    gcse.async = true;
 				    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
 				    var s = document.getElementsByTagName('script');
 				    s[s.length - 1].parentNode.insertBefore(gcse, s[s.length - 1]);
+
 				</script>
 
-				<gcse:searchbox-only resultsUrl="/serp.html" enableAutoComplete="true"></gcse:searchbox-only>
+				<gcse:searchbox-only resultsUrl="<?php echo site_url('serp');?>" enableAutoComplete="true"></gcse:searchbox-only>
 
+				<script type="text/javascript">
+		            jQuery(window).on("load", function() {
+					    jQuery("button.gsc-search-button-v2").before('<span class="ca-gov-icon-search search-icon" aria-hidden="true"></span>');
+					});
+		        </script>
 	        </div>
 	    
 	    </div>

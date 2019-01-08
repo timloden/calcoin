@@ -42,4 +42,9 @@ function GetCookie(sName)
   // a cookie with the requested name does not exist
   return null;
 }
+
+
+
 });
+
+

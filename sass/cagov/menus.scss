@@ -1,4 +1,9 @@
-/*Mega Nav Columns*/
+// header transparency 
+.global-header.fixed {
+	z-index: 999;
+}
+
+// mega menu
 
 .full.two-columns, .full.three-columns, .full.four-columns {
 

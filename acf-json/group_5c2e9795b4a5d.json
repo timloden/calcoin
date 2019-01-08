@@ -1690,7 +1690,7 @@
                     "library": "all",
                     "min_size": "",
                     "max_size": "",
-                    "mime_types": ".css"
+                    "mime_types": ""
                 }
             ]
         },
@@ -1698,7 +1698,7 @@
             "key": "field_5c2fcdea591d6",
             "label": "Custom CSS",
             "name": "custom_css",
-            "type": "textarea",
+            "type": "acf_code_field",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -1709,9 +1709,8 @@
             },
             "default_value": "",
             "placeholder": "",
-            "maxlength": "",
-            "rows": 8,
-            "new_lines": ""
+            "mode": "css",
+            "theme": "monokai"
         },
         {
             "key": "field_5c2f8db224c46",
@@ -1927,5 +1926,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1546893347
+    "modified": 1546988216
 }

@@ -91,7 +91,8 @@ function caweb_autoload() {
 
 add_action( 'after_setup_theme', 'caweb_autoload' );
 
-include_once('acf-fonticonpicker/acf-fonticonpicker.php');
+include_once('acf-addons/acf-fonticonpicker/acf-fonticonpicker.php');
+include_once('acf-addons/acf-code-field/acf-code-field.php');
 
 /**
  *	This will hide the Divi "Project" post type.
@@ -107,4 +108,3 @@ function mytheme_et_project_posttype_args( $args ) {
 		'show_ui'             => false
 	));
 }
-

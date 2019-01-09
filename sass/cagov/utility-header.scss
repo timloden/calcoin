@@ -11,3 +11,17 @@
 	padding-left: 0;
 	text-align: right;
 }
+
+.translate-standard {
+	.group {
+		display: flex;
+		align-items: center;
+
+		.settings-links {
+			.utility-links {
+				display: flex;
+				align-items: center;
+			}
+		}
+	}
+}

@@ -41,7 +41,6 @@ if ($google_settings['enable_google_translate'] == 'custom') {
 
 	$translate_url = isset($google_custom_translate['translate_page_url']) ? $google_custom_translate['translate_page_url'] : false;
 	$translate_icon = isset($google_custom_translate['translate_icon']) ? $google_custom_translate['translate_icon'] : false;
-
 }
 
 $utility_header = get_field('utility_header', 'option');
@@ -126,9 +125,9 @@ $custom_css = get_field('custom_css', 'option');
 
 		<!-- Utility Header -->
 		<div class="utility-header">
-		    <div class="container">
+		    <div class="container <?php //if($google_translate == 'standard') { echo('translate-standard'); } ;?>">
 		        <div class="group">
-		            <div class="<?php if ($google_translate == 'none' || $google_translate == 'custom') { echo('half');} else { echo('half'); } ?>">
+		            <div class="half">
 		                 
 		                <ul class="utility-links social-media-links">
 		                    <li><div class="header-cagov-logo"><a href="https://ca.gov"><img src="<?php echo esc_url(get_template_directory_uri());?>/images/Ca-Gov-Logo-Gold.svg" alt="CA.gov" /></a></div></li>

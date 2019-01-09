@@ -4,7 +4,8 @@
   "description": "Use Sass with WordPress, Node Script in SCSS flavour.",
   "scripts": {
     "css": "node-sass --output-style compressed --include-path scss sass/style.scss style.css",
-    "watch": "nodemon -e scss -x \"npm run css\""
+    "js": "uglifyjs js/*.js -m -o app.js",
+    "watch": "nodemon --watch scss --watch js -x \"npm-run-all --parallel css js\""
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,8 @@
   "homepage": "https://github.com/ahmadawais/WPSass#readme",
   "devDependencies": {
     "node-sass": "^4.5.3",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "npm-run-all": "^4.1.5",
+    "uglify-js": "^3.4.9"
   }
 }

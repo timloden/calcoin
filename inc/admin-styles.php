@@ -7,9 +7,21 @@ function acf_styles() {
     .menu-item-depth-0 [data-name="item_size"], .menu-item-depth-0 [data-name="description"] {
         display: none;
     }
+
+    .menu-item-depth-0 .menu-layout-image {
+        width: 100%;
+
+    }
+
     .menu-item-depth-1 [data-name="menu_layout"], .menu-item-depth-1 [data-name="sub_link_size"] {
         display: none;
     }
+
+    .menu-item-depth-1 .menu-layout-image {
+        display: none;
+    }
+
+
   </style>';
 }
 

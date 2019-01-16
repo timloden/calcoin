@@ -16,7 +16,6 @@ function caweb_styles() {
 	$color_scheme = $general_settings['color_scheme'];
 	
 	wp_enqueue_style( 'global-styles', get_template_directory_uri() . '/styles/cagov.core.min.css', [], '5.5.0', 'all' );
-
 	wp_enqueue_style( $color_scheme . '-theme', get_template_directory_uri() . '/styles/colorscheme-' . $color_scheme . '.min.css', [], '5.5.0', 'all' );
 
 	if (is_page_template('page-search.php')) {
@@ -31,8 +30,6 @@ function caweb_styles() {
 			wp_enqueue_style( 'custom-stylesheet-' . get_row_index(), get_sub_field('stylesheets'), [], '1.0.0', 'all' );
 		endwhile;
 	endif;
-
-
 
 }
 

@@ -59,5 +59,16 @@ if( function_exists('acf_add_options_page') ) {
 		'update_button' => __('Save Options', 'acf'),
 		'updated_message'	=> __("Options Updated", 'acf'),
 	));
-	
+
+	function remove_admin_submenus() {
+		remove_submenu_page( 'themes.php', 'nav-menus.php' ); // Remove Menus
+	}
+
+	add_action( 'admin_init', 'remove_admin_submenus' );
+
+	function add_submenu_item() { 
+		 add_submenu_page('caweb-options', 'Menus', 'Menus', 'edit_posts', 'nav-menus.php'); 
+	}
+	add_action( 'admin_init', 'add_submenu_item' );
 }
+

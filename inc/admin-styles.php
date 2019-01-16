@@ -21,7 +21,7 @@ function acf_styles() {
         display: none;
     }
 
-    li.cacm_profile_banner:before, li.cacm_card:before, li.cacm_panel:before, li.cacm_content_slider:before, li.cacm_gallery:before, li.cacm_media_slider:before {
+    li.cacm_profile_banner:before, li.cacm_card:before, li.cacm_panel:before, li.cacm_content_slider:before, li.cacm_gallery:before, li.cacm_media_slider:before, li.cacm_figure_with_caption:before, li.cacm_featured_narrative:before, li.cacm_blockquote:before, li.cacm_testimonial:before, li.cacm_accordion:before, li.cacm_accordion_list:before {
         font-family: "CaGov"!important;
         content: "\e658"!important;
     }

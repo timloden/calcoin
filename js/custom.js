@@ -1,6 +1,6 @@
 $ = jQuery.noConflict();
 
-// cookie for alert banner
+// cookie for alert banners
 
 $(document).ready(function () {
   //alert(GetCookie("dismissed-notifications"));

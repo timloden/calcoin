@@ -10,6 +10,8 @@ remove_action('wp_head', 'wp_print_styles');
  */
 function caweb_styles() {
 
+	wp_dequeue_style( 'et-builder-modules-style' );
+
 	$general_settings = get_field('general_settings', 'option');
 	$color_scheme = $general_settings['color_scheme'];
 	
@@ -29,6 +31,8 @@ function caweb_styles() {
 			wp_enqueue_style( 'custom-stylesheet-' . get_row_index(), get_sub_field('stylesheets'), [], '1.0.0', 'all' );
 		endwhile;
 	endif;
+
+
 
 }
 
@@ -59,3 +63,12 @@ function caweb_scripts() {
 }
 
 add_action( 'wp_enqueue_scripts', 'caweb_scripts' );
+
+
+// add icon fonts to admin area
+
+function load_admin_style() {
+    wp_enqueue_style( 'admin_fonts_css', get_template_directory_uri() . '/styles/cagov.font-only.css', false, '1.0.0' );
+}
+
+add_action( 'admin_enqueue_scripts', 'load_admin_style' );

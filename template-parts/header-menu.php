@@ -35,10 +35,6 @@
         if ( !$item->menu_item_parent ):
         // save this id for later comparison with sub-menu items
         $parent_id = $item->ID;
-        //echo('<pre>');
-        //print_r( $item );
-        //echo('</pre>');
-  		
     ?>
 
 
@@ -51,6 +47,7 @@
             $parent_layout = $menu_layout;
             $parent_bg = $sub_background;
             $parent_columns = $column_size;
+
             ?>
 
         </a>
@@ -121,7 +118,7 @@
 
                 <?php elseif ($parent_layout == 'three_quarters-image'): ?>
 
-                     <div class="quarter with-image-right">
+                    <div class="quarter with-image-right">
                         <div class="nav-media" style="background:url('<?php echo(esc_url($parent_bg));?>')"></div>
                     </div>
 
@@ -139,7 +136,9 @@
                             </li>
                         
                 <?php else: ?>
-                     <?php $columns = $menu_type == 'megadropdown' ? $column_size  : '' ?>
+                   
+                    <?php $columns = $menu_type == 'megadropdown' ? $parent_columns  : '' ?>
+                    
                     <div class="full <?php echo(esc_attr($columns)); ?>">
                         
                        

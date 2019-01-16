@@ -1,6 +1,6 @@
 /*!
 Theme Name: CAWeb Standard
-Theme URI: http://underscores.me/
+Theme URI: 
 Author: Tim Loden
 Author URI: http://underscores.me/
 Description: Description
@@ -31,6 +31,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 #CAGov
 ## Menus
 --------------------------------------------------------------*/
+@import "et-builder/divi-builder";
 @import "et-builder/custom";
 
 @import "cagov/utility-header";

@@ -51,8 +51,8 @@ class acf_field_fonticonpicker extends acf_field {
 	 */
 	function frontend_enqueue() {
 		// Register icons style
-		wp_register_style( 'acf-fonticonpicker-icons', $this->settings['icons'] );
-		wp_enqueue_style( 'acf-fonticonpicker-icons' );
+		//wp_register_style( 'acf-fonticonpicker-icons', $this->settings['icons'] );
+		//wp_enqueue_style( 'acf-fonticonpicker-icons' );
 	}
 
 	/**

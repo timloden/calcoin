@@ -8,14 +8,16 @@
 ?>
 <nav id="navigation" class="main-navigation <?php echo esc_attr($menu_type);?> auto-highlight">
 <ul id="nav_list" class="top-level-nav nav-menu">
-    <?php if ($show_home_link) :?>
-    <li class="nav-item">
+    
+    <li class="home-link nav-item">
+        <?php if ($show_home_link) :?>
         <a href="/" class="first-level-link">
             <span class="ca-gov-icon-home" aria-hidden="true"></span> 
             Home
         </a>
+        <?php endif; ?>
     </li>
-    <?php endif; ?>
+    
 
     <?php
     $count = 0;

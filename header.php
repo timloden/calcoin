@@ -10,15 +10,11 @@
  */
 
 $general_settings = get_field('general_settings', 'option');
-//$logo = $general_settings['organization_logo'];
-//$logo = isset($general_settings['organization_logo']) ? $general_settings['organization_logo'] : 'no logo';
-
 if ($general_settings['organization_logo']) {
 	$logo = $general_settings['organization_logo'];
 } else {
 	$logo = get_template_directory_uri() . '/images/template-logo.png';
 }
-
 $favicon = $general_settings['fav_icon'];
 $use_sticky_nav = $general_settings['use_sticky_navigation'];
 $featured_search = $general_settings['show_search_on_front_page'];

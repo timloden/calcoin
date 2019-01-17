@@ -174,7 +174,6 @@
                             <a href="<?php echo $link; ?>" class="second-level-link">
                             	<span class="ca-gov-<?php echo (esc_attr($icon)); ?>" aria-hidden="true"></span>
                             	<?php echo $title; ?>
-                                <?php echo $unit; ?>
                                 <?php if ($description): ?>
                                     <div class="link-description"><?php echo (esc_attr($description)); ?></div>
                                 <?php endif; ?>

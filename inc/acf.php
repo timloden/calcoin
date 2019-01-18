@@ -71,4 +71,3 @@ if( function_exists('acf_add_options_page') ) {
 	}
 	add_action( 'admin_init', 'add_submenu_item' );
 }
-

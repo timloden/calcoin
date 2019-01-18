@@ -95,4 +95,3 @@ function remove_wp_logo( $wp_admin_bar ) {
 }
 
 add_action( 'admin_bar_menu', 'remove_wp_logo', 999 );
-

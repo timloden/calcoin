@@ -37,7 +37,7 @@ class acf_field_fonticonpicker extends acf_field {
 		add_action( 'wp_enqueue_scripts', array( $this, 'frontend_enqueue' ) );
 
 		// Load icons list from the icons JSON file
-		if ( is_admin() ){
+		if ( is_admin() || is_super_admin() ){
 			$json_file = @file_get_contents( $this->settings['config'] );
 			$this->json_content = @json_decode( $json_file, true );
 		}

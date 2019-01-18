@@ -86,3 +86,13 @@ function replace_wordpress_howdy( $wp_admin_bar ) {
 }
 
 add_filter( 'admin_bar_menu', 'replace_wordpress_howdy', 25 );
+
+// remove admin bar items
+
+function remove_wp_logo( $wp_admin_bar ) {
+    $wp_admin_bar->remove_node( 'wp-logo' );
+    $wp_admin_bar->remove_node( 'comments' );
+}
+
+add_action( 'admin_bar_menu', 'remove_wp_logo', 999 );
+

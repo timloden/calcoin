@@ -278,7 +278,12 @@ $custom_css = get_field('custom_css', 'option');
 	        
 	        <!-- Include Navigation <span class="ca-gov-icon-search search-icon" aria-hidden="true"></span> -->
        		
-			<?php get_template_part('template-parts/header-menu'); ?>
+       		<?php 
+				$menu_exists = wp_get_nav_menu_object( 'Header' );
+				if( $menu_exists){
+					get_template_part('template-parts/header-menu'); 
+				}
+			?>
 	        
 	        <div id="head-search" class="search-container <?php if($featured_search && !is_page_template('page-search.php')) { echo('featured-search'); } ;?>">
 	            <!-- Include Search -->

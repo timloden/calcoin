@@ -44,3 +44,7 @@
 	z-index: 99;
 }
 
+#wpadminbar #wp-admin-bar-site-name>.ab-item:before {
+    content: "\e600";
+    font-family: 'CaGov' !important;
+}

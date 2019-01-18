@@ -91,6 +91,10 @@ function caweb_autoload() {
 
 add_action( 'after_setup_theme', 'caweb_autoload' );
 
+/**
+ * Include ACF addons
+ */
+
 include_once('acf-addons/acf-fonticonpicker/acf-fonticonpicker.php');
 include_once('acf-addons/acf-code-field/acf-code-field.php');
 

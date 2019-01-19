@@ -25,10 +25,8 @@ class acf_field_fonticonpicker extends acf_field {
 		$this->settings = array(
 			'dir' 		=>  '/',
 			'path'		=>	'/',
-			// 'config' 	=> 	get_template_directory_uri() . '/acf-addons/acf-fonticonpicker/icons/config.json',
-			// 'icons'		=>	get_template_directory_uri() . '/acf-addons/acf-fonticonpicker/icons/css/fontello.css',
-			'config' 	=> 	'//wp-content/themes/CAWeb-Standard/acf-addons/acf-fonticonpicker/icons/config.json',
-			'icons'		=>	'//wp-content/themes/CAWeb-Standard/acf-addons/acf-fonticonpicker/icons/css/fontello.css',
+			'config' 	=> 	get_template_directory_uri() . '/acf-addons/acf-fonticonpicker/icons/config.json',
+			'icons'		=>	get_template_directory_uri() . '/acf-addons/acf-fonticonpicker/icons/css/fontello.css',
 			'version' 	=> 	'1.0.0'
 		);
 		
@@ -41,6 +39,7 @@ class acf_field_fonticonpicker extends acf_field {
 		// Load icons list from the icons JSON file
 		if ( is_admin() || is_super_admin() ){
 			$json_file = @file_get_contents( $this->settings['config'] );
+			print_r($json_file);
 			$this->json_content = @json_decode( $json_file, true );
 		}
 
@@ -65,7 +64,7 @@ class acf_field_fonticonpicker extends acf_field {
 	 *  @since	1.0.0
 	 */
 	function render_field( $field ) {
-		echo($this->settings['config']);
+		//echo($this->settings['config']);
 		if ( !isset( $this->json_content['glyphs'] ) ){
 			_e('No icons found');
 			return;

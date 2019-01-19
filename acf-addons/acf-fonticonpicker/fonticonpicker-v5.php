@@ -25,8 +25,10 @@ class acf_field_fonticonpicker extends acf_field {
 		$this->settings = array(
 			'dir' 		=>  '/',
 			'path'		=>	'/',
-			'config' 	=> 	get_template_directory_uri() . '/acf-addons/acf-fonticonpicker/icons/config.json',
-			'icons'		=>	get_template_directory_uri() . '/acf-addons/acf-fonticonpicker/icons/css/fontello.css',
+			// 'config' 	=> 	get_template_directory_uri() . '/acf-addons/acf-fonticonpicker/icons/config.json',
+			// 'icons'		=>	get_template_directory_uri() . '/acf-addons/acf-fonticonpicker/icons/css/fontello.css',
+			'config' 	=> 	'//wp-content/themes/CAWeb-Standard/acf-addons/acf-fonticonpicker/icons/config.json',
+			'icons'		=>	'//wp-content/themes/CAWeb-Standard/acf-addons/acf-fonticonpicker/icons/css/fontello.css',
 			'version' 	=> 	'1.0.0'
 		);
 		

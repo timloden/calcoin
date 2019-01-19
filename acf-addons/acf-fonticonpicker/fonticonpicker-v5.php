@@ -18,17 +18,22 @@ class acf_field_fonticonpicker extends acf_field {
 		$this->name = 'fonticonpicker';
 		$this->label = __('Icon Picker');
 		$this->category = __("jQuery", 'acf');
-		
-		parent::__construct();
-		
-    	// Settings
+
+		$uri  = sprintf("%s://%s", isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http', $_SERVER['SERVER_NAME']);
+
+  			// Settings
 		$this->settings = array(
 			'dir' 		=>  '/',
 			'path'		=>	'/',
-			'config' 	=> 	get_template_directory_uri() . '/acf-addons/acf-fonticonpicker/icons/config.json',
-			'icons'		=>	get_template_directory_uri() . '/acf-addons/acf-fonticonpicker/icons/css/fontello.css',
+			'config' 	=> 	$uri . '/wp-content/themes/CAWeb-Standard/acf-addons/acf-fonticonpicker/icons/config.json',
+			'icons'		=>	$uri . '/wp-content/themes/CAWeb-Standard/acf-addons/acf-fonticonpicker/icons/css/fontello.css',
 			'version' 	=> 	'1.0.0'
 		);
+
+		
+		parent::__construct();
+		
+    	
 		
 		// Apply a filter so that you can load icon set from theme
 		$this->settings = apply_filters( 'acf/acf_field_fonticonpicker/settings', $this->settings );
@@ -39,7 +44,6 @@ class acf_field_fonticonpicker extends acf_field {
 		// Load icons list from the icons JSON file
 		if ( is_admin() || is_super_admin() ){
 			$json_file = @file_get_contents( $this->settings['config'] );
-			print_r($json_file);
 			$this->json_content = @json_decode( $json_file, true );
 		}
 

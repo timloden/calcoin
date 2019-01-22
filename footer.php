@@ -27,7 +27,6 @@ $linkedin = get_field('linkedin', 'option');
 $rss = get_field('rss', 'option');
 $share_email = get_field('share_via_email', 'option');
 
-
 ?>
 
 </div><!-- #main-content -->
@@ -102,7 +101,13 @@ $share_email = get_field('share_via_email', 'option');
 
 <script type='text/javascript'>
 /* <![CDATA[ */
-var args = {"ca_google_analytic_id":"<?php echo esc_attr($analytics_id); ?>","ca_site_version":"5","ca_frontpage_search_enabled":"","ca_google_search_id":"<?php echo esc_attr($search_engine_id); ?>","caweb_multi_ga":"<?php echo esc_attr($multisite_ga); ?>","ca_google_trans_enabled":"1"};
+var args = {
+    "ca_google_analytic_id":"<?php echo esc_attr($analytics_id); ?>",
+    "ca_site_version":"5",
+    "ca_frontpage_search_enabled":"",
+    "ca_google_search_id":"<?php echo esc_attr($search_engine_id); ?>",
+    "caweb_multi_ga":"<?php echo esc_attr($multisite_ga); ?>",
+    "ca_google_trans_enabled":"1"};
 /* ]]> */
 </script>
 

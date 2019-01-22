@@ -39,7 +39,7 @@ class acf_field_fonticonpicker extends acf_field {
 		$this->settings = apply_filters( 'acf/acf_field_fonticonpicker/settings', $this->settings );
 		
 		// Enqueue icons style in the frontend
-		add_action( 'wp_enqueue_scripts', array( $this, 'frontend_enqueue' ) );
+		//add_action( 'wp_enqueue_scripts', array( $this, 'frontend_enqueue' ) );
 
 		// Load icons list from the icons JSON file
 		if ( is_admin() ){
@@ -57,8 +57,8 @@ class acf_field_fonticonpicker extends acf_field {
 	 */
 	function frontend_enqueue() {
 		// Register icons style
-		wp_register_style( 'acf-fonticonpicker-icons', $this->settings['icons'] );
-		wp_enqueue_style( 'acf-fonticonpicker-icons' );
+		//wp_register_style( 'acf-fonticonpicker-icons', $this->settings['icons'] );
+		//wp_enqueue_style( 'acf-fonticonpicker-icons' );
 	}
 
 	/**

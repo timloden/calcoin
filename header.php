@@ -285,6 +285,8 @@ $custom_css = get_field('custom_css', 'option');
 				}
 			?>
 	        
+	        <?php if ($search_engine_id) : ?>
+	        
 	        <div id="head-search" class="search-container <?php if($featured_search && !is_page_template('page-search.php')) { echo('featured-search'); } ;?>">
 	            <!-- Include Search -->
 	        	<script type="text/javascript">
@@ -306,6 +308,8 @@ $custom_css = get_field('custom_css', 'option');
 					});
 		        </script>
 	        </div>
+
+	    	<?php endif; ?>
 	    
 	    </div>
 

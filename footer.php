@@ -9,7 +9,6 @@
  * @package CAWeb_Standard
  */
 
-
 $google_settings = get_field('google', 'option');
 $search_engine_id = isset($google_settings['search_engine_id']) ? $google_settings['search_engine_id'] : false;
 $analytics_id = isset($google_settings['analytics']) ? $google_settings['analytics'] : false;
@@ -102,11 +101,17 @@ $share_email = get_field('share_via_email', 'option');
 <script type='text/javascript'>
 /* <![CDATA[ */
 var args = {
+    <?php if ($analytics_id) : ?>
     "ca_google_analytic_id":"<?php echo esc_attr($analytics_id); ?>",
+    <?php endif; ?>
     "ca_site_version":"5",
     "ca_frontpage_search_enabled":"",
+    <?php if ($search_engine_id) : ?>
     "ca_google_search_id":"<?php echo esc_attr($search_engine_id); ?>",
+    <?php endif; ?>
+    <?php if ($multisite_ga) : ?>
     "caweb_multi_ga":"<?php echo esc_attr($multisite_ga); ?>",
+    <?php endif; ?>
     "ca_google_trans_enabled":"1"};
 /* ]]> */
 </script>

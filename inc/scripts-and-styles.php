@@ -42,6 +42,8 @@ add_action( 'wp_enqueue_scripts', 'caweb_styles', 99 );
  */
 function caweb_scripts() {
 
+	$utility_settings = get_field('utility_header', 'option');
+
 	// all these scripts get combined and minified
 
 	// wp_enqueue_script( 'cagov-core', get_template_directory_uri() . '/js/cagov.core.min.js', ['jquery'], '5.5.0', true );
@@ -50,7 +52,13 @@ function caweb_scripts() {
 	//wp_enqueue_script( 'google-scripts', get_template_directory_uri() . '/js/libs/google.js', [], '1.0.0', true );
 	//wp_enqueue_script( 'autotracker', get_template_directory_uri() . '/js/libs/AutoTracker.js', [], '1.0.0', true );
 	// if ($geo_locator) {
-	// 	wp_enqueue_script( 'geolocator', get_template_directory_uri() . '/js/libs/geolocator.js', [], '1.0.0', true );
+	
+	$geolocator = isset($utility_settings['enable_geo_locator']) ? $utility_settings['enable_geo_locator'] : false;
+
+	if ($geolocator) {
+		wp_enqueue_script( 'geolocator', get_template_directory_uri() . '/js/libs/geolocator.js', [], '1.0.0', true );
+	}
+	
 	// }
 
 	// wp_enqueue_script( 'custom-js', get_template_directory_uri() . '/js/custom.js', [], '1.0.0', true );

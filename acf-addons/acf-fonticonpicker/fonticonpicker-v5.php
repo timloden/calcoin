@@ -42,10 +42,11 @@ class acf_field_fonticonpicker extends acf_field {
 		add_action( 'wp_enqueue_scripts', array( $this, 'frontend_enqueue' ) );
 
 		// Load icons list from the icons JSON file
-		//if ( is_admin() || is_super_admin() ){
+		if ( is_admin() ){
 			$json_file = @file_get_contents( $this->settings['config'] );
 			$this->json_content = @json_decode( $json_file, true );
-		//}
+			//echo('json encoded');
+		}
 
 	}
 	
@@ -56,8 +57,8 @@ class acf_field_fonticonpicker extends acf_field {
 	 */
 	function frontend_enqueue() {
 		// Register icons style
-		//wp_register_style( 'acf-fonticonpicker-icons', $this->settings['icons'] );
-		//wp_enqueue_style( 'acf-fonticonpicker-icons' );
+		wp_register_style( 'acf-fonticonpicker-icons', $this->settings['icons'] );
+		wp_enqueue_style( 'acf-fonticonpicker-icons' );
 	}
 
 	/**
@@ -68,7 +69,7 @@ class acf_field_fonticonpicker extends acf_field {
 	 *  @since	1.0.0
 	 */
 	function render_field( $field ) {
-		print_r($this->json_content);
+		//print_r($this->json_content);
 		if ( !isset( $this->json_content['glyphs'] ) ){
 			_e('No icons found');
 			return;
@@ -78,7 +79,7 @@ class acf_field_fonticonpicker extends acf_field {
 		echo '<select name="'. $field['name'] .'" id="'. $field['name'] .'" class="acf-iconpicker">';
 		echo '<option value="">'. __('None').'</option>';
 		foreach ( $this->json_content['glyphs'] as $glyph ) {
-			$glyph_full = $this->json_content['css_prefix_text'] . $glyph['css'];
+			$glyph_full = 'ca-gov-' . $this->json_content['css_prefix_text'] . $glyph['css'];
 			echo '<option value="'. $glyph_full .'" '. selected( $field['value'], $glyph_full, false ) .'>'. $glyph['css'] .'</option>';
 		}
 		echo '</select>';

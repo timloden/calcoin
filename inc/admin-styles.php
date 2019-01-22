@@ -26,6 +26,11 @@ function acf_styles() {
         content: "\e658"!important;
     }
 
+    .wp-admin #wpadminbar #wp-admin-bar-site-name>.ab-item:before {
+        content: "\e600";
+        font-family: "CaGov" !important;
+    }
+
     // .et-db #et-boc .et-fb-modules-list li[class*="et_fb_"] {
     //     display: none;
     // }

@@ -68,7 +68,7 @@ class acf_field_fonticonpicker extends acf_field {
 	 *  @since	1.0.0
 	 */
 	function render_field( $field ) {
-		//echo($this->settings['config']);
+		print_r($this->json_content);
 		if ( !isset( $this->json_content['glyphs'] ) ){
 			_e('No icons found');
 			return;

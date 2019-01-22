@@ -19,14 +19,14 @@ class acf_field_fonticonpicker extends acf_field {
 		$this->label = __('Icon Picker');
 		$this->category = __("jQuery", 'acf');
 
-		$uri  = sprintf("%s://%s", isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http', $_SERVER['SERVER_NAME']);
+		//$uri  = sprintf("%s://%s", isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http', $_SERVER['SERVER_NAME']);
 
   			// Settings
 		$this->settings = array(
 			'dir' 		=>  '/',
 			'path'		=>	'/',
-			'config' 	=> 	$uri . '/wp-content/themes/CAWeb-Standard/acf-addons/acf-fonticonpicker/icons/config.json',
-			'icons'		=>	$uri . '/wp-content/themes/CAWeb-Standard/acf-addons/acf-fonticonpicker/icons/css/fontello.css',
+			'config' 	=> 	get_template_directory() . '/acf-addons/acf-fonticonpicker/icons/config.json',
+			'icons'		=>	get_template_directory() . '/acf-addons/acf-fonticonpicker/icons/css/fontello.css',
 			'version' 	=> 	'1.0.0'
 		);
 
@@ -42,10 +42,10 @@ class acf_field_fonticonpicker extends acf_field {
 		add_action( 'wp_enqueue_scripts', array( $this, 'frontend_enqueue' ) );
 
 		// Load icons list from the icons JSON file
-		if ( is_admin() || is_super_admin() ){
+		//if ( is_admin() || is_super_admin() ){
 			$json_file = @file_get_contents( $this->settings['config'] );
 			$this->json_content = @json_decode( $json_file, true );
-		}
+		//}
 
 	}
 	

@@ -51,7 +51,7 @@ function custom_login_logo() {
 
     <style type="text/css">
         #login h1 a, .login h1 a, body.login div#login h1 a {
-	        background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/login-logo.png);
+	        background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/login-logo.png) !important;
 			height: 80px;
 			width: 100%;
 			background-size: auto;
@@ -70,7 +70,7 @@ function custom_login_logo() {
 		
 		<?php if ($logo): ?>
 	        #login h1 a, .login h1 a, body.login div#login h1 a {
-				background-image: url(<?php echo($logo); ?>);
+				background-image: url(<?php echo($logo); ?>) !important;
 	        }
    		<?php endif; ?>
 

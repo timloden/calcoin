@@ -5,12 +5,10 @@
 add_action('after_switch_theme', 'mytheme_setup_options');
 
 function mytheme_setup_options () {
-  //add_option('mytheme_enable_catalog', 0);
-  //add_option('mytheme_enable_features', 0);
 
 	$updated = array();
 	
-	// look for a logo (must be )
+	// look for a logo (must be attachment id)
 	$logo = get_option('header_ca_branding');
 	
 	if ($logo) {
@@ -20,7 +18,7 @@ function mytheme_setup_options () {
 		 
 	}
 
-	// look for favicon
+	// look for favicon (must be attachment id)
 	$favicon = get_option('ca_fav_ico');
 	if ($favicon) {
 		$favicon_id = attachment_url_to_postid($favicon);

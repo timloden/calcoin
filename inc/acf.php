@@ -49,16 +49,31 @@ if( function_exists('acf_add_options_page') ) {
 		'updated_message'	=> __("Options Updated", 'acf'),
 	));
 
-	acf_add_options_page(array(
-		'page_title' 	=> 'Multisite Google Analytics',
-		'menu_title'	=> 'Multisite GA',
-		'menu_slug' 	=> 'caweb-multisite-ga',
-		'parent_slug'   => 'caweb-options',
-		'capability'    => 'activate_plugins',
-		'redirect'		=> false,
-		'update_button' => __('Save Options', 'acf'),
-		'updated_message'	=> __("Options Updated", 'acf'),
-	));
+	if ( is_super_admin() ) {
+	
+		acf_add_options_page(array(
+			'page_title' 	=> 'Multisite Google Analytics',
+			'menu_title'	=> 'Multisite GA',
+			'menu_slug' 	=> 'caweb-multisite-ga',
+			'parent_slug'   => 'caweb-options',
+			'capability'    => 'activate_plugins',
+			'redirect'		=> false,
+			'update_button' => __('Save Options', 'acf'),
+			'updated_message'	=> __("Options Updated", 'acf'),
+		));
+
+		acf_add_options_page(array(
+			'page_title' 	=> 'JavaScript',
+			'menu_title'	=> '',
+			'menu_slug' 	=> 'caweb-javascript',
+			'parent_slug'   => 'caweb-options',
+			'capability'    => 'activate_plugins',
+			'redirect'		=> false,
+			'update_button' => __('Save Options', 'acf'),
+			'updated_message'	=> __("Options Updated", 'acf'),
+		));
+
+	}
 
 	function remove_admin_submenus() {
 		remove_submenu_page( 'themes.php', 'nav-menus.php' ); // Remove Menus

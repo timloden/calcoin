@@ -61,6 +61,7 @@ $rss = get_field('rss', 'option');
 $share_email = get_field('share_via_email', 'option');
 
 $custom_css = get_field('custom_css', 'option');
+$custom_code = get_field('custom_code', 'option');
 
 ?>
 <!doctype html>
@@ -85,6 +86,12 @@ $custom_css = get_field('custom_css', 'option');
 		<style type="text/css" media="screen">
 			<?php echo($custom_css); ?>
 		</style>
+	<?php endif; ?>
+
+	<?php if ($custom_code): ?>
+		<script>
+			<?php echo($custom_code); ?>
+		</script>
 	<?php endif; ?>
 
 </head>

@@ -292,7 +292,7 @@ $custom_code = get_field('custom_code', 'option');
 				}
 			?>
 	        
-	        <?php if ($search_engine_id) : ?>
+	        <?php if ($search_engine_id && is_front_page()) : ?>
 	        
 	        <div id="head-search" class="search-container <?php if($featured_search && !is_page_template('page-search.php')) { echo('featured-search'); } ;?>">
 	            <!-- Include Search -->

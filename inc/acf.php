@@ -48,8 +48,6 @@ if( function_exists('acf_add_options_page') ) {
 		'update_button' => __('Save Options', 'acf'),
 		'updated_message'	=> __("Options Updated", 'acf'),
 	));
-
-	if ( is_super_admin() ) {
 	
 		acf_add_options_page(array(
 			'page_title' 	=> 'Multisite Google Analytics',
@@ -73,10 +71,20 @@ if( function_exists('acf_add_options_page') ) {
 			'updated_message'	=> __("Options Updated", 'acf'),
 		));
 
-	}
-
 	function remove_admin_submenus() {
+		
 		remove_submenu_page( 'themes.php', 'nav-menus.php' ); // Remove Menus
+
+		if ( !is_super_admin() ) {
+			remove_submenu_page('caweb-options', 'caweb-multisite-ga');
+			remove_submenu_page('caweb-options', 'caweb-javascript');
+			remove_menu_page( 'et_divi_options' );
+		}
+
+		if ( !is_multisite() ) {
+			remove_submenu_page('caweb-options', 'caweb-multisite-ga');
+
+		}
 	}
 
 	add_action( 'admin_init', 'remove_admin_submenus' );

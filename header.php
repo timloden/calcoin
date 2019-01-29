@@ -286,8 +286,8 @@ $custom_code = get_field('custom_code', 'option');
 	        <!-- Include Navigation <span class="ca-gov-icon-search search-icon" aria-hidden="true"></span> -->
        		
        		<?php 
-				$menu_exists = wp_get_nav_menu_object( 'Header' );
-				if( $menu_exists){
+				//$menu_exists = wp_get_nav_menu_object( 'Header' );
+				if(has_nav_menu('Header')){
 					get_template_part('template-parts/header-menu'); 
 				}
 			?>

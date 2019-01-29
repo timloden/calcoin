@@ -7,7 +7,7 @@ function my_acf_settings_path( $path ) {
  
     // update path
     $path = get_stylesheet_directory() . '/advanced-custom-fields-pro/';
-    
+
     // return
     return $path;
     

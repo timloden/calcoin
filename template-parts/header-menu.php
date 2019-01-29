@@ -6,6 +6,7 @@
     $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
     $menu_type = get_field('menu_type', wp_get_nav_menu_object($menu_name));
     $show_home_link = get_field('show_home_link', wp_get_nav_menu_object($menu_name));
+    $show_search_link = get_field('show_search_link', wp_get_nav_menu_object($menu_name));
 ?>
 <nav id="navigation" class="main-navigation <?php echo esc_attr($menu_type);?> auto-highlight">
 <ul id="nav_list" class="top-level-nav nav-menu">
@@ -200,6 +201,15 @@
     <?php $submenu = false; endif; ?>
 
 <?php $count++; endforeach; ?>
-
+    
+    <?php if ($show_search_link): ?>
+    <li class="nav-item nav-item-search" id="nav-item-search">
+        <a href="#" class="first-level-link">
+            <span class="ca-gov-icon-search" aria-hidden="true"></span> 
+            Search
+        </a>
+        
+    </li>
+    <?php endif; ?>
 </ul>
 </nav>

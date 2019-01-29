@@ -292,9 +292,9 @@ $custom_code = get_field('custom_code', 'option');
 				}
 			?>
 	        
-	        <?php if ($search_engine_id && is_front_page()) : ?>
+	        <?php if ($search_engine_id) : ?>
 	        
-	        <div id="head-search" class="search-container <?php if($featured_search && !is_page_template('page-search.php')) { echo('featured-search'); } ;?>">
+	        <div id="head-search" class="search-container <?php if($featured_search && !is_page_template('page-search.php') && is_front_page()) { echo('featured-search'); } ;?> hidden-print in play-animation">
 	            <!-- Include Search -->
 	        	<script type="text/javascript">
 				    var cx = '<?php echo esc_attr($search_engine_id);?>';// Step 7: Update this value with your search engine unique ID. Submit a request to the CDT Service Desk if you don't already know your unique search engine ID.

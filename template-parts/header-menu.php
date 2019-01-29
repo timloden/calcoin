@@ -44,26 +44,27 @@
     <!-- top level nav item -->
     <li class="nav-item">
         <a href="<?php echo (esc_url($link)); ?>" class="first-level-link">
-        	<span class="ca-gov-<?php echo (esc_attr($icon)); ?>" aria-hidden="true"></span>	
+        	<span class="<?php echo (esc_attr($icon)); ?>" aria-hidden="true"></span>	
             <?php echo (esc_attr($title));
 
             $parent_layout = $menu_layout;
             $parent_bg = $sub_background;
             $parent_columns = $column_size;
-
+            //echo($menu_type);
             ?>
 
         </a>
     <?php endif; ?>
 		
 
-        <?php if ( $parent_id == $item->menu_item_parent ): ?>
-            
+        <?php if ($parent_id == $item->menu_item_parent && $menu_type !== 'singlelevel'): ?>
+        
             <?php if ( !$submenu ): $submenu = true; ?>
             
             <div class="sub-nav subnav-closed" role="region" aria-expanded="false" aria-hidden="true">     
                 
-                <?php if ($parent_layout == 'image-half'): ?>
+                <?php if ($parent_layout == 'image-half' && $menu_type === 'megadropdown'): ?>
+                    
                     <div class="half with-image-left">
                         <div class="nav-media" style="background:url('<?php echo(esc_url($parent_bg));?>')"></div>
                     </div>
@@ -73,15 +74,15 @@
 
                             <li class="<?php echo $unit; ?>">
                                 <a href="<?php echo $link; ?>" class="second-level-link">
-                                    <span class="ca-gov-<?php echo (esc_attr($icon)); ?>" aria-hidden="true"></span>
-                                    <?php echo (esc_attr($title)); ?>
+                                    <span class="<?php echo (esc_attr($icon)); ?>" aria-hidden="true"></span>
+                                    <?php echo (esc_attr($title));?>
                                     <?php if ($description): ?>
                                         <div class="link-description"><?php echo (esc_attr($description)); ?></div>
                                     <?php endif; ?>
                                 </a>
                             </li>
 
-                <?php elseif ($parent_layout == 'half-image'): ?>
+                <?php elseif ($parent_layout == 'half-image' && $menu_type === 'megadropdown'): ?>
 
                     <div class="half with-image-right">
                         <div class="nav-media" style="background:url('<?php echo(esc_url($parent_bg));?>')"></div>
@@ -92,7 +93,7 @@
 
                             <li class="<?php echo $unit; ?>">
                                 <a href="<?php echo $link; ?>" class="second-level-link">
-                                    <span class="ca-gov-<?php echo (esc_attr($icon)); ?>" aria-hidden="true"></span>
+                                    <span class="<?php echo (esc_attr($icon)); ?>" aria-hidden="true"></span>
                                     <?php echo (esc_attr($title)); ?>
                                     <?php if ($description): ?>
                                         <div class="link-description"><?php echo (esc_attr($description)); ?></div>
@@ -100,7 +101,7 @@
                                 </a>
                             </li>
 
-                <?php elseif ($parent_layout == 'image-three_quarters' && $menu_type == 'megadropdown'): ?>
+                <?php elseif ($parent_layout == 'image-three_quarters' && $menu_type === 'megadropdown'): ?>
 
                      <div class="quarter with-image-left">
                         <div class="nav-media" style="background:url('<?php echo(esc_url($parent_bg));?>')"></div>
@@ -111,7 +112,7 @@
 
                             <li class="<?php echo $unit; ?>">
                                 <a href="<?php echo $link; ?>" class="second-level-link">
-                                    <span class="ca-gov-<?php echo (esc_attr($icon)); ?>" aria-hidden="true"></span>
+                                    <span class="<?php echo (esc_attr($icon)); ?>" aria-hidden="true"></span>
                                     <?php echo (esc_attr($title)); ?>
                                     <?php if ($description): ?>
                                         <div class="link-description"><?php echo (esc_attr($description)); ?></div>
@@ -119,7 +120,7 @@
                                 </a>
                             </li>
 
-                <?php elseif ($parent_layout == 'three_quarters-image'): ?>
+                <?php elseif ($parent_layout == 'three_quarters-image' && $menu_type === 'megadropdown'): ?>
 
                     <div class="quarter with-image-right">
                         <div class="nav-media" style="background:url('<?php echo(esc_url($parent_bg));?>')"></div>
@@ -130,7 +131,7 @@
 
                             <li class="<?php echo $unit; ?>">
                                 <a href="<?php echo $link; ?>" class="second-level-link">
-                                    <span class="ca-gov-<?php echo (esc_attr($icon)); ?>" aria-hidden="true"></span>
+                                    <span class="<?php echo (esc_attr($icon)); ?>" aria-hidden="true"></span>
                                     <?php echo (esc_attr($title)); ?>
                                     <?php if ($description): ?>
                                         <div class="link-description"><?php echo (esc_attr($description)); ?></div>
@@ -143,13 +144,12 @@
                     <?php $columns = $menu_type == 'megadropdown' ? $parent_columns  : '' ?>
                     
                     <div class="full <?php echo(esc_attr($columns)); ?>">
-                        
-                       
+                      
                         <ul class="second-level-nav">
 
                             <li class="<?php echo $unit; ?>">
                                 <a href="<?php echo $link; ?>" class="second-level-link">
-                                    <span class="ca-gov-<?php echo (esc_attr($icon)); ?>" aria-hidden="true"></span>
+                                    <span class="<?php echo (esc_attr($icon)); ?>" aria-hidden="true"></span>
                                     <?php echo (esc_attr($title)); ?>
                                     <?php if ($description): ?>
                                         <div class="link-description"><?php echo (esc_attr($description)); ?></div>
@@ -161,7 +161,7 @@
 
                 
 
-            <?php if ( !isset($menuitems[ $count + 1 ]) || $menuitems[ $count + 1 ]->menu_item_parent != $parent_id && $submenu ): ?>
+                <?php if ( !isset($menuitems[ $count + 1 ]) || $menuitems[ $count + 1 ]->menu_item_parent != $parent_id && $submenu ): ?>
 
                     </ul>
                 </div>
@@ -195,7 +195,9 @@
         <?php endif; ?>
 
     <?php if ( !isset($menuitems[ $count + 1 ]) || $menuitems[ $count + 1 ]->menu_item_parent != $parent_id ): ?>
+    
     </li>                           
+    
     <?php $submenu = false; endif; ?>
 
 <?php $count++; endforeach; ?>

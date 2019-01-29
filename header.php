@@ -186,7 +186,7 @@ $custom_code = get_field('custom_code', 'option');
 		                </ul>
 		            </div>
 		           
-		            <div class="half settings-links p-t-sm">
+		            <div class="half settings-links">
 		                <ul class="utility-links ">
 							<?php if ($use_utility_link_1) : ?>
 		                		<li><a href="<?php echo esc_url($utility_link_1['custom_link_1_url']); ?>"<?php if ($utility_link_1['open_custom_link_1_in_new_tab'] == 1): ?> target="_blank" <?php endif; ?> ><?php echo esc_attr($utility_link_1['custom_link_1_text']); ?></a>

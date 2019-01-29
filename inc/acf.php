@@ -45,8 +45,8 @@ if( function_exists('acf_add_options_page') ) {
 		'icon_url'		=> get_stylesheet_directory_uri() . '/images/caweb_logo.png',
 		'position' 		=> 2,
 		'redirect'		=> false,
-		'update_button' => __('Save Options', 'acf'),
-		'updated_message'	=> __("Options Updated", 'acf'),
+		'update_button' => __('Save Settings', 'acf'),
+		'updated_message'	=> __("Settings Saved", 'acf'),
 	));
 	
 		acf_add_options_page(array(
@@ -56,8 +56,8 @@ if( function_exists('acf_add_options_page') ) {
 			'parent_slug'   => 'caweb-options',
 			'capability'    => 'activate_plugins',
 			'redirect'		=> false,
-			'update_button' => __('Save Options', 'acf'),
-			'updated_message'	=> __("Options Updated", 'acf'),
+			'update_button' => __('Save Settings', 'acf'),
+			'updated_message'	=> __("Settings Saved", 'acf'),
 		));
 
 		acf_add_options_page(array(
@@ -67,8 +67,8 @@ if( function_exists('acf_add_options_page') ) {
 			'parent_slug'   => 'caweb-options',
 			'capability'    => 'activate_plugins',
 			'redirect'		=> false,
-			'update_button' => __('Save Options', 'acf'),
-			'updated_message'	=> __("Options Updated", 'acf'),
+			'update_button' => __('Save Settings', 'acf'),
+			'updated_message'	=> __("Settings Saved", 'acf'),
 		));
 
 	function remove_admin_submenus() {

@@ -15,8 +15,6 @@ if ($error_settings['redirect_404_to_custom_page'] == '1') {
 	exit();
 }
 
-//$custom_url = isset($404_settings['contact_us_page']) ? $utility_header['contact_us_page'] : false;
-
 get_header();
 ?>
 

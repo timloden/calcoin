@@ -21,15 +21,12 @@
 		if ( 'post' === get_post_type() ) :
 			?>
 			<div class="entry-meta">
-				<?php
-				caweb_standard_posted_on();
-				caweb_standard_posted_by();
-				?>
+				
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php caweb_standard_post_thumbnail(); ?>
+
 
 	<div class="entry-content">
 		<?php
@@ -54,6 +51,6 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php caweb_standard_entry_footer(); ?>
+	
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

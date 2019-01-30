@@ -7,7 +7,6 @@ function my_acf_settings_path( $path ) {
  
     // update path
     $path = get_stylesheet_directory() . '/advanced-custom-fields-pro/';
-
     // return
     return $path;
     
@@ -28,7 +27,6 @@ function my_acf_settings_dir( $dir ) {
 
 // 3. Hide ACF field group menu item
 //add_filter('acf/settings/show_admin', '__return_false');
-
 
 // 4. Include ACF
 include_once( get_stylesheet_directory() . '/advanced-custom-fields-pro/acf.php' );

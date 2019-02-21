@@ -8,24 +8,24 @@
 		    margin-right: auto;
 		    margin-left: auto;
 			@media (min-width: 576px) {
-			 
+
 			    max-width: 576px;
 			}
 
 			@media (min-width: 768px) {
-			 
+
 			    max-width: 768px;
 			}
 
 			@media (min-width: 992px) {
-			 
+
 			    max-width: 992px;
 
 			}
 
 			@media (min-width: 1200px) {
 
-			 
+
 			    max-width: 1200px;
 
 			}
@@ -50,4 +50,14 @@
 }
 
 
-a,abbr,acronym,address,applet,b,big,blockquote,body,center,cite,code,dd,del,dfn,div,dl,dt,em,fieldset,font,form,h1,h2,h3,h4,h5,h6,html,i,iframe,img,ins,kbd,label,legend,li,object,ol,p,pre,q,s,samp,small,span,strike,strong,sub,sup,tt,u,ul,var{margin:0;padding:0;border:0;outline:0;background:0 0;}
+a,abbr,acronym,address,applet,b,big,blockquote,body,center,cite,code,dd,del,dfn,div,dl,dt,em,fieldset,font,form,html,i,iframe,img,ins,kbd,label,legend,li,object,ol,pre,q,s,samp,small,span,strike,strong,sub,sup,tt,u,ul,var{margin:0;padding:0;border:0;outline:0;background:0 0;}
+
+
+
+.course-item {
+	.thumbnail {
+		img {
+			max-width: 60px;
+		}
+	}
+}

@@ -31,6 +31,19 @@ function my_acf_settings_dir( $dir ) {
 // 4. Include ACF
 include_once( get_stylesheet_directory() . '/advanced-custom-fields-pro/acf.php' );
 
+// Dev Google maps key
+// AIzaSyBHMxEO9Xi1gnDzjxhhqo4CA8Nczf9EZS4
+
+function my_acf_google_map_api( $api ){
+	
+	$api['key'] = 'AIzaSyBHMxEO9Xi1gnDzjxhhqo4CA8Nczf9EZS4';
+	
+	return $api;
+	
+}
+
+add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
+
 
 // CAWeb Options page
 if( function_exists('acf_add_options_page') ) {

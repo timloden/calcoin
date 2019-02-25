@@ -14,7 +14,7 @@ get_header();
 while ( have_posts() ) :
 	the_post();
 
-	get_template_part( 'template-parts/content', 'courses' );
+	get_template_part( 'template-parts/content', 'course-detail' );
 
 endwhile; // End of the loop.
 ?>

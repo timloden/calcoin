@@ -60,16 +60,23 @@ $show_sidebar_on_course_detail_page = get_field( 'show_sidebar_on_course_detail_
 				<div class="two-thirds">
 					<strong>Organizer</strong>
 					<p class="date-time">
+						<?php if ( $event_date ) : ?>
 						<time itemprop="startDate" datetime="<?php echo esc_attr( $event_date ); ?>"><?php echo esc_attr( $event_date ); ?> <?php
 						if ( $start_time ) {
 							echo esc_attr( $start_time ); }
 						?>
-<?php
-if ( $end_time ) {
+						<?php
+						if ( $end_time ) {
 							echo ( ' - ' . esc_attr( $end_time ) ); }
-?>
-</time> <span class="ca-gov-icon-calendar"></span> <a href="">Add to calendar</a><br>
-					<span class="ca-gov-icon-road-pin"></span> <a href="" itemprop="location" itemscope itemtype="http://schema.org/PostalAddress"><?php echo esc_attr( $location ); ?></a></p>
+						?>
+						</time>
+						<span class="ca-gov-icon-calendar"></span> <a href="">Add to calendar</a><br>
+						<?php endif; ?>
+
+						<?php if ( $location ) : ?>
+						<span class="ca-gov-icon-road-pin"></span> <a href="" itemprop="location" itemscope itemtype="http://schema.org/PostalAddress"><?php echo esc_attr( $location ); ?></a>
+						<?php endif; ?>
+					</p>
 
 					<?php if ( $registration_type ) : ?>
 					<p itemprop="offers" itemscope itemtype="http://schema.org/Offer">Registration Type: <?php echo esc_attr( $registration_type ); ?><br>

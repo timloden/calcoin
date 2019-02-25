@@ -18,7 +18,7 @@ $location    = get_field( 'location' );
 <article class="course-item">
 	<div class="thumbnail">
 		<?php if ( $image ) : ?>
-				<img src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( the_title() ); ?>">
+				<a href="<?php the_permalink(); ?>"><img src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( the_title() ); ?>"></a>
 		<?php endif; ?>
 	</div>
 
@@ -36,9 +36,11 @@ $location    = get_field( 'location' );
 
 	<div class="body">
 		<?php if ( $description ) : ?>
-				<div class="description"><?php echo esc_attr( $description ); ?> &hellip;</div>
-			<?php endif; ?>
+			<div class="description"><?php echo esc_attr( $description ); ?> &hellip;</div>
+		<?php endif; ?>
+		<?php if ( $location ) : ?>
 			<div class="location">Location: <a href=""><?php echo esc_attr( $location ); ?></a></div>
+		<?php endif; ?>
 	</div>
 
 	<div class="footer">

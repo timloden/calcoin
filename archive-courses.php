@@ -33,7 +33,7 @@ $show_sidebar_on_course_list_page = get_field( 'show_sidebar_on_course_list_page
 				array(
 					'prev_text'          => __( 'Older Courses', 'theme_textdomain' ),
 					'next_text'          => __( 'Newer Courses', 'theme_textdomain' ),
-					'screen_reader_text' => __( 'Posts navigation', 'theme_textdomain' ),
+					'screen_reader_text' => __( 'View more', 'theme_textdomain' ),
 				)
 			);
 		} else {

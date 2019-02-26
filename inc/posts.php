@@ -7,9 +7,22 @@ function prefix_conditional_body_class( $classes ) {
 
 	$show_sidebar_on_course_detail_page = get_field('show_sidebar_on_course_detail_page', 'option');
 	$show_sidebar_on_course_list_page = get_field('show_sidebar_on_course_list_page', 'option');
+	$show_sidebar_on_event_detail_page = get_field('show_sidebar_on_event_detail_page', 'option');
+	$show_sidebar_on_event_list_page = get_field('show_sidebar_on_event_list_page', 'option');
+	$show_sidebar_on_job_detail_page = get_field('show_sidebar_on_job_detail_page', 'option');
+	$show_sidebar_on_job_list_page = get_field('show_sidebar_on_job_list_page', 'option');
 
 	if ( is_single() ) {
-		if( $show_sidebar_on_course_detail_page == 1 ) {
+
+		if ( is_singular( 'events' ) && $show_sidebar_on_event_detail_page == 1 ) {
+			$classes[] = 'two-column';
+		}
+
+		if ( is_singular( 'courses' ) && $show_sidebar_on_course_detail_page == 1 ) {
+			$classes[] = 'two-column';
+		}
+
+		if ( is_singular( 'jobs' ) && $show_sidebar_on_job_detail_page == 1 ) {
 			$classes[] = 'two-column';
 		}
 
@@ -17,7 +30,20 @@ function prefix_conditional_body_class( $classes ) {
 	}
 
 	if ( is_archive() ) {
-		if( $show_sidebar_on_course_list_page == 1 ) {
+
+
+		if( is_post_type_archive('events') && $show_sidebar_on_event_list_page == 1 ) {
+
+			$classes[] = 'two-column';
+		}
+
+		if( is_post_type_archive('courses') && $show_sidebar_on_course_list_page == 1 ) {
+
+			$classes[] = 'two-column';
+		}
+
+		if( is_post_type_archive('jobs') && $show_sidebar_on_job_list_page == 1 ) {
+
 			$classes[] = 'two-column';
 		}
 

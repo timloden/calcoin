@@ -8,11 +8,11 @@
  */
 
 get_header();
-$show_sidebar_on_course_list_page = get_field( 'show_sidebar_on_course_list_page', 'option' );
+$show_sidebar_on_event_list_page = get_field( 'show_sidebar_on_event_list_page', 'option' );
 ?>
 <div class="section">
 	<main class="main-primary">
-		<h1>Course List</h1>
+		<h1>Event List</h1>
 		<section class="course-list">
 		<?php
 
@@ -27,8 +27,8 @@ $show_sidebar_on_course_list_page = get_field( 'show_sidebar_on_course_list_page
 
 			the_posts_navigation(
 				array(
-					'prev_text'          => __( 'Older Courses', 'theme_textdomain' ),
-					'next_text'          => __( 'Newer Courses', 'theme_textdomain' ),
+					'prev_text'          => __( 'Older Events', 'theme_textdomain' ),
+					'next_text'          => __( 'Newer Events', 'theme_textdomain' ),
 					'screen_reader_text' => __( 'View more', 'theme_textdomain' ),
 				)
 			);
@@ -41,7 +41,7 @@ $show_sidebar_on_course_list_page = get_field( 'show_sidebar_on_course_list_page
 		</section>
 	</main>
 
-	<?php if ( $show_sidebar_on_course_list_page == 1 ) : ?>
+	<?php if ( $show_sidebar_on_event_list_page == 1 ) : ?>
 	<div class="main-secondary">
 			<?php
 			if ( is_active_sidebar( 'sidebar-1' ) ) {

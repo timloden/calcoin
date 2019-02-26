@@ -43,3 +43,83 @@ function courses_post_type() {
 }
 
 add_action( 'init', 'courses_post_type' );
+
+function events_post_type() {
+	$labels = array(
+		'name'               => _x( 'Events', 'post type general name', 'caweb' ),
+		'singular_name'      => _x( 'Event', 'post type singular name', 'caweb' ),
+		'menu_name'          => _x( 'Events', 'admin menu', 'caweb' ),
+		'name_admin_bar'     => _x( 'Events', 'add new on admin bar', 'caweb' ),
+		'add_new'            => _x( 'Add New', 'Course', 'caweb' ),
+		'add_new_item'       => __( 'Add New Event', 'caweb' ),
+		'new_item'           => __( 'New Event', 'caweb' ),
+		'edit_item'          => __( 'Edit Event', 'caweb' ),
+		'view_item'          => __( 'View Event', 'caweb' ),
+		'all_items'          => __( 'All Events', 'caweb' ),
+		'search_items'       => __( 'Search Events', 'caweb' ),
+		'parent_item_colon'  => __( 'Parent Events:', 'caweb' ),
+		'not_found'          => __( 'No Events found.', 'caweb' ),
+		'not_found_in_trash' => __( 'No Events found in Trash.', 'caweb' ),
+	);
+
+	$args = array(
+		'labels'             => $labels,
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'query_var'          => true,
+		'capability_type'    => 'post',
+		'has_archive'        => true,
+		'hierarchical'       => false,
+		'menu_position'      => null,
+		'menu_icon'          => 'dashicons-location-alt',
+		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' ),
+		'taxonomies'         => array( 'category' ),
+	);
+
+	register_post_type( 'events', $args );
+	flush_rewrite_rules();
+}
+
+add_action( 'init', 'events_post_type' );
+
+function jobs_post_type() {
+	$labels = array(
+		'name'               => _x( 'Jobs', 'post type general name', 'caweb' ),
+		'singular_name'      => _x( 'Job', 'post type singular name', 'caweb' ),
+		'menu_name'          => _x( 'Jobs', 'admin menu', 'caweb' ),
+		'name_admin_bar'     => _x( 'Jobs', 'add new on admin bar', 'caweb' ),
+		'add_new'            => _x( 'Add New', 'Course', 'caweb' ),
+		'add_new_item'       => __( 'Add New Job', 'caweb' ),
+		'new_item'           => __( 'New Job', 'caweb' ),
+		'edit_item'          => __( 'Edit Job', 'caweb' ),
+		'view_item'          => __( 'View Job', 'caweb' ),
+		'all_items'          => __( 'All Jobs', 'caweb' ),
+		'search_items'       => __( 'Search Jobs', 'caweb' ),
+		'parent_item_colon'  => __( 'Parent Jobs:', 'caweb' ),
+		'not_found'          => __( 'No Jobs found.', 'caweb' ),
+		'not_found_in_trash' => __( 'No Jobs found in Trash.', 'caweb' ),
+	);
+
+	$args = array(
+		'labels'             => $labels,
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'query_var'          => true,
+		'capability_type'    => 'post',
+		'has_archive'        => true,
+		'hierarchical'       => false,
+		'menu_position'      => null,
+		'menu_icon'          => 'dashicons-portfolio',
+		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' ),
+		'taxonomies'         => array( 'category' ),
+	);
+
+	register_post_type( 'jobs', $args );
+	flush_rewrite_rules();
+}
+
+add_action( 'init', 'jobs_post_type' );

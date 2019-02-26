@@ -1,16 +1,22 @@
 <?php
 function prefix_conditional_body_class( $classes ) {
 
-	// if( is_single() && is_active_sidebar( 'sidebar-1' ) ) {
-	//     $classes[] = 'two-column';
-	// }
-
 	$show_sidebar_on_course_detail_page = get_field('show_sidebar_on_course_detail_page', 'option');
 	$show_sidebar_on_course_list_page = get_field('show_sidebar_on_course_list_page', 'option');
 	$show_sidebar_on_event_detail_page = get_field('show_sidebar_on_event_detail_page', 'option');
 	$show_sidebar_on_event_list_page = get_field('show_sidebar_on_event_list_page', 'option');
 	$show_sidebar_on_job_detail_page = get_field('show_sidebar_on_job_detail_page', 'option');
 	$show_sidebar_on_job_list_page = get_field('show_sidebar_on_job_list_page', 'option');
+	$show_sidebar_on_news_detail_page = get_field('show_sidebar_on_news_detail_page', 'option');
+	$show_sidebar_on_news_list_page = get_field('show_sidebar_on_news_list_page', 'option');
+
+	if ( is_home() ) {
+		if( $show_sidebar_on_news_list_page == 1 ) {
+			$classes[] = 'two-column';
+		}
+
+		return $classes;
+	}
 
 	if ( is_single() ) {
 
@@ -51,6 +57,7 @@ function prefix_conditional_body_class( $classes ) {
 	}
 
 }
+
 add_filter( 'body_class', 'prefix_conditional_body_class' );
 
 // add drop down for custom styles

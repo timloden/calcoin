@@ -56,7 +56,7 @@ $show_sidebar_on_job_detail_page = get_field( 'show_sidebar_on_job_detail_page',
 		                    	<?php if ( $salary_rage ) : ?><span class="rpa">Position Number: 362-410-5237-000, RPA #14-023</span><br><?php endif; ?>
 		                    	<?php if ( $duty_statement ) : ?>Duty Statement (<a href="<?php echo esc_url( $duty_statement ); ?>">PDF</a>)<?php endif; ?>
 		                	</p>
-		                    <?php if ( $salary_rage ) : ?><p><span class="filing-date">Final Filing Date: <time datetime="YYYY-MM-DD"><?php echo esc_attr( $salary_rage ); ?></time></span></p><?php endif; ?>
+		                    <?php if ( $final_filing_date ) : ?><p><span class="filing-date">Final Filing Date: <time datetime="YYYY-MM-DD"><?php echo esc_attr( $final_filing_date ); ?></time></span></p><?php endif; ?>
 		                </div>
 		            </div>
 		        </div>

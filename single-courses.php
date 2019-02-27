@@ -8,8 +8,10 @@
  */
 
 get_header();
+$show_sidebar_on_course_detail_page = get_field( 'show_sidebar_on_course_detail_page', 'option' );
 ?>
-
+<div class="section">
+	<main class="main-primary">
 <?php
 while ( have_posts() ) :
 	the_post();
@@ -18,6 +20,19 @@ while ( have_posts() ) :
 
 endwhile; // End of the loop.
 ?>
+
+	</main>
+
+	<?php if ( $show_sidebar_on_course_detail_page == 1 ) : ?>
+	<div class="main-secondary">
+		<?php
+		if ( is_active_sidebar( 'sidebar-1' ) ) {
+			get_sidebar(); }
+		?>
+	</div>
+	<?php endif; ?>
+
+</div>
 
 <?php
 

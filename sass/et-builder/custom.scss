@@ -49,10 +49,7 @@
     font-family: 'CaGov' !important;
 }
 
-
 a,abbr,acronym,address,applet,b,big,blockquote,body,center,cite,code,dd,del,dfn,div,dl,dt,em,fieldset,font,form,html,i,iframe,img,ins,kbd,label,legend,object,pre,q,s,samp,small,span,strike,strong,sub,sup,tt,u,var{margin:0;padding:0;border:0;outline:0;background:0 0;}
-
-
 
 .course-item {
 	.thumbnail {
@@ -62,9 +59,24 @@ a,abbr,acronym,address,applet,b,big,blockquote,body,center,cite,code,dd,del,dfn,
 	}
 }
 
-
 .event-detail {
 	.thumbnail {
+		max-width: 150px;
+	}
+}
+
+.publication-list {
+	.pub-item:nth-child(odd) {
+		background: #fafafa;
+	}
+
+	.pub-item:nth-child(even) {
+		background: #f0f0f0;
+	}
+}
+
+.profile-detail {
+	.profile-image {
 		max-width: 150px;
 	}
 }

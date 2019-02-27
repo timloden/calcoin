@@ -8,6 +8,7 @@
  */
 
 $using_divi = get_post_meta( get_the_ID(), '_et_pb_use_builder', true );
+$show_sidebar_on_news_detail_page = get_field('show_sidebar_on_news_detail_page', 'option');
 ?>
 
 <?php if ($using_divi == 'on') : ?>
@@ -33,7 +34,7 @@ $using_divi = get_post_meta( get_the_ID(), '_et_pb_use_builder', true );
 			<div class="entry-content">
 				<?php the_content(); ?>
 			</div>
-			
+
 			<footer class="keywords">
 		        Tags or Keywords
 		        <ul>
@@ -41,7 +42,7 @@ $using_divi = get_post_meta( get_the_ID(), '_et_pb_use_builder', true );
 						$posttags = get_the_tags();
 						if ($posttags) {
 						  foreach($posttags as $tag) {
-						    echo '<li><a href="' . get_tag_link($tag->term_id) . '">' . $tag->name . '</a></li>'; 
+						    echo '<li><a href="' . get_tag_link($tag->term_id) . '">' . $tag->name . '</a></li>';
 						  }
 						}
 					?>
@@ -49,12 +50,14 @@ $using_divi = get_post_meta( get_the_ID(), '_et_pb_use_builder', true );
 	    	</footer>
 		</article><!-- #post-<?php the_ID(); ?> -->
 	</main>
+	<?php if ( $show_sidebar_on_news_detail_page == 1 ) : ?>
 	<div class="main-secondary">
-		<?php 
+			<?php
 			if ( is_active_sidebar( 'sidebar-1' ) ) {
 				get_sidebar();
 			}
-		?>
+			?>
 	</div>
+	<?php endif; ?>
 </div>
 <?php endif; ?>

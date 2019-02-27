@@ -2252,6 +2252,25 @@
             "ui": 1,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_5c76fa7b14f12",
+            "label": "Show sidebar on publication list page?",
+            "name": "show_sidebar_on_publication_list_page",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -2271,5 +2290,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1551213587
+    "modified": 1551301282
 }

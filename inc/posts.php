@@ -9,6 +9,7 @@ function prefix_conditional_body_class( $classes ) {
 	$show_sidebar_on_job_list_page = get_field('show_sidebar_on_job_list_page', 'option');
 	$show_sidebar_on_news_detail_page = get_field('show_sidebar_on_news_detail_page', 'option');
 	$show_sidebar_on_news_list_page = get_field('show_sidebar_on_news_list_page', 'option');
+	$show_sidebar_on_publications_list_page = get_field('show_sidebar_on_publication_list_page', 'option');
 
 	if ( is_home() ) {
 		if( $show_sidebar_on_news_list_page == 1 ) {
@@ -32,11 +33,14 @@ function prefix_conditional_body_class( $classes ) {
 			$classes[] = 'two-column';
 		}
 
+		if ( is_singular( 'post' ) && $show_sidebar_on_news_detail_page == 1 ) {
+			$classes[] = 'two-column';
+		}
+
 		return $classes;
 	}
 
 	if ( is_archive() ) {
-
 
 		if( is_post_type_archive('events') && $show_sidebar_on_event_list_page == 1 ) {
 
@@ -49,6 +53,11 @@ function prefix_conditional_body_class( $classes ) {
 		}
 
 		if( is_post_type_archive('jobs') && $show_sidebar_on_job_list_page == 1 ) {
+
+			$classes[] = 'two-column';
+		}
+
+		if( is_post_type_archive('publications') && $show_sidebar_on_publications_list_page == 1 ) {
 
 			$classes[] = 'two-column';
 		}
@@ -151,3 +160,19 @@ function my_set_image_meta_upon_image_upload( $post_ID ) {
 
 	}
 }
+
+/* Custom post type tags in archive pages
+--------------------------------------------------------------------------------------*/
+function wpse28145_add_custom_types( $query ) {
+    if( is_tag() && $query->is_main_query() ) {
+
+        // this gets all post types:
+        $post_types = get_post_types();
+
+        // alternately, you can add just specific post types using this line instead of the above:
+        // $post_types = array( 'post', 'your_custom_type' );
+
+        $query->set( 'post_type', $post_types );
+    }
+}
+add_filter( 'pre_get_posts', 'wpse28145_add_custom_types' );

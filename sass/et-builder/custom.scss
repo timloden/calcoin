@@ -80,3 +80,50 @@ a,abbr,acronym,address,applet,b,big,blockquote,body,center,cite,code,dd,del,dfn,
 		max-width: 150px;
 	}
 }
+
+.google-search {
+	background-color: rgba(255,255,255,.8);
+    border-radius: 0;
+    border: 3px solid transparent;
+    transition: border .4s;
+    outline: 0;
+    padding: 5px;
+    font-size: 1.1rem;
+    opacity: .8!important;
+    width: 100%;
+	display: flex;
+	position: relative;
+
+	.search-box {
+		background: none;
+		border: none;
+		width: 100%;
+		font-size: 1.1rem;
+		margin-right: 10px;
+	}
+
+	.search-button {
+		background: none;
+    	border: none;
+    	font-size: 30px;
+    	padding: 0 5px;
+	}
+}
+
+.clear-search {
+	position: absolute;
+	right: -45px;
+	top: 0;
+    cursor: pointer;
+    display: none;
+    font-size: 35px;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+body.active-search {
+	.clear-search {
+		display: block;
+	}
+}

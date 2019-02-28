@@ -98,11 +98,11 @@ $custom_code = get_field('custom_code', 'option');
 
 <body <?php body_class(); ?>>
 
-	
+
 	<?php if( have_rows('alert_banners', 'options') ): ?>
-		
-		<?php while( have_rows('alert_banners', 'option') ): the_row(); ?>	
-			<?php 
+
+		<?php while( have_rows('alert_banners', 'option') ): the_row(); ?>
+			<?php
 				$display_on = get_sub_field('display_on');
 				if ($display_on == 'home_page' && is_front_page()) :
 			?>
@@ -117,7 +117,7 @@ $custom_code = get_field('custom_code', 'option');
 
 	<header role="banner" id="header" class="global-header <?php if($use_sticky_nav) { echo('fixed'); } ;?>">
 		<div id="skip-to-content"><a href="#main-content">Skip to Main Content</a></div>
-		
+
 		<?php if ($geo_locator) : ?>
 		<div class="location-settings section section-standout collapse collapsed " id="locationSettings">
 		    <div class="container p-y">
@@ -132,17 +132,17 @@ $custom_code = get_field('custom_code', 'option');
 		        </div>
 		    </div>
 		</div>
-		<?php endif; ?>  
+		<?php endif; ?>
 
 		<!-- Utility Header -->
 		<div class="utility-header">
 		    <div class="container <?php //if($google_translate == 'standard') { echo('translate-standard'); } ;?>">
 		        <div class="group">
 		            <div class="half">
-		                 
+
 		                <ul class="utility-links social-media-links">
 		                    <li><div class="header-cagov-logo"><a href="https://ca.gov"><img src="<?php echo esc_url(get_template_directory_uri());?>/images/Ca-Gov-Logo-Gold.svg" alt="CA.gov" /></a></div></li>
-		                   
+
 		                	<?php if ($utility_home_link): ?>
 								<li><a href="/"><span class="ca-gov-icon-home" aria-hidden="true"></span><span class="sr-only">Home</span></a></li>
 							<?php endif; ?>
@@ -181,11 +181,11 @@ $custom_code = get_field('custom_code', 'option');
 
 							<?php if ($share_email['show_in_header'] == 1): ?>
 								<li><a href="mailto:?subject=<?php bloginfo( 'name' ); ?>&body=<?php echo site_url(); ?>" class="ca-gov-icon-email" title="Share via Email"><span class="sr-only">Email</span></a></li>
-							<?php endif; ?>  
+							<?php endif; ?>
 
 		                </ul>
 		            </div>
-		           
+
 		            <div class="half settings-links">
 		                <ul class="utility-links ">
 							<?php if ($use_utility_link_1) : ?>
@@ -204,13 +204,13 @@ $custom_code = get_field('custom_code', 'option');
 		                    <?php if ($utility_contact_page) : ?>
 		                    	<li><a href="<?php echo esc_url($utility_contact_page);?>">Contact Us</a></li>
 		                	<?php endif; ?>
-		                    
+
 		                    <li><button class="btn btn-xs btn-primary" id="settings-btn" data-toggle="collapse" href="#siteSettings"><span class="ca-gov-icon-gear" aria-hidden="true"></span> Settings</button></li>
-							
+
 							<?php if ($geo_locator) : ?>
 		                    	<li class="utility-geo-locator"><a role="button" aria-expanded="false" aria-controls="locationSettings" class="geo-lookup"><span class="ca-gov-icon-compass" aria-hidden="true"></span > <span class="located-city-name"></span></a></li>
 		                    <?php endif; ?>
-							
+
 							<?php if ($google_translate =='custom') : ?>
 		                    	<li><a id="caweb-gtrans-custom" target="_blank" href="<?php echo esc_url($translate_url); ?>">
 		                    		<span class="ca-gov-<?php echo esc_attr($translate_icon); ?>"></span> Translate</a></li>
@@ -229,7 +229,7 @@ $custom_code = get_field('custom_code', 'option');
 		        </div>
 		    </div>
 		</div>
-	    
+
 	    <!-- Settings Bar -->
 	    <div class="site-settings section section-standout collapse collapsed" id="siteSettings">
 		    <div class="container p-y">
@@ -245,23 +245,23 @@ $custom_code = get_field('custom_code', 'option');
 		            <div class="btn-group"><button type="button" class="btn btn-standout increaseTextSize"><span class="hidden-xs">Increase Font Size</span><span class="visible-xs">Font <small class="ca-gov-icon-plus-line"></small></span></button></div>
 		            <div class="btn-group"><button type="button" class="btn btn-standout decreaseTextSize"><span class="hidden-xs">Decrease Font Size</span><span class="visible-xs">Font <small class="ca-gov-icon-minus-line"></small></span></button></div>
 		        </div>
-		               
+
 		                <!-- <button type="button" class="btn btn-primary clipboard-activeonhover">Save links on hover</button> -->
-		            
+
 		    </div>
 		</div>
-	    
+
 	    <!-- Include Branding -->
 	  	<div class="branding">
 			<div class="header-organization-banner">
-				
+
 				<a href="/">
 					<img src="<?php echo esc_url($logo);?>" alt="Organization Title" />
 				</a>
 
 			</div>
 		</div>
-	    
+
 	    <!-- Include Mobile Controls -->
 	    <div class="mobile-controls">
 		    <span class="mobile-control-group mobile-header-icons">
@@ -280,23 +280,20 @@ $custom_code = get_field('custom_code', 'option');
 		        </button>
 		    </div>
 		</div>
-	    
+
 	    <div class="navigation-search">
-	        
-	        <!-- Include Navigation <span class="ca-gov-icon-search search-icon" aria-hidden="true"></span> -->
-       		
-       		<?php 
-				//$menu_exists = wp_get_nav_menu_object( 'Header' );
+
+       		<?php
 				if(has_nav_menu('Header')){
-					get_template_part('template-parts/header-menu'); 
+					get_template_part('template-parts/header-menu');
 				}
 			?>
-	        
+
 	        <?php if ($search_engine_id) : ?>
-	        
+
 	        <div id="head-search" class="search-container <?php if($featured_search && !is_page_template('page-search.php') && is_front_page()) { echo('featured-search'); } ;?> hidden-print in play-animation">
 	            <!-- Include Search -->
-	        	<script type="text/javascript">
+	        	<!-- <script type="text/javascript">
 				    var cx = '<?php echo esc_attr($search_engine_id);?>';// Step 7: Update this value with your search engine unique ID. Submit a request to the CDT Service Desk if you don't already know your unique search engine ID.
 				    var gcse = document.createElement('script');
 				    gcse.type = 'text/javascript';
@@ -313,11 +310,19 @@ $custom_code = get_field('custom_code', 'option');
 		            jQuery(window).on("load", function() {
 					    jQuery("button.gsc-search-button-v2").before('<span class="ca-gov-icon-search search-icon" aria-hidden="true"></span>');
 					});
-		        </script>
+		        </script> -->
+		        <form action="<?php echo site_url('serp');?>" class="google-search" id="cse-search-box">
+				    <input name="cx" type="hidden" value="<?php echo esc_attr($search_engine_id);?>">
+				    <input name="ie" type="hidden" value="UTF-8">
+				    <input class="search-box" id="q" name="q" onfocus="document.getElementById('q').value=''" type="text" placeholder="Search..." aria-label="Website Search">
+				    <button type="submit" class="search-button"><span class="ca-gov-icon-search"></span></button>
+					<button class="clear-search"><span class="ca-gov-icon-close-mark"></span></button>
+				</form>
+
 	        </div>
 
 	    	<?php endif; ?>
-	    
+
 	    </div>
 
 

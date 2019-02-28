@@ -19,7 +19,7 @@ if ("" !== args.caweb_multi_ga) { _gaq.push(["b._setAccount", args.caweb_multi_g
 								f.on("click", function() { i();
 												e.addClass("search-freeze-width") });
 								f.blur(function() { e.removeClass("search-freeze-width") });
-								$("div.clear-search").on("click", function() { h() });
+								$(".clear-search").on("click", function() { h() });
 								$(".top-level-nav .nav-item .ca-gov-icon-search, #nav-item-search").parents(".nav-item").on("click", function(k) { f.focus().trigger("focus"); if (true == args.ca_frontpage_search_enabled) { $(".primary #head-search").addClass("play-animation").one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", function() { $(this).removeClass("play-animation") }) } else { i() } });
 
 								function i() { g.addClass("active-search");

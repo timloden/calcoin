@@ -316,7 +316,7 @@ $custom_code = get_field('custom_code', 'option');
 				    <input name="ie" type="hidden" value="UTF-8">
 				    <input class="search-box" id="q" name="q" onfocus="document.getElementById('q').value=''" type="text" placeholder="Search..." aria-label="Website Search">
 				    <button type="submit" class="search-button"><span class="ca-gov-icon-search"></span></button>
-					<button class="clear-search"><span class="ca-gov-icon-close-mark"></span></button>
+					<button type="button" class="clear-search"><span class="ca-gov-icon-close-mark"></span></button>
 				</form>
 
 	        </div>

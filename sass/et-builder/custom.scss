@@ -126,4 +126,10 @@ body.active-search {
 	.clear-search {
 		display: block;
 	}
+
+	.search-results-header {
+		.clear-search {
+			display: none;
+		}
+	}
 }

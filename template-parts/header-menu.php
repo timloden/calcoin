@@ -3,7 +3,7 @@
     $menu_name = get_term(get_nav_menu_locations()['Header'], 'nav_menu')->name;
     $menu = wp_get_nav_menu_object( $menu_name );
     $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
-    
+
     // acf menu fields
     $menu_type = get_field('menu_type', wp_get_nav_menu_object($menu_name));
     $show_home_link = get_field('show_home_link', wp_get_nav_menu_object($menu_name));
@@ -14,12 +14,12 @@
     <li class="nav-item home-link">
         <?php if ($show_home_link): ?>
         <a href="/" class="first-level-link">
-            <span class="ca-gov-icon-home" aria-hidden="true"></span> 
+            <span class="ca-gov-icon-home" aria-hidden="true"></span>
             Home
         </a>
         <?php endif; ?>
     </li>
-    
+
 
     <?php
     $count = 0;
@@ -33,8 +33,8 @@
         $icon = get_field('icon', $item);
         $unit = get_field('item_size', $item);
         $description = get_field('description', $item);
-        $sub_background = get_field('background', $item); 
-        $column_size = get_field('sub_link_size', $item); 
+        $sub_background = get_field('background', $item);
+        $column_size = get_field('sub_link_size', $item);
         // item does not have a parent so menu_item_parent equals 0 (false)
         if ( !$item->menu_item_parent ):
         // save this id for later comparison with sub-menu items
@@ -45,7 +45,7 @@
     <!-- top level nav item -->
     <li class="nav-item">
         <a href="<?php echo (esc_url($link)); ?>" class="first-level-link">
-        	<span class="<?php echo (esc_attr($icon)); ?>" aria-hidden="true"></span>	
+        	<span class="<?php echo (esc_attr($icon)); ?>" aria-hidden="true"></span>
             <?php echo (esc_attr($title));
 
             $parent_layout = $menu_layout;
@@ -56,16 +56,16 @@
 
         </a>
     <?php endif; ?>
-		
+
 
         <?php if ($parent_id == $item->menu_item_parent && $menu_type !== 'singlelevel'): ?>
-        
+
             <?php if ( !$submenu ): $submenu = true; ?>
-            
-            <div class="sub-nav subnav-closed" role="region" aria-expanded="false" aria-hidden="true">     
-                
+
+            <div class="sub-nav subnav-closed" role="region" aria-expanded="false" aria-hidden="true">
+
                 <?php if ($parent_layout == 'image-half' && $menu_type === 'megadropdown'): ?>
-                    
+
                     <div class="half with-image-left">
                         <div class="nav-media" style="background:url('<?php echo(esc_url($parent_bg));?>')"></div>
                     </div>
@@ -139,13 +139,13 @@
                                     <?php endif; ?>
                                 </a>
                             </li>
-                        
+
                 <?php else: ?>
-                   
+
                     <?php $columns = $menu_type == 'megadropdown' ? $parent_columns  : '' ?>
-                    
+
                     <div class="full <?php echo(esc_attr($columns)); ?>">
-                      
+
                         <ul class="second-level-nav">
 
                             <li class="<?php echo $unit; ?>">
@@ -160,14 +160,14 @@
 
                 <?php endif; ?>
 
-                
+
 
                 <?php if ( !isset($menuitems[ $count + 1 ]) || $menuitems[ $count + 1 ]->menu_item_parent != $parent_id && $submenu ): ?>
 
                     </ul>
                 </div>
             </div>
-            
+
             <?php $submenu = false; endif; ?>
 
             <?php else: ?>
@@ -189,27 +189,27 @@
                     </ul>
                 </div>
             </div>
-            
+
             <?php $submenu = false; endif; ?>
-        	
+
 
         <?php endif; ?>
 
     <?php if ( !isset($menuitems[ $count + 1 ]) || $menuitems[ $count + 1 ]->menu_item_parent != $parent_id ): ?>
-    
-    </li>                           
-    
+
+    </li>
+
     <?php $submenu = false; endif; ?>
 
 <?php $count++; endforeach; ?>
-    
+
     <?php if ($show_search_link): ?>
     <li class="nav-item nav-item-search" id="nav-item-search">
         <a href="#" class="first-level-link">
-            <span class="ca-gov-icon-search" aria-hidden="true"></span> 
+            <span class="ca-gov-icon-search" aria-hidden="true"></span>
             Search
         </a>
-        
+
     </li>
     <?php endif; ?>
 </ul>

@@ -311,14 +311,16 @@ $custom_code = get_field('custom_code', 'option');
 					    jQuery("button.gsc-search-button-v2").before('<span class="ca-gov-icon-search search-icon" aria-hidden="true"></span>');
 					});
 		        </script> -->
-		        <form action="<?php echo site_url('serp');?>" class="google-search" id="cse-search-box">
+
+		        <?php if ( !is_page_template('page-search.php') ) : ?>
+		        <form action="<?php echo site_url('serp');?>" class="google-search">
 				    <input name="cx" type="hidden" value="<?php echo esc_attr($search_engine_id);?>">
 				    <input name="ie" type="hidden" value="UTF-8">
 				    <input class="search-box" id="q" name="q" onfocus="document.getElementById('q').value=''" type="text" placeholder="Search..." aria-label="Website Search">
 				    <button type="submit" class="search-button"><span class="ca-gov-icon-search"></span></button>
 					<button type="button" class="clear-search"><span class="ca-gov-icon-close-mark"></span></button>
 				</form>
-
+				<?php endif; ?>
 	        </div>
 
 	    	<?php endif; ?>

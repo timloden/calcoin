@@ -13,7 +13,11 @@ $parts = parse_url($url);
 parse_str($parts['query'], $query);
 $keyword = $query['q'];
 ?>
-
+<style>
+#head-search {
+	display: none;
+}
+</style>
 <div class="section section-default">
 	<div class="container search-results-header">
 			<h1>Search Results for: <?php echo esc_attr($keyword);?></h1>

@@ -7,29 +7,64 @@
  * @package CAWeb_Standard
  */
 
+$post_type = get_post_type();
+
+if ( $post_type == 'events' || $post_type == 'publications' || $post_type == 'jobs' || $post_type == 'courses' ) {
+	$image = get_field( 'thumbnail' ); // get acf image field
+	$alt = $image['alt']; // set alt
+	$image = $image['url']; // get actual image url
+
+	if ( !$alt ) {
+		$alt = get_the_title();
+	}
+}
+
+if ( $post_type == 'post' ) {
+	$image = get_the_post_thumbnail_url(get_the_ID(),'full');
+	$thumbnail_id = get_post_thumbnail_id( $post->ID );
+	$alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
+	if ( !$alt ) {
+		$alt = get_the_title();
+	}
+}
+
+if ( $post_type == 'attachment' ) {
+	$attachment_type = get_post_mime_type();
+
+	if ( $attachment_type != 'application/pdf' ) {
+		$image = wp_get_attachment_url(get_the_ID(),'full');
+	} else {
+		$image = get_template_directory_uri() . '/images/pdf.png';
+	}
+
+}
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+<article class="news-item">
+    <?php if ( $image ) : ?>
 
-		<?php if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php
-			caweb_standard_posted_on();
-			caweb_standard_posted_by();
-			?>
-		</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
+    <div class="thumbnail">
+    	<?php if ( $post_type == 'attachment' && $attachment_type != 'application/pdf' ) : ?>
+			<a href="<?php echo esc_url( $image ); ?>"><img src="<?php echo esc_url( $image ); ?>"></a>
+    	<?php else : ?>
+    		<a href="<?php the_permalink(); ?>"><img src="<?php echo esc_url( $image ); ?>"></a>
+    	<?php endif; ?>
+    </div>
+	<?php endif; ?>
 
-	<?php caweb_standard_post_thumbnail(); ?>
+    <div class="info">
+        <div class="headline">
+        	<?php if ( $post_type == 'attachment' && $attachment_type != 'application/pdf' ) : ?>
+        		<a href="<?php echo esc_url( $image ); ?>"><?php echo esc_attr( the_title() ); ?></a>
+        	<?php else : ?>
+        		<a href="<?php the_permalink(); ?>"><?php echo esc_attr( the_title() ); ?></a>
+        	<?php endif; ?>
+        </div>
+        <?php if ( get_the_excerpt() != '' ) : ?>
+        	<div class="description"><p><?php echo get_the_excerpt(); ?></p></div>
+        <?php endif; ?>
+        <div class="published">Published: <time datetime="<?php echo get_the_date( 'F j, Y' ); ?>"><?php echo get_the_date( 'F j, Y' ); ?></time></div>
+        <?php echo('post type: ' . $post_type ); ?>
+    </div>
 
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
-
-	<footer class="entry-footer">
-		<?php caweb_standard_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+</article>

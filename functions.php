@@ -114,3 +114,55 @@ function mytheme_et_project_posttype_args( $args ) {
 		'show_ui'             => false
 	));
 }
+
+/* Add PDF meta data
+--------------------------------------------------------------------------------------*/
+add_action( 'add_attachment', 'my_set_pdf_meta_upon_image_upload' );
+
+function my_set_pdf_meta_upon_image_upload( $post_ID ) {
+
+	// Check if uploaded file is a pdf, else do nothing
+
+	if ( get_post_mime_type( $post_ID ) == 'application/pdf' ) {
+
+		include 'lib/pdfparser/vendor/autoload.php';
+    	$parser = new \Smalot\PdfParser\Parser();
+
+		try {
+        	$pdf = $parser->parseFile( wp_get_attachment_url( $post_ID ) );
+    		$text = $pdf->getText();
+	    } catch (\Exception $e) {
+	    	$text = '';
+	    }
+
+		add_post_meta( $post_ID, 'pdf_content', $text );
+
+	}
+}
+
+/* Add Editable field to PDF
+--------------------------------------------------------------------------------------*/
+function my_add_attachment_pdf_field( $form_fields, $post ) {
+	if ( get_post_mime_type( $post ) == 'application/pdf' ) {
+	    $field_value = get_post_meta( $post->ID, 'pdf_content', true );
+	    $form_fields['pdf_content'] = array(
+	        'value' => $field_value ? $field_value : '',
+	        'label' => __( 'PDF Content' ),
+	        'input' => 'html',
+	        'html'  => '<textarea name="attachments[' . $post->ID .'][pdf_content]" id="attachments[' . $post->ID .'][pdf_content]" style="height: 300px;" class="widefat">' . $field_value . '</textarea>',
+	        'helps' => __( 'Searchable conent of the PDF' )
+	    );
+	    return $form_fields;
+	}
+}
+add_filter( 'attachment_fields_to_edit', 'my_add_attachment_pdf_field', 10, 2 );
+
+/* Save edits from PDF field
+--------------------------------------------------------------------------------------*/
+function add_image_attachment_fields_to_save( $post, $attachment ) {
+	if ( isset( $attachment['pdf_content'] ) )
+		update_post_meta( $post['ID'], 'pdf_content', esc_attr($attachment['pdf_content']) );
+
+	return $post;
+}
+add_filter("attachment_fields_to_save", "add_image_attachment_fields_to_save", null , 2);

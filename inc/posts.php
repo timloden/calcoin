@@ -12,6 +12,7 @@ function prefix_conditional_body_class( $classes ) {
 	$show_sidebar_on_publications_list_page = get_field('show_sidebar_on_publication_list_page', 'option');
 	$show_sidebar_on_profile_detail_page = get_field('show_sidebar_on_profile_detail_page', 'option');
 	$show_sidebar_on_profile_list_page = get_field('show_sidebar_on_profile_list_page', 'option');
+	$show_sidebar_on_search_list_page = get_field('show_sidebar_on_search_list_page', 'option');
 
 	if ( is_home() ) {
 		if( $show_sidebar_on_news_list_page == 1 ) {
@@ -70,6 +71,14 @@ function prefix_conditional_body_class( $classes ) {
 
 		if( is_post_type_archive('profiles') && $show_sidebar_on_profile_list_page == 1 ) {
 
+			$classes[] = 'two-column';
+		}
+
+		return $classes;
+	}
+
+	if ( is_search() ) {
+		if( $show_sidebar_on_search_list_page == 1 ) {
 			$classes[] = 'two-column';
 		}
 
@@ -156,21 +165,23 @@ function my_set_image_meta_upon_image_upload( $post_ID ) {
 
 		// Create an array with the image meta (Title, Caption, Description) to be updated
 		// Note:  comment out the Excerpt/Caption or Content/Description lines if not needed
-		$my_image_meta = array(
-			'ID'		=> $post_ID,			// Specify the image (ID) to be updated
-			'post_title'	=> $my_image_title,		// Set image Title to sanitized title
-			'post_excerpt'	=> $my_image_title,		// Set image Caption (Excerpt) to sanitized title
-			'post_content'	=> $my_image_title,		// Set image Description (Content) to sanitized title
-		);
+		//$my_image_meta = array(
+		// 	'ID'		=> $post_ID,			// Specify the image (ID) to be updated
+		// 	'post_title'	=> $my_image_title,		// Set image Title to sanitized title
+		// 	'post_excerpt'	=> $my_image_title,		// Set image Caption (Excerpt) to sanitized title
+		// 	'post_content'	=> $my_image_title,		// Set image Description (Content) to sanitized title
+		// );
 
 		// Set the image Alt-Text
 		update_post_meta( $post_ID, '_wp_attachment_image_alt', $my_image_title );
 
 		// Set the image meta (e.g. Title, Excerpt, Content)
-		wp_update_post( $my_image_meta );
+		// wp_update_post( $my_image_meta );
 
 	}
 }
+
+
 
 /* Custom post type tags in archive pages
 --------------------------------------------------------------------------------------*/

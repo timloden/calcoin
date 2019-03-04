@@ -14,11 +14,17 @@ $event_date  = get_field( 'date' );
 $start_time  = get_field( 'start_time' );
 $end_time    = get_field( 'end_time' );
 $location    = get_field( 'location' );
+$alt = $image['alt'];
+if (!$image['alt']) {
+	$alt = get_the_title();
+}
 ?>
 <article class="course-item">
 	<div class="thumbnail">
 		<?php if ( $image ) : ?>
-				<a href="<?php the_permalink(); ?>"><img src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( the_title() ); ?>"></a>
+				<a href="<?php the_permalink(); ?>">
+					 <img src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $alt ); ?>" itemprop="image">
+				</a>
 		<?php endif; ?>
 	</div>
 

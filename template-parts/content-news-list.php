@@ -22,7 +22,7 @@ if ( !$alt ) {
  <article class="news-item">
     <div class="thumbnail"><img src="<?php echo esc_url($featured_img_url); ?>" alt="<?php echo esc_attr($alt); ?>"></div>
     <div class="info">
-        <div class="headline"><a href=""><?php echo esc_attr( the_title() ); ?></a></div>
+        <div class="headline"><a href="<?php the_permalink(); ?>"><?php echo esc_attr( the_title() ); ?></a></div>
         <div class="description"><p><?php echo get_the_excerpt(); ?></p></div>
         <div class="published">Published: <time datetime="<?php echo get_the_date( 'F j, Y' ); ?>"><?php echo get_the_date( 'F j, Y' ); ?></time></div>
     </div>

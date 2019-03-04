@@ -312,7 +312,6 @@ $custom_code = get_field('custom_code', 'option');
 					});
 		        </script> -->
 
-		        <?php if ( !is_page_template('page-search.php') ) : ?>
 		        <form action="<?php echo site_url('serp');?>" class="google-search">
 				    <input name="cx" type="hidden" value="<?php echo esc_attr($search_engine_id);?>">
 				    <input name="ie" type="hidden" value="UTF-8">
@@ -320,6 +319,20 @@ $custom_code = get_field('custom_code', 'option');
 				    <button type="submit" class="search-button"><span class="ca-gov-icon-search"></span></button>
 					<button type="button" class="clear-search"><span class="ca-gov-icon-close-mark"></span></button>
 				</form>
+
+		     <?php else : ?>
+
+		     <div id="head-search" class="search-container <?php if($featured_search && !is_page_template('page-search.php') && is_front_page()) { echo('featured-search'); } ;?> hidden-print in play-animation">
+
+		        <?php if ( !is_page_template('page-search.php') ) : ?>
+
+				<form action="/" method="get" class="google-search">
+				    <label for="search">Search in <?php echo home_url( '/' ); ?></label>
+				    <input type="text" name="s" class="search-box" id="search" value="<?php the_search_query(); ?>" />
+				    <button type="submit" class="search-button"><span class="ca-gov-icon-search"></span></button>
+					<button type="button" class="clear-search"><span class="ca-gov-icon-close-mark"></span></button>
+				</form>
+
 				<?php endif; ?>
 	        </div>
 

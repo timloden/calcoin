@@ -181,8 +181,6 @@ function my_set_image_meta_upon_image_upload( $post_ID ) {
 	}
 }
 
-
-
 /* Custom post type tags in archive pages
 --------------------------------------------------------------------------------------*/
 function wpse28145_add_custom_types( $query ) {

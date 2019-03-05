@@ -294,7 +294,7 @@ $custom_code = get_field('custom_code', 'option');
 	        <div id="head-search" class="search-container <?php if($featured_search && !is_page_template('page-search.php') && is_front_page()) { echo('featured-search'); } ;?> hidden-print in play-animation">
 	            <!-- Include Search -->
 	        	<!-- <script type="text/javascript">
-				    var cx = '<?php echo esc_attr($search_engine_id);?>';// Step 7: Update this value with your search engine unique ID. Submit a request to the CDT Service Desk if you don't already know your unique search engine ID.
+				    var cx = '<?php echo esc_attr($search_engine_id);?>';
 				    var gcse = document.createElement('script');
 				    gcse.type = 'text/javascript';
 				    gcse.async = true;
@@ -315,10 +315,11 @@ $custom_code = get_field('custom_code', 'option');
 		        <form action="<?php echo site_url('serp');?>" class="google-search">
 				    <input name="cx" type="hidden" value="<?php echo esc_attr($search_engine_id);?>">
 				    <input name="ie" type="hidden" value="UTF-8">
-				    <input class="search-box" id="q" name="q" onfocus="document.getElementById('q').value=''" type="text" placeholder="Search..." aria-label="Website Search">
+				    <input class="search-box" id="q" name="q" onfocus="document.getElementById('q').value=''" type="text" placeholder="" aria-label="Website Search">
 				    <button type="submit" class="search-button"><span class="ca-gov-icon-search"></span></button>
 					<button type="button" class="clear-search"><span class="ca-gov-icon-close-mark"></span></button>
 				</form>
+
 
 		     <?php else : ?>
 

@@ -82,7 +82,7 @@ a,abbr,acronym,address,applet,b,big,blockquote,body,center,cite,code,dd,del,dfn,
 }
 
 .google-search {
-	background-color: rgba(255,255,255,.8);
+	background-color: rgb(255,255,255);
     border-radius: 0;
     border: 3px solid transparent;
     transition: border .4s;
@@ -100,6 +100,8 @@ a,abbr,acronym,address,applet,b,big,blockquote,body,center,cite,code,dd,del,dfn,
 		width: 100%;
 		font-size: 1.1rem;
 		margin-right: 10px;
+		background: url(https://www.google.com/cse/static/images/1x/googlelogo_lightgrey_46x16dp.png) left center no-repeat;
+		padding-left: 50px;
 	}
 
 	.search-button {

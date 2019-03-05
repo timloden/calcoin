@@ -154,6 +154,8 @@ function my_add_attachment_pdf_field( $form_fields, $post ) {
 	    );
 	    return $form_fields;
 	}
+
+	return $form_fields;
 }
 add_filter( 'attachment_fields_to_edit', 'my_add_attachment_pdf_field', 10, 2 );
 

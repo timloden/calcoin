@@ -1,6 +1,7 @@
 <?php
 
-// 1. customize ACF path
+/* 1. Customize ACF path
+--------------------------------------------------------------------------------------*/
 add_filter('acf/settings/path', 'my_acf_settings_path');
 
 function my_acf_settings_path( $path ) {
@@ -12,7 +13,8 @@ function my_acf_settings_path( $path ) {
 
 }
 
-// 2. customize ACF dir
+/* 2. Customize ACF dir
+--------------------------------------------------------------------------------------*/
 add_filter('acf/settings/dir', 'my_acf_settings_dir');
 
 function my_acf_settings_dir( $dir ) {
@@ -25,14 +27,19 @@ function my_acf_settings_dir( $dir ) {
 
 }
 
-// 3. Hide ACF field group menu item
+/* 3. Hide ACF field group menu item
+--------------------------------------------------------------------------------------*/
 //add_filter('acf/settings/show_admin', '__return_false');
 
 // 4. Include ACF
 include_once( get_stylesheet_directory() . '/acf/acf.php' );
 
-// Dev Google maps key
-// AIzaSyBHMxEO9Xi1gnDzjxhhqo4CA8Nczf9EZS4
+
+/* ACF Google maps key
+--------------------------------------------------------------------------------------*/
+//DEV KEY - AIzaSyBHMxEO9Xi1gnDzjxhhqo4CA8Nczf9EZS4
+
+add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
 
 function my_acf_google_map_api( $api ){
 
@@ -42,10 +49,10 @@ function my_acf_google_map_api( $api ){
 
 }
 
-add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
 
+/* CAWeb Options page
+--------------------------------------------------------------------------------------*/
 
-// CAWeb Options page
 if( function_exists('acf_add_options_page') ) {
 
 	acf_add_options_page(array(

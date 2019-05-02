@@ -43,6 +43,16 @@ function acf_styles() {
 }
 
 
+/* Add icon fonts to admin area
+--------------------------------------------------------------------------------------*/
+
+add_action( 'admin_enqueue_scripts', 'load_admin_style' );
+
+function load_admin_style() {
+    wp_enqueue_style( 'admin_fonts_css', get_template_directory_uri() . '/styles/cagov.font-only.css', false, '1.0.0' );
+}
+
+
 /* Change logo to caweb and check if there is a custom logo
 --------------------------------------------------------------------------------------*/
 

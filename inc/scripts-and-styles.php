@@ -17,8 +17,6 @@ function caweb_styles() {
 	$general_settings = get_field('general_settings', 'option');
 	$color_scheme = $general_settings['color_scheme'];
 
-	wp_enqueue_style( 'global-styles', get_template_directory_uri() . '/styles/cagov.core.min.css', [], '5.5.0', 'all' );
-
 	if ($color_scheme) {
 		wp_enqueue_style( $color_scheme . '-theme', get_template_directory_uri() . '/color-schemes/colorscheme-' . $color_scheme . '.min.css', [], '5.5.0', 'all' );
 	} else {

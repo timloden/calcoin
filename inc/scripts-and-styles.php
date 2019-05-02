@@ -12,25 +12,22 @@ add_action( 'wp_enqueue_scripts', 'caweb_styles', 99 );
 
 function caweb_styles() {
 
-	$state_template_version = '5.0.6';
-	$theme_version = '0.0.0';
-
 	wp_dequeue_style( 'et-builder-modules-style' );
 
 	$general_settings = get_field('general_settings', 'option');
 	$color_scheme = $general_settings['color_scheme'];
 
 	if ($color_scheme) {
-		wp_enqueue_style( $color_scheme . '-theme', get_template_directory_uri() . '/color-schemes/colorscheme-' . $color_scheme . '.min.css', [], $state_template_version, 'all' );
+		wp_enqueue_style( $color_scheme . '-theme', get_template_directory_uri() . '/color-schemes/colorscheme-' . $color_scheme . '.min.css', [], '5.0.6', 'all' );
 	} else {
-		wp_enqueue_style( 'oceanside-theme', get_template_directory_uri() . '/color-schemes/colorscheme-oceanside.min.css', [], $state_template_version, 'all' );
+		wp_enqueue_style( 'oceanside-theme', get_template_directory_uri() . '/color-schemes/colorscheme-oceanside.min.css', [], '5.0.6', 'all' );
 	}
 
 	if (is_page_template('page-search.php')) {
 		//wp_enqueue_style( 'google-search', 'http://www.google.com/cse/style/look/default.css', [], '1.0.0', 'all' );
 	}
 
-	wp_enqueue_style( 'caweb-standard', get_stylesheet_uri(), [], $theme_version );
+	wp_enqueue_style( 'caweb-standard', get_stylesheet_uri(), [], '0.0.0' );
 
 	// custom uploaded stylesheets
 	if( have_rows('upload_css', 'options') ):
@@ -49,20 +46,24 @@ add_action( 'wp_enqueue_scripts', 'caweb_scripts' );
 
 function caweb_scripts() {
 
+	global $state_template_version;
+	global $theme_version;
+
 	$utility_settings = get_field('utility_header', 'option');
 
 	$geolocator = isset($utility_settings['enable_geo_locator']) ? $utility_settings['enable_geo_locator'] : false;
 
 	if ($geolocator) {
-		//wp_enqueue_script( 'geolocator', get_template_directory_uri() . '/js/libs/geolocator.js', [], '1.0.0', true );
+		wp_enqueue_script( 'geolocator', get_template_directory_uri() . '/assets/js/custom/libs/geolocator.js', [], '0.0.0', true );
 	}
 
-	// wp_enqueue_script( 'custom-js', get_template_directory_uri() . '/js/custom.js', [], '1.0.0', true );
-	//wp_enqueue_script( 'custom-js', get_template_directory_uri() . '/app.js', ['jquery'], '1.0.0', true );
+	wp_enqueue_script( 'custom-scripts', get_template_directory_uri() . '/assets/js/custom.min.js', ['jquery'], '0.0.0', true );
+
+	wp_enqueue_script( 'vendor-scripts', get_template_directory_uri() . '/assets/js/vendor.min.js', ['jquery'], '0.0.0', true );
 
 	if( have_rows('custom_uploads', 'options') ):
 		while( have_rows('custom_uploads', 'option') ): the_row();
-			wp_enqueue_script( 'custom-js-' . get_row_index(), get_sub_field('javascript_files'), ['jquery'], '1.0.0', true );
+			wp_enqueue_script( 'custom-js-' . get_row_index(), get_sub_field('javascript_files'), ['jquery'], '0.0.0', true );
 		endwhile;
 	endif;
 

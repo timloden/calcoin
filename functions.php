@@ -1,11 +1,9 @@
 <?php
-/**
- * CAWeb Standard functions and definitions
- *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- *
- * @package CAWeb_Standard
- */
+
+/* Standard underscores functions
+--------------------------------------------------------------------------------------*/
+
+add_action( 'after_setup_theme', 'caweb_standard_setup' );
 
 if ( ! function_exists( 'caweb_standard_setup' ) ) :
 	/**
@@ -58,13 +56,11 @@ if ( ! function_exists( 'caweb_standard_setup' ) ) :
 		add_theme_support( 'customize-selective-refresh-widgets' );
 	}
 endif;
-add_action( 'after_setup_theme', 'caweb_standard_setup' );
 
-/**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
+
+/* Register sidebar
+--------------------------------------------------------------------------------------*/
+
 function caweb_standard_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'caweb-standard' ),
@@ -78,9 +74,12 @@ function caweb_standard_widgets_init() {
 }
 add_action( 'widgets_init', 'caweb_standard_widgets_init' );
 
-/**
- * Autoload functions.
- */
+
+/* Autoload function files
+--------------------------------------------------------------------------------------*/
+
+add_action( 'after_setup_theme', 'caweb_autoload' );
+
 function caweb_autoload() {
 	$function_path = pathinfo( __FILE__ );
 
@@ -89,22 +88,19 @@ function caweb_autoload() {
 	}
 }
 
-add_action( 'after_setup_theme', 'caweb_autoload' );
 
-
-
-/**
- * Include ACF addons
- */
+/* Include ACF Addons
+--------------------------------------------------------------------------------------*/
 
 include_once('acf-addons/acf-fonticonpicker/acf-fonticonpicker.php');
 include_once('acf-addons/acf-code-field/acf-code-field.php');
 
-/**
- *	This will hide the Divi "Project" post type.
- *	Thanks to georgiee (https://gist.github.com/EngageWP/062edef103469b1177bc#gistcomment-1801080) for his improved solution.
- */
+
+/* Hide Divi projects
+--------------------------------------------------------------------------------------*/
+
 add_filter( 'et_project_posttype_args', 'mytheme_et_project_posttype_args', 10, 1 );
+
 function mytheme_et_project_posttype_args( $args ) {
 	return array_merge( $args, array(
 		'public'              => false,
@@ -115,56 +111,56 @@ function mytheme_et_project_posttype_args( $args ) {
 	));
 }
 
-/* Add PDF meta data
+/* Add PDF meta data - Saved for a later time
 --------------------------------------------------------------------------------------*/
-add_action( 'add_attachment', 'my_set_pdf_meta_upon_image_upload' );
+// add_action( 'add_attachment', 'my_set_pdf_meta_upon_image_upload' );
 
-function my_set_pdf_meta_upon_image_upload( $post_ID ) {
+// function my_set_pdf_meta_upon_image_upload( $post_ID ) {
 
-	// Check if uploaded file is a pdf, else do nothing
+// 	// Check if uploaded file is a pdf, else do nothing
 
-	if ( get_post_mime_type( $post_ID ) == 'application/pdf' ) {
+// 	if ( get_post_mime_type( $post_ID ) == 'application/pdf' ) {
 
-		include 'lib/pdfparser/vendor/autoload.php';
-    	$parser = new \Smalot\PdfParser\Parser();
+// 		include 'lib/pdfparser/vendor/autoload.php';
+//     	$parser = new \Smalot\PdfParser\Parser();
 
-		try {
-        	$pdf = $parser->parseFile( wp_get_attachment_url( $post_ID ) );
-    		$text = $pdf->getText();
-	    } catch (\Exception $e) {
-	    	$text = '';
-	    }
+// 		try {
+//         	$pdf = $parser->parseFile( wp_get_attachment_url( $post_ID ) );
+//     		$text = $pdf->getText();
+// 	    } catch (\Exception $e) {
+// 	    	$text = '';
+// 	    }
 
-		add_post_meta( $post_ID, 'pdf_content', $text );
+// 		add_post_meta( $post_ID, 'pdf_content', $text );
 
-	}
-}
+// 	}
+// }
 
 /* Add Editable field to PDF
 --------------------------------------------------------------------------------------*/
-function my_add_attachment_pdf_field( $form_fields, $post ) {
-	if ( get_post_mime_type( $post ) == 'application/pdf' ) {
-	    $field_value = get_post_meta( $post->ID, 'pdf_content', true );
-	    $form_fields['pdf_content'] = array(
-	        'value' => $field_value ? $field_value : '',
-	        'label' => __( 'PDF Content' ),
-	        'input' => 'html',
-	        'html'  => '<textarea name="attachments[' . $post->ID .'][pdf_content]" id="attachments[' . $post->ID .'][pdf_content]" style="height: 300px;" class="widefat">' . $field_value . '</textarea>',
-	        'helps' => __( 'Searchable conent of the PDF' )
-	    );
-	    return $form_fields;
-	}
+// function my_add_attachment_pdf_field( $form_fields, $post ) {
+// 	if ( get_post_mime_type( $post ) == 'application/pdf' ) {
+// 	    $field_value = get_post_meta( $post->ID, 'pdf_content', true );
+// 	    $form_fields['pdf_content'] = array(
+// 	        'value' => $field_value ? $field_value : '',
+// 	        'label' => __( 'PDF Content' ),
+// 	        'input' => 'html',
+// 	        'html'  => '<textarea name="attachments[' . $post->ID .'][pdf_content]" id="attachments[' . $post->ID .'][pdf_content]" style="height: 300px;" class="widefat">' . $field_value . '</textarea>',
+// 	        'helps' => __( 'Searchable conent of the PDF' )
+// 	    );
+// 	    return $form_fields;
+// 	}
 
-	return $form_fields;
-}
-add_filter( 'attachment_fields_to_edit', 'my_add_attachment_pdf_field', 10, 2 );
+// 	return $form_fields;
+// }
+// add_filter( 'attachment_fields_to_edit', 'my_add_attachment_pdf_field', 10, 2 );
 
 /* Save edits from PDF field
 --------------------------------------------------------------------------------------*/
-function add_image_attachment_fields_to_save( $post, $attachment ) {
-	if ( isset( $attachment['pdf_content'] ) )
-		update_post_meta( $post['ID'], 'pdf_content', esc_attr($attachment['pdf_content']) );
+// function add_image_attachment_fields_to_save( $post, $attachment ) {
+// 	if ( isset( $attachment['pdf_content'] ) )
+// 		update_post_meta( $post['ID'], 'pdf_content', esc_attr($attachment['pdf_content']) );
 
-	return $post;
-}
-add_filter("attachment_fields_to_save", "add_image_attachment_fields_to_save", null , 2);
+// 	return $post;
+// }
+// add_filter("attachment_fields_to_save", "add_image_attachment_fields_to_save", null , 2);

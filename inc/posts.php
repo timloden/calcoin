@@ -1,4 +1,10 @@
 <?php
+
+/* Add body classes if sidebar or not
+--------------------------------------------------------------------------------------*/
+
+add_filter( 'body_class', 'prefix_conditional_body_class' );
+
 function prefix_conditional_body_class( $classes ) {
 
 	$show_sidebar_on_course_detail_page = get_field('show_sidebar_on_course_detail_page', 'option');
@@ -87,29 +93,28 @@ function prefix_conditional_body_class( $classes ) {
 
 }
 
-add_filter( 'body_class', 'prefix_conditional_body_class' );
 
-// add drop down for custom styles
+/* Add dropdown list styles
+--------------------------------------------------------------------------------------*/
+
+add_filter('mce_buttons_2', 'wpb_mce_buttons_2');
 
 function wpb_mce_buttons_2($buttons) {
 	array_unshift($buttons, 'styleselect');
 	return $buttons;
 }
-add_filter('mce_buttons_2', 'wpb_mce_buttons_2');
+
+/* Add list styles to tinymce
+--------------------------------------------------------------------------------------*/
+
+add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' );
 
 function my_mce_before_init_insert_formats( $init_array ) {
 
 // Define the style_formats array
 
 	$style_formats = array(
-/*
-* Each array child is a format with it's own settings
-* Notice that each array has title, block, classes, and wrapper arguments
-* Title is the label which will be visible in Formats menu
-* Block defines whether it is a span, div, selector, or inline style
-* Classes allows you to define CSS classes
-* Wrapper whether or not to add a new block-level element around any selected elements
-*/
+
 		array(
 			'title' => 'Overstated',
 			'selector' => 'ul',
@@ -142,13 +147,12 @@ function my_mce_before_init_insert_formats( $init_array ) {
 	return $init_array;
 
 }
-// Attach callback to 'tiny_mce_before_init'
-add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' );
 
 
 /* Automatically set the image Title, Alt-Text, Caption & Description upon upload
 --------------------------------------------------------------------------------------*/
 add_action( 'add_attachment', 'my_set_image_meta_upon_image_upload' );
+
 function my_set_image_meta_upon_image_upload( $post_ID ) {
 
 	// Check if uploaded file is an image, else do nothing
@@ -183,7 +187,9 @@ function my_set_image_meta_upon_image_upload( $post_ID ) {
 
 /* Custom post type tags in archive pages
 --------------------------------------------------------------------------------------*/
-function wpse28145_add_custom_types( $query ) {
+add_filter( 'pre_get_posts', 'custom_types_in_acrhives' );
+
+function custom_types_in_acrhives( $query ) {
     if( is_tag() && $query->is_main_query() ) {
 
         // this gets all post types:
@@ -195,4 +201,4 @@ function wpse28145_add_custom_types( $query ) {
         $query->set( 'post_type', $post_types );
     }
 }
-add_filter( 'pre_get_posts', 'wpse28145_add_custom_types' );
+

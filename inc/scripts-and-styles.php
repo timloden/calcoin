@@ -12,27 +12,30 @@ add_action( 'wp_enqueue_scripts', 'caweb_styles', 99 );
 
 function caweb_styles() {
 
+	$state_template_version = '5.0.6';
+	$theme_version = '0.0.0';
+
 	wp_dequeue_style( 'et-builder-modules-style' );
 
 	$general_settings = get_field('general_settings', 'option');
 	$color_scheme = $general_settings['color_scheme'];
 
 	if ($color_scheme) {
-		wp_enqueue_style( $color_scheme . '-theme', get_template_directory_uri() . '/color-schemes/colorscheme-' . $color_scheme . '.min.css', [], '5.5.0', 'all' );
+		wp_enqueue_style( $color_scheme . '-theme', get_template_directory_uri() . '/color-schemes/colorscheme-' . $color_scheme . '.min.css', [], $state_template_version, 'all' );
 	} else {
-		wp_enqueue_style( 'oceanside-theme', get_template_directory_uri() . '/color-schemes/colorscheme-oceanside.min.css', [], '5.5.0', 'all' );
+		wp_enqueue_style( 'oceanside-theme', get_template_directory_uri() . '/color-schemes/colorscheme-oceanside.min.css', [], $state_template_version, 'all' );
 	}
 
 	if (is_page_template('page-search.php')) {
 		//wp_enqueue_style( 'google-search', 'http://www.google.com/cse/style/look/default.css', [], '1.0.0', 'all' );
 	}
 
-	wp_enqueue_style( 'caweb-standard', get_stylesheet_uri() );
+	wp_enqueue_style( 'caweb-standard', get_stylesheet_uri(), [], $theme_version );
 
 	// custom uploaded stylesheets
 	if( have_rows('upload_css', 'options') ):
 		while( have_rows('upload_css', 'option') ): the_row();
-			wp_enqueue_style( 'custom-stylesheet-' . get_row_index(), get_sub_field('stylesheets'), [], '1.0.0', 'all' );
+			wp_enqueue_style( 'custom-stylesheet-' . get_row_index(), get_sub_field('stylesheets'), [], $theme_version, 'all' );
 		endwhile;
 	endif;
 
@@ -51,11 +54,11 @@ function caweb_scripts() {
 	$geolocator = isset($utility_settings['enable_geo_locator']) ? $utility_settings['enable_geo_locator'] : false;
 
 	if ($geolocator) {
-		wp_enqueue_script( 'geolocator', get_template_directory_uri() . '/js/libs/geolocator.js', [], '1.0.0', true );
+		//wp_enqueue_script( 'geolocator', get_template_directory_uri() . '/js/libs/geolocator.js', [], '1.0.0', true );
 	}
 
 	// wp_enqueue_script( 'custom-js', get_template_directory_uri() . '/js/custom.js', [], '1.0.0', true );
-	wp_enqueue_script( 'custom-js', get_template_directory_uri() . '/app.js', ['jquery'], '1.0.0', true );
+	//wp_enqueue_script( 'custom-js', get_template_directory_uri() . '/app.js', ['jquery'], '1.0.0', true );
 
 	if( have_rows('custom_uploads', 'options') ):
 		while( have_rows('custom_uploads', 'option') ): the_row();

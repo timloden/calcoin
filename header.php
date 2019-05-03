@@ -71,10 +71,10 @@ $custom_code = get_field('custom_code', 'option');
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<link alt="Fav Icon" rel="icon" href="<?php echo esc_url($favicon); ?>">
-	<link rel="apple-touch-icon" sizes="144x144" href="<?php echo esc_url(get_template_directory_uri());?>/images/apple-touch-icon-144x144.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="<?php echo esc_url(get_template_directory_uri());?>/images/apple-touch-icon-114x114.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="<?php echo esc_url(get_template_directory_uri());?>/images/apple-touch-icon-72x72.png">
-	<link rel="apple-touch-icon" href="<?php echo esc_url(get_template_directory_uri());?>/images/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="<?php echo esc_url(get_template_directory_uri());?>/assets/img/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="<?php echo esc_url(get_template_directory_uri());?>/assets/img/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="<?php echo esc_url(get_template_directory_uri());?>/assets/img/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" href="<?php echo esc_url(get_template_directory_uri());?>/assets/img/apple-touch-icon-57x57.png">
 
 	<?php if ($meta_id): ?>
 		<meta name="google-site-verification" content="<?php echo esc_attr($meta_id); ?>" />
@@ -137,89 +137,88 @@ $custom_code = get_field('custom_code', 'option');
 		<!-- Utility Header -->
 		<div class="utility-header">
 		    <div class="container <?php //if($google_translate == 'standard') { echo('translate-standard'); } ;?>">
-		        <div class="group">
-		            <div class="half">
+		       <div class="group flex-row">
+            		<div class="social-media-links">
 
-		                <ul class="utility-links social-media-links">
-		                    <li><div class="header-cagov-logo"><a href="https://ca.gov"><img src="<?php echo esc_url(get_template_directory_uri());?>/images/Ca-Gov-Logo-Gold.svg" alt="CA.gov" /></a></div></li>
+		                    <div class="header-cagov-logo">
+		                    	<a href="https://www.ca.gov"><span class="sr-only">CA.gov</span><img src="<?php echo esc_url(get_template_directory_uri());?>/assets/img/Ca-Gov-Logo-Gold.svg" class="pos-rel" alt="" aria-hidden="true"></a>
+		                    </div>
 
 		                	<?php if ($utility_home_link): ?>
-								<li><a href="/"><span class="ca-gov-icon-home" aria-hidden="true"></span><span class="sr-only">Home</span></a></li>
+								<a href="/" class="ca-gov-icon-home"><span class="sr-only">Home</span></a>
 							<?php endif; ?>
 
 							<?php if ($facebook['url'] && $facebook['show_in_header'] == 1): ?>
-								<li><a href="<?php echo esc_url($facebook['url']);?>" class="ca-gov-icon-facebook" title="Share via Facebook"><span class="sr-only">Facebook</span></a></li>
+								<a href="<?php echo esc_url($facebook['url']);?>" class="ca-gov-icon-facebook"><span class="sr-only">Facebook</span></a>
 							<?php endif; ?>
 
 							<?php if ($twitter['url'] && $twitter['show_in_header'] == 1): ?>
-								<li><a href="<?php echo esc_url($twitter['url']);?>" class="ca-gov-icon-twitter" title="Share via Twitter"><span class="sr-only">Twitter</span></a></li>
+								<a href="<?php echo esc_url($twitter['url']);?>" class="ca-gov-icon-twitter"><span class="sr-only">Twitter</span></a>
 							<?php endif; ?>
 
 							<?php if ($flickr['url'] && $flickr['show_in_header'] == 1): ?>
-								<li><a href="<?php echo esc_url($flickr['url']);?>" class="ca-gov-icon-flickr" title="Share via Flickr"><span class="sr-only">Flickr</span></a></li>
+								<a href="<?php echo esc_url($flickr['url']);?>" class="ca-gov-icon-flickr"><span class="sr-only">Flickr</span></a>
 							<?php endif; ?>
 
 							<?php if ($pinterest['url'] && $pinterest['show_in_header'] == 1): ?>
-								<li><a href="<?php echo esc_url($pinterest['url']);?>" class="ca-gov-icon-pinterest" title="Share via Pinterest"><span class="sr-only">Pinterest</span></a></li>
+								<a href="<?php echo esc_url($pinterest['url']);?>" class="ca-gov-icon-pinterest"><span class="sr-only">Pinterest</span></a>
 							<?php endif; ?>
 
 							<?php if ($youtube['url'] && $youtube['show_in_header'] == 1): ?>
-								<li><a href="<?php echo esc_url($youtube['url']);?>" class="ca-gov-icon-youtube" title="Share via YouTube"><span class="sr-only">YouTube</span></a></li>
+								<a href="<?php echo esc_url($youtube['url']);?>" class="ca-gov-icon-youtube"><span class="sr-only">YouTube</span></a>
 							<?php endif; ?>
 
 							<?php if ($instagram['url'] && $instagram['show_in_header'] == 1): ?>
-								<li><a href="<?php echo esc_url($instagram['url']);?>" class="ca-gov-icon-instagram" title="Share via Instagram"><span class="sr-only">Instagram</span></a></li>
+								<a href="<?php echo esc_url($instagram['url']);?>" class="ca-gov-icon-instagram"><span class="sr-only">Instagram</span></a>
 							<?php endif; ?>
 
 							<?php if ($linkedin['url'] && $linkedin['show_in_header'] == 1): ?>
-								<li><a href="<?php echo esc_url($linkedin['url']);?>" class="ca-gov-icon-linkedin" title="Share via LinkedIn"><span class="sr-only">LinkedIn</span></a></li>
+								<a href="<?php echo esc_url($linkedin['url']);?>" class="ca-gov-icon-linkedin"><span class="sr-only">LinkedIn</span></a>
 							<?php endif; ?>
 
 							<?php if ($rss['url'] && $rss['show_in_header'] == 1): ?>
-								<li><a href="<?php echo esc_url($rss['url']);?>" class="ca-gov-icon-rss" title="Share via RSS"><span class="sr-only">RSS</span></a></li>
+								<a href="<?php echo esc_url($rss['url']);?>" class="ca-gov-icon-rss"><span class="sr-only">RSS</span></a>
 							<?php endif; ?>
 
 							<?php if ($share_email['show_in_header'] == 1): ?>
-								<li><a href="mailto:?subject=<?php bloginfo( 'name' ); ?>&body=<?php echo site_url(); ?>" class="ca-gov-icon-email" title="Share via Email"><span class="sr-only">Email</span></a></li>
+								<a href="mailto:?subject=<?php bloginfo( 'name' ); ?>&body=<?php echo site_url(); ?>" class="ca-gov-icon-email"><span class="sr-only">Email</span></a>
 							<?php endif; ?>
 
-		                </ul>
+
 		            </div>
 
-		            <div class="half settings-links">
-		                <ul class="utility-links ">
-							<?php if ($use_utility_link_1) : ?>
-		                		<li><a href="<?php echo esc_url($utility_link_1['custom_link_1_url']); ?>"<?php if ($utility_link_1['open_custom_link_1_in_new_tab'] == 1): ?> target="_blank" <?php endif; ?> ><?php echo esc_attr($utility_link_1['custom_link_1_text']); ?></a>
-		                		</li>
-		                	<?php endif; ?>
+		            <div class="settings-links">
+						<?php if ($use_utility_link_1) : ?>
+	                		<a href="<?php echo esc_url($utility_link_1['custom_link_1_url']); ?>"<?php if ($utility_link_1['open_custom_link_1_in_new_tab'] == 1): ?> target="_blank" <?php endif; ?> ><?php echo esc_attr($utility_link_1['custom_link_1_text']); ?></a>
 
-		                	<?php if ($use_utility_link_2) : ?>
-		                		<li><a href="<?php echo esc_url($utility_link_2['custom_link_2_url']); ?>"<?php if ($utility_link_2['open_custom_link_2_in_new_tab'] == 1): ?> target="_blank" <?php endif; ?>><?php echo esc_attr($utility_link_2['custom_link_2_text']); ?></a></li>
-		                	<?php endif; ?>
+	                	<?php endif; ?>
 
-		                	<?php if ($use_utility_link_3) : ?>
-		                		<li><a href="<?php echo esc_url($utility_link_3['custom_link_3_url']); ?>"<?php if ($utility_link_3['open_custom_link_3_in_new_tab'] == 1): ?> target="_blank" <?php endif; ?>><?php echo esc_attr($utility_link_3['custom_link_3_text']); ?></a></li>
-		                	<?php endif; ?>
+	                	<?php if ($use_utility_link_2) : ?>
+	                		<a href="<?php echo esc_url($utility_link_2['custom_link_2_url']); ?>"<?php if ($utility_link_2['open_custom_link_2_in_new_tab'] == 1): ?> target="_blank" <?php endif; ?>><?php echo esc_attr($utility_link_2['custom_link_2_text']); ?></a>
+	                	<?php endif; ?>
 
-		                    <?php if ($utility_contact_page) : ?>
-		                    	<li><a href="<?php echo esc_url($utility_contact_page);?>">Contact Us</a></li>
-		                	<?php endif; ?>
+	                	<?php if ($use_utility_link_3) : ?>
+	                		<a href="<?php echo esc_url($utility_link_3['custom_link_3_url']); ?>"<?php if ($utility_link_3['open_custom_link_3_in_new_tab'] == 1): ?> target="_blank" <?php endif; ?>><?php echo esc_attr($utility_link_3['custom_link_3_text']); ?></a>
+	                	<?php endif; ?>
 
-		                    <li><button class="btn btn-xs btn-primary" id="settings-btn" data-toggle="collapse" href="#siteSettings"><span class="ca-gov-icon-gear" aria-hidden="true"></span> Settings</button></li>
+	                    <?php if ($utility_contact_page) : ?>
+	                    	<a href="<?php echo esc_url($utility_contact_page);?>"><span class="ca-gov-icon-contact-us" aria-hidden="true"></span>Contact Us</a>
+	                	<?php endif; ?>
 
-							<?php if ($geo_locator) : ?>
-		                    	<li class="utility-geo-locator"><a role="button" aria-expanded="false" aria-controls="locationSettings" class="geo-lookup"><span class="ca-gov-icon-compass" aria-hidden="true"></span > <span class="located-city-name"></span></a></li>
-		                    <?php endif; ?>
+	                	<button class="btn btn-xs btn-primary" data-toggle="collapse" data-target="#siteSettings" aria-expanded="false" aria-controls="siteSettings"><span class="ca-gov-icon-gear" aria-hidden="true"></span> Settings</button>
 
-							<?php if ($google_translate =='custom') : ?>
-		                    	<li><a id="caweb-gtrans-custom" target="_blank" href="<?php echo esc_url($translate_url); ?>">
-		                    		<span class="ca-gov-<?php echo esc_attr($translate_icon); ?>"></span> Translate</a></li>
-		                    <?php endif; ?>
+						<?php if ($geo_locator) : ?>
+	                    	<div class="utility-geo-locator"><a role="button" aria-expanded="false" aria-controls="locationSettings" class="geo-lookup"><span class="ca-gov-icon-compass" aria-hidden="true"></span > <span class="located-city-name"></span></a></div>
+	                    <?php endif; ?>
 
-		                    <?php if ($google_translate =='standard') : ?>
-								<li><div class="standard-translate" id="google_translate_element"></div></li>
-							<?php endif; ?>
-		                </ul>
+						<?php if ($google_translate =='custom') : ?>
+	                    	<a id="caweb-gtrans-custom" target="_blank" href="<?php echo esc_url($translate_url); ?>">
+	                    		<span class="ca-gov-<?php echo esc_attr($translate_icon); ?>"></span> Translate</a>
+	                    <?php endif; ?>
+
+	                    <?php if ($google_translate =='standard') : ?>
+							<div class="standard-translate" id="google_translate_element"></div>
+						<?php endif; ?>
 		            </div>
 
 					<?php if ($google_translate =='standard') : ?>

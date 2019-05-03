@@ -46,9 +46,6 @@ add_action( 'wp_enqueue_scripts', 'caweb_scripts' );
 
 function caweb_scripts() {
 
-	global $state_template_version;
-	global $theme_version;
-
 	$utility_settings = get_field('utility_header', 'option');
 
 	$geolocator = isset($utility_settings['enable_geo_locator']) ? $utility_settings['enable_geo_locator'] : false;

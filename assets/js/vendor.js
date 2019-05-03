@@ -1,5 +1,5 @@
 "use strict";function _defineProperty2(obj,key,value){if(key in obj){Object.defineProperty(obj,key,{value:value,enumerable:true,configurable:true,writable:true});}else{obj[key]=value;}return obj;}function _typeof(obj){if(typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"){_typeof=function _typeof(obj){return typeof obj;};}else{_typeof=function _typeof(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol&&obj!==Symbol.prototype?"symbol":typeof obj;};}return _typeof(obj);}/**
- * CA State Template v5 -  @version v5.0.6 -  4/11/2019 
+ * CA State Template v5 -  @version v5.0.6 -  4/11/2019
   STYLES COMPILED FROM SOURCE (source/js) DO NOT MODIFY */ /*! modernizr (Custom Build) | MIT *
  * https://modernizr.com/download/?-flexbox-setclasses !*/!function(e,n,t){function r(e,n){return _typeof(e)===n;}function o(){var e,n,t,o,s,i,l;for(var a in S){if(S.hasOwnProperty(a)){if(e=[],n=S[a],n.name&&(e.push(n.name.toLowerCase()),n.options&&n.options.aliases&&n.options.aliases.length))for(t=0;t<n.options.aliases.length;t++){e.push(n.options.aliases[t].toLowerCase());}for(o=r(n.fn,"function")?n.fn():n.fn,s=0;s<e.length;s++){i=e[s],l=i.split("."),1===l.length?Modernizr[l[0]]=o:(!Modernizr[l[0]]||Modernizr[l[0]]instanceof Boolean||(Modernizr[l[0]]=new Boolean(Modernizr[l[0]])),Modernizr[l[0]][l[1]]=o),C.push((o?"":"no-")+l.join("-"));}}}}function s(e){var n=x.className,t=Modernizr._config.classPrefix||"";if(_&&(n=n.baseVal),Modernizr._config.enableJSClass){var r=new RegExp("(^|\\s)"+t+"no-js(\\s|$)");n=n.replace(r,"$1"+t+"js$2");}Modernizr._config.enableClasses&&(n+=" "+t+e.join(" "+t),_?x.className.baseVal=n:x.className=n);}function i(e,n){return!!~(""+e).indexOf(n);}function l(){return"function"!=typeof n.createElement?n.createElement(arguments[0]):_?n.createElementNS.call(n,"http://www.w3.org/2000/svg",arguments[0]):n.createElement.apply(n,arguments);}function a(e){return e.replace(/([a-z])-([a-z])/g,function(e,n,t){return n+t.toUpperCase();}).replace(/^-/,"");}function f(e,n){return function(){return e.apply(n,arguments);};}function u(e,n,t){var o;for(var s in e){if(e[s]in n)return t===!1?e[s]:(o=n[e[s]],r(o,"function")?f(o,t||n):o);}return!1;}function c(e){return e.replace(/([A-Z])/g,function(e,n){return"-"+n.toLowerCase();}).replace(/^ms-/,"-ms-");}function p(n,t,r){var o;if("getComputedStyle"in e){o=getComputedStyle.call(e,n,t);var s=e.console;if(null!==o)r&&(o=o.getPropertyValue(r));else if(s){var i=s.error?"error":"log";s[i].call(s,"getComputedStyle returning null, its possible modernizr test results are inaccurate");}}else o=!t&&n.currentStyle&&n.currentStyle[r];return o;}function d(){var e=n.body;return e||(e=l(_?"svg":"body"),e.fake=!0),e;}function m(e,t,r,o){var s,i,a,f,u="modernizr",c=l("div"),p=d();if(parseInt(r,10))for(;r--;){a=l("div"),a.id=o?o[r]:u+(r+1),c.appendChild(a);}return s=l("style"),s.type="text/css",s.id="s"+u,(p.fake?p:c).appendChild(s),p.appendChild(c),s.styleSheet?s.styleSheet.cssText=e:s.appendChild(n.createTextNode(e)),c.id=u,p.fake&&(p.style.background="",p.style.overflow="hidden",f=x.style.overflow,x.style.overflow="hidden",x.appendChild(p)),i=t(c,e),p.fake?(p.parentNode.removeChild(p),x.style.overflow=f,x.offsetHeight):c.parentNode.removeChild(c),!!i;}function y(n,r){var o=n.length;if("CSS"in e&&"supports"in e.CSS){for(;o--;){if(e.CSS.supports(c(n[o]),r))return!0;}return!1;}if("CSSSupportsRule"in e){for(var s=[];o--;){s.push("("+c(n[o])+":"+r+")");}return s=s.join(" or "),m("@supports ("+s+") { #modernizr { position: absolute; } }",function(e){return"absolute"==p(e,null,"position");});}return t;}function v(e,n,o,s){function f(){c&&(delete N.style,delete N.modElem);}if(s=r(s,"undefined")?!1:s,!r(o,"undefined")){var u=y(e,o);if(!r(u,"undefined"))return u;}for(var c,p,d,m,v,g=["modernizr","tspan","samp"];!N.style&&g.length;){c=!0,N.modElem=l(g.shift()),N.style=N.modElem.style;}for(d=e.length,p=0;d>p;p++){if(m=e[p],v=N.style[m],i(m,"-")&&(m=a(m)),N.style[m]!==t){if(s||r(o,"undefined"))return f(),"pfx"==n?m:!0;try{N.style[m]=o;}catch(h){}if(N.style[m]!=v)return f(),"pfx"==n?m:!0;}}return f(),!1;}function g(e,n,t,o,s){var i=e.charAt(0).toUpperCase()+e.slice(1),l=(e+" "+P.join(i+" ")+i).split(" ");return r(n,"string")||r(n,"undefined")?v(l,n,o,s):(l=(e+" "+z.join(i+" ")+i).split(" "),u(l,n,t));}function h(e,n,r){return g(e,t,t,n,r);}var C=[],S=[],w={_version:"3.6.0",_config:{classPrefix:"",enableClasses:!0,enableJSClass:!0,usePrefixes:!0},_q:[],on:function on(e,n){var t=this;setTimeout(function(){n(t[e]);},0);},addTest:function addTest(e,n,t){S.push({name:e,fn:n,options:t});},addAsyncTest:function addAsyncTest(e){S.push({name:null,fn:e});}},Modernizr=function Modernizr(){};Modernizr.prototype=w,Modernizr=new Modernizr();var x=n.documentElement,_="svg"===x.nodeName.toLowerCase(),b="Moz O ms Webkit",P=w._config.usePrefixes?b.split(" "):[];w._cssomPrefixes=P;var z=w._config.usePrefixes?b.toLowerCase().split(" "):[];w._domPrefixes=z;var E={elem:l("modernizr")};Modernizr._q.push(function(){delete E.elem;});var N={style:E.elem.style};Modernizr._q.unshift(function(){delete N.style;}),w.testAllProps=g,w.testAllProps=h,Modernizr.addTest("flexbox",h("flexBasis","1px",!0)),o(),s(C),delete w.addTest,delete w.addAsyncTest;for(var T=0;T<Modernizr._q.length;T++){Modernizr._q[T]();}e.Modernizr=Modernizr;}(window,document);/* -----------------------------------------
    NO CONFLIT - /source/js/cagov/noconflict.js
@@ -42,10 +42,10 @@ if(!element.parentNode){return null;}return Util.findShadowRoot(element.parentNo
  * Constants
  * ------------------------------------------------------------------------
  */var NAME='alert';var VERSION='4.3.1';var DATA_KEY='bs.alert';var EVENT_KEY="."+DATA_KEY;var DATA_API_KEY='.data-api';var JQUERY_NO_CONFLICT=$.fn[NAME];var Selector={DISMISS:'[data-dismiss="alert"]'};var Event={CLOSE:"close"+EVENT_KEY,CLOSED:"closed"+EVENT_KEY,CLICK_DATA_API:"click"+EVENT_KEY+DATA_API_KEY};var ClassName={ALERT:'alert',FADE:'fade',SHOW:'show'/**
-     * ------------------------------------------------------------------------
-     * Class Definition
-     * ------------------------------------------------------------------------
-     */};var Alert=/*#__PURE__*/function(){function Alert(element){this._element=element;}// Getters
+	 * ------------------------------------------------------------------------
+	 * Class Definition
+	 * ------------------------------------------------------------------------
+	 */};var Alert=/*#__PURE__*/function(){function Alert(element){this._element=element;}// Getters
 var _proto=Alert.prototype;// Public
 _proto.close=function close(element){var rootElement=this._element;if(element){rootElement=this._getRootElement(element);}var customEvent=this._triggerCloseEvent(rootElement);if(customEvent.isDefaultPrevented()){return;}this._removeElement(rootElement);};_proto.dispose=function dispose(){$.removeData(this._element,DATA_KEY);this._element=null;}// Private
 ;_proto._getRootElement=function _getRootElement(element){var selector=Util.getSelectorFromElement(element);var parent=false;if(selector){parent=document.querySelector(selector);}if(!parent){parent=$(element).closest("."+ClassName.ALERT)[0];}return parent;};_proto._triggerCloseEvent=function _triggerCloseEvent(element){var closeEvent=$.Event(Event.CLOSE);$(element).trigger(closeEvent);return closeEvent;};_proto._removeElement=function _removeElement(element){var _this=this;$(element).removeClass(ClassName.SHOW);if(!$(element).hasClass(ClassName.FADE)){this._destroyElement(element);return;}var transitionDuration=Util.getTransitionDurationFromElement(element);$(element).one(Util.TRANSITION_END,function(event){return _this._destroyElement(element,event);}).emulateTransitionEnd(transitionDuration);};_proto._destroyElement=function _destroyElement(element){$(element).detach().trigger(Event.CLOSED).remove();}// Static
@@ -67,10 +67,10 @@ _proto.close=function close(element){var rootElement=this._element;if(element){r
  * Constants
  * ------------------------------------------------------------------------
  */var NAME$1='button';var VERSION$1='4.3.1';var DATA_KEY$1='bs.button';var EVENT_KEY$1="."+DATA_KEY$1;var DATA_API_KEY$1='.data-api';var JQUERY_NO_CONFLICT$1=$.fn[NAME$1];var ClassName$1={ACTIVE:'active',BUTTON:'btn',FOCUS:'focus'};var Selector$1={DATA_TOGGLE_CARROT:'[data-toggle^="button"]',DATA_TOGGLE:'[data-toggle="buttons"]',INPUT:'input:not([type="hidden"])',ACTIVE:'.active',BUTTON:'.btn'};var Event$1={CLICK_DATA_API:"click"+EVENT_KEY$1+DATA_API_KEY$1,FOCUS_BLUR_DATA_API:"focus"+EVENT_KEY$1+DATA_API_KEY$1+" "+("blur"+EVENT_KEY$1+DATA_API_KEY$1)/**
-     * ------------------------------------------------------------------------
-     * Class Definition
-     * ------------------------------------------------------------------------
-     */};var Button=/*#__PURE__*/function(){function Button(element){this._element=element;}// Getters
+	 * ------------------------------------------------------------------------
+	 * Class Definition
+	 * ------------------------------------------------------------------------
+	 */};var Button=/*#__PURE__*/function(){function Button(element){this._element=element;}// Getters
 var _proto=Button.prototype;// Public
 _proto.toggle=function toggle(){var triggerChangeEvent=true;var addAriaPressed=true;var rootElement=$(this._element).closest(Selector$1.DATA_TOGGLE)[0];if(rootElement){var input=this._element.querySelector(Selector$1.INPUT);if(input){if(input.type==='radio'){if(input.checked&&this._element.classList.contains(ClassName$1.ACTIVE)){triggerChangeEvent=false;}else{var activeElement=rootElement.querySelector(Selector$1.ACTIVE);if(activeElement){$(activeElement).removeClass(ClassName$1.ACTIVE);}}}if(triggerChangeEvent){if(input.hasAttribute('disabled')||rootElement.hasAttribute('disabled')||input.classList.contains('disabled')||rootElement.classList.contains('disabled')){return;}input.checked=!this._element.classList.contains(ClassName$1.ACTIVE);$(input).trigger('change');}input.focus();addAriaPressed=false;}}if(addAriaPressed){this._element.setAttribute('aria-pressed',!this._element.classList.contains(ClassName$1.ACTIVE));}if(triggerChangeEvent){$(this._element).toggleClass(ClassName$1.ACTIVE);}};_proto.dispose=function dispose(){$.removeData(this._element,DATA_KEY$1);this._element=null;}// Static
 ;Button._jQueryInterface=function _jQueryInterface(config){return this.each(function(){var data=$(this).data(DATA_KEY$1);if(!data){data=new Button(this);$(this).data(DATA_KEY$1,data);}if(config==='toggle'){data[config]();}});};_createClass(Button,null,[{key:"VERSION",get:function get(){return VERSION$1;}}]);return Button;}();/**
@@ -94,10 +94,10 @@ _proto.toggle=function toggle(){var triggerChangeEvent=true;var addAriaPressed=t
 var ARROW_RIGHT_KEYCODE=39;// KeyboardEvent.which value for right arrow key
 var TOUCHEVENT_COMPAT_WAIT=500;// Time for mouse compat events to fire after touch
 var SWIPE_THRESHOLD=40;var Default={interval:5000,keyboard:true,slide:false,pause:'hover',wrap:true,touch:true};var DefaultType={interval:'(number|boolean)',keyboard:'boolean',slide:'(boolean|string)',pause:'(string|boolean)',wrap:'boolean',touch:'boolean'};var Direction={NEXT:'next',PREV:'prev',LEFT:'left',RIGHT:'right'};var Event$2={SLIDE:"slide"+EVENT_KEY$2,SLID:"slid"+EVENT_KEY$2,KEYDOWN:"keydown"+EVENT_KEY$2,MOUSEENTER:"mouseenter"+EVENT_KEY$2,MOUSELEAVE:"mouseleave"+EVENT_KEY$2,TOUCHSTART:"touchstart"+EVENT_KEY$2,TOUCHMOVE:"touchmove"+EVENT_KEY$2,TOUCHEND:"touchend"+EVENT_KEY$2,POINTERDOWN:"pointerdown"+EVENT_KEY$2,POINTERUP:"pointerup"+EVENT_KEY$2,DRAG_START:"dragstart"+EVENT_KEY$2,LOAD_DATA_API:"load"+EVENT_KEY$2+DATA_API_KEY$2,CLICK_DATA_API:"click"+EVENT_KEY$2+DATA_API_KEY$2};var ClassName$2={CAROUSEL:'carousel',ACTIVE:'active',SLIDE:'slide',RIGHT:'carousel-item-right',LEFT:'carousel-item-left',NEXT:'carousel-item-next',PREV:'carousel-item-prev',ITEM:'carousel-item',POINTER_EVENT:'pointer-event'};var Selector$2={ACTIVE:'.active',ACTIVE_ITEM:'.active.carousel-item',ITEM:'.carousel-item',ITEM_IMG:'.carousel-item img',NEXT_PREV:'.carousel-item-next, .carousel-item-prev',INDICATORS:'.carousel-indicators',DATA_SLIDE:'[data-slide], [data-slide-to]',DATA_RIDE:'[data-ride="carousel"]'};var PointerType={TOUCH:'touch',PEN:'pen'/**
-     * ------------------------------------------------------------------------
-     * Class Definition
-     * ------------------------------------------------------------------------
-     */};var Carousel=/*#__PURE__*/function(){function Carousel(element,config){this._items=null;this._interval=null;this._activeElement=null;this._isPaused=false;this._isSliding=false;this.touchTimeout=null;this.touchStartX=0;this.touchDeltaX=0;this._config=this._getConfig(config);this._element=element;this._indicatorsElement=this._element.querySelector(Selector$2.INDICATORS);this._touchSupported='ontouchstart'in document.documentElement||navigator.maxTouchPoints>0;this._pointerEvent=Boolean(window.PointerEvent||window.MSPointerEvent);this._addEventListeners();}// Getters
+	 * ------------------------------------------------------------------------
+	 * Class Definition
+	 * ------------------------------------------------------------------------
+	 */};var Carousel=/*#__PURE__*/function(){function Carousel(element,config){this._items=null;this._interval=null;this._activeElement=null;this._isPaused=false;this._isSliding=false;this.touchTimeout=null;this.touchStartX=0;this.touchDeltaX=0;this._config=this._getConfig(config);this._element=element;this._indicatorsElement=this._element.querySelector(Selector$2.INDICATORS);this._touchSupported='ontouchstart'in document.documentElement||navigator.maxTouchPoints>0;this._pointerEvent=Boolean(window.PointerEvent||window.MSPointerEvent);this._addEventListeners();}// Getters
 var _proto=Carousel.prototype;// Public
 _proto.next=function next(){if(!this._isSliding){this._slide(Direction.NEXT);}};_proto.nextWhenVisible=function nextWhenVisible(){// Don't call next when the page isn't visible
 // or the carousel or its parent isn't visible
@@ -132,10 +132,10 @@ return;}this._isSliding=true;if(isCycling){this.pause();}this._setActiveIndicato
    * Constants
    * ------------------------------------------------------------------------
    */var NAME$3='collapse';var VERSION$3='4.3.1';var DATA_KEY$3='bs.collapse';var EVENT_KEY$3="."+DATA_KEY$3;var DATA_API_KEY$3='.data-api';var JQUERY_NO_CONFLICT$3=$.fn[NAME$3];var Default$1={toggle:true,parent:''};var DefaultType$1={toggle:'boolean',parent:'(string|element)'};var Event$3={SHOW:"show"+EVENT_KEY$3,SHOWN:"shown"+EVENT_KEY$3,HIDE:"hide"+EVENT_KEY$3,HIDDEN:"hidden"+EVENT_KEY$3,CLICK_DATA_API:"click"+EVENT_KEY$3+DATA_API_KEY$3};var ClassName$3={SHOW:'show',COLLAPSE:'collapse',COLLAPSING:'collapsing',COLLAPSED:'collapsed'};var Dimension={WIDTH:'width',HEIGHT:'height'};var Selector$3={ACTIVES:'.show, .collapsing',DATA_TOGGLE:'[data-toggle="collapse"]'/**
-     * ------------------------------------------------------------------------
-     * Class Definition
-     * ------------------------------------------------------------------------
-     */};var Collapse=/*#__PURE__*/function(){function Collapse(element,config){this._isTransitioning=false;this._element=element;this._config=this._getConfig(config);this._triggerArray=[].slice.call(document.querySelectorAll("[data-toggle=\"collapse\"][href=\"#"+element.id+"\"],"+("[data-toggle=\"collapse\"][data-target=\"#"+element.id+"\"]")));var toggleList=[].slice.call(document.querySelectorAll(Selector$3.DATA_TOGGLE));for(var i=0,len=toggleList.length;i<len;i++){var elem=toggleList[i];var selector=Util.getSelectorFromElement(elem);var filterElement=[].slice.call(document.querySelectorAll(selector)).filter(function(foundElem){return foundElem===element;});if(selector!==null&&filterElement.length>0){this._selector=selector;this._triggerArray.push(elem);}}this._parent=this._config.parent?this._getParent():null;if(!this._config.parent){this._addAriaAndCollapsedClass(this._element,this._triggerArray);}if(this._config.toggle){this.toggle();}}// Getters
+	 * ------------------------------------------------------------------------
+	 * Class Definition
+	 * ------------------------------------------------------------------------
+	 */};var Collapse=/*#__PURE__*/function(){function Collapse(element,config){this._isTransitioning=false;this._element=element;this._config=this._getConfig(config);this._triggerArray=[].slice.call(document.querySelectorAll("[data-toggle=\"collapse\"][href=\"#"+element.id+"\"],"+("[data-toggle=\"collapse\"][data-target=\"#"+element.id+"\"]")));var toggleList=[].slice.call(document.querySelectorAll(Selector$3.DATA_TOGGLE));for(var i=0,len=toggleList.length;i<len;i++){var elem=toggleList[i];var selector=Util.getSelectorFromElement(elem);var filterElement=[].slice.call(document.querySelectorAll(selector)).filter(function(foundElem){return foundElem===element;});if(selector!==null&&filterElement.length>0){this._selector=selector;this._triggerArray.push(elem);}}this._parent=this._config.parent?this._getParent():null;if(!this._config.parent){this._addAriaAndCollapsedClass(this._element,this._triggerArray);}if(this._config.toggle){this.toggle();}}// Getters
 var _proto=Collapse.prototype;// Public
 _proto.toggle=function toggle(){if($(this._element).hasClass(ClassName$3.SHOW)){this.hide();}else{this.show();}};_proto.show=function show(){var _this=this;if(this._isTransitioning||$(this._element).hasClass(ClassName$3.SHOW)){return;}var actives;var activesData;if(this._parent){actives=[].slice.call(this._parent.querySelectorAll(Selector$3.ACTIVES)).filter(function(elem){if(typeof _this._config.parent==='string'){return elem.getAttribute('data-parent')===_this._config.parent;}return elem.classList.contains(ClassName$3.COLLAPSE);});if(actives.length===0){actives=null;}}if(actives){activesData=$(actives).not(this._selector).data(DATA_KEY$3);if(activesData&&activesData._isTransitioning){return;}}var startEvent=$.Event(Event$3.SHOW);$(this._element).trigger(startEvent);if(startEvent.isDefaultPrevented()){return;}if(actives){Collapse._jQueryInterface.call($(actives).not(this._selector),'hide');if(!activesData){$(actives).data(DATA_KEY$3,null);}}var dimension=this._getDimension();$(this._element).removeClass(ClassName$3.COLLAPSE).addClass(ClassName$3.COLLAPSING);this._element.style[dimension]=0;if(this._triggerArray.length){$(this._triggerArray).removeClass(ClassName$3.COLLAPSED).attr('aria-expanded',true);}this.setTransitioning(true);var complete=function complete(){$(_this._element).removeClass(ClassName$3.COLLAPSING).addClass(ClassName$3.COLLAPSE).addClass(ClassName$3.SHOW);_this._element.style[dimension]='';_this.setTransitioning(false);$(_this._element).trigger(Event$3.SHOWN);};var capitalizedDimension=dimension[0].toUpperCase()+dimension.slice(1);var scrollSize="scroll"+capitalizedDimension;var transitionDuration=Util.getTransitionDurationFromElement(this._element);$(this._element).one(Util.TRANSITION_END,complete).emulateTransitionEnd(transitionDuration);this._element.style[dimension]=this._element[scrollSize]+"px";};_proto.hide=function hide(){var _this2=this;if(this._isTransitioning||!$(this._element).hasClass(ClassName$3.SHOW)){return;}var startEvent=$.Event(Event$3.HIDE);$(this._element).trigger(startEvent);if(startEvent.isDefaultPrevented()){return;}var dimension=this._getDimension();this._element.style[dimension]=this._element.getBoundingClientRect()[dimension]+"px";Util.reflow(this._element);$(this._element).addClass(ClassName$3.COLLAPSING).removeClass(ClassName$3.COLLAPSE).removeClass(ClassName$3.SHOW);var triggerArrayLength=this._triggerArray.length;if(triggerArrayLength>0){for(var i=0;i<triggerArrayLength;i++){var trigger=this._triggerArray[i];var selector=Util.getSelectorFromElement(trigger);if(selector!==null){var $elem=$([].slice.call(document.querySelectorAll(selector)));if(!$elem.hasClass(ClassName$3.SHOW)){$(trigger).addClass(ClassName$3.COLLAPSED).attr('aria-expanded',false);}}}}this.setTransitioning(true);var complete=function complete(){_this2.setTransitioning(false);$(_this2._element).removeClass(ClassName$3.COLLAPSING).addClass(ClassName$3.COLLAPSE).trigger(Event$3.HIDDEN);};this._element.style[dimension]='';var transitionDuration=Util.getTransitionDurationFromElement(this._element);$(this._element).one(Util.TRANSITION_END,complete).emulateTransitionEnd(transitionDuration);};_proto.setTransitioning=function setTransitioning(isTransitioning){this._isTransitioning=isTransitioning;};_proto.dispose=function dispose(){$.removeData(this._element,DATA_KEY$3);this._config=null;this._parent=null;this._element=null;this._triggerArray=null;this._isTransitioning=null;}// Private
 ;_proto._getConfig=function _getConfig(config){config=_objectSpread({},Default$1,config);config.toggle=Boolean(config.toggle);// Coerce string values
@@ -756,181 +756,181 @@ if(data.hide===false){return data;}data.hide=false;data.attributes['x-out-of-bou
  * All the other properties are configurations that could be tweaked.
  * @namespace modifiers
  */var modifiers={/**
-     * Modifier used to shift the popper on the start or end of its reference
-     * element.<br />
-     * It will read the variation of the `placement` property.<br />
-     * It can be one either `-end` or `-start`.
-     * @memberof modifiers
-     * @inner
-     */shift:{/** @prop {number} order=100 - Index used to define the order of execution */order:100,/** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */enabled:true,/** @prop {ModifierFn} */fn:shift},/**
-     * The `offset` modifier can shift your popper on both its axis.
-     *
-     * It accepts the following units:
-     * - `px` or unit-less, interpreted as pixels
-     * - `%` or `%r`, percentage relative to the length of the reference element
-     * - `%p`, percentage relative to the length of the popper element
-     * - `vw`, CSS viewport width unit
-     * - `vh`, CSS viewport height unit
-     *
-     * For length is intended the main axis relative to the placement of the popper.<br />
-     * This means that if the placement is `top` or `bottom`, the length will be the
-     * `width`. In case of `left` or `right`, it will be the `height`.
-     *
-     * You can provide a single value (as `Number` or `String`), or a pair of values
-     * as `String` divided by a comma or one (or more) white spaces.<br />
-     * The latter is a deprecated method because it leads to confusion and will be
-     * removed in v2.<br />
-     * Additionally, it accepts additions and subtractions between different units.
-     * Note that multiplications and divisions aren't supported.
-     *
-     * Valid examples are:
-     * ```
-     * 10
-     * '10%'
-     * '10, 10'
-     * '10%, 10'
-     * '10 + 10%'
-     * '10 - 5vh + 3%'
-     * '-10px + 5vh, 5px - 6%'
-     * ```
-     * > **NB**: If you desire to apply offsets to your poppers in a way that may make them overlap
-     * > with their reference element, unfortunately, you will have to disable the `flip` modifier.
-     * > You can read more on this at this [issue](https://github.com/FezVrasta/popper.js/issues/373).
-     *
-     * @memberof modifiers
-     * @inner
-     */offset:{/** @prop {number} order=200 - Index used to define the order of execution */order:200,/** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */enabled:true,/** @prop {ModifierFn} */fn:offset,/** @prop {Number|String} offset=0
-         * The offset value as described in the modifier description
-         */offset:0},/**
-     * Modifier used to prevent the popper from being positioned outside the boundary.
-     *
-     * A scenario exists where the reference itself is not within the boundaries.<br />
-     * We can say it has "escaped the boundaries" — or just "escaped".<br />
-     * In this case we need to decide whether the popper should either:
-     *
-     * - detach from the reference and remain "trapped" in the boundaries, or
-     * - if it should ignore the boundary and "escape with its reference"
-     *
-     * When `escapeWithReference` is set to`true` and reference is completely
-     * outside its boundaries, the popper will overflow (or completely leave)
-     * the boundaries in order to remain attached to the edge of the reference.
-     *
-     * @memberof modifiers
-     * @inner
-     */preventOverflow:{/** @prop {number} order=300 - Index used to define the order of execution */order:300,/** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */enabled:true,/** @prop {ModifierFn} */fn:preventOverflow,/**
-         * @prop {Array} [priority=['left','right','top','bottom']]
-         * Popper will try to prevent overflow following these priorities by default,
-         * then, it could overflow on the left and on top of the `boundariesElement`
-         */priority:['left','right','top','bottom'],/**
-         * @prop {number} padding=5
-         * Amount of pixel used to define a minimum distance between the boundaries
-         * and the popper. This makes sure the popper always has a little padding
-         * between the edges of its container
-         */padding:5,/**
-         * @prop {String|HTMLElement} boundariesElement='scrollParent'
-         * Boundaries used by the modifier. Can be `scrollParent`, `window`,
-         * `viewport` or any DOM element.
-         */boundariesElement:'scrollParent'},/**
-     * Modifier used to make sure the reference and its popper stay near each other
-     * without leaving any gap between the two. Especially useful when the arrow is
-     * enabled and you want to ensure that it points to its reference element.
-     * It cares only about the first axis. You can still have poppers with margin
-     * between the popper and its reference element.
-     * @memberof modifiers
-     * @inner
-     */keepTogether:{/** @prop {number} order=400 - Index used to define the order of execution */order:400,/** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */enabled:true,/** @prop {ModifierFn} */fn:keepTogether},/**
-     * This modifier is used to move the `arrowElement` of the popper to make
-     * sure it is positioned between the reference element and its popper element.
-     * It will read the outer size of the `arrowElement` node to detect how many
-     * pixels of conjunction are needed.
-     *
-     * It has no effect if no `arrowElement` is provided.
-     * @memberof modifiers
-     * @inner
-     */arrow:{/** @prop {number} order=500 - Index used to define the order of execution */order:500,/** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */enabled:true,/** @prop {ModifierFn} */fn:arrow,/** @prop {String|HTMLElement} element='[x-arrow]' - Selector or node used as arrow */element:'[x-arrow]'},/**
-     * Modifier used to flip the popper's placement when it starts to overlap its
-     * reference element.
-     *
-     * Requires the `preventOverflow` modifier before it in order to work.
-     *
-     * **NOTE:** this modifier will interrupt the current update cycle and will
-     * restart it if it detects the need to flip the placement.
-     * @memberof modifiers
-     * @inner
-     */flip:{/** @prop {number} order=600 - Index used to define the order of execution */order:600,/** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */enabled:true,/** @prop {ModifierFn} */fn:flip,/**
-         * @prop {String|Array} behavior='flip'
-         * The behavior used to change the popper's placement. It can be one of
-         * `flip`, `clockwise`, `counterclockwise` or an array with a list of valid
-         * placements (with optional variations)
-         */behavior:'flip',/**
-         * @prop {number} padding=5
-         * The popper will flip if it hits the edges of the `boundariesElement`
-         */padding:5,/**
-         * @prop {String|HTMLElement} boundariesElement='viewport'
-         * The element which will define the boundaries of the popper position.
-         * The popper will never be placed outside of the defined boundaries
-         * (except if `keepTogether` is enabled)
-         */boundariesElement:'viewport'},/**
-     * Modifier used to make the popper flow toward the inner of the reference element.
-     * By default, when this modifier is disabled, the popper will be placed outside
-     * the reference element.
-     * @memberof modifiers
-     * @inner
-     */inner:{/** @prop {number} order=700 - Index used to define the order of execution */order:700,/** @prop {Boolean} enabled=false - Whether the modifier is enabled or not */enabled:false,/** @prop {ModifierFn} */fn:inner},/**
-     * Modifier used to hide the popper when its reference element is outside of the
-     * popper boundaries. It will set a `x-out-of-boundaries` attribute which can
-     * be used to hide with a CSS selector the popper when its reference is
-     * out of boundaries.
-     *
-     * Requires the `preventOverflow` modifier before it in order to work.
-     * @memberof modifiers
-     * @inner
-     */hide:{/** @prop {number} order=800 - Index used to define the order of execution */order:800,/** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */enabled:true,/** @prop {ModifierFn} */fn:hide},/**
-     * Computes the style that will be applied to the popper element to gets
-     * properly positioned.
-     *
-     * Note that this modifier will not touch the DOM, it just prepares the styles
-     * so that `applyStyle` modifier can apply it. This separation is useful
-     * in case you need to replace `applyStyle` with a custom implementation.
-     *
-     * This modifier has `850` as `order` value to maintain backward compatibility
-     * with previous versions of Popper.js. Expect the modifiers ordering method
-     * to change in future major versions of the library.
-     *
-     * @memberof modifiers
-     * @inner
-     */computeStyle:{/** @prop {number} order=850 - Index used to define the order of execution */order:850,/** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */enabled:true,/** @prop {ModifierFn} */fn:computeStyle,/**
-         * @prop {Boolean} gpuAcceleration=true
-         * If true, it uses the CSS 3D transformation to position the popper.
-         * Otherwise, it will use the `top` and `left` properties
-         */gpuAcceleration:true,/**
-         * @prop {string} [x='bottom']
-         * Where to anchor the X axis (`bottom` or `top`). AKA X offset origin.
-         * Change this if your popper should grow in a direction different from `bottom`
-         */x:'bottom',/**
-         * @prop {string} [x='left']
-         * Where to anchor the Y axis (`left` or `right`). AKA Y offset origin.
-         * Change this if your popper should grow in a direction different from `right`
-         */y:'right'},/**
-     * Applies the computed styles to the popper element.
-     *
-     * All the DOM manipulations are limited to this modifier. This is useful in case
-     * you want to integrate Popper.js inside a framework or view library and you
-     * want to delegate all the DOM manipulations to it.
-     *
-     * Note that if you disable this modifier, you must make sure the popper element
-     * has its position set to `absolute` before Popper.js can do its work!
-     *
-     * Just disable this modifier and define your own to achieve the desired effect.
-     *
-     * @memberof modifiers
-     * @inner
-     */applyStyle:{/** @prop {number} order=900 - Index used to define the order of execution */order:900,/** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */enabled:true,/** @prop {ModifierFn} */fn:applyStyle,/** @prop {Function} */onLoad:applyStyleOnLoad,/**
-         * @deprecated since version 1.10.0, the property moved to `computeStyle` modifier
-         * @prop {Boolean} gpuAcceleration=true
-         * If true, it uses the CSS 3D transformation to position the popper.
-         * Otherwise, it will use the `top` and `left` properties
-         */gpuAcceleration:undefined}};/**
+	 * Modifier used to shift the popper on the start or end of its reference
+	 * element.<br />
+	 * It will read the variation of the `placement` property.<br />
+	 * It can be one either `-end` or `-start`.
+	 * @memberof modifiers
+	 * @inner
+	 */shift:{/** @prop {number} order=100 - Index used to define the order of execution */order:100,/** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */enabled:true,/** @prop {ModifierFn} */fn:shift},/**
+	 * The `offset` modifier can shift your popper on both its axis.
+	 *
+	 * It accepts the following units:
+	 * - `px` or unit-less, interpreted as pixels
+	 * - `%` or `%r`, percentage relative to the length of the reference element
+	 * - `%p`, percentage relative to the length of the popper element
+	 * - `vw`, CSS viewport width unit
+	 * - `vh`, CSS viewport height unit
+	 *
+	 * For length is intended the main axis relative to the placement of the popper.<br />
+	 * This means that if the placement is `top` or `bottom`, the length will be the
+	 * `width`. In case of `left` or `right`, it will be the `height`.
+	 *
+	 * You can provide a single value (as `Number` or `String`), or a pair of values
+	 * as `String` divided by a comma or one (or more) white spaces.<br />
+	 * The latter is a deprecated method because it leads to confusion and will be
+	 * removed in v2.<br />
+	 * Additionally, it accepts additions and subtractions between different units.
+	 * Note that multiplications and divisions aren't supported.
+	 *
+	 * Valid examples are:
+	 * ```
+	 * 10
+	 * '10%'
+	 * '10, 10'
+	 * '10%, 10'
+	 * '10 + 10%'
+	 * '10 - 5vh + 3%'
+	 * '-10px + 5vh, 5px - 6%'
+	 * ```
+	 * > **NB**: If you desire to apply offsets to your poppers in a way that may make them overlap
+	 * > with their reference element, unfortunately, you will have to disable the `flip` modifier.
+	 * > You can read more on this at this [issue](https://github.com/FezVrasta/popper.js/issues/373).
+	 *
+	 * @memberof modifiers
+	 * @inner
+	 */offset:{/** @prop {number} order=200 - Index used to define the order of execution */order:200,/** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */enabled:true,/** @prop {ModifierFn} */fn:offset,/** @prop {Number|String} offset=0
+		 * The offset value as described in the modifier description
+		 */offset:0},/**
+	 * Modifier used to prevent the popper from being positioned outside the boundary.
+	 *
+	 * A scenario exists where the reference itself is not within the boundaries.<br />
+	 * We can say it has "escaped the boundaries" — or just "escaped".<br />
+	 * In this case we need to decide whether the popper should either:
+	 *
+	 * - detach from the reference and remain "trapped" in the boundaries, or
+	 * - if it should ignore the boundary and "escape with its reference"
+	 *
+	 * When `escapeWithReference` is set to`true` and reference is completely
+	 * outside its boundaries, the popper will overflow (or completely leave)
+	 * the boundaries in order to remain attached to the edge of the reference.
+	 *
+	 * @memberof modifiers
+	 * @inner
+	 */preventOverflow:{/** @prop {number} order=300 - Index used to define the order of execution */order:300,/** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */enabled:true,/** @prop {ModifierFn} */fn:preventOverflow,/**
+		 * @prop {Array} [priority=['left','right','top','bottom']]
+		 * Popper will try to prevent overflow following these priorities by default,
+		 * then, it could overflow on the left and on top of the `boundariesElement`
+		 */priority:['left','right','top','bottom'],/**
+		 * @prop {number} padding=5
+		 * Amount of pixel used to define a minimum distance between the boundaries
+		 * and the popper. This makes sure the popper always has a little padding
+		 * between the edges of its container
+		 */padding:5,/**
+		 * @prop {String|HTMLElement} boundariesElement='scrollParent'
+		 * Boundaries used by the modifier. Can be `scrollParent`, `window`,
+		 * `viewport` or any DOM element.
+		 */boundariesElement:'scrollParent'},/**
+	 * Modifier used to make sure the reference and its popper stay near each other
+	 * without leaving any gap between the two. Especially useful when the arrow is
+	 * enabled and you want to ensure that it points to its reference element.
+	 * It cares only about the first axis. You can still have poppers with margin
+	 * between the popper and its reference element.
+	 * @memberof modifiers
+	 * @inner
+	 */keepTogether:{/** @prop {number} order=400 - Index used to define the order of execution */order:400,/** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */enabled:true,/** @prop {ModifierFn} */fn:keepTogether},/**
+	 * This modifier is used to move the `arrowElement` of the popper to make
+	 * sure it is positioned between the reference element and its popper element.
+	 * It will read the outer size of the `arrowElement` node to detect how many
+	 * pixels of conjunction are needed.
+	 *
+	 * It has no effect if no `arrowElement` is provided.
+	 * @memberof modifiers
+	 * @inner
+	 */arrow:{/** @prop {number} order=500 - Index used to define the order of execution */order:500,/** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */enabled:true,/** @prop {ModifierFn} */fn:arrow,/** @prop {String|HTMLElement} element='[x-arrow]' - Selector or node used as arrow */element:'[x-arrow]'},/**
+	 * Modifier used to flip the popper's placement when it starts to overlap its
+	 * reference element.
+	 *
+	 * Requires the `preventOverflow` modifier before it in order to work.
+	 *
+	 * **NOTE:** this modifier will interrupt the current update cycle and will
+	 * restart it if it detects the need to flip the placement.
+	 * @memberof modifiers
+	 * @inner
+	 */flip:{/** @prop {number} order=600 - Index used to define the order of execution */order:600,/** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */enabled:true,/** @prop {ModifierFn} */fn:flip,/**
+		 * @prop {String|Array} behavior='flip'
+		 * The behavior used to change the popper's placement. It can be one of
+		 * `flip`, `clockwise`, `counterclockwise` or an array with a list of valid
+		 * placements (with optional variations)
+		 */behavior:'flip',/**
+		 * @prop {number} padding=5
+		 * The popper will flip if it hits the edges of the `boundariesElement`
+		 */padding:5,/**
+		 * @prop {String|HTMLElement} boundariesElement='viewport'
+		 * The element which will define the boundaries of the popper position.
+		 * The popper will never be placed outside of the defined boundaries
+		 * (except if `keepTogether` is enabled)
+		 */boundariesElement:'viewport'},/**
+	 * Modifier used to make the popper flow toward the inner of the reference element.
+	 * By default, when this modifier is disabled, the popper will be placed outside
+	 * the reference element.
+	 * @memberof modifiers
+	 * @inner
+	 */inner:{/** @prop {number} order=700 - Index used to define the order of execution */order:700,/** @prop {Boolean} enabled=false - Whether the modifier is enabled or not */enabled:false,/** @prop {ModifierFn} */fn:inner},/**
+	 * Modifier used to hide the popper when its reference element is outside of the
+	 * popper boundaries. It will set a `x-out-of-boundaries` attribute which can
+	 * be used to hide with a CSS selector the popper when its reference is
+	 * out of boundaries.
+	 *
+	 * Requires the `preventOverflow` modifier before it in order to work.
+	 * @memberof modifiers
+	 * @inner
+	 */hide:{/** @prop {number} order=800 - Index used to define the order of execution */order:800,/** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */enabled:true,/** @prop {ModifierFn} */fn:hide},/**
+	 * Computes the style that will be applied to the popper element to gets
+	 * properly positioned.
+	 *
+	 * Note that this modifier will not touch the DOM, it just prepares the styles
+	 * so that `applyStyle` modifier can apply it. This separation is useful
+	 * in case you need to replace `applyStyle` with a custom implementation.
+	 *
+	 * This modifier has `850` as `order` value to maintain backward compatibility
+	 * with previous versions of Popper.js. Expect the modifiers ordering method
+	 * to change in future major versions of the library.
+	 *
+	 * @memberof modifiers
+	 * @inner
+	 */computeStyle:{/** @prop {number} order=850 - Index used to define the order of execution */order:850,/** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */enabled:true,/** @prop {ModifierFn} */fn:computeStyle,/**
+		 * @prop {Boolean} gpuAcceleration=true
+		 * If true, it uses the CSS 3D transformation to position the popper.
+		 * Otherwise, it will use the `top` and `left` properties
+		 */gpuAcceleration:true,/**
+		 * @prop {string} [x='bottom']
+		 * Where to anchor the X axis (`bottom` or `top`). AKA X offset origin.
+		 * Change this if your popper should grow in a direction different from `bottom`
+		 */x:'bottom',/**
+		 * @prop {string} [x='left']
+		 * Where to anchor the Y axis (`left` or `right`). AKA Y offset origin.
+		 * Change this if your popper should grow in a direction different from `right`
+		 */y:'right'},/**
+	 * Applies the computed styles to the popper element.
+	 *
+	 * All the DOM manipulations are limited to this modifier. This is useful in case
+	 * you want to integrate Popper.js inside a framework or view library and you
+	 * want to delegate all the DOM manipulations to it.
+	 *
+	 * Note that if you disable this modifier, you must make sure the popper element
+	 * has its position set to `absolute` before Popper.js can do its work!
+	 *
+	 * Just disable this modifier and define your own to achieve the desired effect.
+	 *
+	 * @memberof modifiers
+	 * @inner
+	 */applyStyle:{/** @prop {number} order=900 - Index used to define the order of execution */order:900,/** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */enabled:true,/** @prop {ModifierFn} */fn:applyStyle,/** @prop {Function} */onLoad:applyStyleOnLoad,/**
+		 * @deprecated since version 1.10.0, the property moved to `computeStyle` modifier
+		 * @prop {Boolean} gpuAcceleration=true
+		 * If true, it uses the CSS 3D transformation to position the popper.
+		 * Otherwise, it will use the `top` and `left` properties
+		 */gpuAcceleration:undefined}};/**
  * The `dataObject` is an object containing all the information used by Popper.js.
  * This object is passed to modifiers and to the `onCreate` and `onUpdate` callbacks.
  * @name dataObject
@@ -963,35 +963,35 @@ if(data.hide===false){return data;}data.hide=false;data.attributes['x-out-of-bou
  * @static
  * @memberof Popper
  */var Defaults={/**
-     * Popper's placement.
-     * @prop {Popper.placements} placement='bottom'
-     */placement:'bottom',/**
-     * Set this to true if you want popper to position it self in 'fixed' mode
-     * @prop {Boolean} positionFixed=false
-     */positionFixed:false,/**
-     * Whether events (resize, scroll) are initially enabled.
-     * @prop {Boolean} eventsEnabled=true
-     */eventsEnabled:true,/**
-     * Set to true if you want to automatically remove the popper when
-     * you call the `destroy` method.
-     * @prop {Boolean} removeOnDestroy=false
-     */removeOnDestroy:false,/**
-     * Callback called when the popper is created.<br />
-     * By default, it is set to no-op.<br />
-     * Access Popper.js instance with `data.instance`.
-     * @prop {onCreate}
-     */onCreate:function onCreate(){},/**
-     * Callback called when the popper is updated. This callback is not called
-     * on the initialization/creation of the popper, but only on subsequent
-     * updates.<br />
-     * By default, it is set to no-op.<br />
-     * Access Popper.js instance with `data.instance`.
-     * @prop {onUpdate}
-     */onUpdate:function onUpdate(){},/**
-     * List of modifiers used to modify the offsets before they are applied to the popper.
-     * They provide most of the functionalities of Popper.js.
-     * @prop {modifiers}
-     */modifiers:modifiers};/**
+	 * Popper's placement.
+	 * @prop {Popper.placements} placement='bottom'
+	 */placement:'bottom',/**
+	 * Set this to true if you want popper to position it self in 'fixed' mode
+	 * @prop {Boolean} positionFixed=false
+	 */positionFixed:false,/**
+	 * Whether events (resize, scroll) are initially enabled.
+	 * @prop {Boolean} eventsEnabled=true
+	 */eventsEnabled:true,/**
+	 * Set to true if you want to automatically remove the popper when
+	 * you call the `destroy` method.
+	 * @prop {Boolean} removeOnDestroy=false
+	 */removeOnDestroy:false,/**
+	 * Callback called when the popper is created.<br />
+	 * By default, it is set to no-op.<br />
+	 * Access Popper.js instance with `data.instance`.
+	 * @prop {onCreate}
+	 */onCreate:function onCreate(){},/**
+	 * Callback called when the popper is updated. This callback is not called
+	 * on the initialization/creation of the popper, but only on subsequent
+	 * updates.<br />
+	 * By default, it is set to no-op.<br />
+	 * Access Popper.js instance with `data.instance`.
+	 * @prop {onUpdate}
+	 */onUpdate:function onUpdate(){},/**
+	 * List of modifiers used to modify the offsets before they are applied to the popper.
+	 * They provide most of the functionalities of Popper.js.
+	 * @prop {modifiers}
+	 */modifiers:modifiers};/**
  * @callback onCreate
  * @param {dataObject} data
  */ /**
@@ -1000,13 +1000,13 @@ if(data.hide===false){return data;}data.hide=false;data.attributes['x-out-of-bou
  */ // Utils
 // Methods
 var Popper=function(){/**
-     * Creates a new Popper.js instance.
-     * @class Popper
-     * @param {HTMLElement|referenceObject} reference - The reference element used to position the popper
-     * @param {HTMLElement} popper - The HTML element used as the popper
-     * @param {Object} options - Your custom options to override the ones defined in [Defaults](#defaults)
-     * @return {Object} instance - The generated Popper.js instance
-     */function Popper(reference,popper){var _this=this;var options=arguments.length>2&&arguments[2]!==undefined?arguments[2]:{};classCallCheck(this,Popper);this.scheduleUpdate=function(){return requestAnimationFrame(_this.update);};// make update() debounced, so that it only runs at most once-per-tick
+	 * Creates a new Popper.js instance.
+	 * @class Popper
+	 * @param {HTMLElement|referenceObject} reference - The reference element used to position the popper
+	 * @param {HTMLElement} popper - The HTML element used as the popper
+	 * @param {Object} options - Your custom options to override the ones defined in [Defaults](#defaults)
+	 * @return {Object} instance - The generated Popper.js instance
+	 */function Popper(reference,popper){var _this=this;var options=arguments.length>2&&arguments[2]!==undefined?arguments[2]:{};classCallCheck(this,Popper);this.scheduleUpdate=function(){return requestAnimationFrame(_this.update);};// make update() debounced, so that it only runs at most once-per-tick
 this.update=debounce(this.update.bind(this));// with {} we create a new object with the options inside it
 this.options=_extends({},Popper.Defaults,options);// init state
 this.state={isDestroyed:false,isCreated:false,scrollParents:[]};// get reference and popper elements (allow jQuery wrappers)
@@ -1022,25 +1022,25 @@ this.update();var eventsEnabled=this.options.eventsEnabled;if(eventsEnabled){// 
 this.enableEventListeners();}this.state.eventsEnabled=eventsEnabled;}// We can't use class properties because they don't get listed in the
 // class prototype and break stuff like Sinon stubs
 createClass(Popper,[{key:'update',value:function update$$1(){return update.call(this);}},{key:'destroy',value:function destroy$$1(){return destroy.call(this);}},{key:'enableEventListeners',value:function enableEventListeners$$1(){return enableEventListeners.call(this);}},{key:'disableEventListeners',value:function disableEventListeners$$1(){return disableEventListeners.call(this);}/**
-         * Schedules an update. It will run on the next UI update available.
-         * @method scheduleUpdate
-         * @memberof Popper
-         */ /**
-         * Collection of utilities useful when writing custom modifiers.
-         * Starting from version 1.7, this method is available only if you
-         * include `popper-utils.js` before `popper.js`.
-         *
-         * **DEPRECATION**: This way to access PopperUtils is deprecated
-         * and will be removed in v2! Use the PopperUtils module directly instead.
-         * Due to the high instability of the methods contained in Utils, we can't
-         * guarantee them to follow semver. Use them at your own risk!
-         * @static
-         * @private
-         * @type {Object}
-         * @deprecated since version 1.8
-         * @member Utils
-         * @memberof Popper
-         */}]);return Popper;}();/**
+		 * Schedules an update. It will run on the next UI update available.
+		 * @method scheduleUpdate
+		 * @memberof Popper
+		 */ /**
+		 * Collection of utilities useful when writing custom modifiers.
+		 * Starting from version 1.7, this method is available only if you
+		 * include `popper-utils.js` before `popper.js`.
+		 *
+		 * **DEPRECATION**: This way to access PopperUtils is deprecated
+		 * and will be removed in v2! Use the PopperUtils module directly instead.
+		 * Due to the high instability of the methods contained in Utils, we can't
+		 * guarantee them to follow semver. Use them at your own risk!
+		 * @static
+		 * @private
+		 * @type {Object}
+		 * @deprecated since version 1.8
+		 * @member Utils
+		 * @memberof Popper
+		 */}]);return Popper;}();/**
  * The `referenceObject` is an object that provides an interface compatible with Popper.js
  * and lets you use it as replacement of a real DOM node.<br />
  * You can use this method to position a popper relatively to a set of coordinates
@@ -1074,16 +1074,16 @@ var ARROW_UP_KEYCODE=38;// KeyboardEvent.which value for up arrow key
 var ARROW_DOWN_KEYCODE=40;// KeyboardEvent.which value for down arrow key
 var RIGHT_MOUSE_BUTTON_WHICH=3;// MouseEvent.which value for the right button (assuming a right-handed mouse)
 var REGEXP_KEYDOWN=new RegExp(ARROW_UP_KEYCODE+"|"+ARROW_DOWN_KEYCODE+"|"+ESCAPE_KEYCODE);var Event$4={HIDE:"hide"+EVENT_KEY$4,HIDDEN:"hidden"+EVENT_KEY$4,SHOW:"show"+EVENT_KEY$4,SHOWN:"shown"+EVENT_KEY$4,CLICK:"click"+EVENT_KEY$4,CLICK_DATA_API:"click"+EVENT_KEY$4+DATA_API_KEY$4,KEYDOWN_DATA_API:"keydown"+EVENT_KEY$4+DATA_API_KEY$4,KEYUP_DATA_API:"keyup"+EVENT_KEY$4+DATA_API_KEY$4};var ClassName$4={DISABLED:'disabled',SHOW:'show',DROPUP:'dropup',DROPRIGHT:'dropright',DROPLEFT:'dropleft',MENURIGHT:'dropdown-menu-right',MENULEFT:'dropdown-menu-left',POSITION_STATIC:'position-static'};var Selector$4={DATA_TOGGLE:'[data-toggle="dropdown"]',FORM_CHILD:'.dropdown form',MENU:'.dropdown-menu',NAVBAR_NAV:'.navbar-nav',VISIBLE_ITEMS:'.dropdown-menu .dropdown-item:not(.disabled):not(:disabled)'};var AttachmentMap={TOP:'top-start',TOPEND:'top-end',BOTTOM:'bottom-start',BOTTOMEND:'bottom-end',RIGHT:'right-start',RIGHTEND:'right-end',LEFT:'left-start',LEFTEND:'left-end'};var Default$2={offset:0,flip:true,boundary:'scrollParent',reference:'toggle',display:'dynamic'};var DefaultType$2={offset:'(number|string|function)',flip:'boolean',boundary:'(string|element)',reference:'(string|element)',display:'string'/**
-     * ------------------------------------------------------------------------
-     * Class Definition
-     * ------------------------------------------------------------------------
-     */};var Dropdown=/*#__PURE__*/function(){function Dropdown(element,config){this._element=element;this._popper=null;this._config=this._getConfig(config);this._menu=this._getMenuElement();this._inNavbar=this._detectNavbar();this._addEventListeners();}// Getters
+	 * ------------------------------------------------------------------------
+	 * Class Definition
+	 * ------------------------------------------------------------------------
+	 */};var Dropdown=/*#__PURE__*/function(){function Dropdown(element,config){this._element=element;this._popper=null;this._config=this._getConfig(config);this._menu=this._getMenuElement();this._inNavbar=this._detectNavbar();this._addEventListeners();}// Getters
 var _proto=Dropdown.prototype;// Public
 _proto.toggle=function toggle(){if(this._element.disabled||$(this._element).hasClass(ClassName$4.DISABLED)){return;}var parent=Dropdown._getParentFromElement(this._element);var isActive=$(this._menu).hasClass(ClassName$4.SHOW);Dropdown._clearMenus();if(isActive){return;}var relatedTarget={relatedTarget:this._element};var showEvent=$.Event(Event$4.SHOW,relatedTarget);$(parent).trigger(showEvent);if(showEvent.isDefaultPrevented()){return;}// Disable totally Popper.js for Dropdown in Navbar
 if(!this._inNavbar){/**
-                 * Check for Popper dependency
-                 * Popper - https://popper.js.org
-                 */if(typeof Popper==='undefined'){throw new TypeError('Bootstrap\'s dropdowns require Popper.js (https://popper.js.org/)');}var referenceElement=this._element;if(this._config.reference==='parent'){referenceElement=parent;}else if(Util.isElement(this._config.reference)){referenceElement=this._config.reference;// Check if it's jQuery element
+				 * Check for Popper dependency
+				 * Popper - https://popper.js.org
+				 */if(typeof Popper==='undefined'){throw new TypeError('Bootstrap\'s dropdowns require Popper.js (https://popper.js.org/)');}var referenceElement=this._element;if(this._config.reference==='parent'){referenceElement=parent;}else if(Util.isElement(this._config.reference)){referenceElement=this._config.reference;// Check if it's jQuery element
 if(typeof this._config.reference.jquery!=='undefined'){referenceElement=this._config.reference[0];}}// If boundary is not `scrollParent`, then set position to `static`
 // to allow the menu to "escape" the scroll parent's boundaries
 // https://github.com/twbs/bootstrap/issues/24251
@@ -1126,16 +1126,16 @@ index++;}if(index<0){index=0;}items[index].focus();};_createClass(Dropdown,null,
    * ------------------------------------------------------------------------
    */var NAME$5='modal';var VERSION$5='4.3.1';var DATA_KEY$5='bs.modal';var EVENT_KEY$5="."+DATA_KEY$5;var DATA_API_KEY$5='.data-api';var JQUERY_NO_CONFLICT$5=$.fn[NAME$5];var ESCAPE_KEYCODE$1=27;// KeyboardEvent.which value for Escape (Esc) key
 var Default$3={backdrop:true,keyboard:true,focus:true,show:true};var DefaultType$3={backdrop:'(boolean|string)',keyboard:'boolean',focus:'boolean',show:'boolean'};var Event$5={HIDE:"hide"+EVENT_KEY$5,HIDDEN:"hidden"+EVENT_KEY$5,SHOW:"show"+EVENT_KEY$5,SHOWN:"shown"+EVENT_KEY$5,FOCUSIN:"focusin"+EVENT_KEY$5,RESIZE:"resize"+EVENT_KEY$5,CLICK_DISMISS:"click.dismiss"+EVENT_KEY$5,KEYDOWN_DISMISS:"keydown.dismiss"+EVENT_KEY$5,MOUSEUP_DISMISS:"mouseup.dismiss"+EVENT_KEY$5,MOUSEDOWN_DISMISS:"mousedown.dismiss"+EVENT_KEY$5,CLICK_DATA_API:"click"+EVENT_KEY$5+DATA_API_KEY$5};var ClassName$5={SCROLLABLE:'modal-dialog-scrollable',SCROLLBAR_MEASURER:'modal-scrollbar-measure',BACKDROP:'modal-backdrop',OPEN:'modal-open',FADE:'fade',SHOW:'show'};var Selector$5={DIALOG:'.modal-dialog',MODAL_BODY:'.modal-body',DATA_TOGGLE:'[data-toggle="modal"]',DATA_DISMISS:'[data-dismiss="modal"]',FIXED_CONTENT:'.fixed-top, .fixed-bottom, .is-fixed, .sticky-top',STICKY_CONTENT:'.sticky-top'/**
-     * ------------------------------------------------------------------------
-     * Class Definition
-     * ------------------------------------------------------------------------
-     */};var Modal=/*#__PURE__*/function(){function Modal(element,config){this._config=this._getConfig(config);this._element=element;this._dialog=element.querySelector(Selector$5.DIALOG);this._backdrop=null;this._isShown=false;this._isBodyOverflowing=false;this._ignoreBackdropClick=false;this._isTransitioning=false;this._scrollbarWidth=0;}// Getters
+	 * ------------------------------------------------------------------------
+	 * Class Definition
+	 * ------------------------------------------------------------------------
+	 */};var Modal=/*#__PURE__*/function(){function Modal(element,config){this._config=this._getConfig(config);this._element=element;this._dialog=element.querySelector(Selector$5.DIALOG);this._backdrop=null;this._isShown=false;this._isBodyOverflowing=false;this._ignoreBackdropClick=false;this._isTransitioning=false;this._scrollbarWidth=0;}// Getters
 var _proto=Modal.prototype;// Public
 _proto.toggle=function toggle(relatedTarget){return this._isShown?this.hide():this.show(relatedTarget);};_proto.show=function show(relatedTarget){var _this=this;if(this._isShown||this._isTransitioning){return;}if($(this._element).hasClass(ClassName$5.FADE)){this._isTransitioning=true;}var showEvent=$.Event(Event$5.SHOW,{relatedTarget:relatedTarget});$(this._element).trigger(showEvent);if(this._isShown||showEvent.isDefaultPrevented()){return;}this._isShown=true;this._checkScrollbar();this._setScrollbar();this._adjustDialog();this._setEscapeEvent();this._setResizeEvent();$(this._element).on(Event$5.CLICK_DISMISS,Selector$5.DATA_DISMISS,function(event){return _this.hide(event);});$(this._dialog).on(Event$5.MOUSEDOWN_DISMISS,function(){$(_this._element).one(Event$5.MOUSEUP_DISMISS,function(event){if($(event.target).is(_this._element)){_this._ignoreBackdropClick=true;}});});this._showBackdrop(function(){return _this._showElement(relatedTarget);});};_proto.hide=function hide(event){var _this2=this;if(event){event.preventDefault();}if(!this._isShown||this._isTransitioning){return;}var hideEvent=$.Event(Event$5.HIDE);$(this._element).trigger(hideEvent);if(!this._isShown||hideEvent.isDefaultPrevented()){return;}this._isShown=false;var transition=$(this._element).hasClass(ClassName$5.FADE);if(transition){this._isTransitioning=true;}this._setEscapeEvent();this._setResizeEvent();$(document).off(Event$5.FOCUSIN);$(this._element).removeClass(ClassName$5.SHOW);$(this._element).off(Event$5.CLICK_DISMISS);$(this._dialog).off(Event$5.MOUSEDOWN_DISMISS);if(transition){var transitionDuration=Util.getTransitionDurationFromElement(this._element);$(this._element).one(Util.TRANSITION_END,function(event){return _this2._hideModal(event);}).emulateTransitionEnd(transitionDuration);}else{this._hideModal();}};_proto.dispose=function dispose(){[window,this._element,this._dialog].forEach(function(htmlElement){return $(htmlElement).off(EVENT_KEY$5);});/**
-             * `document` has 2 events `Event.FOCUSIN` and `Event.CLICK_DATA_API`
-             * Do not move `document` in `htmlElements` array
-             * It will remove `Event.CLICK_DATA_API` event that should remain
-             */$(document).off(Event$5.FOCUSIN);$.removeData(this._element,DATA_KEY$5);this._config=null;this._element=null;this._dialog=null;this._backdrop=null;this._isShown=null;this._isBodyOverflowing=null;this._ignoreBackdropClick=null;this._isTransitioning=null;this._scrollbarWidth=null;};_proto.handleUpdate=function handleUpdate(){this._adjustDialog();}// Private
+			 * `document` has 2 events `Event.FOCUSIN` and `Event.CLICK_DATA_API`
+			 * Do not move `document` in `htmlElements` array
+			 * It will remove `Event.CLICK_DATA_API` event that should remain
+			 */$(document).off(Event$5.FOCUSIN);$.removeData(this._element,DATA_KEY$5);this._config=null;this._element=null;this._dialog=null;this._backdrop=null;this._isShown=null;this._isBodyOverflowing=null;this._ignoreBackdropClick=null;this._isTransitioning=null;this._scrollbarWidth=null;};_proto.handleUpdate=function handleUpdate(){this._adjustDialog();}// Private
 ;_proto._getConfig=function _getConfig(config){config=_objectSpread({},Default$3,config);Util.typeCheckConfig(NAME$5,config,DefaultType$3);return config;};_proto._showElement=function _showElement(relatedTarget){var _this3=this;var transition=$(this._element).hasClass(ClassName$5.FADE);if(!this._element.parentNode||this._element.parentNode.nodeType!==Node.ELEMENT_NODE){// Don't move modal's DOM position
 document.body.appendChild(this._element);}this._element.style.display='block';this._element.removeAttribute('aria-hidden');this._element.setAttribute('aria-modal',true);if($(this._dialog).hasClass(ClassName$5.SCROLLABLE)){this._dialog.querySelector(Selector$5.MODAL_BODY).scrollTop=0;}else{this._element.scrollTop=0;}if(transition){Util.reflow(this._element);}$(this._element).addClass(ClassName$5.SHOW);if(this._config.focus){this._enforceFocus();}var shownEvent=$.Event(Event$5.SHOWN,{relatedTarget:relatedTarget});var transitionComplete=function transitionComplete(){if(_this3._config.focus){_this3._element.focus();}_this3._isTransitioning=false;$(_this3._element).trigger(shownEvent);};if(transition){var transitionDuration=Util.getTransitionDurationFromElement(this._dialog);$(this._dialog).one(Util.TRANSITION_END,transitionComplete).emulateTransitionEnd(transitionDuration);}else{transitionComplete();}};_proto._enforceFocus=function _enforceFocus(){var _this4=this;$(document).off(Event$5.FOCUSIN)// Guard against infinite focus loop
 .on(Event$5.FOCUSIN,function(event){if(document!==event.target&&_this4._element!==event.target&&$(_this4._element).has(event.target).length===0){_this4._element.focus();}});};_proto._setEscapeEvent=function _setEscapeEvent(){var _this5=this;if(this._isShown&&this._config.keyboard){$(this._element).on(Event$5.KEYDOWN_DISMISS,function(event){if(event.which===ESCAPE_KEYCODE$1){event.preventDefault();_this5.hide();}});}else if(!this._isShown){$(this._element).off(Event$5.KEYDOWN_DISMISS);}};_proto._setResizeEvent=function _setResizeEvent(){var _this6=this;if(this._isShown){$(window).on(Event$5.RESIZE,function(event){return _this6.handleUpdate(event);});}else{$(window).off(Event$5.RESIZE);}};_proto._hideModal=function _hideModal(){var _this7=this;this._element.style.display='none';this._element.setAttribute('aria-hidden',true);this._element.removeAttribute('aria-modal');this._isTransitioning=false;this._showBackdrop(function(){$(document.body).removeClass(ClassName$5.OPEN);_this7._resetAdjustments();_this7._resetScrollbar();$(_this7._element).trigger(Event$5.HIDDEN);});};_proto._removeBackdrop=function _removeBackdrop(){if(this._backdrop){$(this._backdrop).remove();this._backdrop=null;}};_proto._showBackdrop=function _showBackdrop(callback){var _this8=this;var animate=$(this._element).hasClass(ClassName$5.FADE)?ClassName$5.FADE:'';if(this._isShown&&this._config.backdrop){this._backdrop=document.createElement('div');this._backdrop.className=ClassName$5.BACKDROP;if(animate){this._backdrop.classList.add(animate);}$(this._backdrop).appendTo(document.body);$(this._element).on(Event$5.CLICK_DISMISS,function(event){if(_this8._ignoreBackdropClick){_this8._ignoreBackdropClick=false;return;}if(event.target!==event.currentTarget){return;}if(_this8._config.backdrop==='static'){_this8._element.focus();}else{_this8.hide();}});if(animate){Util.reflow(this._backdrop);}$(this._backdrop).addClass(ClassName$5.SHOW);if(!callback){return;}if(!animate){callback();return;}var backdropTransitionDuration=Util.getTransitionDurationFromElement(this._backdrop);$(this._backdrop).one(Util.TRANSITION_END,callback).emulateTransitionEnd(backdropTransitionDuration);}else if(!this._isShown&&this._backdrop){$(this._backdrop).removeClass(ClassName$5.SHOW);var callbackRemove=function callbackRemove(){_this8._removeBackdrop();if(callback){callback();}};if($(this._element).hasClass(ClassName$5.FADE)){var _backdropTransitionDuration=Util.getTransitionDurationFromElement(this._backdrop);$(this._backdrop).one(Util.TRANSITION_END,callbackRemove).emulateTransitionEnd(_backdropTransitionDuration);}else{callbackRemove();}}else if(callback){callback();}}// ----------------------------------------------------------------------
@@ -1168,10 +1168,10 @@ return;}$target.one(Event$5.HIDDEN,function(){if($(_this10).is(':visible')){_thi
    * --------------------------------------------------------------------------
    */var uriAttrs=['background','cite','href','itemtype','longdesc','poster','src','xlink:href'];var ARIA_ATTRIBUTE_PATTERN=/^aria-[\w-]*$/i;var DefaultWhitelist={// Global attributes allowed on any supplied element below.
 '*':['class','dir','id','lang','role',ARIA_ATTRIBUTE_PATTERN],a:['target','href','title','rel'],area:[],b:[],br:[],col:[],code:[],div:[],em:[],hr:[],h1:[],h2:[],h3:[],h4:[],h5:[],h6:[],i:[],img:['src','alt','title','width','height'],li:[],ol:[],p:[],pre:[],s:[],small:[],span:[],sub:[],sup:[],strong:[],u:[],ul:[]/**
-     * A pattern that recognizes a commonly useful subset of URLs that are safe.
-     *
-     * Shoutout to Angular 7 https://github.com/angular/angular/blob/7.2.4/packages/core/src/sanitization/url_sanitizer.ts
-     */};var SAFE_URL_PATTERN=/^(?:(?:https?|mailto|ftp|tel|file):|[^&:/?#]*(?:[/?#]|$))/gi;/**
+	 * A pattern that recognizes a commonly useful subset of URLs that are safe.
+	 *
+	 * Shoutout to Angular 7 https://github.com/angular/angular/blob/7.2.4/packages/core/src/sanitization/url_sanitizer.ts
+	 */};var SAFE_URL_PATTERN=/^(?:(?:https?|mailto|ftp|tel|file):|[^&:/?#]*(?:[/?#]|$))/gi;/**
  * A pattern that matches safe data URLs. Only matches image, video and audio types.
  *
  * Shoutout to Angular 7 https://github.com/angular/angular/blob/7.2.4/packages/core/src/sanitization/url_sanitizer.ts
@@ -1186,13 +1186,13 @@ for(var i=0,l=regExp.length;i<l;i++){if(attrName.match(regExp[i])){return true;}
    * Constants
    * ------------------------------------------------------------------------
    */var NAME$6='tooltip';var VERSION$6='4.3.1';var DATA_KEY$6='bs.tooltip';var EVENT_KEY$6="."+DATA_KEY$6;var JQUERY_NO_CONFLICT$6=$.fn[NAME$6];var CLASS_PREFIX='bs-tooltip';var BSCLS_PREFIX_REGEX=new RegExp("(^|\\s)"+CLASS_PREFIX+"\\S+",'g');var DISALLOWED_ATTRIBUTES=['sanitize','whiteList','sanitizeFn'];var DefaultType$4={animation:'boolean',template:'string',title:'(string|element|function)',trigger:'string',delay:'(number|object)',html:'boolean',selector:'(string|boolean)',placement:'(string|function)',offset:'(number|string|function)',container:'(string|element|boolean)',fallbackPlacement:'(string|array)',boundary:'(string|element)',sanitize:'boolean',sanitizeFn:'(null|function)',whiteList:'object'};var AttachmentMap$1={AUTO:'auto',TOP:'top',RIGHT:'right',BOTTOM:'bottom',LEFT:'left'};var Default$4={animation:true,template:'<div class="tooltip" role="tooltip">'+'<div class="arrow"></div>'+'<div class="tooltip-inner"></div></div>',trigger:'hover focus',title:'',delay:0,html:false,selector:false,placement:'top',offset:0,container:false,fallbackPlacement:'flip',boundary:'scrollParent',sanitize:true,sanitizeFn:null,whiteList:DefaultWhitelist};var HoverState={SHOW:'show',OUT:'out'};var Event$6={HIDE:"hide"+EVENT_KEY$6,HIDDEN:"hidden"+EVENT_KEY$6,SHOW:"show"+EVENT_KEY$6,SHOWN:"shown"+EVENT_KEY$6,INSERTED:"inserted"+EVENT_KEY$6,CLICK:"click"+EVENT_KEY$6,FOCUSIN:"focusin"+EVENT_KEY$6,FOCUSOUT:"focusout"+EVENT_KEY$6,MOUSEENTER:"mouseenter"+EVENT_KEY$6,MOUSELEAVE:"mouseleave"+EVENT_KEY$6};var ClassName$6={FADE:'fade',SHOW:'show'};var Selector$6={TOOLTIP:'.tooltip',TOOLTIP_INNER:'.tooltip-inner',ARROW:'.arrow'};var Trigger={HOVER:'hover',FOCUS:'focus',CLICK:'click',MANUAL:'manual'/**
-     * ------------------------------------------------------------------------
-     * Class Definition
-     * ------------------------------------------------------------------------
-     */};var Tooltip=/*#__PURE__*/function(){function Tooltip(element,config){/**
-             * Check for Popper dependency
-             * Popper - https://popper.js.org
-             */if(typeof Popper==='undefined'){throw new TypeError('Bootstrap\'s tooltips require Popper.js (https://popper.js.org/)');}// private
+	 * ------------------------------------------------------------------------
+	 * Class Definition
+	 * ------------------------------------------------------------------------
+	 */};var Tooltip=/*#__PURE__*/function(){function Tooltip(element,config){/**
+			 * Check for Popper dependency
+			 * Popper - https://popper.js.org
+			 */if(typeof Popper==='undefined'){throw new TypeError('Bootstrap\'s tooltips require Popper.js (https://popper.js.org/)');}// private
 this._isEnabled=true;this._timeout=0;this._hoverState='';this._activeTrigger={};this._popper=null;// Protected
 this.element=element;this.config=this._getConfig(config);this.tip=null;this._setListeners();}// Getters
 var _proto=Tooltip.prototype;// Public
@@ -1220,10 +1220,10 @@ if(this.config.html){if(!$(content).parent().is($element)){$element.empty().appe
   * Constants
   * ------------------------------------------------------------------------
   */var NAME$7='popover';var VERSION$7='4.3.1';var DATA_KEY$7='bs.popover';var EVENT_KEY$7="."+DATA_KEY$7;var JQUERY_NO_CONFLICT$7=$.fn[NAME$7];var CLASS_PREFIX$1='bs-popover';var BSCLS_PREFIX_REGEX$1=new RegExp("(^|\\s)"+CLASS_PREFIX$1+"\\S+",'g');var Default$5=_objectSpread({},Tooltip.Default,{placement:'right',trigger:'click',content:'',template:'<div class="popover" role="tooltip">'+'<div class="arrow"></div>'+'<h3 class="popover-header"></h3>'+'<div class="popover-body"></div></div>'});var DefaultType$5=_objectSpread({},Tooltip.DefaultType,{content:'(string|element|function)'});var ClassName$7={FADE:'fade',SHOW:'show'};var Selector$7={TITLE:'.popover-header',CONTENT:'.popover-body'};var Event$7={HIDE:"hide"+EVENT_KEY$7,HIDDEN:"hidden"+EVENT_KEY$7,SHOW:"show"+EVENT_KEY$7,SHOWN:"shown"+EVENT_KEY$7,INSERTED:"inserted"+EVENT_KEY$7,CLICK:"click"+EVENT_KEY$7,FOCUSIN:"focusin"+EVENT_KEY$7,FOCUSOUT:"focusout"+EVENT_KEY$7,MOUSEENTER:"mouseenter"+EVENT_KEY$7,MOUSELEAVE:"mouseleave"+EVENT_KEY$7/**
-     * ------------------------------------------------------------------------
-     * Class Definition
-     * ------------------------------------------------------------------------
-     */};var Popover=/*#__PURE__*/function(_Tooltip){_inheritsLoose(Popover,_Tooltip);function Popover(){return _Tooltip.apply(this,arguments)||this;}var _proto=Popover.prototype;// Overrides
+	 * ------------------------------------------------------------------------
+	 * Class Definition
+	 * ------------------------------------------------------------------------
+	 */};var Popover=/*#__PURE__*/function(_Tooltip){_inheritsLoose(Popover,_Tooltip);function Popover(){return _Tooltip.apply(this,arguments)||this;}var _proto=Popover.prototype;// Overrides
 _proto.isWithContent=function isWithContent(){return this.getTitle()||this._getContent();};_proto.addAttachmentClass=function addAttachmentClass(attachment){$(this.getTipElement()).addClass(CLASS_PREFIX$1+"-"+attachment);};_proto.getTipElement=function getTipElement(){this.tip=this.tip||$(this.config.template)[0];return this.tip;};_proto.setContent=function setContent(){var $tip=$(this.getTipElement());// We use append for html objects to maintain js events
 this.setElementContent($tip.find(Selector$7.TITLE),this.getTitle());var content=this._getContent();if(typeof content==='function'){content=content.call(this.element);}this.setElementContent($tip.find(Selector$7.CONTENT),content);$tip.removeClass(ClassName$7.FADE+" "+ClassName$7.SHOW);}// Private
 ;_proto._getContent=function _getContent(){return this.element.getAttribute('data-content')||this.config.content;};_proto._cleanTipClass=function _cleanTipClass(){var $tip=$(this.getTipElement());var tabClass=$tip.attr('class').match(BSCLS_PREFIX_REGEX$1);if(tabClass!==null&&tabClass.length>0){$tip.removeClass(tabClass.join(''));}}// Static
@@ -1242,10 +1242,10 @@ get:function get(){return VERSION$7;}},{key:"Default",get:function get(){return 
  * Constants
  * ------------------------------------------------------------------------
  */var NAME$8='scrollspy';var VERSION$8='4.3.1';var DATA_KEY$8='bs.scrollspy';var EVENT_KEY$8="."+DATA_KEY$8;var DATA_API_KEY$6='.data-api';var JQUERY_NO_CONFLICT$8=$.fn[NAME$8];var Default$6={offset:10,method:'auto',target:''};var DefaultType$6={offset:'number',method:'string',target:'(string|element)'};var Event$8={ACTIVATE:"activate"+EVENT_KEY$8,SCROLL:"scroll"+EVENT_KEY$8,LOAD_DATA_API:"load"+EVENT_KEY$8+DATA_API_KEY$6};var ClassName$8={DROPDOWN_ITEM:'dropdown-item',DROPDOWN_MENU:'dropdown-menu',ACTIVE:'active'};var Selector$8={DATA_SPY:'[data-spy="scroll"]',ACTIVE:'.active',NAV_LIST_GROUP:'.nav, .list-group',NAV_LINKS:'.nav-link',NAV_ITEMS:'.nav-item',LIST_ITEMS:'.list-group-item',DROPDOWN:'.dropdown',DROPDOWN_ITEMS:'.dropdown-item',DROPDOWN_TOGGLE:'.dropdown-toggle'};var OffsetMethod={OFFSET:'offset',POSITION:'position'/**
-     * ------------------------------------------------------------------------
-     * Class Definition
-     * ------------------------------------------------------------------------
-     */};var ScrollSpy=/*#__PURE__*/function(){function ScrollSpy(element,config){var _this=this;this._element=element;this._scrollElement=element.tagName==='BODY'?window:element;this._config=this._getConfig(config);this._selector=this._config.target+" "+Selector$8.NAV_LINKS+","+(this._config.target+" "+Selector$8.LIST_ITEMS+",")+(this._config.target+" "+Selector$8.DROPDOWN_ITEMS);this._offsets=[];this._targets=[];this._activeTarget=null;this._scrollHeight=0;$(this._scrollElement).on(Event$8.SCROLL,function(event){return _this._process(event);});this.refresh();this._process();}// Getters
+	 * ------------------------------------------------------------------------
+	 * Class Definition
+	 * ------------------------------------------------------------------------
+	 */};var ScrollSpy=/*#__PURE__*/function(){function ScrollSpy(element,config){var _this=this;this._element=element;this._scrollElement=element.tagName==='BODY'?window:element;this._config=this._getConfig(config);this._selector=this._config.target+" "+Selector$8.NAV_LINKS+","+(this._config.target+" "+Selector$8.LIST_ITEMS+",")+(this._config.target+" "+Selector$8.DROPDOWN_ITEMS);this._offsets=[];this._targets=[];this._activeTarget=null;this._scrollHeight=0;$(this._scrollElement).on(Event$8.SCROLL,function(event){return _this._process(event);});this.refresh();this._process();}// Getters
 var _proto=ScrollSpy.prototype;// Public
 _proto.refresh=function refresh(){var _this2=this;var autoMethod=this._scrollElement===this._scrollElement.window?OffsetMethod.OFFSET:OffsetMethod.POSITION;var offsetMethod=this._config.method==='auto'?autoMethod:this._config.method;var offsetBase=offsetMethod===OffsetMethod.POSITION?this._getScrollTop():0;this._offsets=[];this._targets=[];this._scrollHeight=this._getScrollHeight();var targets=[].slice.call(document.querySelectorAll(this._selector));targets.map(function(element){var target;var targetSelector=Util.getSelectorFromElement(element);if(targetSelector){target=document.querySelector(targetSelector);}if(target){var targetBCR=target.getBoundingClientRect();if(targetBCR.width||targetBCR.height){// TODO (fat): remove sketch reliance on jQuery position/offset
 return[$(target)[offsetMethod]().top+offsetBase,targetSelector];}}return null;}).filter(function(item){return item;}).sort(function(a,b){return a[0]-b[0];}).forEach(function(item){_this2._offsets.push(item[0]);_this2._targets.push(item[1]);});};_proto.dispose=function dispose(){$.removeData(this._element,DATA_KEY$8);$(this._scrollElement).off(EVENT_KEY$8);this._element=null;this._scrollElement=null;this._config=null;this._selector=null;this._offsets=null;this._targets=null;this._activeTarget=null;this._scrollHeight=null;}// Private
@@ -1272,10 +1272,10 @@ $link.parents(Selector$8.NAV_LIST_GROUP).prev(Selector$8.NAV_ITEMS).children(Sel
   * Constants
   * ------------------------------------------------------------------------
   */var NAME$9='tab';var VERSION$9='4.3.1';var DATA_KEY$9='bs.tab';var EVENT_KEY$9="."+DATA_KEY$9;var DATA_API_KEY$7='.data-api';var JQUERY_NO_CONFLICT$9=$.fn[NAME$9];var Event$9={HIDE:"hide"+EVENT_KEY$9,HIDDEN:"hidden"+EVENT_KEY$9,SHOW:"show"+EVENT_KEY$9,SHOWN:"shown"+EVENT_KEY$9,CLICK_DATA_API:"click"+EVENT_KEY$9+DATA_API_KEY$7};var ClassName$9={DROPDOWN_MENU:'dropdown-menu',ACTIVE:'active',DISABLED:'disabled',FADE:'fade',SHOW:'show'};var Selector$9={DROPDOWN:'.dropdown',NAV_LIST_GROUP:'.nav, .list-group',ACTIVE:'.active',ACTIVE_UL:'> li > .active',DATA_TOGGLE:'[data-toggle="tab"], [data-toggle="pill"], [data-toggle="list"]',DROPDOWN_TOGGLE:'.dropdown-toggle',DROPDOWN_ACTIVE_CHILD:'> .dropdown-menu .active'/**
-     * ------------------------------------------------------------------------
-     * Class Definition
-     * ------------------------------------------------------------------------
-     */};var Tab=/*#__PURE__*/function(){function Tab(element){this._element=element;}// Getters
+	 * ------------------------------------------------------------------------
+	 * Class Definition
+	 * ------------------------------------------------------------------------
+	 */};var Tab=/*#__PURE__*/function(){function Tab(element){this._element=element;}// Getters
 var _proto=Tab.prototype;// Public
 _proto.show=function show(){var _this=this;if(this._element.parentNode&&this._element.parentNode.nodeType===Node.ELEMENT_NODE&&$(this._element).hasClass(ClassName$9.ACTIVE)||$(this._element).hasClass(ClassName$9.DISABLED)){return;}var target;var previous;var listElement=$(this._element).closest(Selector$9.NAV_LIST_GROUP)[0];var selector=Util.getSelectorFromElement(this._element);if(listElement){var itemSelector=listElement.nodeName==='UL'||listElement.nodeName==='OL'?Selector$9.ACTIVE_UL:Selector$9.ACTIVE;previous=$.makeArray($(listElement).find(itemSelector));previous=previous[previous.length-1];}var hideEvent=$.Event(Event$9.HIDE,{relatedTarget:this._element});var showEvent=$.Event(Event$9.SHOW,{relatedTarget:previous});if(previous){$(previous).trigger(hideEvent);}$(this._element).trigger(showEvent);if(showEvent.isDefaultPrevented()||hideEvent.isDefaultPrevented()){return;}if(selector){target=document.querySelector(selector);}this._activate(this._element,listElement);var complete=function complete(){var hiddenEvent=$.Event(Event$9.HIDDEN,{relatedTarget:_this._element});var shownEvent=$.Event(Event$9.SHOWN,{relatedTarget:previous});$(previous).trigger(hiddenEvent);$(_this._element).trigger(shownEvent);};if(target){this._activate(target,target.parentNode,complete);}else{complete();}};_proto.dispose=function dispose(){$.removeData(this._element,DATA_KEY$9);this._element=null;}// Private
 ;_proto._activate=function _activate(element,container,callback){var _this2=this;var activeElements=container&&(container.nodeName==='UL'||container.nodeName==='OL')?$(container).find(Selector$9.ACTIVE_UL):$(container).children(Selector$9.ACTIVE);var active=activeElements[0];var isTransitioning=callback&&active&&$(active).hasClass(ClassName$9.FADE);var complete=function complete(){return _this2._transitionComplete(element,active,callback);};if(active&&isTransitioning){var transitionDuration=Util.getTransitionDurationFromElement(active);$(active).removeClass(ClassName$9.SHOW).one(Util.TRANSITION_END,complete).emulateTransitionEnd(transitionDuration);}else{complete();}};_proto._transitionComplete=function _transitionComplete(element,active,callback){if(active){$(active).removeClass(ClassName$9.ACTIVE);var dropdownChild=$(active.parentNode).find(Selector$9.DROPDOWN_ACTIVE_CHILD)[0];if(dropdownChild){$(dropdownChild).removeClass(ClassName$9.ACTIVE);}if(active.getAttribute('role')==='tab'){active.setAttribute('aria-selected',false);}}$(element).addClass(ClassName$9.ACTIVE);if(element.getAttribute('role')==='tab'){element.setAttribute('aria-selected',true);}Util.reflow(element);if(element.classList.contains(ClassName$9.FADE)){element.classList.add(ClassName$9.SHOW);}if(element.parentNode&&$(element.parentNode).hasClass(ClassName$9.DROPDOWN_MENU)){var dropdownElement=$(element).closest(Selector$9.DROPDOWN)[0];if(dropdownElement){var dropdownToggleList=[].slice.call(dropdownElement.querySelectorAll(Selector$9.DROPDOWN_TOGGLE));$(dropdownToggleList).addClass(ClassName$9.ACTIVE);}element.setAttribute('aria-expanded',true);}if(callback){callback();}}// Static
@@ -1297,10 +1297,10 @@ _proto.show=function show(){var _this=this;if(this._element.parentNode&&this._el
  * Constants
  * ------------------------------------------------------------------------
  */var NAME$a='toast';var VERSION$a='4.3.1';var DATA_KEY$a='bs.toast';var EVENT_KEY$a="."+DATA_KEY$a;var JQUERY_NO_CONFLICT$a=$.fn[NAME$a];var Event$a={CLICK_DISMISS:"click.dismiss"+EVENT_KEY$a,HIDE:"hide"+EVENT_KEY$a,HIDDEN:"hidden"+EVENT_KEY$a,SHOW:"show"+EVENT_KEY$a,SHOWN:"shown"+EVENT_KEY$a};var ClassName$a={FADE:'fade',HIDE:'hide',SHOW:'show',SHOWING:'showing'};var DefaultType$7={animation:'boolean',autohide:'boolean',delay:'number'};var Default$7={animation:true,autohide:true,delay:500};var Selector$a={DATA_DISMISS:'[data-dismiss="toast"]'/**
-     * ------------------------------------------------------------------------
-     * Class Definition
-     * ------------------------------------------------------------------------
-     */};var Toast=/*#__PURE__*/function(){function Toast(element,config){this._element=element;this._config=this._getConfig(config);this._timeout=null;this._setListeners();}// Getters
+	 * ------------------------------------------------------------------------
+	 * Class Definition
+	 * ------------------------------------------------------------------------
+	 */};var Toast=/*#__PURE__*/function(){function Toast(element,config){this._element=element;this._config=this._getConfig(config);this._timeout=null;this._setListeners();}// Getters
 var _proto=Toast.prototype;// Public
 _proto.show=function show(){var _this=this;$(this._element).trigger(Event$a.SHOW);if(this._config.animation){this._element.classList.add(ClassName$a.FADE);}var complete=function complete(){_this._element.classList.remove(ClassName$a.SHOWING);_this._element.classList.add(ClassName$a.SHOW);$(_this._element).trigger(Event$a.SHOWN);if(_this._config.autohide){_this.hide();}};this._element.classList.remove(ClassName$a.HIDE);this._element.classList.add(ClassName$a.SHOWING);if(this._config.animation){var transitionDuration=Util.getTransitionDurationFromElement(this._element);$(this._element).one(Util.TRANSITION_END,complete).emulateTransitionEnd(transitionDuration);}else{complete();}};_proto.hide=function hide(withoutTimeout){var _this2=this;if(!this._element.classList.contains(ClassName$a.SHOW)){return;}$(this._element).trigger(Event$a.HIDE);if(withoutTimeout){this._close();}else{this._timeout=setTimeout(function(){_this2._close();},this._config.delay);}};_proto.dispose=function dispose(){clearTimeout(this._timeout);this._timeout=null;if(this._element.classList.contains(ClassName$a.SHOW)){this._element.classList.remove(ClassName$a.SHOW);}$(this._element).off(Event$a.CLICK_DISMISS);$.removeData(this._element,DATA_KEY$a);this._element=null;this._config=null;}// Private
 ;_proto._getConfig=function _getConfig(config){config=_objectSpread({},Default$7,$(this._element).data(),_typeof(config)==='object'&&config?config:{});Util.typeCheckConfig(NAME$a,config,this.constructor.DefaultType);return config;};_proto._setListeners=function _setListeners(){var _this3=this;$(this._element).on(Event$a.CLICK_DISMISS,Selector$a.DATA_DISMISS,function(){return _this3.hide(true);});};_proto._close=function _close(){var _this4=this;var complete=function complete(){_this4._element.classList.add(ClassName$a.HIDE);$(_this4._element).trigger(Event$a.HIDDEN);};this._element.classList.remove(ClassName$a.SHOW);if(this._config.animation){var transitionDuration=Util.getTransitionDurationFromElement(this._element);$(this._element).one(Util.TRANSITION_END,complete).emulateTransitionEnd(transitionDuration);}else{complete();}}// Static
@@ -2361,32 +2361,32 @@ https://github.com/imakewebthings/waypoints/blog/master/licenses.txt
 var cache={filterId:0},$body=$('body');var Vague=function Vague(elm,customOptions){// Default options
 var defaultOptions={intensity:5,forceSVGUrl:false,animationOptions:{duration:1000,easing:'linear'}},// extend the default options with the ones passed to the plugin
 options=$.extend(defaultOptions,customOptions),/*
-       *
-       * Helpers
-       *
-       */_browserPrefixes=' -webkit- -moz- -o- -ms- '.split(' '),_cssPrefixString={},_cssPrefix=function _cssPrefix(property){if(_cssPrefixString[property]||_cssPrefixString[property]==='')return _cssPrefixString[property]+property;var e=document.createElement('div');var prefixes=['','Moz','Webkit','O','ms','Khtml'];// Various supports...
+	   *
+	   * Helpers
+	   *
+	   */_browserPrefixes=' -webkit- -moz- -o- -ms- '.split(' '),_cssPrefixString={},_cssPrefix=function _cssPrefix(property){if(_cssPrefixString[property]||_cssPrefixString[property]==='')return _cssPrefixString[property]+property;var e=document.createElement('div');var prefixes=['','Moz','Webkit','O','ms','Khtml'];// Various supports...
 for(var i in prefixes){if(typeof e.style[prefixes[i]+property]!=='undefined'){_cssPrefixString[property]=prefixes[i];return prefixes[i]+property;}}return property.toLowerCase();},// https://github.com/Modernizr/Modernizr/blob/master/feature-detects/css-filters.js
 _support={cssfilters:function(){var el=document.createElement('div');el.style.cssText=_browserPrefixes.join('filter'+':blur(2px); ');return!!el.style.length&&(document.documentMode===undefined||document.documentMode>9);}(),// https://github.com/Modernizr/Modernizr/blob/master/feature-detects/svg-filters.js
 svgfilters:function(){var result=false;try{result=(typeof SVGFEColorMatrixElement==="undefined"?"undefined":_typeof(SVGFEColorMatrixElement))!==undefined&&SVGFEColorMatrixElement.SVG_FECOLORMATRIX_TYPE_SATURATE==2;}catch(e){}return result;}()},/*
-       *
-       * PRIVATE VARS
-       *
-       */_blurred=false,// cache the right prefixed css filter property
+	   *
+	   * PRIVATE VARS
+	   *
+	   */_blurred=false,// cache the right prefixed css filter property
 _cssFilterProp=_cssPrefix('Filter'),_svgGaussianFilter,_filterId,// to cache the jquery animation instance
 _animation,/*
-       *
-       * PRIVATE METHODS
-       *
-       */ /**
-       * Create any svg element
-       * @param  { String } tagName: svg tag name
-       * @return { SVG Node }
-       */_createSvgElement=function _createSvgElement(tagName){return document.createElementNS('http://www.w3.org/2000/svg',tagName);},/**
-       *
-       * Inject the svg tag into the DOM
-       * we will use it only if the css filters are not supported
-       *
-       */_appendSVGFilter=function _appendSVGFilter(){// create the svg and the filter tags
+	   *
+	   * PRIVATE METHODS
+	   *
+	   */ /**
+	   * Create any svg element
+	   * @param  { String } tagName: svg tag name
+	   * @return { SVG Node }
+	   */_createSvgElement=function _createSvgElement(tagName){return document.createElementNS('http://www.w3.org/2000/svg',tagName);},/**
+	   *
+	   * Inject the svg tag into the DOM
+	   * we will use it only if the css filters are not supported
+	   *
+	   */_appendSVGFilter=function _appendSVGFilter(){// create the svg and the filter tags
 var svg=_createSvgElement('svg'),filter=_createSvgElement('filter');// cache the feGaussianBlur tag and make it available
 // outside of this function to easily update the blur intensity
 _svgGaussianFilter=_createSvgElement('feGaussianBlur');// hide the svg tag
@@ -2394,26 +2394,26 @@ _svgGaussianFilter=_createSvgElement('feGaussianBlur');// hide the svg tag
 svg.setAttribute('style','position:absolute');svg.setAttribute('width','0');svg.setAttribute('height','0');// set the id that will be used as link between the DOM element to blur and the svg just created
 filter.setAttribute('id','blur-effect-id-'+cache.filterId);filter.appendChild(_svgGaussianFilter);svg.appendChild(filter);// append the svg into the body
 $body.append(svg);};/*
-     *
-     * PUBLIC VARS
-     *
-     */ // cache the DOM element to blur
+	 *
+	 * PUBLIC VARS
+	 *
+	 */ // cache the DOM element to blur
 this.$elm=elm instanceof $?elm:$(elm);/*
-     *
-     * PUBLIC METHODS
-     *
-     */ /**
-     *
-     * Initialize the plugin creating a new svg if necessary
-     *
-     */this.init=function(){// checking the css filter feature
+	 *
+	 * PUBLIC METHODS
+	 *
+	 */ /**
+	 *
+	 * Initialize the plugin creating a new svg if necessary
+	 *
+	 */this.init=function(){// checking the css filter feature
 if(_support.svgfilters){_appendSVGFilter();}// cache the filter id
 _filterId=cache.filterId;// increment the filter id static var
 cache.filterId++;return this;};/**
-     *
-     * Blur the DOM element selected
-     *
-     */this.blur=function(){var cssFilterValue,// variables needed to force the svg filter URL
+	 *
+	 * Blur the DOM element selected
+	 *
+	 */this.blur=function(){var cssFilterValue,// variables needed to force the svg filter URL
 loc=window.location,svgUrl=options.forceSVGUrl?loc.protocol+'//'+loc.host+loc.pathname+loc.search:'';// use the css filters if supported
 if(_support.cssfilters){cssFilterValue='blur('+options.intensity+'px)';// .. or use the svg filters
 }else if(_support.svgfilters){// update the svg stdDeviation tag to set up the blur intensity
@@ -2421,26 +2421,26 @@ _svgGaussianFilter.setAttribute('stdDeviation',options.intensity);cssFilterValue
 cssFilterValue='progid:DXImageTransform.Microsoft.Blur(pixelradius='+options.intensity+')';}// update the DOM element css
 this.$elm[0].style[_cssFilterProp]=cssFilterValue;// set the _blurred internal var to true to cache the element current status
 _blurred=true;return this;};/**
-     * Animate the blur intensity
-     * @param  { Int } newIntensity: new blur intensity value
-     * @param  { Object } customAnimationOptions: default jQuery animate options
-     */this.animate=function(newIntensity,customAnimationOptions){// control the new blur intensity checking if it's a valid value
+	 * Animate the blur intensity
+	 * @param  { Int } newIntensity: new blur intensity value
+	 * @param  { Object } customAnimationOptions: default jQuery animate options
+	 */this.animate=function(newIntensity,customAnimationOptions){// control the new blur intensity checking if it's a valid value
 if(typeof newIntensity!=='number'){throw _typeof(newIntensity)+' is not a valid number to animate the blur';}else if(newIntensity<0){throw'I can animate only positive numbers';}// create a new jQuery deferred instance
 var dfr=new $.Deferred();// kill the previous animation
 if(_animation){_animation.stop(true,true);}// trigger the animation using the jQuery Animation class
 _animation=new $.Animation(options,{intensity:newIntensity},$.extend(options.animationOptions,customAnimationOptions)).progress($.proxy(this.blur,this)).done(dfr.resolve);// return the animation deferred promise
 return dfr.promise();};/**
-     *
-     * Unblur the DOM element
-     *
-     */this.unblur=function(){// set the DOM filter property to none
+	 *
+	 * Unblur the DOM element
+	 *
+	 */this.unblur=function(){// set the DOM filter property to none
 this.$elm.css(_cssFilterProp,'none');_blurred=false;return this;};/**
-     *
-     * Trigger alternatively the @blur and @unblur methods
-     *
-     */this.toggleblur=function(){if(_blurred){this.unblur();}else{this.blur();}return this;};/**
-     * Destroy the Vague.js instance removing also the svg filter injected into the DOM
-     */this.destroy=function(){// do we need to remove the svg filter?
+	 *
+	 * Trigger alternatively the @blur and @unblur methods
+	 *
+	 */this.toggleblur=function(){if(_blurred){this.unblur();}else{this.blur();}return this;};/**
+	 * Destroy the Vague.js instance removing also the svg filter injected into the DOM
+	 */this.destroy=function(){// do we need to remove the svg filter?
 if(_support.svgfilters){$('filter#blur-effect-id-'+_filterId).parent().remove();}this.unblur();// clear all the property stored into this Vague.js instance
 for(var prop in this){delete this[prop];}return this;};// init the plugin
 return this.init();};// export the plugin as a jQuery function
@@ -2449,7 +2449,7 @@ $.fn.Vague=function(options){return new Vague(this,options);};})(window,document
 ----------------------------------------- */ //------------------------------------------------------------- v5 ----------------------------------------- * need to consolidate .header-single-banner with header-large-banner,
 $(document).ready(function(){var $headerImage=$('.header-single-banner, .header-large-banner, .header-primary-banner');var $headerLarge=$('.header-large-banner');var $primaryBanner=$('.header-primary-banner');var windowHeight=$(window).height();var $header=$('header');var $askGroup=$('.ask-group');var $headSearch=$('#head-search');// Beta 5 Changes please incorporate into source files
 setTimeout(function(){$askGroup.addClass('in');$headSearch.addClass('in');},150);// setting up global variables for header functions
-window.headerVars={MOBILEWIDTH:767,MAXHEIGHT:1200,MINHEIGHT:500,setHeaderImageHeight:function setHeaderImageHeight(){if($headerImage.length==0){return;}var height=windowHeight;height=Math.max(Math.min(height,headerVars.MAXHEIGHT),headerVars.MINHEIGHT);var headerTop=$headerImage.offset().top;$headerImage.css({'height':height-$header.height()});headerImageHeight=$headerImage.height();$headerLarge.css({'height':height-headerTop});headerImageHeight=$headerLarge.height();$primaryBanner.css({'height':450});// Beta v5 Changes please incorporate into source files	
+window.headerVars={MOBILEWIDTH:767,MAXHEIGHT:1200,MINHEIGHT:500,setHeaderImageHeight:function setHeaderImageHeight(){if($headerImage.length==0){return;}var height=windowHeight;height=Math.max(Math.min(height,headerVars.MAXHEIGHT),headerVars.MINHEIGHT);var headerTop=$headerImage.offset().top;$headerImage.css({'height':height-$header.height()});headerImageHeight=$headerImage.height();$headerLarge.css({'height':height-headerTop});headerImageHeight=$headerLarge.height();$primaryBanner.css({'height':450});// Beta v5 Changes please incorporate into source files
 }};headerVars.setHeaderImageHeight();// Take header image and place it on the ask group div for mobile
 var bgImage=$headerImage.css('background-image');var askGroup=$('.ask-group');askGroup.attr("style","background-size: cover; background-repeat: no-repeat; background-image:"+bgImage);});/* -----------------------------------------
   FIXED HEADER - /source/js/cagov/fixed-header.js
@@ -2460,9 +2460,9 @@ var $header=$('header');var $headerImage=$('.header-single-banner');var $explore
  * Create a return to top button
  */var $returnTop=$('<span class="return-top"/>').appendTo('.main-content');// set up the interaction handlers before anything else
 setResizeHandler();setScrollHandler();/**
-     * Since we have a fixed header we need to use js to scroll back to top
-     * We also expose it as a jQuery plugin for resuability
-     */(function($){$.fn.customScrollTop=function customScrollTop(){return this.each(function(){$el=$(this);$el.on('click',function(){$('html,body').animate({scrollTop:0},400,function(){$(window).scroll();});return;});});};})(jQuery);// Set any buttons or links which must scroll back to the top
+	 * Since we have a fixed header we need to use js to scroll back to top
+	 * We also expose it as a jQuery plugin for resuability
+	 */(function($){$.fn.customScrollTop=function customScrollTop(){return this.each(function(){$el=$(this);$el.on('click',function(){$('html,body').animate({scrollTop:0},400,function(){$(window).scroll();});return;});});};})(jQuery);// Set any buttons or links which must scroll back to the top
 $('[href="#skip-to-content"]').customScrollTop();$returnTop.customScrollTop();// we need to jump back up to the top inorder to show the search again
 if($header.hasClass("fixed")){$('#nav-item-search').customScrollTop();}// fire off the first update to the header, all remaining updates will
 // from user interactions
@@ -2480,8 +2480,8 @@ if(windowWidth<headerVars.MOBILEWIDTH){return;}checkForCompactUpdate();checkForF
 // changing variables as well as update
 $(window).on('scroll',function(){currentScrollTop=$(document).scrollTop();updateFunc();checkForReturnTopUpdate();});// fire the first update
 updateFunc();}/**
-     * Checks to see if we are ready to hide the input and ask bar
-     */function checkForFixedUpdate(){// we dont fade out if we have search results being shown
+	 * Checks to see if we are ready to hide the input and ask bar
+	 */function checkForFixedUpdate(){// we dont fade out if we have search results being shown
 if($headSearch.hasClass('active')){$askGroup.addClass('fixed-hide');$header.addClass('compact, .fixed');return;}// // when we go compact with the header we need to completly hide
 // // our askbar and search. This is due to them being placed relativly
 // // with respect to the header. And as such they get tosed around And
@@ -2500,20 +2500,20 @@ if($headSearch.hasClass('active')){$askGroup.addClass('fixed-hide');$header.addC
 function checkForCompactUpdate(){if(currentScrollTop>=scrollDistanceToHideSearch){$askGroup.addClass('fixed-hide');$headSearch.addClass('fixed-hide');}else{$askGroup.removeClass('fixed-hide');$headSearch.removeClass('fixed-hide');}if(currentScrollTop>=scrollDistanceToMakeCompactHeader){$header.addClass('compact');}else if($header.hasClass('compact')){$header.removeClass('compact');}}// Same as the function above, we check if the scroll is far enough to
 // justify showing the return icon
 function checkForReturnTopUpdate(){if(currentScrollTop>=scrollDistanceToMakeCompactHeader){$returnTop.addClass('is-visible');}else{$returnTop.removeClass('is-visible');}}/**
-     * Figures out the difference between the bottom of the askbar and the
-     * explore more bar. Used to caclulate when we should hide these elements
-     */function calcInputDifference(){if(!$exploreMore.length||!$askGroupBar.length){return 0;}return $headSearch.height()+$askGroupBar.height();// return $exploreMore.offset().top - $askGroupBar.offset().top +
+	 * Figures out the difference between the bottom of the askbar and the
+	 * explore more bar. Used to caclulate when we should hide these elements
+	 */function calcInputDifference(){if(!$exploreMore.length||!$askGroupBar.length){return 0;}return $headSearch.height()+$askGroupBar.height();// return $exploreMore.offset().top - $askGroupBar.offset().top +
 //$askGroupBar.height() - 15;
 }/**
-     * Sets and removes the fixed header based upon with and the required class
-     */function updateFixed(){if($header.hasClass('fixed')&&windowWidth>headerVars.MOBILEWIDTH){addFixed();}else{removeFixed();}}/**
-     * Adds the required classes and sets the proper inline styles
-     * on the header elements. Also recalculates the header image height
-     */function addFixed(){var leeway=10;$header.addClass('fixed');headerVars.setHeaderImageHeight();// we have a header image, we need to adjust it
+	 * Sets and removes the fixed header based upon with and the required class
+	 */function updateFixed(){if($header.hasClass('fixed')&&windowWidth>headerVars.MOBILEWIDTH){addFixed();}else{removeFixed();}}/**
+	 * Adds the required classes and sets the proper inline styles
+	 * on the header elements. Also recalculates the header image height
+	 */function addFixed(){var leeway=10;$header.addClass('fixed');headerVars.setHeaderImageHeight();// we have a header image, we need to adjust it
 if($headerImage.length){// take into account the fixed header
 var height=$headerImage.height();height=Math.max(Math.min(height,headerVars.MAXHEIGHT),headerVars.MINHEIGHT);$headerImage.css({height:height+headerHeight+leeway});// take into account the fixed header -----------------------------------------------------v5 FIX---------------------------------
 }else{// no header image, which means our main content needs to
-$mainContent.css({'padding-top':Math.max(headerHeight,136)});}if($(".ask-group").length>0){$mainContent.addClass('print-p-t');// Media print .main-content fix	
+$mainContent.css({'padding-top':Math.max(headerHeight,136)});}if($(".ask-group").length>0){$mainContent.addClass('print-p-t');// Media print .main-content fix
 $mainContent.css({'padding-top':0});$('.header-slideshow-banner, .header-primary-banner').css({'margin-top':136});}}// take into account the fixed header -----------------------------------------------------v5 FIX---------------------------------
 // remove all inline styles from setting the fixed header
 function removeFixed(){$header.removeClass('fixed');$headerImage.css({'top':'','margin-bottom':''});$mainContent.css({'padding-top':''});$askGroupBar.css('top','');}});/*
@@ -2545,7 +2545,7 @@ if(hrefs[l].protocol=="mailto:"){startListening(hrefs[l],"mousedown",trackMailto
 ----------------------------------------- */$(document).ready(function(){// detect partial flexbox support in IE>9
 if($('.top-level-nav').css('display')=='table'){$('body').addClass('no-flex');}// menu variables
 var $navigation=$('#navigation.main-navigation'),$navItems=$navigation.find('.nav-item'),// first level link containers'
-$navItemsWithSubs=$navItems.has('.sub-nav'),$subNavs=$navigation.find('.sub-nav'),megamenu=$navigation.hasClass('megadropdown'),dropdown=$navigation.hasClass('dropdown'),singleLevel=$navigation.hasClass('singleLevel'),offCanvas=false;// beta 5.9 addition instead of: $navigation.hasClass('off-canvas'), 
+$navItemsWithSubs=$navItems.has('.sub-nav'),$subNavs=$navigation.find('.sub-nav'),megamenu=$navigation.hasClass('megadropdown'),dropdown=$navigation.hasClass('dropdown'),singleLevel=$navigation.hasClass('singleLevel'),offCanvas=false;// beta 5.9 addition instead of: $navigation.hasClass('off-canvas'),
 mobileWidth=767,setActiveLinkByFolder=$navigation.hasClass('auto-highlight');// Use new folder matching method to highlight the current navigation tab
 var mouseOverDelay=100,setTimeoutConst;// touch detection
 var isTouch=Modernizr.touch,msTouch='ontouchstart'in window||navigator.MaxTouchPoints>0||navigator.msMaxTouchPoints>0;var touchMode=false;$(window).on('mousemove',function(){if(touchMode)touchmode=false;});// HIGHLIGHT APPROPRIATE NAV ITEM
@@ -2607,167 +2607,167 @@ openClass:"open",// default css class for the open state
 openDelay:400,// default open delay when opening menu via mouseover
 closeDelay:500// default close delay when on mouseout
 },Keyboard={BACKSPACE:8,COMMA:188,DELETE:46,DOWN:40,END:35,ENTER:13,ESCAPE:27,HOME:36,LEFT:37,PAGE_DOWN:34,PAGE_UP:33,PERIOD:190,RIGHT:39,SPACE:32,TAB:9,UP:38,keyMap:{48:"0",49:"1",50:"2",51:"3",52:"4",53:"5",54:"6",55:"7",56:"8",57:"9",59:";",65:"a",66:"b",67:"c",68:"d",69:"e",70:"f",71:"g",72:"h",73:"i",74:"j",75:"k",76:"l",77:"m",78:"n",79:"o",80:"p",81:"q",82:"r",83:"s",84:"t",85:"u",86:"v",87:"w",88:"x",89:"y",90:"z",96:"0",97:"1",98:"2",99:"3",100:"4",101:"5",102:"6",103:"7",104:"8",105:"9",190:"."}};/**
-     * @desc Creates a new accessible mega menu instance.
-     * @param {jquery} element
-     * @param {object} [options] Mega Menu options
-     * @param {string} [options.uuidPrefix=accessible-menu] - Prefix for generated unique id attributes, which are required to indicate aria-owns, aria-controls and aria-labelledby
-     * @param {string} [options.menuClass=accessible-menu] - CSS class used to define the megamenu styling
-     * @param {string} [options.topNavItemClass=accessible-menu-top-nav-item] - CSS class for a top-level navigation item in the megamenu
-     * @param {string} [options.panelClass=accessible-menu-panel] - CSS class for a megamenu panel
-     * @param {string} [options.panelGroupClass=accessible-menu-panel-group] - CSS class for a group of items within a megamenu panel
-     * @param {string} [options.hoverClass=hover] - CSS class for the hover state
-     * @param {string} [options.focusClass=focus] - CSS class for the focus state
-     * @param {string} [options.openClass=open] - CSS class for the open state
-     * @constructor
-     */function accessibleMenu(element,options){this.element=element;// merge optional settings and defaults into settings
+	 * @desc Creates a new accessible mega menu instance.
+	 * @param {jquery} element
+	 * @param {object} [options] Mega Menu options
+	 * @param {string} [options.uuidPrefix=accessible-menu] - Prefix for generated unique id attributes, which are required to indicate aria-owns, aria-controls and aria-labelledby
+	 * @param {string} [options.menuClass=accessible-menu] - CSS class used to define the megamenu styling
+	 * @param {string} [options.topNavItemClass=accessible-menu-top-nav-item] - CSS class for a top-level navigation item in the megamenu
+	 * @param {string} [options.panelClass=accessible-menu-panel] - CSS class for a megamenu panel
+	 * @param {string} [options.panelGroupClass=accessible-menu-panel-group] - CSS class for a group of items within a megamenu panel
+	 * @param {string} [options.hoverClass=hover] - CSS class for the hover state
+	 * @param {string} [options.focusClass=focus] - CSS class for the focus state
+	 * @param {string} [options.openClass=open] - CSS class for the open state
+	 * @constructor
+	 */function accessibleMenu(element,options){this.element=element;// merge optional settings and defaults into settings
 this.settings=$.extend({},defaults,options);this._defaults=defaults;this._name=pluginName;this.mouseTimeoutID=null;this.focusTimeoutID=null;this.mouseFocused=false;this.justFocused=false;this.init();}accessibleMenu.prototype=function(){/* private attributes and methods ------------------------ */var uuid=0,keydownTimeoutDuration=1000,keydownSearchString="",isTouch=typeof window.hasOwnProperty==="function"&&!!window.hasOwnProperty("ontouchstart"),_getPlugin,_addUniqueId,_togglePanel,_clickHandler,_clickOutsideHandler,_DOMAttrModifiedHandler,_focusInHandler,_focusOutHandler,_keyDownHandler,_mouseDownHandler,_mouseOverHandler,_mouseOutHandler,_toggleExpandedEventHandlers;/**
-         * @name jQuery.fn.accessibleMenu~_getPlugin
-         * @desc Returns the parent accessibleMenu instance for a given element
-         * @param {jQuery} element
-         * @memberof jQuery.fn.accessibleMenu
-         * @inner
-         * @private
-         */_getPlugin=function _getPlugin(element){return $(element).closest(':data(plugin_'+pluginName+')').data("plugin_"+pluginName);};/**
-         * @name jQuery.fn.accessibleMenu~_addUniqueId
-         * @desc Adds a unique id and element.
-         * The id string starts with the
-         * string defined in settings.uuidPrefix.
-         * @param {jQuery} element
-         * @memberof jQuery.fn.accessibleMenu
-         * @inner
-         * @private
-         */_addUniqueId=function _addUniqueId(element){element=$(element);var settings=this.settings;if(!element.attr("id")){element.attr("id",settings.uuidPrefix+"-"+new Date().getTime()+"-"+ ++uuid);}};/**
-         * @name jQuery.fn.accessibleMenu~_togglePanel
-         * @desc Toggle the display of mega menu panels in response to an event.
-         * The optional boolean value 'hide' forces all panels to hide.
-         * @param {event} event
-         * @param {Boolean} [hide] Hide all mega menu panels when true
-         * @memberof jQuery.fn.accessibleMenu
-         * @inner
-         * @private
-         */_togglePanel=function _togglePanel(event,hide){var target=$(event.target),that=this,settings=this.settings,menu=this.menu,topli=target.closest('.'+settings.topNavItemClass),panel=target.hasClass(settings.panelClass)?target:target.closest('.'+settings.panelClass),newfocus;_toggleExpandedEventHandlers.call(this,true);if(hide){topli=menu.find('.'+settings.topNavItemClass+' .'+settings.openClass+':first').closest('.'+settings.topNavItemClass);if(!(topli.is(event.relatedTarget)||topli.has(event.relatedTarget).length>0)){if((event.type==='mouseout'||event.type==='focusout')&&topli.has(document.activeElement).length>0){return;}topli.find('[aria-expanded]').attr('aria-expanded','false').removeClass(settings.openClass).filter('.'+settings.panelClass).attr('aria-hidden','true');if(event.type==='keydown'&&event.keyCode===Keyboard.ESCAPE||event.type==='DOMAttrModified'){newfocus=topli.find(':tabbable:first');setTimeout(function(){menu.find('[aria-expanded].'+that.settings.panelClass).off('DOMAttrModified.accessible-menu');newfocus.trigger("focus");that.justFocused=false;},99);}}else if(topli.length===0){menu.find('[aria-expanded=true]').attr('aria-expanded','false').removeClass(settings.openClass).filter('.'+settings.panelClass).attr('aria-hidden','true');}}else{clearTimeout(that.focusTimeoutID);topli.siblings().find('[aria-expanded]').attr('aria-expanded','false').removeClass(settings.openClass).filter('.'+settings.panelClass).attr('aria-hidden','true');topli.find('[aria-expanded]').attr('aria-expanded','true').addClass(settings.openClass).filter('.'+settings.panelClass).attr('aria-hidden','false');if(event.type==='mouseover'&&target.is(':tabbable')&&topli.length===1&&panel.length===0&&menu.has(document.activeElement).length>0){target.trigger("focus");that.justFocused=false;}_toggleExpandedEventHandlers.call(that);}};/**
-         * @name jQuery.fn.accessibleMenu~_clickHandler
-         * @desc Handle click event on mega menu item
-         * @param {event} Event object
-         * @memberof jQuery.fn.accessibleMenu
-         * @inner
-         * @private
-         */_clickHandler=function _clickHandler(event){var target=$(event.target).closest(':tabbable'),topli=target.closest('.'+this.settings.topNavItemClass),panel=target.closest('.'+this.settings.panelClass);if(topli.length===1&&panel.length===0&&topli.find('.'+this.settings.panelClass).length===1){if(!target.hasClass(this.settings.openClass)){event.preventDefault();event.stopPropagation();_togglePanel.call(this,event);this.justFocused=false;}else{if(this.justFocused){event.preventDefault();event.stopPropagation();this.justFocused=false;}else if(isTouch){// event.preventDefault();
+		 * @name jQuery.fn.accessibleMenu~_getPlugin
+		 * @desc Returns the parent accessibleMenu instance for a given element
+		 * @param {jQuery} element
+		 * @memberof jQuery.fn.accessibleMenu
+		 * @inner
+		 * @private
+		 */_getPlugin=function _getPlugin(element){return $(element).closest(':data(plugin_'+pluginName+')').data("plugin_"+pluginName);};/**
+		 * @name jQuery.fn.accessibleMenu~_addUniqueId
+		 * @desc Adds a unique id and element.
+		 * The id string starts with the
+		 * string defined in settings.uuidPrefix.
+		 * @param {jQuery} element
+		 * @memberof jQuery.fn.accessibleMenu
+		 * @inner
+		 * @private
+		 */_addUniqueId=function _addUniqueId(element){element=$(element);var settings=this.settings;if(!element.attr("id")){element.attr("id",settings.uuidPrefix+"-"+new Date().getTime()+"-"+ ++uuid);}};/**
+		 * @name jQuery.fn.accessibleMenu~_togglePanel
+		 * @desc Toggle the display of mega menu panels in response to an event.
+		 * The optional boolean value 'hide' forces all panels to hide.
+		 * @param {event} event
+		 * @param {Boolean} [hide] Hide all mega menu panels when true
+		 * @memberof jQuery.fn.accessibleMenu
+		 * @inner
+		 * @private
+		 */_togglePanel=function _togglePanel(event,hide){var target=$(event.target),that=this,settings=this.settings,menu=this.menu,topli=target.closest('.'+settings.topNavItemClass),panel=target.hasClass(settings.panelClass)?target:target.closest('.'+settings.panelClass),newfocus;_toggleExpandedEventHandlers.call(this,true);if(hide){topli=menu.find('.'+settings.topNavItemClass+' .'+settings.openClass+':first').closest('.'+settings.topNavItemClass);if(!(topli.is(event.relatedTarget)||topli.has(event.relatedTarget).length>0)){if((event.type==='mouseout'||event.type==='focusout')&&topli.has(document.activeElement).length>0){return;}topli.find('[aria-expanded]').attr('aria-expanded','false').removeClass(settings.openClass).filter('.'+settings.panelClass).attr('aria-hidden','true');if(event.type==='keydown'&&event.keyCode===Keyboard.ESCAPE||event.type==='DOMAttrModified'){newfocus=topli.find(':tabbable:first');setTimeout(function(){menu.find('[aria-expanded].'+that.settings.panelClass).off('DOMAttrModified.accessible-menu');newfocus.trigger("focus");that.justFocused=false;},99);}}else if(topli.length===0){menu.find('[aria-expanded=true]').attr('aria-expanded','false').removeClass(settings.openClass).filter('.'+settings.panelClass).attr('aria-hidden','true');}}else{clearTimeout(that.focusTimeoutID);topli.siblings().find('[aria-expanded]').attr('aria-expanded','false').removeClass(settings.openClass).filter('.'+settings.panelClass).attr('aria-hidden','true');topli.find('[aria-expanded]').attr('aria-expanded','true').addClass(settings.openClass).filter('.'+settings.panelClass).attr('aria-hidden','false');if(event.type==='mouseover'&&target.is(':tabbable')&&topli.length===1&&panel.length===0&&menu.has(document.activeElement).length>0){target.trigger("focus");that.justFocused=false;}_toggleExpandedEventHandlers.call(that);}};/**
+		 * @name jQuery.fn.accessibleMenu~_clickHandler
+		 * @desc Handle click event on mega menu item
+		 * @param {event} Event object
+		 * @memberof jQuery.fn.accessibleMenu
+		 * @inner
+		 * @private
+		 */_clickHandler=function _clickHandler(event){var target=$(event.target).closest(':tabbable'),topli=target.closest('.'+this.settings.topNavItemClass),panel=target.closest('.'+this.settings.panelClass);if(topli.length===1&&panel.length===0&&topli.find('.'+this.settings.panelClass).length===1){if(!target.hasClass(this.settings.openClass)){event.preventDefault();event.stopPropagation();_togglePanel.call(this,event);this.justFocused=false;}else{if(this.justFocused){event.preventDefault();event.stopPropagation();this.justFocused=false;}else if(isTouch){// event.preventDefault();
 // event.stopPropagation();
 // _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
 }}}};/**
-         * @name jQuery.fn.accessibleMenu~_clickOutsideHandler
-         * @desc Handle click event outside of a the megamenu
-         * @param {event} Event object
-         * @memberof jQuery.fn.accessibleMenu
-         * @inner
-         * @private
-         */_clickOutsideHandler=function _clickOutsideHandler(event){if($(event.target).closest(this.menu).length===0){event.preventDefault();event.stopPropagation();_togglePanel.call(this,event,true);}};/**
-         * @name jQuery.fn.accessibleMenu~_DOMAttrModifiedHandler
-         * @desc Handle DOMAttrModified event on panel to respond to Windows 8 Narrator ExpandCollapse pattern
-         * @param {event} Event object
-         * @memberof jQuery.fn.accessibleMenu
-         * @inner
-         * @private
-         */_DOMAttrModifiedHandler=function _DOMAttrModifiedHandler(event){if(event.originalEvent.attrName==='aria-expanded'&&event.originalEvent.newValue==='false'&&$(event.target).hasClass(this.settings.openClass)){event.preventDefault();event.stopPropagation();_togglePanel.call(this,event,true);}};/**
-         * @name jQuery.fn.accessibleMenu~_focusInHandler
-         * @desc Handle focusin event on mega menu item.
-         * @param {event} Event object
-         * @memberof jQuery.fn.accessibleMenu
-         * @inner
-         * @private
-         */_focusInHandler=function _focusInHandler(event){clearTimeout(this.focusTimeoutID);var target=$(event.target),panel=target.closest('.'+this.settings.panelClass);target.addClass(this.settings.focusClass);//.on('click.accessible-menu', $.proxy(_clickHandler, this));
+		 * @name jQuery.fn.accessibleMenu~_clickOutsideHandler
+		 * @desc Handle click event outside of a the megamenu
+		 * @param {event} Event object
+		 * @memberof jQuery.fn.accessibleMenu
+		 * @inner
+		 * @private
+		 */_clickOutsideHandler=function _clickOutsideHandler(event){if($(event.target).closest(this.menu).length===0){event.preventDefault();event.stopPropagation();_togglePanel.call(this,event,true);}};/**
+		 * @name jQuery.fn.accessibleMenu~_DOMAttrModifiedHandler
+		 * @desc Handle DOMAttrModified event on panel to respond to Windows 8 Narrator ExpandCollapse pattern
+		 * @param {event} Event object
+		 * @memberof jQuery.fn.accessibleMenu
+		 * @inner
+		 * @private
+		 */_DOMAttrModifiedHandler=function _DOMAttrModifiedHandler(event){if(event.originalEvent.attrName==='aria-expanded'&&event.originalEvent.newValue==='false'&&$(event.target).hasClass(this.settings.openClass)){event.preventDefault();event.stopPropagation();_togglePanel.call(this,event,true);}};/**
+		 * @name jQuery.fn.accessibleMenu~_focusInHandler
+		 * @desc Handle focusin event on mega menu item.
+		 * @param {event} Event object
+		 * @memberof jQuery.fn.accessibleMenu
+		 * @inner
+		 * @private
+		 */_focusInHandler=function _focusInHandler(event){clearTimeout(this.focusTimeoutID);var target=$(event.target),panel=target.closest('.'+this.settings.panelClass);target.addClass(this.settings.focusClass);//.on('click.accessible-menu', $.proxy(_clickHandler, this));
 this.justFocused=!this.mouseFocused;this.mouseFocused=false;if(this.panels.not(panel).filter('.'+this.settings.openClass).length){_togglePanel.call(this,event);}};/**
-         * @name jQuery.fn.accessibleMenu~_focusOutHandler
-         * @desc Handle focusout event on mega menu item.
-         * @param {event} Event object
-         * @memberof jQuery.fn.accessibleMenu
-         * @inner
-         * @private
-         */_focusOutHandler=function _focusOutHandler(event){this.justFocused=false;var that=this,target=$(event.target),topli=target.closest('.'+this.settings.topNavItemClass),keepOpen=false;target.removeClass(this.settings.focusClass).off('click.accessible-menu');if(window.cvox){// If ChromeVox is running...
+		 * @name jQuery.fn.accessibleMenu~_focusOutHandler
+		 * @desc Handle focusout event on mega menu item.
+		 * @param {event} Event object
+		 * @memberof jQuery.fn.accessibleMenu
+		 * @inner
+		 * @private
+		 */_focusOutHandler=function _focusOutHandler(event){this.justFocused=false;var that=this,target=$(event.target),topli=target.closest('.'+this.settings.topNavItemClass),keepOpen=false;target.removeClass(this.settings.focusClass).off('click.accessible-menu');if(window.cvox){// If ChromeVox is running...
 that.focusTimeoutID=setTimeout(function(){window.cvox.Api.getCurrentNode(function(node){if(topli.has(node).length){// and the current node being voiced is in
 // the mega menu, clearTimeout,
 // so the panel stays open.
 clearTimeout(that.focusTimeoutID);}else{that.focusTimeoutID=setTimeout(function(scope,event,hide){_togglePanel.call(scope,event,hide);},275,that,event,true);}});},25);}else{that.focusTimeoutID=setTimeout(function(){_togglePanel.call(that,event,true);},300);}};/**
-         * @name jQuery.fn.accessibleMenu~_keyDownHandler
-         * @desc Handle keydown event on mega menu.
-         * @param {event} Event object
-         * @memberof jQuery.fn.accessibleMenu
-         * @inner
-         * @private
-         */_keyDownHandler=function _keyDownHandler(event){var that=this.constructor===accessibleMenu?this:_getPlugin(this),// determine the accessibleMenu plugin instance
+		 * @name jQuery.fn.accessibleMenu~_keyDownHandler
+		 * @desc Handle keydown event on mega menu.
+		 * @param {event} Event object
+		 * @memberof jQuery.fn.accessibleMenu
+		 * @inner
+		 * @private
+		 */_keyDownHandler=function _keyDownHandler(event){var that=this.constructor===accessibleMenu?this:_getPlugin(this),// determine the accessibleMenu plugin instance
 settings=that.settings,target=$($(this).is('.'+settings.hoverClass+':tabbable')?this:event.target),// if the element is hovered the target is this, otherwise, its the focused element
 menu=that.menu,topnavitems=that.topnavitems,topli=target.closest('.'+settings.topNavItemClass),tabbables=menu.find(':tabbable'),panel=target.hasClass(settings.panelClass)?target:target.closest('.'+settings.panelClass),panelGroups=panel.find('.'+settings.panelGroupClass),currentPanelGroup=target.closest('.'+settings.panelGroupClass),next,keycode=event.keyCode||event.which,start,i,o,label,found=false,newString=Keyboard.keyMap[event.keyCode]||'',regex,isTopNavItem=topli.length===1&&panel.length===0;if(target.is("input:focus, select:focus, textarea:focus, button:focus")){// if the event target is a form element we should handle keydown normally
 return;}if(target.is('.'+settings.hoverClass+':tabbable')){$('html').off('keydown.accessible-menu');}switch(keycode){case Keyboard.ESCAPE:_togglePanel.call(that,event,true);break;case Keyboard.DOWN:event.preventDefault();if(isTopNavItem){_togglePanel.call(that,event);found=topli.find('.'+settings.panelClass+' :tabbable:first').trigger("focus").length===1;}else{found=tabbables.filter(':gt('+tabbables.index(target)+'):first').trigger("focus").length===1;}if(!found&&window.opera&&opera.toString()==="[object Opera]"&&(event.ctrlKey||event.metaKey)){tabbables=$(':tabbable');i=tabbables.index(target);found=$(':tabbable:gt('+$(':tabbable').index(target)+'):first').trigger("focus").length===1;}break;case Keyboard.UP:event.preventDefault();if(isTopNavItem&&target.hasClass(settings.openClass)){_togglePanel.call(that,event,true);next=topnavitems.filter(':lt('+topnavitems.index(topli)+'):last');if(next.children('.'+settings.panelClass).length){found=next.children().attr('aria-expanded','true').addClass(settings.openClass).filter('.'+settings.panelClass).attr('aria-hidden','false').find(':tabbable:last').trigger("focus")===1;}}else if(!isTopNavItem){found=tabbables.filter(':lt('+tabbables.index(target)+'):last').trigger("focus").length===1;}if(!found&&window.opera&&opera.toString()==="[object Opera]"&&(event.ctrlKey||event.metaKey)){tabbables=$(':tabbable');i=tabbables.index(target);found=$(':tabbable:lt('+$(':tabbable').index(target)+'):first').trigger("focus").length===1;}break;case Keyboard.RIGHT:event.preventDefault();if(isTopNavItem){found=topnavitems.filter(':gt('+topnavitems.index(topli)+'):first').find(':tabbable:first').trigger("focus").length===1;}else{if(panelGroups.length&&currentPanelGroup.length){// if the current panel contains panel groups, and we are able to focus the first tabbable element of the next panel group
 found=panelGroups.filter(':gt('+panelGroups.index(currentPanelGroup)+'):first').find(':tabbable:first').trigger("focus").length===1;}if(!found){found=topli.find(':tabbable:first').trigger("focus").length===1;}}break;case Keyboard.LEFT:event.preventDefault();if(isTopNavItem){found=topnavitems.filter(':lt('+topnavitems.index(topli)+'):last').find(':tabbable:first').trigger("focus").length===1;}else{if(panelGroups.length&&currentPanelGroup.length){// if the current panel contains panel groups, and we are able to focus the first tabbable element of the previous panel group
 found=panelGroups.filter(':lt('+panelGroups.index(currentPanelGroup)+'):last').find(':tabbable:first').trigger("focus").length===1;}if(!found){found=topli.find(':tabbable:first').trigger("focus").length===1;}}break;case Keyboard.TAB:i=tabbables.index(target);if(event.shiftKey&&isTopNavItem&&target.hasClass(settings.openClass)){_togglePanel.call(that,event,true);next=topnavitems.filter(':lt('+topnavitems.index(topli)+'):last');if(next.children('.'+settings.panelClass).length){found=next.children().attr('aria-expanded','true').addClass(settings.openClass).filter('.'+settings.panelClass).attr('aria-hidden','false').find(':tabbable:last').trigger("focus");}}else if(event.shiftKey&&i>0){found=tabbables.filter(':lt('+i+'):last').trigger("focus").length===1;}else if(!event.shiftKey&&i<tabbables.length-1){found=tabbables.filter(':gt('+i+'):first').trigger("focus").length===1;}else if(window.opera&&opera.toString()==="[object Opera]"){tabbables=$(':tabbable');i=tabbables.index(target);if(event.shiftKey){found=$(':tabbable:lt('+$(':tabbable').index(target)+'):last').trigger("focus").length===1;}else{found=$(':tabbable:gt('+$(':tabbable').index(target)+'):first').trigger("focus").length===1;}}if(found){event.preventDefault();}break;case Keyboard.SPACE:if(isTopNavItem){event.preventDefault();_clickHandler.call(that,event);}else{return true;}break;case Keyboard.ENTER:return true;break;default:// alphanumeric filter
 clearTimeout(this.keydownTimeoutID);keydownSearchString+=newString!==keydownSearchString?newString:'';if(keydownSearchString.length===0){return;}this.keydownTimeoutID=setTimeout(function(){keydownSearchString='';},keydownTimeoutDuration);if(isTopNavItem&&!target.hasClass(settings.openClass)){tabbables=tabbables.filter(':not(.'+settings.panelClass+' :tabbable)');}else{tabbables=topli.find(':tabbable');}if(event.shiftKey){tabbables=$(tabbables.get().reverse());}for(i=0;i<tabbables.length;i++){o=tabbables.eq(i);if(o.is(target)){start=keydownSearchString.length===1?i+1:i;break;}}regex=new RegExp('^'+keydownSearchString.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g,'\\$&'),'i');for(i=start;i<tabbables.length;i++){o=tabbables.eq(i);label=$.trim(o.text());if(regex.test(label)){found=true;o.trigger("focus");break;}}if(!found){for(i=0;i<start;i++){o=tabbables.eq(i);label=$.trim(o.text());if(regex.test(label)){o.trigger("focus");break;}}}break;}that.justFocused=false;};/**
-         * @name jQuery.fn.accessibleMenu~_mouseDownHandler
-         * @desc Handle mousedown event on mega menu.
-         * @param {event} Event object
-         * @memberof accessibleMenu
-         * @inner
-         * @private
-         */_mouseDownHandler=function _mouseDownHandler(event){if($(event.target).is(this.settings.panelClass)||$(event.target).closest(":focusable").length){this.mouseFocused=true;}clearTimeout(this.mouseTimeoutID);this.mouseTimeoutID=setTimeout(function(){clearTimeout(this.focusTimeoutID);},1);};/**
-         * @name jQuery.fn.accessibleMenu~_mouseOverHandler
-         * @desc Handle mouseover event on mega menu.
-         * @param {event} Event object
-         * @memberof jQuery.fn.accessibleMenu
-         * @inner
-         * @private
-         */_mouseOverHandler=function _mouseOverHandler(event){clearTimeout(this.mouseTimeoutID);var that=this;if($(window).width()>768){this.mouseTimeoutID=setTimeout(function(){$(event.target).addClass(that.settings.hoverClass);_togglePanel.call(that,event);if($(event.target).is(':tabbable')){$('html').on('keydown.accessible-menu',$.proxy(_keyDownHandler,event.target));}},this.settings.openDelay);}};/**
-         * @name jQuery.fn.accessibleMenu~_mouseOutHandler
-         * @desc Handle mouseout event on mega menu.
-         * @param {event} Event object
-         * @memberof jQuery.fn.accessibleMenu
-         * @inner
-         * @private
-         */_mouseOutHandler=function _mouseOutHandler(event){clearTimeout(this.mouseTimeoutID);var that=this;$(event.target).removeClass(that.settings.hoverClass);that.mouseTimeoutID=setTimeout(function(){_togglePanel.call(that,event,true);},this.settings.closeDelay);if($(event.target).is(':tabbable')){$('html').off('keydown.accessible-menu');}};_toggleExpandedEventHandlers=function _toggleExpandedEventHandlers(hide){var menu=this.menu;if(hide){$('html').off('mouseup.outside-accessible-menu, touchend.outside-accessible-menu, mspointerup.outside-accessible-menu,  pointerup.outside-accessible-menu');menu.find('[aria-expanded].'+this.settings.panelClass).off('DOMAttrModified.accessible-menu');}else{$('html').on('mouseup.outside-accessible-menu, touchend.outside-accessible-menu, mspointerup.outside-accessible-menu,  pointerup.outside-accessible-menu',$.proxy(_clickOutsideHandler,this));/* Narrator in Windows 8 automatically toggles the aria-expanded property on double tap or click.
-                   To respond to the change to collapse the panel, we must add a listener for a DOMAttrModified event. */menu.find('[aria-expanded=true].'+this.settings.panelClass).on('DOMAttrModified.accessible-menu',$.proxy(_DOMAttrModifiedHandler,this));}};/* public attributes and methods ------------------------- */return{constructor:accessibleMenu,/**
-             * @lends jQuery.fn.accessibleMenu
-             * @desc Initializes an instance of the accessibleMenu plugins
-             * @memberof jQuery.fn.accessibleMenu
-             * @instance
-             */init:function init(){var settings=this.settings,nav=$(this.element),menu=nav.children().first(),topnavitems=menu.children();this.start(settings,nav,menu,topnavitems);},start:function start(settings,nav,menu,topnavitems){var that=this;this.settings=settings;this.menu=menu;this.topnavitems=topnavitems;nav.attr("role","navigation");menu.addClass(settings.menuClass);topnavitems.each(function(i,topnavitem){var topnavitemlink,topnavitempanel;topnavitem=$(topnavitem);topnavitem.addClass(settings.topNavItemClass);topnavitemlink=topnavitem.find(":tabbable:first");topnavitempanel=topnavitem.children(":not(:tabbable):last");_addUniqueId.call(that,topnavitemlink);if(topnavitempanel.length){_addUniqueId.call(that,topnavitempanel);topnavitemlink.attr({// "aria-haspopup": true,
+		 * @name jQuery.fn.accessibleMenu~_mouseDownHandler
+		 * @desc Handle mousedown event on mega menu.
+		 * @param {event} Event object
+		 * @memberof accessibleMenu
+		 * @inner
+		 * @private
+		 */_mouseDownHandler=function _mouseDownHandler(event){if($(event.target).is(this.settings.panelClass)||$(event.target).closest(":focusable").length){this.mouseFocused=true;}clearTimeout(this.mouseTimeoutID);this.mouseTimeoutID=setTimeout(function(){clearTimeout(this.focusTimeoutID);},1);};/**
+		 * @name jQuery.fn.accessibleMenu~_mouseOverHandler
+		 * @desc Handle mouseover event on mega menu.
+		 * @param {event} Event object
+		 * @memberof jQuery.fn.accessibleMenu
+		 * @inner
+		 * @private
+		 */_mouseOverHandler=function _mouseOverHandler(event){clearTimeout(this.mouseTimeoutID);var that=this;if($(window).width()>768){this.mouseTimeoutID=setTimeout(function(){$(event.target).addClass(that.settings.hoverClass);_togglePanel.call(that,event);if($(event.target).is(':tabbable')){$('html').on('keydown.accessible-menu',$.proxy(_keyDownHandler,event.target));}},this.settings.openDelay);}};/**
+		 * @name jQuery.fn.accessibleMenu~_mouseOutHandler
+		 * @desc Handle mouseout event on mega menu.
+		 * @param {event} Event object
+		 * @memberof jQuery.fn.accessibleMenu
+		 * @inner
+		 * @private
+		 */_mouseOutHandler=function _mouseOutHandler(event){clearTimeout(this.mouseTimeoutID);var that=this;$(event.target).removeClass(that.settings.hoverClass);that.mouseTimeoutID=setTimeout(function(){_togglePanel.call(that,event,true);},this.settings.closeDelay);if($(event.target).is(':tabbable')){$('html').off('keydown.accessible-menu');}};_toggleExpandedEventHandlers=function _toggleExpandedEventHandlers(hide){var menu=this.menu;if(hide){$('html').off('mouseup.outside-accessible-menu, touchend.outside-accessible-menu, mspointerup.outside-accessible-menu,  pointerup.outside-accessible-menu');menu.find('[aria-expanded].'+this.settings.panelClass).off('DOMAttrModified.accessible-menu');}else{$('html').on('mouseup.outside-accessible-menu, touchend.outside-accessible-menu, mspointerup.outside-accessible-menu,  pointerup.outside-accessible-menu',$.proxy(_clickOutsideHandler,this));/* Narrator in Windows 8 automatically toggles the aria-expanded property on double tap or click.
+				   To respond to the change to collapse the panel, we must add a listener for a DOMAttrModified event. */menu.find('[aria-expanded=true].'+this.settings.panelClass).on('DOMAttrModified.accessible-menu',$.proxy(_DOMAttrModifiedHandler,this));}};/* public attributes and methods ------------------------- */return{constructor:accessibleMenu,/**
+			 * @lends jQuery.fn.accessibleMenu
+			 * @desc Initializes an instance of the accessibleMenu plugins
+			 * @memberof jQuery.fn.accessibleMenu
+			 * @instance
+			 */init:function init(){var settings=this.settings,nav=$(this.element),menu=nav.children().first(),topnavitems=menu.children();this.start(settings,nav,menu,topnavitems);},start:function start(settings,nav,menu,topnavitems){var that=this;this.settings=settings;this.menu=menu;this.topnavitems=topnavitems;nav.attr("role","navigation");menu.addClass(settings.menuClass);topnavitems.each(function(i,topnavitem){var topnavitemlink,topnavitempanel;topnavitem=$(topnavitem);topnavitem.addClass(settings.topNavItemClass);topnavitemlink=topnavitem.find(":tabbable:first");topnavitempanel=topnavitem.children(":not(:tabbable):last");_addUniqueId.call(that,topnavitemlink);if(topnavitempanel.length){_addUniqueId.call(that,topnavitempanel);topnavitemlink.attr({// "aria-haspopup": true,
 "aria-controls":topnavitempanel.attr("id"),"aria-expanded":false});topnavitempanel.attr({"role":"region","aria-expanded":false,"aria-hidden":true}).addClass(settings.panelClass).not("[aria-labelledby]").attr("aria-labelledby",topnavitemlink.attr("id"));}});this.panels=menu.find("."+settings.panelClass);menu.on("focusin.accessible-menu",":focusable, ."+settings.panelClass,$.proxy(_focusInHandler,this)).on("focusout.accessible-menu",":focusable, ."+settings.panelClass,$.proxy(_focusOutHandler,this)).on("keydown.accessible-menu",$.proxy(_keyDownHandler,this)).on("mouseover.accessible-menu",$.proxy(_mouseOverHandler,this)).on("mouseout.accessible-menu",$.proxy(_mouseOutHandler,this)).on("mousedown.accessible-menu",$.proxy(_mouseDownHandler,this));if(isTouch){menu.on("touchstart.accessible-menu",$.proxy(_clickHandler,this));}menu.find("hr").attr("role","separator");if($(document.activeElement).closest(menu).length){$(document.activeElement).trigger("focusin.accessible-menu");}},/**
-             * @desc Get default values
-             * @example $(selector).accessibleMenu("getDefaults");
-             * @return {object}
-             * @memberof jQuery.fn.accessibleMenu
-             * @instance
-             */getDefaults:function getDefaults(){return this._defaults;},/**
-             * @desc Get any option set to plugin using its name (as string)
-             * @example $(selector).accessibleMenu("getOption", some_option);
-             * @param {string} opt
-             * @return {string}
-             * @memberof jQuery.fn.accessibleMenu
-             * @instance
-             */getOption:function getOption(opt){return this.settings[opt];},/**
-             * @desc Get all options
-             * @example $(selector).accessibleMenu("getAllOptions");
-             * @return {object}
-             * @memberof jQuery.fn.accessibleMenu
-             * @instance
-             */getAllOptions:function getAllOptions(){return this.settings;},/**
-             * @desc Set option
-             * @example $(selector).accessibleMenu("setOption", "option_name",  "option_value",  reinitialize);
-             * @param {string} opt - Option name
-             * @param {string} val - Option value
-             * @param {boolean} [reinitialize] - boolean to re-initialize the menu.
-             * @memberof jQuery.fn.accessibleMenu
-             * @instance
-             */setOption:function setOption(opt,value,reinitialize){this.settings[opt]=value;if(reinitialize){this.init();}}};}();$.fn[pluginName]=function(options){return this.each(function(){if(!$.data(this,"plugin_"+pluginName)){$.data(this,"plugin_"+pluginName,new $.fn[pluginName].accessibleMenu(this,options));}});};$.fn[pluginName].accessibleMenu=accessibleMenu;/* :focusable and :tabbable selectors from
-       https://raw.github.com/jquery/jquery-ui/master/ui/jquery.ui.core.js */ /**
-     * @private
-     */function visible(element){return $.expr.pseudos.visible(element)&&!$(element).parents().addBack().filter(function(){return $.css(this,"visibility")==="hidden";}).length;}/**
-     * @private
-     */function _focusable(element,isTabIndexNotNaN){var map,mapName,img,nodeName=element.nodeName.toLowerCase();if("area"===nodeName){map=element.parentNode;mapName=map.name;if(!element.href||!mapName||map.nodeName.toLowerCase()!=="map"){return false;}img=$("img[usemap=#"+mapName+"]")[0];return!!img&&visible(img);}return(/input|select|textarea|button|object/.test(nodeName)?!element.disabled:"a"===nodeName?element.href||isTabIndexNotNaN:isTabIndexNotNaN)&&// the element and all of its ancestors must be visible
+			 * @desc Get default values
+			 * @example $(selector).accessibleMenu("getDefaults");
+			 * @return {object}
+			 * @memberof jQuery.fn.accessibleMenu
+			 * @instance
+			 */getDefaults:function getDefaults(){return this._defaults;},/**
+			 * @desc Get any option set to plugin using its name (as string)
+			 * @example $(selector).accessibleMenu("getOption", some_option);
+			 * @param {string} opt
+			 * @return {string}
+			 * @memberof jQuery.fn.accessibleMenu
+			 * @instance
+			 */getOption:function getOption(opt){return this.settings[opt];},/**
+			 * @desc Get all options
+			 * @example $(selector).accessibleMenu("getAllOptions");
+			 * @return {object}
+			 * @memberof jQuery.fn.accessibleMenu
+			 * @instance
+			 */getAllOptions:function getAllOptions(){return this.settings;},/**
+			 * @desc Set option
+			 * @example $(selector).accessibleMenu("setOption", "option_name",  "option_value",  reinitialize);
+			 * @param {string} opt - Option name
+			 * @param {string} val - Option value
+			 * @param {boolean} [reinitialize] - boolean to re-initialize the menu.
+			 * @memberof jQuery.fn.accessibleMenu
+			 * @instance
+			 */setOption:function setOption(opt,value,reinitialize){this.settings[opt]=value;if(reinitialize){this.init();}}};}();$.fn[pluginName]=function(options){return this.each(function(){if(!$.data(this,"plugin_"+pluginName)){$.data(this,"plugin_"+pluginName,new $.fn[pluginName].accessibleMenu(this,options));}});};$.fn[pluginName].accessibleMenu=accessibleMenu;/* :focusable and :tabbable selectors from
+	   https://raw.github.com/jquery/jquery-ui/master/ui/jquery.ui.core.js */ /**
+	 * @private
+	 */function visible(element){return $.expr.pseudos.visible(element)&&!$(element).parents().addBack().filter(function(){return $.css(this,"visibility")==="hidden";}).length;}/**
+	 * @private
+	 */function _focusable(element,isTabIndexNotNaN){var map,mapName,img,nodeName=element.nodeName.toLowerCase();if("area"===nodeName){map=element.parentNode;mapName=map.name;if(!element.href||!mapName||map.nodeName.toLowerCase()!=="map"){return false;}img=$("img[usemap=#"+mapName+"]")[0];return!!img&&visible(img);}return(/input|select|textarea|button|object/.test(nodeName)?!element.disabled:"a"===nodeName?element.href||isTabIndexNotNaN:isTabIndexNotNaN)&&// the element and all of its ancestors must be visible
 visible(element);}$.extend($.expr.pseudos,{data:$.expr.createPseudo?$.expr.createPseudo(function(dataName){return function(elem){return!!$.data(elem,dataName);};}):// support: jQuery <1.8
 function(elem,i,match){return!!$.data(elem,match[3]);},focusable:function focusable(element){return _focusable(element,!isNaN($.attr(element,"tabindex")));},tabbable:function tabbable(element){var tabIndex=$.attr(element,"tabindex"),isTabIndexNaN=isNaN(tabIndex);return(isTabIndexNaN||tabIndex>=0)&&_focusable(element,!isTabIndexNaN);}});// Do Navigation Reset function on window resize unless it's mobile device.
 $(window).on('resize',function(){if(navigator.userAgent.match(/Android/i)||navigator.userAgent.match(/webOS/i)||navigator.userAgent.match(/iPhone/i)||navigator.userAgent.match(/iPad/i)||navigator.userAgent.match(/iPod/i)||navigator.userAgent.match(/BlackBerry/i)||navigator.userAgent.match(/Windows Phone/i)){return false;}else{NavReset();}});// Navigation Reset function
-function NavReset(){$(".sub-nav").removeClass("open");$(".sub-nav").removeClass("secondary-open");$(".sub-nav").attr("aria-expanded",false);$(".sub-nav").attr("aria-hidden",true);$(".first-level-link").removeClass("open");$(".first-level-link").removeClass("active");$(".first-level-link").attr("aria-expanded",false);$("#navigation").addClass("mobile-closed");if($(window).width()<768){$("#navigation").css("max-height","0");$('.sub-nav').slideUpTransitionSub();$('#navigation').slideUpTransition();// 
-$(".rotate").removeClass('down');}else{$("#navigation").removeAttr("style");$(".sub-nav").removeAttr("style");}$(".toggle-sub-nav").removeClass("open");$(".toggle-sub-nav").addClass("closed");$(".nav-item").removeClass("active");$(".toggle-menu").attr('aria-expanded','false');$(".toggle-menu").removeClass("open");$(".toggle-sub-nav").removeClass("open");};})(jQuery,window,document);$("nav:first").accessibleMenu({navId:"#navigation",/* prefix for generated unique id attributes, which are required 
-       to indicate aria-owns, aria-controls and aria-labelledby */uuidPrefix:"accessible-menu",/* css class used to define the megamenu styling */menuClass:"nav-menu",/* css class for a top-level navigation item in the megamenu */topNavItemClass:"nav-item",/* css class for a megamenu panel */panelClass:"sub-nav",/* css class for a group of items within a megamenu panel */panelGroupClass:"sub-nav-group",/* css class for the hover state */hoverClass:"hover",/* css class for the focus state */focusClass:"focus",/* css class for the open state */openClass:"open"});/* Mobile Controls fix */$(document).ready(function(){$("#navigation .mobile-controls").removeClass("nav-menu");$("#navigation .mobile-control a").removeAttr("aria-hidden aria-expanded role id").removeClass("sub-nav with-few-items subnav-closed");$("#navigation .mobile-control .sr-only").removeAttr("aria-hidden aria-expanded role id").removeClass("sub-nav with-few-items subnav-closed");});/* -----------------------------------------
+function NavReset(){$(".sub-nav").removeClass("open");$(".sub-nav").removeClass("secondary-open");$(".sub-nav").attr("aria-expanded",false);$(".sub-nav").attr("aria-hidden",true);$(".first-level-link").removeClass("open");$(".first-level-link").removeClass("active");$(".first-level-link").attr("aria-expanded",false);$("#navigation").addClass("mobile-closed");if($(window).width()<768){$("#navigation").css("max-height","0");$('.sub-nav').slideUpTransitionSub();$('#navigation').slideUpTransition();//
+$(".rotate").removeClass('down');}else{$("#navigation").removeAttr("style");$(".sub-nav").removeAttr("style");}$(".toggle-sub-nav").removeClass("open");$(".toggle-sub-nav").addClass("closed");$(".nav-item").removeClass("active");$(".toggle-menu").attr('aria-expanded','false');$(".toggle-menu").removeClass("open");$(".toggle-sub-nav").removeClass("open");};})(jQuery,window,document);$("nav:first").accessibleMenu({navId:"#navigation",/* prefix for generated unique id attributes, which are required
+	   to indicate aria-owns, aria-controls and aria-labelledby */uuidPrefix:"accessible-menu",/* css class used to define the megamenu styling */menuClass:"nav-menu",/* css class for a top-level navigation item in the megamenu */topNavItemClass:"nav-item",/* css class for a megamenu panel */panelClass:"sub-nav",/* css class for a group of items within a megamenu panel */panelGroupClass:"sub-nav-group",/* css class for the hover state */hoverClass:"hover",/* css class for the focus state */focusClass:"focus",/* css class for the open state */openClass:"open"});/* Mobile Controls fix */$(document).ready(function(){$("#navigation .mobile-controls").removeClass("nav-menu");$("#navigation .mobile-control a").removeAttr("aria-hidden aria-expanded role id").removeClass("sub-nav with-few-items subnav-closed");$("#navigation .mobile-control .sr-only").removeAttr("aria-hidden aria-expanded role id").removeClass("sub-nav with-few-items subnav-closed");});/* -----------------------------------------
    ACCORDION LIST - /source/js/cagov/accordion.js
 ----------------------------------------- */ // Adds tabindex=0 to toggle links
 // Hides the description by default for js users.
@@ -2779,268 +2779,268 @@ accdDesc.slideUp('fast').removeClass('hide').attr('aria-hidden','true');$(this).
 accdDesc.slideDown('fast').removeClass('hide').attr('aria-hidden','false');$(this).parent('li').addClass('open');$(this).attr('aria-expanded','true');}return false;});});/* Accessible list accordion */ // Source: http://oaa-accessibility.org/examplep/accordian1/
 $(document).ready(function(){var panel1=new tabpanel("accordion",true);// you can have more than one accordion on your webpage simply adding new tabpanel variable with new assigned id
 // eaxaple: var panel1 = new tabpanel("accordion2", true);
-});// 
-// keyCodes() is an object to contain keycodes needed for the application 
-// 
-function keyCodes(){// Define values for keycodes 
-this.tab=9;this.enter=13;this.esc=27;this.space=32;this.pageup=33;this.pagedown=34;this.end=35;this.home=36;this.left=37;this.up=38;this.right=39;this.down=40;}// end keyCodes 
-// 
-// tabpanel() is a class constructor to create a ARIA-enabled tab panel widget. 
-// 
-// @param (id string) id is the id of the div containing the tab panel. 
-// 
-// @param (accordian boolean) accordian is true if the tab panel should operate 
-//         as an accordian; false if a tab panel 
-// 
-// @return N/A 
-// 
-// Usage: Requires a div container and children as follows: 
-// 
-//         1. tabs/accordian headers have class 'tab' 
-// 
-//         2. panels are divs with class 'panel' 
-// 
-function tabpanel(id,accordian){// define the class properties 
-this.panel_id=id;// store the id of the containing div 
-this.accordian=accordian;// true if this is an accordian control 
-this.$panel=$('#'+id);// store the jQuery object for the panel 
-this.keys=new keyCodes();// keycodes needed for event handlers 
-this.$tabs=this.$panel.find('.tab');// Array of panel tabs. 
-this.$panels=this.$panel.children('.panel');// Array of panel. 
-// Bind event handlers 
-this.bindHandlers();// Initialize the tab panel 
-this.init();}// end tabpanel() constructor 
-// 
-// Function init() is a member function to initialize the tab/accordian panel. Hides all panels. If a tab 
-// has the class 'selected', makes that panel visible; otherwise, makes first panel visible. 
-// 
-// @return N/A 
-// 
-tabpanel.prototype.init=function(){var $tab;// the selected tab - if one is selected 
-// add aria attributes to the panels 
-this.$panels.attr('aria-hidden','true');// hide all the panels 
-this.$panels.hide();// get the selected tab 
-$tab=this.$tabs.filter('.selected');if($tab==undefined){$tab=this.$tabs.first();$tab.addClass('selected');}// show the panel that the selected tab controls and set aria-hidden to false 
-this.$panel.find('#'+$tab.attr('aria-controls')).show().attr('aria-hidden','false');};// end init() 
-// 
-// Function switchTabs() is a member function to give focus to a new tab or accordian header. 
-// If it's a tab panel, the currently displayed panel is hidden and the panel associated with the new tab 
-// is displayed. 
-// 
-// @param ($curTab obj) $curTab is the jQuery object of the currently selected tab 
-// 
-// @param ($newTab obj) $newTab is the jQuery object of new tab to switch to 
-// 
-// @return N/A 
-// 
-tabpanel.prototype.switchTabs=function($curTab,$newTab){// Remove the highlighting from the current tab 
-$curTab.removeClass('selected focus');// remove tab from the tab order and update its aria-selected attribute 
-$curTab.attr('aria-selected','false');// Highlight the new tab and update its aria-selected attribute 
-$newTab.addClass('selected').attr('aria-selected','true');// If this is a tab panel, swap displayed tabs 
-if(this.accordian==false){// hide the current tab panel and set aria-hidden to true 
-this.$panel.find('#'+$curTab.attr('aria-controls')).hide().attr('aria-hidden','true');// update the aria-expanded attribute for the old tab 
-$curTab.attr('aria-expanded','false');// show the new tab panel and set aria-hidden to false 
-this.$panel.find('#'+$newTab.attr('aria-controls')).show().attr('aria-hidden','false');// update the aria-expanded attribute for the new tab 
-$newTab.attr('aria-expanded','true');// get new list of focusable elements 
-this.$focusable.length=0;this.$panels.find(':focusable');}// Make new tab navigable 
-$newTab.attr('tabindex','0');// give the new tab focus 
-$newTab.trigger("focus");};// end switchTabs() 
-// 
-// Function togglePanel() is a member function to display or hide the panel 
-// associated with an accordian header. Function also binds a keydown handler to the focusable items 
-// in the panel when expanding and unbinds the handlers when collapsing. 
-// 
-// @param ($tab obj) $tab is the jQuery object of the currently selected tab 
-// 
-// @return N/A 
-// 
-tabpanel.prototype.togglePanel=function($tab){$panel=this.$panel.find('#'+$tab.attr('aria-controls'));if($panel.attr('aria-hidden')=='true'){$panel.attr('aria-hidden','false');$panel.slideDown(100);$tab.addClass('open');$tab.find('i').attr('class','ca-gov-icon-menu-toggle-open font-size-sm');// update the aria-expanded attribute 
-$tab.attr('aria-expanded','true');}else{$panel.attr('aria-hidden','true');$panel.slideUp(100);$tab.removeClass('open');$tab.find('i').attr('class','ca-gov-icon-menu-toggle-closed font-size-sm');// update the aria-expanded attribute 
-$tab.attr('aria-expanded','false');}};// end togglePanel() 
-// 
-// Function bindHandlers() is a member function to bind event handlers for the tabs 
-// 
-// @return N/A 
-// 
-tabpanel.prototype.bindHandlers=function(){var thisObj=this;// Store the this pointer for reference 
-////////////////////////////// 
-// Bind handlers for the tabs / accordian headers 
-// bind a tab keydown handler 
-this.$tabs.on("keydown",function(e){return thisObj.handleTabKeyDown($(this),e);});// bind a tab keypress handler 
-this.$tabs.on("keypress",function(e){return thisObj.handleTabKeyPress($(this),e);});// bind a tab click handler 
-this.$tabs.on("click",function(e){return thisObj.handleTabClick($(this),e);});// bind a tab focus handler 
-this.$tabs.on("focus",function(e){return thisObj.handleTabFocus($(this),e);});// bind a tab blur handler 
-this.$tabs.on("blur",function(e){return thisObj.handleTabBlur($(this),e);});///////////////////////////// 
-// Bind handlers for the panels 
-// bind a keydown handlers for the panel focusable elements 
-this.$panels.on("keydown",function(e){return thisObj.handlePanelKeyDown($(this),e);});// bind a keypress handler for the panel 
-this.$panels.on("keypress",function(e){return thisObj.handlePanelKeyPress($(this),e);});// bind a panel click handler 
-this.$panels.on("click",function(e){return thisObj.handlePanelClick($(this),e);});};// end bindHandlers() 
-// 
-// Function handleTabKeyDown() is a member function to process keydown events for a tab 
-// 
-// @param ($tab obj) $tab is the jquery object of the tab being processed 
-// 
-// @param (e obj) e is the associated event object 
-// 
-// @return (boolean) Returns true if propagating; false if consuming event 
-// 
-tabpanel.prototype.handleTabKeyDown=function($tab,e){if(e.altKey){// do nothing 
-return true;}switch(e.keyCode){case this.keys.enter:case this.keys.space:{// Only process if this is an accordian widget 
-if(this.accordian==true){// display or collapse the panel 
-this.togglePanel($tab);e.stopPropagation();return false;}return true;}case this.keys.left:case this.keys.up:{var thisObj=this;var $prevTab;// holds jQuery object of tab from previous pass 
-var $newTab;// the new tab to switch to 
-if(e.ctrlKey){// Ctrl+arrow moves focus from panel content to the open 
-// tab/accordian header. 
-}else{var curNdx=this.$tabs.index($tab);if(curNdx==0){// tab is the first one: 
-// set newTab to last tab 
-$newTab=this.$tabs.last();}else{// set newTab to previous 
-$newTab=this.$tabs.eq(curNdx-1);}// switch to the new tab 
-this.switchTabs($tab,$newTab);}e.stopPropagation();return false;}case this.keys.right:case this.keys.down:{var thisObj=this;var foundTab=false;// set to true when current tab found in array 
-var $newTab;// the new tab to switch to 
-var curNdx=this.$tabs.index($tab);if(curNdx==this.$tabs.length-1){// tab is the last one: 
-// set newTab to first tab 
-$newTab=this.$tabs.first();}else{// set newTab to next tab 
-$newTab=this.$tabs.eq(curNdx+1);}// switch to the new tab 
-this.switchTabs($tab,$newTab);e.stopPropagation();return false;}case this.keys.home:{// switch to the first tab 
-this.switchTabs($tab,this.$tabs.first());e.stopPropagation();return false;}case this.keys.end:{// switch to the last tab 
-this.switchTabs($tab,this.$tabs.last());e.stopPropagation();return false;}}};// end handleTabKeyDown() 
-// 
-// Function handleTabKeyPress() is a member function to process keypress events for a tab. 
-// 
-// 
-// @param ($tab obj) $tab is the jquery object of the tab being processed 
-// 
-// @param (e obj) e is the associated event object 
-// 
-// @return (boolean) Returns true if propagating; false if consuming event 
-// 
-tabpanel.prototype.handleTabKeyPress=function($tab,e){if(e.altKey){// do nothing 
-return true;}switch(e.keyCode){case this.keys.enter:case this.keys.space:case this.keys.left:case this.keys.up:case this.keys.right:case this.keys.down:case this.keys.home:case this.keys.end:{e.stopPropagation();return false;}case this.keys.pageup:case this.keys.pagedown:{// The tab keypress handler must consume pageup and pagedown 
-// keypresses to prevent Firefox from switching tabs 
-// on ctrl+pageup and ctrl+pagedown 
-if(!e.ctrlKey){return true;}e.stopPropagation();return false;}}return true;};// end handleTabKeyPress() 
-// 
-// Function handleTabClick() is a member function to process click events for tabs 
-// 
-// @param ($tab object) $tab is the jQuery object of the tab being processed 
-// 
-// @param (e object) e is the associated event object 
-// 
-// @return (boolean) returns false 
-// 
-tabpanel.prototype.handleTabClick=function($tab,e){// make clicked tab navigable 
-$tab.attr('tabindex','0').attr('aria-selected','true').addClass('selected');// remove all tabs from the tab order and update their aria-selected attribute 
-this.$tabs.not($tab).attr('aria-selected','false').removeClass('selected');// Expand the new panel 
-this.togglePanel($tab);e.stopPropagation();return false;};// end handleTabClick() 
-// 
-// Function handleTabFocus() is a member function to process focus events for tabs 
-// 
-// @param ($tab object) $tab is the jQuery object of the tab being processed 
-// 
-// @param (e object) e is the associated event object 
-// 
-// @return (boolean) returns true 
-// 
-tabpanel.prototype.handleTabFocus=function($tab,e){// Add the focus class to the tab 
-$tab.addClass('focus');return true;};// end handleTabFocus() 
-// 
-// Function handleTabBlur() is a member function to process blur events for tabs 
-// 
-// @param ($tab object) $tab is the jQuery object of the tab being processed 
-// 
-// @param (e object) e is the associated event object 
-// 
-// @return (boolean) returns true 
-// 
-tabpanel.prototype.handleTabBlur=function($tab,e){// Remove the focus class to the tab 
-$tab.removeClass('focus');return true;};// end handleTabBlur() 
-///////////////////////////////////////////////////////// 
-// Panel Event handlers 
-// 
-// 
-// Function handlePanelKeyDown() is a member function to process keydown events for a panel 
-// 
-// @param ($panel obj) $panel is the jquery object of the panel being processed 
-// 
-// @param (e obj) e is the associated event object 
-// 
-// @return (boolean) Returns true if propagating; false if consuming event 
-// 
-tabpanel.prototype.handlePanelKeyDown=function($panel,e){if(e.altKey){// do nothing 
-return true;}switch(e.keyCode){case this.keys.tab:{var $focusable=$panel.find(':focusable');var curNdx=$focusable.index($(e.target));var panelNdx=this.$panels.index($panel);var numPanels=this.$panels.length;if(e.shiftKey){// if this is the first focusable item in the panel 
-// find the preceding expanded panel (if any) that has 
-// focusable items and set focus to the last one in that 
-// panel. If there is no preceding panel or no focusable items 
-// do not process. 
-if(curNdx==0&&panelNdx>0){// Iterate through previous panels until we find one that 
-// is expanded and has focusable elements 
-// 
-for(var ndx=panelNdx-1;ndx>=0;ndx--){var $prevPanel=this.$panels.eq(ndx);var $prevTab=$('#'+$prevPanel.attr('aria-labelledby'));// get the focusable items in the panel 
-$focusable.length=0;$focusable=$prevPanel.find(':focusable');if($focusable.length>0){// there are focusable items in the panel. 
-// Set focus to the last item. 
-$focusable.last().trigger("focus");// reset the aria-selected state of the tabs 
-this.$tabs.attr('aria-selected','false').removeClass('selected');// set the associated tab's aria-selected state 
-$prevTab.attr('aria-selected','true').addClass('selected');e.stopPropagation;return false;}}}}else if(panelNdx<numPanels){// if this is the last focusable item in the panel 
-// find the nearest following expanded panel (if any) that has 
-// focusable items and set focus to the first one in that 
-// panel. If there is no preceding panel or no focusable items 
-// do not process. 
-if(curNdx==$focusable.length-1){// Iterate through following panels until we find one that 
-// is expanded and has focusable elements 
-// 
-for(var ndx=panelNdx+1;ndx<numPanels;ndx++){var $nextPanel=this.$panels.eq(ndx);var $nextTab=$('#'+$nextPanel.attr('aria-labelledby'));// get the focusable items in the panel 
-$focusable.length=0;$focusable=$nextPanel.find(':focusable');if($focusable.length>0){// there are focusable items in the panel. 
-// Set focus to the first item. 
-$focusable.first().trigger("focus");// reset the aria-selected state of the tabs 
-this.$tabs.attr('aria-selected','false').removeClass('selected');// set the associated tab's aria-selected state 
-$nextTab.attr('aria-selected','true').addClass('selected');e.stopPropagation;return false;}}}}break;}case this.keys.left:case this.keys.up:{if(!e.ctrlKey){// do not process 
-return true;}// get the jQuery object of the tab 
-var $tab=$('#'+$panel.attr('aria-labelledby'));// Move focus to the tab 
-$tab.trigger("focus");e.stopPropagation();return false;}case this.keys.pageup:{var $newTab;if(!e.ctrlKey){// do not process 
-return true;}// get the jQuery object of the tab 
-var $tab=this.$tabs.filter('.selected');// get the index of the tab in the tab list 
-var curNdx=this.$tabs.index($tab);if(curNdx==0){// this is the first tab, set focus on the last one 
-$newTab=this.$tabs.last();}else{// set focus on the previous tab 
-$newTab=this.$tabs.eq(curNdx-1);}// switch to the new tab 
-this.switchTabs($tab,$newTab);e.stopPropagation();e.preventDefault();return false;}case this.keys.pagedown:{var $newTab;if(!e.ctrlKey){// do not process 
-return true;}// get the jQuery object of the tab 
-var $tab=$('#'+$panel.attr('aria-labelledby'));// get the index of the tab in the tab list 
-var curNdx=this.$tabs.index($tab);if(curNdx==this.$tabs.length-1){// this is the last tab, set focus on the first one 
-$newTab=this.$tabs.first();}else{// set focus on the next tab 
-$newTab=this.$tabs.eq(curNdx+1);}// switch to the new tab 
-this.switchTabs($tab,$newTab);e.stopPropagation();e.preventDefault();return false;}}return true;};// end handlePanelKeyDown() 
-// 
-// Function handlePanelKeyPress() is a member function to process keypress events for a panel 
-// 
-// @param ($panel obj) $panel is the jquery object of the panel being processed 
-// 
-// @param (e obj) e is the associated event object 
-// 
-// @return (boolean) Returns true if propagating; false if consuming event 
-// 
-tabpanel.prototype.handlePanelKeyPress=function($panel,e){if(e.altKey){// do nothing 
-return true;}if(e.ctrlKey&&(e.keyCode==this.keys.pageup||e.keyCode==this.keys.pagedown)){e.stopPropagation();e.preventDefault();return false;}switch(e.keyCode){case this.keys.esc:{e.stopPropagation();e.preventDefault();return false;}}return true;};// end handlePanelKeyPress() 
-// 
-// Function handlePanelClick() is a member function to process click events for panels 
-// 
-// @param ($panel object) $panel is the jQuery object of the panel being processed 
-// 
-// @param (e object) e is the associated event object 
-// 
-// @return (boolean) returns true 
-// 
-tabpanel.prototype.handlePanelClick=function($panel,e){var $tab=$('#'+$panel.attr('aria-labelledby'));// make clicked panel's tab navigable 
-$tab.attr('tabindex','0').attr('aria-selected','true').addClass('selected');// remove all tabs from the tab order and update their aria-selected attribute 
-this.$tabs.not($tab).attr('aria-selected','false').removeClass('selected');return true;};// end handlePanelClick() 
-// focusable is a small jQuery extension to add a :focusable selector. It is used to 
-// get a list of all focusable elements in a panel. Credit to ajpiano on the jQuery forums. 
-// 
-$.extend($.expr.pseudos,{focusable:function focusable(element){var nodeName=element.nodeName.toLowerCase();var tabIndex=$(element).attr('tabindex');// the element and all of its ancestors must be visible 
-if($(element)[nodeName=='area'?'parents':'closest'](':hidden').length==true){return false;}// If tabindex is defined, its value must be greater than 0 
-if(!isNaN(tabIndex)&&tabIndex<0){return false;}// if the element is a standard form control, it must not be disabled 
-if(/input|select|textarea|button|object/.test(nodeName)==true){return!element.disabled;}// if the element is a link, href must be defined 
-if((nodeName=='a'||nodeName=='area')==true){return element.href.length>0;}// this is some other page element that is not normally focusable. 
+});//
+// keyCodes() is an object to contain keycodes needed for the application
+//
+function keyCodes(){// Define values for keycodes
+this.tab=9;this.enter=13;this.esc=27;this.space=32;this.pageup=33;this.pagedown=34;this.end=35;this.home=36;this.left=37;this.up=38;this.right=39;this.down=40;}// end keyCodes
+//
+// tabpanel() is a class constructor to create a ARIA-enabled tab panel widget.
+//
+// @param (id string) id is the id of the div containing the tab panel.
+//
+// @param (accordian boolean) accordian is true if the tab panel should operate
+//         as an accordian; false if a tab panel
+//
+// @return N/A
+//
+// Usage: Requires a div container and children as follows:
+//
+//         1. tabs/accordian headers have class 'tab'
+//
+//         2. panels are divs with class 'panel'
+//
+function tabpanel(id,accordian){// define the class properties
+this.panel_id=id;// store the id of the containing div
+this.accordian=accordian;// true if this is an accordian control
+this.$panel=$('#'+id);// store the jQuery object for the panel
+this.keys=new keyCodes();// keycodes needed for event handlers
+this.$tabs=this.$panel.find('.tab');// Array of panel tabs.
+this.$panels=this.$panel.children('.panel');// Array of panel.
+// Bind event handlers
+this.bindHandlers();// Initialize the tab panel
+this.init();}// end tabpanel() constructor
+//
+// Function init() is a member function to initialize the tab/accordian panel. Hides all panels. If a tab
+// has the class 'selected', makes that panel visible; otherwise, makes first panel visible.
+//
+// @return N/A
+//
+tabpanel.prototype.init=function(){var $tab;// the selected tab - if one is selected
+// add aria attributes to the panels
+this.$panels.attr('aria-hidden','true');// hide all the panels
+this.$panels.hide();// get the selected tab
+$tab=this.$tabs.filter('.selected');if($tab==undefined){$tab=this.$tabs.first();$tab.addClass('selected');}// show the panel that the selected tab controls and set aria-hidden to false
+this.$panel.find('#'+$tab.attr('aria-controls')).show().attr('aria-hidden','false');};// end init()
+//
+// Function switchTabs() is a member function to give focus to a new tab or accordian header.
+// If it's a tab panel, the currently displayed panel is hidden and the panel associated with the new tab
+// is displayed.
+//
+// @param ($curTab obj) $curTab is the jQuery object of the currently selected tab
+//
+// @param ($newTab obj) $newTab is the jQuery object of new tab to switch to
+//
+// @return N/A
+//
+tabpanel.prototype.switchTabs=function($curTab,$newTab){// Remove the highlighting from the current tab
+$curTab.removeClass('selected focus');// remove tab from the tab order and update its aria-selected attribute
+$curTab.attr('aria-selected','false');// Highlight the new tab and update its aria-selected attribute
+$newTab.addClass('selected').attr('aria-selected','true');// If this is a tab panel, swap displayed tabs
+if(this.accordian==false){// hide the current tab panel and set aria-hidden to true
+this.$panel.find('#'+$curTab.attr('aria-controls')).hide().attr('aria-hidden','true');// update the aria-expanded attribute for the old tab
+$curTab.attr('aria-expanded','false');// show the new tab panel and set aria-hidden to false
+this.$panel.find('#'+$newTab.attr('aria-controls')).show().attr('aria-hidden','false');// update the aria-expanded attribute for the new tab
+$newTab.attr('aria-expanded','true');// get new list of focusable elements
+this.$focusable.length=0;this.$panels.find(':focusable');}// Make new tab navigable
+$newTab.attr('tabindex','0');// give the new tab focus
+$newTab.trigger("focus");};// end switchTabs()
+//
+// Function togglePanel() is a member function to display or hide the panel
+// associated with an accordian header. Function also binds a keydown handler to the focusable items
+// in the panel when expanding and unbinds the handlers when collapsing.
+//
+// @param ($tab obj) $tab is the jQuery object of the currently selected tab
+//
+// @return N/A
+//
+tabpanel.prototype.togglePanel=function($tab){$panel=this.$panel.find('#'+$tab.attr('aria-controls'));if($panel.attr('aria-hidden')=='true'){$panel.attr('aria-hidden','false');$panel.slideDown(100);$tab.addClass('open');$tab.find('i').attr('class','ca-gov-icon-menu-toggle-open font-size-sm');// update the aria-expanded attribute
+$tab.attr('aria-expanded','true');}else{$panel.attr('aria-hidden','true');$panel.slideUp(100);$tab.removeClass('open');$tab.find('i').attr('class','ca-gov-icon-menu-toggle-closed font-size-sm');// update the aria-expanded attribute
+$tab.attr('aria-expanded','false');}};// end togglePanel()
+//
+// Function bindHandlers() is a member function to bind event handlers for the tabs
+//
+// @return N/A
+//
+tabpanel.prototype.bindHandlers=function(){var thisObj=this;// Store the this pointer for reference
+//////////////////////////////
+// Bind handlers for the tabs / accordian headers
+// bind a tab keydown handler
+this.$tabs.on("keydown",function(e){return thisObj.handleTabKeyDown($(this),e);});// bind a tab keypress handler
+this.$tabs.on("keypress",function(e){return thisObj.handleTabKeyPress($(this),e);});// bind a tab click handler
+this.$tabs.on("click",function(e){return thisObj.handleTabClick($(this),e);});// bind a tab focus handler
+this.$tabs.on("focus",function(e){return thisObj.handleTabFocus($(this),e);});// bind a tab blur handler
+this.$tabs.on("blur",function(e){return thisObj.handleTabBlur($(this),e);});/////////////////////////////
+// Bind handlers for the panels
+// bind a keydown handlers for the panel focusable elements
+this.$panels.on("keydown",function(e){return thisObj.handlePanelKeyDown($(this),e);});// bind a keypress handler for the panel
+this.$panels.on("keypress",function(e){return thisObj.handlePanelKeyPress($(this),e);});// bind a panel click handler
+this.$panels.on("click",function(e){return thisObj.handlePanelClick($(this),e);});};// end bindHandlers()
+//
+// Function handleTabKeyDown() is a member function to process keydown events for a tab
+//
+// @param ($tab obj) $tab is the jquery object of the tab being processed
+//
+// @param (e obj) e is the associated event object
+//
+// @return (boolean) Returns true if propagating; false if consuming event
+//
+tabpanel.prototype.handleTabKeyDown=function($tab,e){if(e.altKey){// do nothing
+return true;}switch(e.keyCode){case this.keys.enter:case this.keys.space:{// Only process if this is an accordian widget
+if(this.accordian==true){// display or collapse the panel
+this.togglePanel($tab);e.stopPropagation();return false;}return true;}case this.keys.left:case this.keys.up:{var thisObj=this;var $prevTab;// holds jQuery object of tab from previous pass
+var $newTab;// the new tab to switch to
+if(e.ctrlKey){// Ctrl+arrow moves focus from panel content to the open
+// tab/accordian header.
+}else{var curNdx=this.$tabs.index($tab);if(curNdx==0){// tab is the first one:
+// set newTab to last tab
+$newTab=this.$tabs.last();}else{// set newTab to previous
+$newTab=this.$tabs.eq(curNdx-1);}// switch to the new tab
+this.switchTabs($tab,$newTab);}e.stopPropagation();return false;}case this.keys.right:case this.keys.down:{var thisObj=this;var foundTab=false;// set to true when current tab found in array
+var $newTab;// the new tab to switch to
+var curNdx=this.$tabs.index($tab);if(curNdx==this.$tabs.length-1){// tab is the last one:
+// set newTab to first tab
+$newTab=this.$tabs.first();}else{// set newTab to next tab
+$newTab=this.$tabs.eq(curNdx+1);}// switch to the new tab
+this.switchTabs($tab,$newTab);e.stopPropagation();return false;}case this.keys.home:{// switch to the first tab
+this.switchTabs($tab,this.$tabs.first());e.stopPropagation();return false;}case this.keys.end:{// switch to the last tab
+this.switchTabs($tab,this.$tabs.last());e.stopPropagation();return false;}}};// end handleTabKeyDown()
+//
+// Function handleTabKeyPress() is a member function to process keypress events for a tab.
+//
+//
+// @param ($tab obj) $tab is the jquery object of the tab being processed
+//
+// @param (e obj) e is the associated event object
+//
+// @return (boolean) Returns true if propagating; false if consuming event
+//
+tabpanel.prototype.handleTabKeyPress=function($tab,e){if(e.altKey){// do nothing
+return true;}switch(e.keyCode){case this.keys.enter:case this.keys.space:case this.keys.left:case this.keys.up:case this.keys.right:case this.keys.down:case this.keys.home:case this.keys.end:{e.stopPropagation();return false;}case this.keys.pageup:case this.keys.pagedown:{// The tab keypress handler must consume pageup and pagedown
+// keypresses to prevent Firefox from switching tabs
+// on ctrl+pageup and ctrl+pagedown
+if(!e.ctrlKey){return true;}e.stopPropagation();return false;}}return true;};// end handleTabKeyPress()
+//
+// Function handleTabClick() is a member function to process click events for tabs
+//
+// @param ($tab object) $tab is the jQuery object of the tab being processed
+//
+// @param (e object) e is the associated event object
+//
+// @return (boolean) returns false
+//
+tabpanel.prototype.handleTabClick=function($tab,e){// make clicked tab navigable
+$tab.attr('tabindex','0').attr('aria-selected','true').addClass('selected');// remove all tabs from the tab order and update their aria-selected attribute
+this.$tabs.not($tab).attr('aria-selected','false').removeClass('selected');// Expand the new panel
+this.togglePanel($tab);e.stopPropagation();return false;};// end handleTabClick()
+//
+// Function handleTabFocus() is a member function to process focus events for tabs
+//
+// @param ($tab object) $tab is the jQuery object of the tab being processed
+//
+// @param (e object) e is the associated event object
+//
+// @return (boolean) returns true
+//
+tabpanel.prototype.handleTabFocus=function($tab,e){// Add the focus class to the tab
+$tab.addClass('focus');return true;};// end handleTabFocus()
+//
+// Function handleTabBlur() is a member function to process blur events for tabs
+//
+// @param ($tab object) $tab is the jQuery object of the tab being processed
+//
+// @param (e object) e is the associated event object
+//
+// @return (boolean) returns true
+//
+tabpanel.prototype.handleTabBlur=function($tab,e){// Remove the focus class to the tab
+$tab.removeClass('focus');return true;};// end handleTabBlur()
+/////////////////////////////////////////////////////////
+// Panel Event handlers
+//
+//
+// Function handlePanelKeyDown() is a member function to process keydown events for a panel
+//
+// @param ($panel obj) $panel is the jquery object of the panel being processed
+//
+// @param (e obj) e is the associated event object
+//
+// @return (boolean) Returns true if propagating; false if consuming event
+//
+tabpanel.prototype.handlePanelKeyDown=function($panel,e){if(e.altKey){// do nothing
+return true;}switch(e.keyCode){case this.keys.tab:{var $focusable=$panel.find(':focusable');var curNdx=$focusable.index($(e.target));var panelNdx=this.$panels.index($panel);var numPanels=this.$panels.length;if(e.shiftKey){// if this is the first focusable item in the panel
+// find the preceding expanded panel (if any) that has
+// focusable items and set focus to the last one in that
+// panel. If there is no preceding panel or no focusable items
+// do not process.
+if(curNdx==0&&panelNdx>0){// Iterate through previous panels until we find one that
+// is expanded and has focusable elements
+//
+for(var ndx=panelNdx-1;ndx>=0;ndx--){var $prevPanel=this.$panels.eq(ndx);var $prevTab=$('#'+$prevPanel.attr('aria-labelledby'));// get the focusable items in the panel
+$focusable.length=0;$focusable=$prevPanel.find(':focusable');if($focusable.length>0){// there are focusable items in the panel.
+// Set focus to the last item.
+$focusable.last().trigger("focus");// reset the aria-selected state of the tabs
+this.$tabs.attr('aria-selected','false').removeClass('selected');// set the associated tab's aria-selected state
+$prevTab.attr('aria-selected','true').addClass('selected');e.stopPropagation;return false;}}}}else if(panelNdx<numPanels){// if this is the last focusable item in the panel
+// find the nearest following expanded panel (if any) that has
+// focusable items and set focus to the first one in that
+// panel. If there is no preceding panel or no focusable items
+// do not process.
+if(curNdx==$focusable.length-1){// Iterate through following panels until we find one that
+// is expanded and has focusable elements
+//
+for(var ndx=panelNdx+1;ndx<numPanels;ndx++){var $nextPanel=this.$panels.eq(ndx);var $nextTab=$('#'+$nextPanel.attr('aria-labelledby'));// get the focusable items in the panel
+$focusable.length=0;$focusable=$nextPanel.find(':focusable');if($focusable.length>0){// there are focusable items in the panel.
+// Set focus to the first item.
+$focusable.first().trigger("focus");// reset the aria-selected state of the tabs
+this.$tabs.attr('aria-selected','false').removeClass('selected');// set the associated tab's aria-selected state
+$nextTab.attr('aria-selected','true').addClass('selected');e.stopPropagation;return false;}}}}break;}case this.keys.left:case this.keys.up:{if(!e.ctrlKey){// do not process
+return true;}// get the jQuery object of the tab
+var $tab=$('#'+$panel.attr('aria-labelledby'));// Move focus to the tab
+$tab.trigger("focus");e.stopPropagation();return false;}case this.keys.pageup:{var $newTab;if(!e.ctrlKey){// do not process
+return true;}// get the jQuery object of the tab
+var $tab=this.$tabs.filter('.selected');// get the index of the tab in the tab list
+var curNdx=this.$tabs.index($tab);if(curNdx==0){// this is the first tab, set focus on the last one
+$newTab=this.$tabs.last();}else{// set focus on the previous tab
+$newTab=this.$tabs.eq(curNdx-1);}// switch to the new tab
+this.switchTabs($tab,$newTab);e.stopPropagation();e.preventDefault();return false;}case this.keys.pagedown:{var $newTab;if(!e.ctrlKey){// do not process
+return true;}// get the jQuery object of the tab
+var $tab=$('#'+$panel.attr('aria-labelledby'));// get the index of the tab in the tab list
+var curNdx=this.$tabs.index($tab);if(curNdx==this.$tabs.length-1){// this is the last tab, set focus on the first one
+$newTab=this.$tabs.first();}else{// set focus on the next tab
+$newTab=this.$tabs.eq(curNdx+1);}// switch to the new tab
+this.switchTabs($tab,$newTab);e.stopPropagation();e.preventDefault();return false;}}return true;};// end handlePanelKeyDown()
+//
+// Function handlePanelKeyPress() is a member function to process keypress events for a panel
+//
+// @param ($panel obj) $panel is the jquery object of the panel being processed
+//
+// @param (e obj) e is the associated event object
+//
+// @return (boolean) Returns true if propagating; false if consuming event
+//
+tabpanel.prototype.handlePanelKeyPress=function($panel,e){if(e.altKey){// do nothing
+return true;}if(e.ctrlKey&&(e.keyCode==this.keys.pageup||e.keyCode==this.keys.pagedown)){e.stopPropagation();e.preventDefault();return false;}switch(e.keyCode){case this.keys.esc:{e.stopPropagation();e.preventDefault();return false;}}return true;};// end handlePanelKeyPress()
+//
+// Function handlePanelClick() is a member function to process click events for panels
+//
+// @param ($panel object) $panel is the jQuery object of the panel being processed
+//
+// @param (e object) e is the associated event object
+//
+// @return (boolean) returns true
+//
+tabpanel.prototype.handlePanelClick=function($panel,e){var $tab=$('#'+$panel.attr('aria-labelledby'));// make clicked panel's tab navigable
+$tab.attr('tabindex','0').attr('aria-selected','true').addClass('selected');// remove all tabs from the tab order and update their aria-selected attribute
+this.$tabs.not($tab).attr('aria-selected','false').removeClass('selected');return true;};// end handlePanelClick()
+// focusable is a small jQuery extension to add a :focusable selector. It is used to
+// get a list of all focusable elements in a panel. Credit to ajpiano on the jQuery forums.
+//
+$.extend($.expr.pseudos,{focusable:function focusable(element){var nodeName=element.nodeName.toLowerCase();var tabIndex=$(element).attr('tabindex');// the element and all of its ancestors must be visible
+if($(element)[nodeName=='area'?'parents':'closest'](':hidden').length==true){return false;}// If tabindex is defined, its value must be greater than 0
+if(!isNaN(tabIndex)&&tabIndex<0){return false;}// if the element is a standard form control, it must not be disabled
+if(/input|select|textarea|button|object/.test(nodeName)==true){return!element.disabled;}// if the element is a link, href must be defined
+if((nodeName=='a'||nodeName=='area')==true){return element.href.length>0;}// this is some other page element that is not normally focusable.
 return false;}});/* Accordion Bootstrap 4 */$(document).ready(function(){var accordion=$('.accordion').find('.collapsed');accordion.attr("tabindex",0);// make accordion tabable
 });/* Remove aria controls from a links */$(document).ready(function(){var alink=$(".card").find("a[role='tab']");alink.removeAttr("aria-controls");});/* -----------------------------------------
    PANELS - /source/js/cagov/panel.js
@@ -3098,7 +3098,7 @@ var transitionSpeed=!$('html').hasClass('oldie')?250:0;// Initiate carousel
 $this.owlCarousel({//responsiveRefreshRate: 0,
 items:1,smartSpeed:transitionSpeed,animateOut:'fadeOut',loop:true,autoplay:true,autoplayTimeout:settings.delay,autoplayHoverPause:false,mouseDrag:false,touchDrag:false,pullDrag:false,pagination:true,dotsClass:'banner-pager',dotClass:'banner-control',dotsContainer:false});// Add pause and play buttons
 var owlBannerControl=$('<div class="banner-play-pause"><div class="banner-control"><button class="play ca-gov-icon-carousel-play" aria-hidden="true"></button><button class="pause ca-gov-icon-carousel-pause" aria-hidden="true"></span></div></div>');$this.append(owlBannerControl);var playControl=owlBannerControl.find('.play').hide();var pauseControl=owlBannerControl.find('.pause');playControl.on('click',function(){$(this).hide();$(this).parent().removeClass('active');pauseControl.show();$this.trigger('play.owl.autoplay',[settings.delay]);$this.owlCarousel('next');// Manually play next since autoplay waits for delay
-});pauseControl.on('click',function(){$(this).hide();$(this).parent().addClass('active');playControl.show();$this.trigger('stop.owl.autoplay');});// Number the items in .banner-pager 
+});pauseControl.on('click',function(){$(this).hide();$(this).parent().addClass('active');playControl.show();$this.trigger('stop.owl.autoplay');});// Number the items in .banner-pager
 var dots=$('.banner-pager .banner-control');dots.each(function(){$(this).find('span').append($(this).index()+1);});});};})(jQuery);// Banner Carousel Init
 $("body .carousel-banner").owlBannerCarousel();// Init with options: $(".banner-carousel").owlBannerCarousel({delay: 4000,
 // smallSearch:true});
@@ -3110,7 +3110,7 @@ $(".carousel-link").owlCarousel({margin:25,autoWidth:true,nav:true,navText:['<sp
 $(".carousel-slider").owlCarousel({items:1,nav:true,navText:['<span class="ca-gov-icon-arrow-prev" aria-hidden="true"></span></span><span class="sr-only">Previous</span>','<span class="ca-gov-icon-arrow-next" aria-hidden="true"></span><span class="sr-only">Next</span>'],dots:false});// Gallery Image Slider
 $(".carousel-gallery").owlCarousel({items:1,nav:true,navText:['<span class="ca-gov-icon-arrow-prev" aria-hidden="true"></span></span><span class="sr-only">Previous</span>','<span class="ca-gov-icon-arrow-next" aria-hidden="true"></span><span class="sr-only">Next</span>'],dots:false});}});function initContent(){var carousel=$(this);$(window).on("load",function(){carousel.owlCarousel({items:1,autoHeight:true,loop:true,nav:true,navText:['<span class="ca-gov-icon-arrow-prev" aria-hidden="true"></span></span><span class="sr-only">Previous</span>','<span class="ca-gov-icon-arrow-next" aria-hidden="true"></span><span class="sr-only">Next</span>'],dots:true,// all these callbacks are to make sure any js inside carousl items can refresh
 // themselves
-onResized:function onResized(){window.setTimeout(function(){$(window).trigger('resize');},0);},onDragged:function onDragged(){window.setTimeout(function(){$(window).trigger('resize');},0);},onTranslated:function onTranslated(){window.setTimeout(function(){$(window).trigger('resize');},0);}});// Add text to the dots 
+onResized:function onResized(){window.setTimeout(function(){$(window).trigger('resize');},0);},onDragged:function onDragged(){window.setTimeout(function(){$(window).trigger('resize');},0);},onTranslated:function onTranslated(){window.setTimeout(function(){$(window).trigger('resize');},0);}});// Add text to the dots
 var dot=$('.owl-dots .owl-dot');dot.each(function(){$(this).find('span').html("<span class='sr-only'>Change Slide</span>");});carousel.on('changed.owl.carousel',function(event){setTimeout(function(){carousel.find('.owl-item.active .item video').each(function(){$(this).get(0).play();});},10);});});}(function($){$.fn.initCAVideo=function(bool){// Iterate over each object in collection
 return this.each(function(){var carousel=$(this);var didSet=carousel.attr("data-loaded");if(didSet){return;}carousel.attr("data-loaded","true");// get first video
 var vidHref=carousel.find('.item a').first().attr('href')||"";var vidID=vidHref.split("?v=").pop();var mainIndex=0;var length=carousel.find('.item').length;// Video  Slider
@@ -3162,7 +3162,7 @@ var output='<li><a href="/">Home</a></li>';// The string which will be output to
 var path='/';// Link for the crumbs
 // If last item is blank or index.* or default.*, remove it
 if(arrURL[arrURL.length-1]==''||arrURL[arrURL.length-1].match(/^index\.|^default\./i)){arrURL.length--;}if(arrURL.length>3){for(counter=3;counter<arrURL.length-1;counter++){// Loop to display the links
-path+=arrURL[counter]+'/';// always end links to folder with '/' 
+path+=arrURL[counter]+'/';// always end links to folder with '/'
 output+='<li><a href="'+path+'">'+arrURL[counter].replace(/(_|-)/g,' ')+'</a></li>';}// Adds a class of active to the current page
 output+='<li class="active">'+arrURL[arrURL.length-1].replace(/(_|-)/g,' ').replace(/\.\w{3,5}$/,'')+'</li>';}$(".breadcrumb.dynamic").html(output);// Display the breadcrumbs
 }}$(document).ready(function(){breadcrumbs();});// End of breadcrumbs javascript
@@ -3283,8 +3283,8 @@ var a=+degToRad(this.config.startAngle);// Compute the angular scale factor: fro
 var k=(degToRad(this.config.endAngle)-a)/(sum+diff);var index=d3.range(data.length);// Compute the arcs!
 // They are stored in the original data's order.
 var arcs=[];index.forEach(function(i){var d;arcs[i]={data:data[i],value:d=values[i],startAngle:a,endAngle:a+=d*k};});return arcs;};function getThickness(donut){return donut.config.thickness||donut.config.radius;}/*
-     * Setup the svg in the DOM and cache a ref to it
-     */function bindSvgToDom(donut){var width=getWidth(donut),height=getHeight(donut);var transString='translate('+width/2+','+height/2+')'+(donut.config.flipStart==true?' scale(-1,1)':'');var tempSVG=d3.select(donut.config.bindTo).select('svg');if(tempSVG.empty()){donut.svg=d3.select(donut.config.bindTo).append('svg').attr('class',donut.config.classNames).attr('width',width).attr('height',height/2).append('g').attr('transform',transString);}else{donut.svg=d3.select(donut.config.bindTo).select('svg').attr('class',donut.config.classNames).attr('width',width).attr('height',height/2).select('g').attr('transform',transString);donut.svg.selectAll('*').remove();}if(donut.config.background){donut.svg.append('path').attr('class','donut-background').transition().duration(0).attrTween('d',function(d,i){var fullArc={value:0,startAngle:degToRad(donut.config.startAngle),endAngle:degToRad(donut.config.endAngle)};return arcTween.call(this,fullArc,i,donut);});}if(donut.config.showHalfTick){donut.svg.append('line').attr('class','donut-halfmark').attr('stroke','gray').attr('stroke-width',1).attr({'x1':0,'x2':0,'y1':-height/2+10,'y2':-height/2+35});}}function drawPaths(donut){var paths=donut.svg.selectAll('path.donut-section').data(donut.data);// enter new data
+	 * Setup the svg in the DOM and cache a ref to it
+	 */function bindSvgToDom(donut){var width=getWidth(donut),height=getHeight(donut);var transString='translate('+width/2+','+height/2+')'+(donut.config.flipStart==true?' scale(-1,1)':'');var tempSVG=d3.select(donut.config.bindTo).select('svg');if(tempSVG.empty()){donut.svg=d3.select(donut.config.bindTo).append('svg').attr('class',donut.config.classNames).attr('width',width).attr('height',height/2).append('g').attr('transform',transString);}else{donut.svg=d3.select(donut.config.bindTo).select('svg').attr('class',donut.config.classNames).attr('width',width).attr('height',height/2).select('g').attr('transform',transString);donut.svg.selectAll('*').remove();}if(donut.config.background){donut.svg.append('path').attr('class','donut-background').transition().duration(0).attrTween('d',function(d,i){var fullArc={value:0,startAngle:degToRad(donut.config.startAngle),endAngle:degToRad(donut.config.endAngle)};return arcTween.call(this,fullArc,i,donut);});}if(donut.config.showHalfTick){donut.svg.append('line').attr('class','donut-halfmark').attr('stroke','gray').attr('stroke-width',1).attr({'x1':0,'x2':0,'y1':-height/2+10,'y2':-height/2+35});}}function drawPaths(donut){var paths=donut.svg.selectAll('path.donut-section').data(donut.data);// enter new data
 paths.enter().append('path').attr('class',function(d,i){return'donut-section value-'+i;}).attr('fill',donut.config.color).attr('stroke','#fff').attr('stroke-width',donut.config.offset/2);// transition existing paths
 donut.svg.selectAll('path.donut-section').transition().duration(2000).attrTween('d',function(d,i){return arcTween.call(this,d,i,donut);});// exit old data
 paths.exit().transition().duration(100).attrTween('d',function(d,i){return removeArcTween.call(this,d,i,donut);}).remove();}// Store the currently-displayed angles in this._current.
@@ -3293,11 +3293,11 @@ function arcTween(a,i,donut){var prevSiblingArc,startAngle,newArc,interpolate;if
 // start at the end of the previous one or start of entire donut
 startAngle=prevSiblingArc&&prevSiblingArc._current?prevSiblingArc._current.endAngle:degToRad(donut.config.startAngle);newArc={startAngle:startAngle,endAngle:startAngle,value:0};}interpolate=d3.interpolate(this._current||newArc,a);// cache a copy of data to each path
 this._current=interpolate(0);return function(t){return donut.arc(interpolate(t));};}function removeArcTween(a,i,donut){var emptyArc={startAngle:degToRad(donut.config.endAngle),endAngle:degToRad(donut.config.endAngle),value:0},i=d3.interpolate(a,emptyArc);return function(t){return donut.arc(i(t));};}function getRadius(donut){var width=getWidth(donut)-donut.config.margin.left-donut.config.margin.right,height=getHeight(donut)-donut.config.margin.top-donut.config.margin.bottom;return Math.min(width,height)/2;}function getWidth(donut){return donut.config.size&&donut.config.size.width;}function getHeight(donut){return donut.config.size&&donut.config.size.height;}function degToRad(degree){return degree*(Math.PI/180);}function radToDeg(radian){return radian*(180/Math.PI);}/*
-     * Simple extend fn like jQuery
-     *
-     * Usage: extend({ name: 'Default' }, { name: 'Matt' });
-     * Result: { name: 'Matt' }
-     */function extend(){for(var i=1;i<arguments.length;i++){for(var prop in arguments[i]){if(arguments[i].hasOwnProperty(prop)){arguments[0][prop]=arguments[i][prop];}}}return arguments[0];}return Donut;}/* -----------------------------------------
+	 * Simple extend fn like jQuery
+	 *
+	 * Usage: extend({ name: 'Default' }, { name: 'Matt' });
+	 * Result: { name: 'Matt' }
+	 */function extend(){for(var i=1;i<arguments.length;i++){for(var prop in arguments[i]){if(arguments[i].hasOwnProperty(prop)){arguments[0][prop]=arguments[i][prop];}}}return arguments[0];}return Donut;}/* -----------------------------------------
    PARALLAX EFFECT
    /source/js/cagov/parallax.js
 ----------------------------------------- */(function($){$.fn.parallax=function(options){var windowHeight=$(window).height();// Establish default settings
@@ -3316,8 +3316,8 @@ this.disable();}});}$(document).ready(function(){// apply classes programmatical
 //elements
 $('.toggle-more').toggleMore();$('[data-ajax-target]').each(initLoad);var $viewport=$('html, body');$(".explore-invite").on('click',function(e){e.preventDefault();var extraHeight=$('header.fixed').height();$viewport.animate({scrollTop:$(".main-primary").offset().top-extraHeight},2000);// Stop the animation if the user scrolls
 $(document).one("scroll mousedown DOMMouseScroll mousewheel keyup touchstart",function(e){if(e.which>0||e.type==="mousedown"||e.type==="mousewheel"||e.type=='touchstart'){$viewport.stop();}});});});(function($){$.fn.toggleMore=function(bool){/**
-       * Helper for setting required attrs and class
-       */function expanded($this,bool){if(bool){$this.addClass('active').attr('aria-expanded','true');}else{$this.removeClass('active').attr('aria-expanded','false');}}// Iterate over each object in collection
+	   * Helper for setting required attrs and class
+	   */function expanded($this,bool){if(bool){$this.addClass('active').attr('aria-expanded','true');}else{$this.removeClass('active').attr('aria-expanded','false');}}// Iterate over each object in collection
 return this.each(function(){// Save a reference to the element
 var $this=$(this);if(bool!==undefined){bool?expanded($this,true):expanded($this,false);}else{// init classes and state
 $this.hasClass('active')?expanded($this,true):expanded($this,false);}$this.off("click.cagovmore");$this.on("click.cagovmore",function(){$this.hasClass('active')?expanded($this,false):expanded($this,true);});});};})(jQuery);// TODO: readd this back in
@@ -3355,14 +3355,14 @@ function updateFont(f){var updatedSize=Math.min(MAXFONTSIZE,Math.max(f,MINFONTSI
    ASK GROUP
    /source/js/cagov/ask-group.js
 ----------------------------------------- */ // Extra override to force the ask bar to maintain its tab index because the bootstrap accesibility plugin
-// adds tab index -1 to collapse components. We arent using the collapse plugin in this manner, so we force the 
+// adds tab index -1 to collapse components. We arent using the collapse plugin in this manner, so we force the
 // collapsable items to always be tabbable.
 $('.ask-button').attr('tabindex',0);// Close Ask menu when clicked anwyere outside
 $('body').on('click',function(e){try{$('.ask-panel').collapse('hide');}catch(e){// ask panel is wonky
 }});/* -----------------------------------------
-   Tabs -- some fixing to bootstap 3 tabs 
+   Tabs -- some fixing to bootstap 3 tabs
    and backward compatibility
------------------------------------------ */$(document).ready(function(){// adding active class to a tag if aria selected is true 
+----------------------------------------- */$(document).ready(function(){// adding active class to a tag if aria selected is true
 var activeTab=$(".nav-tabs > li > a[aria-selected='true']");activeTab.addClass("active");// Just to change class active in the parent li element (backward compatibility)
 $(".nav-tabs > li > a").on("click",function(){if($(this).attr('aria-selected')=="false"){$(".nav-tabs > li").removeClass("active");$(this).parent("li").addClass("active");}else{$(".nav-tabs > li").removeClass("active");$(this).parent("li").addClass("active");}});/* Tabblale tabs */var tabs=$('ul.nav-tabs').find('.nav-link');tabs.attr("tabindex",0);// make accordion tabable
 });

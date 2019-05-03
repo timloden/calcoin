@@ -7,19 +7,6 @@ add_filter( 'body_class', 'prefix_conditional_body_class' );
 
 function prefix_conditional_body_class( $classes ) {
 
-	$show_sidebar_on_course_detail_page = get_field('show_sidebar_on_course_detail_page', 'option');
-	$show_sidebar_on_course_list_page = get_field('show_sidebar_on_course_list_page', 'option');
-	$show_sidebar_on_event_detail_page = get_field('show_sidebar_on_event_detail_page', 'option');
-	$show_sidebar_on_event_list_page = get_field('show_sidebar_on_event_list_page', 'option');
-	$show_sidebar_on_job_detail_page = get_field('show_sidebar_on_job_detail_page', 'option');
-	$show_sidebar_on_job_list_page = get_field('show_sidebar_on_job_list_page', 'option');
-	$show_sidebar_on_news_detail_page = get_field('show_sidebar_on_news_detail_page', 'option');
-	$show_sidebar_on_news_list_page = get_field('show_sidebar_on_news_list_page', 'option');
-	$show_sidebar_on_publications_list_page = get_field('show_sidebar_on_publication_list_page', 'option');
-	$show_sidebar_on_profile_detail_page = get_field('show_sidebar_on_profile_detail_page', 'option');
-	$show_sidebar_on_profile_list_page = get_field('show_sidebar_on_profile_list_page', 'option');
-	$show_sidebar_on_search_list_page = get_field('show_sidebar_on_search_list_page', 'option');
-
 	if ( is_home() ) {
 		if( $show_sidebar_on_news_list_page == 1 ) {
 			$classes[] = 'two-column';
@@ -29,6 +16,12 @@ function prefix_conditional_body_class( $classes ) {
 	}
 
 	if ( is_single() ) {
+
+		$show_sidebar_on_event_detail_page = get_field('show_sidebar_on_event_detail_page', 'option');
+		$show_sidebar_on_course_detail_page = get_field('show_sidebar_on_course_detail_page', 'option');
+		$show_sidebar_on_job_detail_page = get_field('show_sidebar_on_job_detail_page', 'option');
+		$show_sidebar_on_news_detail_page = get_field('show_sidebar_on_news_detail_page', 'option');
+		$show_sidebar_on_profile_detail_page = get_field('show_sidebar_on_profile_detail_page', 'option');
 
 		if ( is_singular( 'events' ) && $show_sidebar_on_event_detail_page == 1 ) {
 			$classes[] = 'two-column';
@@ -54,6 +47,14 @@ function prefix_conditional_body_class( $classes ) {
 	}
 
 	if ( is_archive() ) {
+
+		$show_sidebar_on_course_list_page = get_field('show_sidebar_on_course_list_page', 'option');
+		$show_sidebar_on_event_list_page = get_field('show_sidebar_on_event_list_page', 'option');
+		$show_sidebar_on_job_list_page = get_field('show_sidebar_on_job_list_page', 'option');
+		$show_sidebar_on_news_list_page = get_field('show_sidebar_on_news_list_page', 'option');
+		$show_sidebar_on_publications_list_page = get_field('show_sidebar_on_publication_list_page', 'option');
+		$show_sidebar_on_profile_list_page = get_field('show_sidebar_on_profile_list_page', 'option');
+		$show_sidebar_on_search_list_page = get_field('show_sidebar_on_search_list_page', 'option');
 
 		if( is_post_type_archive('events') && $show_sidebar_on_event_list_page == 1 ) {
 
@@ -84,12 +85,16 @@ function prefix_conditional_body_class( $classes ) {
 	}
 
 	if ( is_search() ) {
+		$show_sidebar_on_search_list_page = get_field('show_sidebar_on_search_list_page', 'option');
+
 		if( $show_sidebar_on_search_list_page == 1 ) {
 			$classes[] = 'two-column';
 		}
 
 		return $classes;
 	}
+
+	return $classes;
 
 }
 

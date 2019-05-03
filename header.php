@@ -263,9 +263,6 @@ $custom_code = get_field('custom_code', 'option');
 
 			</div>
 		</div>
-		<pre>
-			<?php //print_r($logo);?>
-		</pre>
 	    <!-- Include Mobile Controls -->
 	    <div class="mobile-controls">
 		    <span class="mobile-control-group mobile-header-icons">
@@ -316,13 +313,25 @@ $custom_code = get_field('custom_code', 'option');
 					});
 		        </script> -->
 
-		        <form action="<?php echo site_url('serp');?>" class="google-search">
+		       <!--  <form action="<?php echo site_url('serp');?>" class="google-search">
 				    <input name="cx" type="hidden" value="<?php echo esc_attr($search_engine_id);?>">
 				    <input name="ie" type="hidden" value="UTF-8">
 				    <input class="search-box" id="q" name="q" onfocus="document.getElementById('q').value=''" type="text" placeholder="" aria-label="Website Search">
 				    <button type="submit" class="search-button"><span class="ca-gov-icon-search"></span></button>
 					<button type="button" class="clear-search"><span class="ca-gov-icon-close-mark"></span></button>
-				</form>
+				</form> -->
+
+
+				<div class="container">
+				    <form id="Search" class="pos-rel" action="<?php echo site_url('serp');?>">
+				    	<input name="cx" type="hidden" value="<?php echo esc_attr($search_engine_id);?>">
+				    	<input name="ie" type="hidden" value="UTF-8">
+				        <span class="sr-only" id="SearchInput">Custom Google Search</span>
+				        <input type="text" id="q" name="q" aria-labelledby="SearchInput" placeholder="Custom Search" class="height-50 border-0 p-x-sm w-100" />
+				        <button type="submit" class="pos-abs gsc-search-button top-0 width-50 height-50 border-0 bg-transparent"><span class="ca-gov-icon-search font-size-30 color-gray" aria-hidden="true"></span><span class="sr-only">Submit</span></button>
+				        <div class="width-50 height-50 close-search-btn"><button class="close-search gsc-clear-button width-50 height-50 border-0 bg-transparent pos-rel" type="reset"><span class="sr-only">Close Search</span><span class="ca-gov-icon-close-mark" aria-hidden="true"></span></button></div>
+				    </form>
+				</div>
 
 
 		     <?php else : ?>

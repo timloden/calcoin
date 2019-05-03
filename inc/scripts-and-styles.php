@@ -56,7 +56,9 @@ function caweb_scripts() {
 
 	wp_enqueue_script( 'custom-scripts', get_template_directory_uri() . '/assets/js/custom.min.js', ['jquery'], '0.0.0', true );
 
-	wp_enqueue_script( 'vendor-scripts', get_template_directory_uri() . '/assets/js/vendor.min.js', ['jquery'], '0.0.0', true );
+	//wp_enqueue_script( 'vendor-scripts', get_template_directory_uri() . '/assets/js/vendor.min.js', ['jquery'], '0.0.0', true );
+
+	wp_enqueue_script( 'cagov-script', get_template_directory_uri() . '/assets/js/cagov.core.min.js', ['jquery'], '5.0.6', true );
 
 	if( have_rows('custom_uploads', 'options') ):
 		while( have_rows('custom_uploads', 'option') ): the_row();

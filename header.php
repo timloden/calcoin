@@ -10,11 +10,18 @@
  */
 
 $general_settings = get_field('general_settings', 'option');
+
 if ($general_settings['organization_logo']) {
 	$logo = $general_settings['organization_logo'];
+	if ($logo['alt'] != '') {
+		$logo_alt = $logo['alt'];
+	} else {
+		$logo_alt = $logo['title'];
+	}
 } else {
 	$logo = get_template_directory_uri() . '/images/template-logo.png';
 }
+
 $favicon = $general_settings['fav_icon'];
 $use_sticky_nav = $general_settings['use_sticky_navigation'];
 $featured_search = $general_settings['show_search_on_front_page'];
@@ -223,44 +230,42 @@ $custom_code = get_field('custom_code', 'option');
 
 					<?php if ($google_translate =='standard') : ?>
 <!-- 					<div class="quarter standard-translate" id="google_translate_element"></div>
- -->					<?php endif; ?>
+ -->				<?php endif; ?>
 
 		        </div>
 		    </div>
 		</div>
 
 	    <!-- Settings Bar -->
-	    <div class="site-settings section section-standout collapse collapsed" id="siteSettings">
-		    <div class="container p-y">
-		        <button type="button" class="close" data-toggle="collapse" data-target="#siteSettings" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	    <div class="site-settings section section-standout collapse collapsed" role="alert" id="siteSettings">
+		    <div class="container  p-y">
+		        <button type="button" class="close" data-toggle="collapse" data-target="#siteSettings" aria-expanded="false" aria-controls="siteSettings" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 
-		        <div class="btn-group btn-group-justified-sm" aria-label="contrastMode">
+		        <div class="btn-group btn-group-justified-sm" role="group" aria-label="contrastMode">
 		            <div class="btn-group"><button type="button" class="btn btn-standout disableHighContrastMode">Default</button></div>
 		            <div class="btn-group"><button type="button" class="btn btn-standout enableHighContrastMode">High Contrast</button></div>
 		        </div>
 
-		        <div class="btn-group" aria-label="textSizeMode">
+		        <div class="btn-group" role="group" aria-label="textSizeMode">
 		            <div class="btn-group"><button type="button" class="btn btn-standout resetTextSize">Reset</button></div>
-		            <div class="btn-group"><button type="button" class="btn btn-standout increaseTextSize"><span class="hidden-xs">Increase Font Size</span><span class="visible-xs">Font <small class="ca-gov-icon-plus-line"></small></span></button></div>
-		            <div class="btn-group"><button type="button" class="btn btn-standout decreaseTextSize"><span class="hidden-xs">Decrease Font Size</span><span class="visible-xs">Font <small class="ca-gov-icon-minus-line"></small></span></button></div>
+		            <div class="btn-group"><button type="button" class="btn btn-standout increaseTextSize"><span class="hidden-xs">Increase Font Size</span><span class="visible-xs">Font <span class="sr-only">Increase</span><span class="ca-gov-icon-plus-line font-size-sm" aria-hidden="true"></span></span></button></div>
+		            <div class="btn-group"><button type="button" class="btn btn-standout decreaseTextSize"><span class="hidden-xs">Decrease Font Size</span><span class="visible-xs">Font <span class="sr-only">Decrease</span><span class="ca-gov-icon-minus-line font-size-sm" aria-hidden="true"></span></span></button></div>
 		        </div>
-
-		                <!-- <button type="button" class="btn btn-primary clipboard-activeonhover">Save links on hover</button> -->
-
 		    </div>
 		</div>
 
 	    <!-- Include Branding -->
 	  	<div class="branding">
 			<div class="header-organization-banner">
-
 				<a href="/">
-					<img src="<?php echo esc_url($logo);?>" alt="Organization Title" />
+					<img src="<?php echo esc_url($logo['url']); ?>" alt="<?php echo esc_attr($logo_alt); ?>" />
 				</a>
 
 			</div>
 		</div>
-
+		<pre>
+			<?php //print_r($logo);?>
+		</pre>
 	    <!-- Include Mobile Controls -->
 	    <div class="mobile-controls">
 		    <span class="mobile-control-group mobile-header-icons">

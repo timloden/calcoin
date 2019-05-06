@@ -407,35 +407,35 @@ if("" !== args.caweb_multi_ga){
   };
 
   function myCallback() {
-	var $searchContainer = $("#head-search");
-	var $searchText = $searchContainer.find(".gsc-input");
-	var $resultsContainer = $('.search-results-container');
-	var $body = $("body");
+		var $searchContainer = $("#head-search");
+		var $searchText = $searchContainer.find(".gsc-input");
+		var $resultsContainer = $('.search-results-container');
+		var $body = $("body");
 
-		// Helpers
-	function addSearchResults() {
-		$body.addClass("active-search");
-		$searchContainer.addClass('active');
-		$resultsContainer.addClass('visible');
-		// close the the menu when we are search
-		$('#navigation').addClass('mobile-closed');
-		// fire a scroll event to help update headers if need be
-		$(window).scroll();
+			// Helpers
+		function addSearchResults() {
+			$body.addClass("active-search");
+			$searchContainer.addClass('active');
+			$resultsContainer.addClass('visible');
+			// close the the menu when we are search
+			$('#navigation').addClass('mobile-closed');
+			// fire a scroll event to help update headers if need be
+			$(window).scroll();
 
-		$.event.trigger('cagov.searchresults.show');
-	}
+			$.event.trigger('cagov.searchresults.show');
+		}
 
-	function removeSearchResults() {
-		$body.removeClass("active-search");
-		$searchContainer.removeClass('active');
-		$resultsContainer.removeClass('visible');
+		function removeSearchResults() {
+			$body.removeClass("active-search");
+			$searchContainer.removeClass('active');
+			$resultsContainer.removeClass('visible');
 
 
-		// fire a scroll event to help update headers if need be
-		$(window).scroll();
+			// fire a scroll event to help update headers if need be
+			$(window).scroll();
 
-		$.event.trigger('cagov.searchresults.hide');
-	}
+			$.event.trigger('cagov.searchresults.hide');
+		}
 
   }
 

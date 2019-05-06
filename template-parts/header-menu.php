@@ -1,6 +1,6 @@
 <?php
     $locations = get_nav_menu_locations();
-    $menu_name = get_term(get_nav_menu_locations()['Header'], 'nav_menu')->name;
+    $menu_name = get_term(get_nav_menu_locations()['header-menu'], 'nav_menu')->name;
     $menu = wp_get_nav_menu_object( $menu_name );
     $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
 

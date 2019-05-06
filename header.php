@@ -104,9 +104,7 @@ $custom_code = get_field('custom_code', 'option');
 </head>
 
 <body <?php body_class(); ?>>
-
-
-	<?php if( have_rows('alert_banners', 'options') ): ?>
+	<?php if( have_rows('alert_banners', 'options')): ?>
 
 		<?php while( have_rows('alert_banners', 'option') ): the_row(); ?>
 			<?php
@@ -285,7 +283,7 @@ $custom_code = get_field('custom_code', 'option');
 	    <div class="navigation-search">
 
        		<?php
-				if(has_nav_menu('Header')){
+				if(has_nav_menu('header-menu')){
 					get_template_part('template-parts/header-menu');
 				}
 			?>
@@ -307,9 +305,9 @@ $custom_code = get_field('custom_code', 'option');
 
 				<?php endif; ?>
 
-		     <?php else : ?>
+		    <?php else : ?>
 
-		     <div id="head-search" class="search-container <?php if($featured_search && !is_page_template('page-search.php') && is_front_page()) { echo('featured-search'); } ;?> hidden-print in play-animation">
+		    <div id="head-search" class="search-container <?php if($featured_search && !is_page_template('page-search.php') && is_front_page()) { echo('featured-search'); } ;?> hidden-print in play-animation">
 
 				<div class="container">
 				    <form id="Search" class="pos-rel" action="<?php echo site_url('serp');?>">

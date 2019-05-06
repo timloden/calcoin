@@ -64,6 +64,7 @@ function caweb_scripts() {
 
 	wp_enqueue_script( 'custom-scripts', get_template_directory_uri() . '/assets/js/custom.min.js', ['jquery'], '0.0.0', true );
 
+	// not needed unless we add some 3rd party scripts
 	//wp_enqueue_script( 'vendor-scripts', get_template_directory_uri() . '/assets/js/vendor.min.js', ['jquery'], '0.0.0', true );
 
 

@@ -37,12 +37,13 @@ $share_email = get_field('share_via_email', 'option');
 	<div class="container">
 		<div class="row">
 			<div class="three-quarters">
-				<?php
+				<?php if ( has_nav_menu( 'footer-menu' ) ) {
 					wp_nav_menu(array(
 						'menu'=> 'footer-menu',
 						'menu_class' => 'footer-links',
 						)
 					);
+					}
 				?>
 			</div>
 			<div class="quarter text-right">

@@ -293,39 +293,26 @@ $custom_code = get_field('custom_code', 'option');
 	        <?php if ($search_engine_id) : ?>
 
 	        <div id="head-search" class="search-container <?php if($featured_search && !is_page_template('page-search.php') && is_front_page()) { echo('featured-search'); } ;?> hidden-print in play-animation">
-	            <!-- Include Search -->
-	        	<!-- <script type="text/javascript">
-				    var cx = '<?php echo esc_attr($search_engine_id);?>';
-				    var gcse = document.createElement('script');
-				    gcse.type = 'text/javascript';
-				    gcse.async = true;
-				    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-				    var s = document.getElementsByTagName('script');
-				    s[s.length - 1].parentNode.insertBefore(gcse, s[s.length - 1]);
 
-				</script>
+				<?php if (!is_page_template('page-search.php')) : ?>
 
-				<gcse:searchbox-only resultsUrl="<?php echo site_url('serp');?>" enableAutoComplete="true"></gcse:searchbox-only>
+					<div class="container">
+					    <form id="Search" class="pos-rel" action="<?php echo site_url('serp');?>">
+					        <span class="sr-only" id="SearchInput">Custom Google Search</span>
+					        <input type="text" id="q" name="q" aria-labelledby="SearchInput" placeholder="Custom Search" class="height-50 border-0 p-x-sm w-100" />
+					        <button type="submit" class="pos-abs gsc-search-button top-0 width-50 height-50 border-0 bg-transparent"><span class="ca-gov-icon-search font-size-30 color-gray" aria-hidden="true"></span><span class="sr-only">Submit</span></button>
+					        <div class="width-50 height-50 close-search-btn"><button class="close-search gsc-clear-button width-50 height-50 border-0 bg-transparent pos-rel" type="reset"><span class="sr-only">Close Search</span><span class="ca-gov-icon-close-mark" aria-hidden="true"></span></button></div>
+					    </form>
+					</div>
 
-				<script type="text/javascript">
-		            jQuery(window).on("load", function() {
-					    jQuery("button.gsc-search-button-v2").before('<span class="ca-gov-icon-search search-icon" aria-hidden="true"></span>');
-					});
-		        </script> -->
+				<?php endif; ?>
 
-		       <!--  <form action="<?php echo site_url('serp');?>" class="google-search">
-				    <input name="cx" type="hidden" value="<?php echo esc_attr($search_engine_id);?>">
-				    <input name="ie" type="hidden" value="UTF-8">
-				    <input class="search-box" id="q" name="q" onfocus="document.getElementById('q').value=''" type="text" placeholder="" aria-label="Website Search">
-				    <button type="submit" class="search-button"><span class="ca-gov-icon-search"></span></button>
-					<button type="button" class="clear-search"><span class="ca-gov-icon-close-mark"></span></button>
-				</form> -->
+		     <?php else : ?>
 
+		     <div id="head-search" class="search-container <?php if($featured_search && !is_page_template('page-search.php') && is_front_page()) { echo('featured-search'); } ;?> hidden-print in play-animation">
 
 				<div class="container">
 				    <form id="Search" class="pos-rel" action="<?php echo site_url('serp');?>">
-				    	<input name="cx" type="hidden" value="<?php echo esc_attr($search_engine_id);?>">
-				    	<input name="ie" type="hidden" value="UTF-8">
 				        <span class="sr-only" id="SearchInput">Custom Google Search</span>
 				        <input type="text" id="q" name="q" aria-labelledby="SearchInput" placeholder="Custom Search" class="height-50 border-0 p-x-sm w-100" />
 				        <button type="submit" class="pos-abs gsc-search-button top-0 width-50 height-50 border-0 bg-transparent"><span class="ca-gov-icon-search font-size-30 color-gray" aria-hidden="true"></span><span class="sr-only">Submit</span></button>
@@ -333,21 +320,6 @@ $custom_code = get_field('custom_code', 'option');
 				    </form>
 				</div>
 
-
-		     <?php else : ?>
-
-		     <div id="head-search" class="search-container <?php if($featured_search && !is_page_template('page-search.php') && is_front_page()) { echo('featured-search'); } ;?> hidden-print in play-animation">
-
-		        <?php if ( !is_page_template('page-search.php') ) : ?>
-
-				<form action="/" method="get" class="google-search">
-				    <label for="search">Search in <?php echo home_url( '/' ); ?></label>
-				    <input type="text" name="s" class="search-box" id="search" value="<?php the_search_query(); ?>" />
-				    <button type="submit" class="search-button"><span class="ca-gov-icon-search"></span></button>
-					<button type="button" class="clear-search"><span class="ca-gov-icon-close-mark"></span></button>
-				</form>
-
-				<?php endif; ?>
 	        </div>
 
 	    	<?php endif; ?>

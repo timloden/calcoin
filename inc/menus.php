@@ -10,3 +10,19 @@ function my_custom_menus() {
 
 // Hook them into the theme-'init' action
 add_action( 'init', 'my_custom_menus' );
+
+
+function find_multisites() {
+	if ( is_multisite() ) {
+		$subsites = get_sites();
+		foreach( $subsites as $subsite ) {
+		  $subsite_id = get_object_vars($subsite)["blog_id"];
+		  $subsite_name = get_blog_details($subsite_id)->blogname;
+		  echo 'Site ID/Name: ' . $subsite_id . ' / ' . $subsite_name . '\n';
+		}
+	} else {
+		echo 'not multisite';
+	}
+}
+
+add_action( 'init', 'find_multisites' );

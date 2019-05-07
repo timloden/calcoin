@@ -20,7 +20,7 @@ function caweb_theme_activate() {
         if ($logo) {
 		 	$logo_id = attachment_url_to_postid($logo);
 		 	update_option('options_general_settings_organization_logo', $logo_id);
-			$updated[] = 'logo';
+			$updated[] = 'logo - ID: ' . $logo_id;
 		 }
 
 		// look for a logo (must be attachment id)

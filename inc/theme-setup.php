@@ -15,26 +15,34 @@ function caweb_theme_activate() {
 
         $updated = array();
 
+        $logo = get_option('header_ca_branding');
+
+        if ($logo) {
+		 	$logo_id = attachment_url_to_postid($logo);
+		 	update_option('options_general_settings_organization_logo', $logo_id);
+			$updated[] = 'logo';
+		 }
+
 		// look for a logo (must be attachment id)
 
-		if (is_multisite()) {
-			$logo = get_blog_option($blog_id, 'header_ca_branding');
-		} else {
-			$logo = get_option('header_ca_branding');
-		}
+		// if (is_multisite()) {
+		// 	$logo = get_blog_option($blog_id, 'header_ca_branding');
+		// } else {
+		// 	$logo = get_option('header_ca_branding');
+		// }
 
 
-		if ($logo) {
-			$logo_id = attachment_url_to_postid($logo);
+		// if ($logo) {
+		// 	$logo_id = attachment_url_to_postid($logo);
 
-			if(is_multisite()) {
-				update_blog_option($blog_id, 'options_general_settings_organization_logo', $logo_id);
-				$updated[] = 'logo';
-			} else {
-				update_option('options_general_settings_organization_logo', $logo_id);
-				$updated[] = 'logo';
-			}
-		}
+		// 	if(is_multisite()) {
+		// 		update_blog_option($blog_id, 'options_general_settings_organization_logo', $logo_id);
+		// 		$updated[] = 'logo';
+		// 	} else {
+		// 		update_option('options_general_settings_organization_logo', $logo_id);
+		// 		$updated[] = 'logo';
+		// 	}
+		// }
 
 		// look for favicon (must be attachment id)
 		$favicon = get_option('ca_fav_ico');

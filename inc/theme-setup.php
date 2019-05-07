@@ -1,25 +1,26 @@
 <?php
 
-// try and import existing theme settings
+/* On theme activation try and import existing theme settings
+--------------------------------------------------------------------------------------*/
 
-add_action('after_switch_theme', 'mytheme_setup_options');
+add_action('after_switch_theme', 'caweb_theme_activate');
 
-function mytheme_setup_options () {
+function caweb_theme_activate() {
 
 	if(get_option('caweb_theme_activated') != '1') {
 
         update_option( 'caweb_theme_activated', '1' );
 
         $updated = array();
-	
+
 		// look for a logo (must be attachment id)
 		$logo = get_option('header_ca_branding');
-		
+
 		if ($logo) {
 			$logo_id = attachment_url_to_postid($logo);
 			update_option('options_general_settings_organization_logo', $logo_id);
 			$updated[] = 'logo';
-			 
+
 		}
 
 		// look for favicon (must be attachment id)
@@ -28,7 +29,7 @@ function mytheme_setup_options () {
 			$favicon_id = attachment_url_to_postid($favicon);
 			update_option('options_general_settings_fav_icon', $favicon_id);
 			$updated[] = 'favicon';
-			 
+
 		}
 
 		// look for all other non image fields
@@ -91,7 +92,7 @@ function mytheme_setup_options () {
 			'ca_google_trans_page' => 'options_google_custom_translate_translate_page_url',
 			'ca_google_trans_icon' => 'options_google_custom_translate_translate_icon',
 			'ca_google_trans_enabled' => 'options_google_enable_google_translate'
-			
+
 		);
 
 		// get each of the fields and update the values
@@ -104,6 +105,21 @@ function mytheme_setup_options () {
 	      	}
 	    }
 
+	    // get header menu
+
+	    $menu_name = get_term(get_nav_menu_locations()['header-menu'], 'nav_menu')->name;
+	    $menu = wp_get_nav_menu_object( $menu_name );
+	    $menuitems = wp_get_nav_menu_items( $menu->term_id );
+
+	    // get exsisting menu item metadata
+
+		foreach ($menuitems as $item) {
+			$icon = get_post_meta( $item->ID, '_caweb_menu_icon', true );
+			$unit = get_post_meta( $item->ID, '_caweb_menu_unit_size', true );
+			update_field('icon', 'ca-gov-icon-' . $icon, $item->ID);
+			update_field('item_size', $unit, $item->ID);
+		}
+
 	    // tell us what we updated
 	    if ($updated != '') {
 	    	echo('<div class="notice notice-success is-dismissible"><p>Migrated the following: </p>');
@@ -115,5 +131,13 @@ function mytheme_setup_options () {
 
     }
 
-	
+}
+
+/* On theme deactivation clear out the caweb_theme_activated value to reimport
+--------------------------------------------------------------------------------------*/
+
+add_action('switch_theme', 'caweb_theme_deactivate');
+
+function caweb_theme_deactivate () {
+  update_option( 'caweb_theme_activated', '0' );
 }

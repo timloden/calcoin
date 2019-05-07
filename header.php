@@ -68,7 +68,7 @@ $rss = get_field('rss', 'option');
 $share_email = get_field('share_via_email', 'option');
 
 $custom_css = get_field('custom_css', 'option');
-$custom_code = get_field('custom_code', 'option');
+$custom_code = get_field('custom_javascript', 'option');
 
 ?>
 <!doctype html>

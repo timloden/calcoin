@@ -49,7 +49,7 @@ function acf_styles() {
 add_action( 'admin_enqueue_scripts', 'load_admin_style' );
 
 function load_admin_style() {
-    wp_enqueue_style( 'admin_fonts_css', get_template_directory_uri() . '/styles/cagov.font-only.css', false, '1.0.0' );
+    wp_enqueue_style( 'admin_fonts_css', get_template_directory_uri() . '/assets/scss/cagov/cagov.font-only.css', false, '1.0.0' );
 }
 
 
@@ -65,7 +65,7 @@ function custom_login_logo() {
 
     <style type="text/css">
         #login h1 a, .login h1 a, body.login div#login h1 a {
-	        background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/login-logo.png) !important;
+	        background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/assets/img/login-logo.png) !important;
 			height: 80px;
 			width: 100%;
 			background-size: auto;

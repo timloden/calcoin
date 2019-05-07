@@ -69,8 +69,8 @@ function caweb_scripts() {
 
 
 
-	if( have_rows('custom_uploads', 'options') ):
-		while( have_rows('custom_uploads', 'option') ): the_row();
+	if( have_rows('upload_javascript', 'options') ):
+		while( have_rows('upload_javascript', 'option') ): the_row();
 			wp_enqueue_script( 'custom-js-' . get_row_index(), get_sub_field('javascript_files'), ['jquery'], '0.0.0', true );
 		endwhile;
 	endif;

@@ -1,6 +1,9 @@
 <?php
 
-// stylesheets to hide certain fields in ACF and custom builder modules
+/* Stylesheets to hide certain fields in ACF and custom builder modules and menu items
+--------------------------------------------------------------------------------------*/
+
+add_action('admin_head', 'acf_styles');
 
 function acf_styles() {
   echo '<style>
@@ -39,19 +42,30 @@ function acf_styles() {
   </style>';
 }
 
-add_action('admin_head', 'acf_styles');
+
+/* Add icon fonts to admin area
+--------------------------------------------------------------------------------------*/
+
+add_action( 'admin_enqueue_scripts', 'load_admin_style' );
+
+function load_admin_style() {
+    wp_enqueue_style( 'admin_fonts_css', get_template_directory_uri() . '/assets/scss/cagov/cagov.font-only.css', false, '1.0.0' );
+}
 
 
-// change logo to caweb and check if there is a custom logo 
+/* Change logo to caweb and check if there is a custom logo
+--------------------------------------------------------------------------------------*/
 
-function custom_login_logo() { 
+add_action( 'login_enqueue_scripts', 'custom_login_logo' );
+
+function custom_login_logo() {
 	$general_settings = get_field('general_settings', 'option');
 	$logo = $general_settings['organization_logo'];
 	?>
 
     <style type="text/css">
         #login h1 a, .login h1 a, body.login div#login h1 a {
-	        background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/login-logo.png) !important;
+	        background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/assets/img/login-logo.png) !important;
 			height: 80px;
 			width: 100%;
 			background-size: auto;
@@ -67,7 +81,7 @@ function custom_login_logo() {
         .login #nav, .login #backtoblog {
 			text-align: center;
         }
-		
+
 		<?php if ($logo): ?>
 	        #login h1 a, .login h1 a, body.login div#login h1 a {
 				background-image: url(<?php echo($logo); ?>) !important;
@@ -77,9 +91,11 @@ function custom_login_logo() {
     </style>
 <?php }
 
-add_action( 'login_enqueue_scripts', 'custom_login_logo' );
 
-// change logged in as text
+/* Change "Logged in as" text
+--------------------------------------------------------------------------------------*/
+
+add_filter( 'admin_bar_menu', 'replace_wordpress_howdy', 25 );
 
 function replace_wordpress_howdy( $wp_admin_bar ) {
 	$my_account = $wp_admin_bar->get_node('my-account');
@@ -90,13 +106,14 @@ function replace_wordpress_howdy( $wp_admin_bar ) {
     ) );
 }
 
-add_filter( 'admin_bar_menu', 'replace_wordpress_howdy', 25 );
 
-// remove admin bar items
+/* Remove admin bar items
+--------------------------------------------------------------------------------------*/
+
+add_action( 'admin_bar_menu', 'remove_wp_logo', 999 );
 
 function remove_wp_logo( $wp_admin_bar ) {
     $wp_admin_bar->remove_node( 'wp-logo' );
     $wp_admin_bar->remove_node( 'comments' );
 }
 
-add_action( 'admin_bar_menu', 'remove_wp_logo', 999 );

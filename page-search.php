@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: SERP
+ * Template Name: Search Results Page
  * The template for displaying search results pages
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result

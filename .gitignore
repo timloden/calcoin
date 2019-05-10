@@ -1,26 +1,68 @@
-# ignore all files starting with .
-.*
+# NPM #
+##########
+# Ignore all directories called node_modules in current folder and any subfolders.
+node_modules/
+/node_modules/
 
-# track this file .gitignore (i.e. do NOT ignore it)
-!.gitignore
+# Packages #
+############
+*.7z
+*.dmg
+*.gz
+*.bz2
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.tgz
+*.map
 
-# track .editorconfig file (i.e. do NOT ignore it)
-!.editorconfig
+# Logs and databases #
+######################
+*.log
+*.sql
+*.env
 
-# track readme.md in the root (i.e. do NOT ignore it)
-!readme.md
-
-# ignore all files that start with ~
-~*
-
-# dependencies
-/node_modules
-
-# misc
-.DS_Store
+# OS generated files #
+######################
+**.DS_Store*
 ehthumbs.db
+Icon?
 Thumbs.db
+._*
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# Vim generated files #
+######################
+*.un~
+
+# SASS #
+##########
+**/.sass-cache
+**/.sass-cache/*
+**/.map
+
+# Composer #
+##########
+!assets/js/vendor/
+wpcs/
+/vendor/
+
+# Bower #
+##########
+assets/bower_components/*
+
+# Codekit #
+##########
+/codekit-config.json
+*.codekit
+**.codekit-cache/*
+
+# Compiled Files and Build Dirs #
+##########
+/README.html
+
+# PhpStrom Project Files #
+.idea/
+library/vendors/composer
+assets/img/.DS_Store

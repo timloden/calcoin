@@ -1,2 +1,2 @@
-#### 1.0.0
-* Inital theme launch
+#### 0.0.0
+* Inital theme build with WPGulp

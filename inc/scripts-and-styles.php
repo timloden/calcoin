@@ -32,7 +32,7 @@ function caweb_styles() {
 	// custom uploaded stylesheets
 	if( have_rows('upload_css', 'options') ):
 		while( have_rows('upload_css', 'option') ): the_row();
-			wp_enqueue_style( 'custom-stylesheet-' . get_row_index(), get_sub_field('stylesheets'), [], $theme_version, 'all' );
+			wp_enqueue_style( 'custom-stylesheet-' . get_row_index(), get_sub_field('stylesheets'), [], '0.0.0', 'all' );
 		endwhile;
 	endif;
 

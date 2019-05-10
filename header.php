@@ -13,14 +13,16 @@ $general_settings = get_field('general_settings', 'option');
 
 if ($general_settings['organization_logo']) {
 	$logo = $general_settings['organization_logo'];
-	if ($logo['alt'] != '') {
-		$logo_alt = $logo['alt'];
-	} else {
-		$logo_alt = $logo['title'];
-	}
+	// if ($logo['alt'] != '') {
+	// 	$logo_alt = $logo['alt'];
+	// } else {
+	// 	$logo_alt = get_bloginfo();
+	// }
 } else {
 	$logo = get_template_directory_uri() . '/images/template-logo.png';
 }
+
+$logo_alt = get_bloginfo();
 
 $favicon = $general_settings['fav_icon'];
 $use_sticky_nav = $general_settings['use_sticky_navigation'];
@@ -69,8 +71,8 @@ $share_email = get_field('share_via_email', 'option');
 
 $custom_css = get_field('custom_css', 'option');
 $custom_code = get_field('custom_javascript', 'option');
-
 ?>
+
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>

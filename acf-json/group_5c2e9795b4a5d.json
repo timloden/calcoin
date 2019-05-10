@@ -74,10 +74,10 @@
                         "eureka": "Eureka",
                         "mono": "Mono",
                         "oceanside": "Oceanside",
-                        "orance-county": "Orange County",
+                        "orange-county": "Orange County",
                         "pasa-robles": "Pasa Robles",
                         "sacramento": "Sacramento",
-                        "santa-barbra": "Santa Barbra",
+                        "santa-barbara": "Santa Barbara",
                         "sierra": "Sierra",
                         "trinity": "Trinity"
                     },
@@ -104,7 +104,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "url",
+                    "return_format": "array",
                     "preview_size": "full",
                     "library": "all",
                     "min_width": "",
@@ -2081,5 +2081,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1557185216
+    "modified": 1557526227
 }

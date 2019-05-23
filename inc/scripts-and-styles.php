@@ -11,31 +11,7 @@ remove_action('wp_head', 'wp_print_styles');
 add_action( 'wp_enqueue_scripts', 'caweb_styles', 99 );
 
 function caweb_styles() {
-
-	wp_dequeue_style( 'et-builder-modules-style' );
-
-	$general_settings = get_field('general_settings', 'option');
-	$color_scheme = $general_settings['color_scheme'];
-
-	if (is_page_template('page-search.php')) {
-		//wp_enqueue_style( 'google-search', 'http://www.google.com/cse/style/look/default.css', [], '1.0.0', 'all' );
-	}
-
-	wp_enqueue_style( 'caweb-standard', get_stylesheet_uri(), [], '0.0.0' );
-
-	if ($color_scheme) {
-		wp_enqueue_style( $color_scheme . '-theme', get_template_directory_uri() . '/color-schemes/colorscheme-' . $color_scheme . '.min.css', [], '5.0.6', 'all' );
-	} else {
-		wp_enqueue_style( 'oceanside-theme', get_template_directory_uri() . '/color-schemes/colorscheme-oceanside.min.css', [], '5.0.6', 'all' );
-	}
-
-	// custom uploaded stylesheets
-	if( have_rows('upload_css', 'options') ):
-		while( have_rows('upload_css', 'option') ): the_row();
-			wp_enqueue_style( 'custom-stylesheet-' . get_row_index(), get_sub_field('stylesheets'), [], '0.0.0', 'all' );
-		endwhile;
-	endif;
-
+	wp_enqueue_style( 'ccalcoin', get_stylesheet_uri(), [], '0.0.0' );
 }
 
 
@@ -46,31 +22,8 @@ add_action( 'wp_enqueue_scripts', 'caweb_scripts' );
 
 function caweb_scripts() {
 
-	$utility_settings = get_field('utility_header', 'option');
-	$geolocator = isset($utility_settings['enable_geo_locator']) ? $utility_settings['enable_geo_locator'] : false;
-
-	$google_settings = get_field('google', 'option');
-	$search_engine_id = isset($google_settings['search_engine_id']) ? $google_settings['search_engine_id'] : false;
-
-	wp_enqueue_script( 'cagov-script', get_template_directory_uri() . '/assets/js/cagov.core.min.js', ['jquery'], '5.0.6', true );
-
-	wp_enqueue_script( 'ethers', 'https://cdn.ethers.io/scripts/ethers-v4.min.js', [], '', true );
-
-	if ($search_engine_id) {
-		//wp_enqueue_script( 'google', get_template_directory_uri() . '/assets/js/custom/libs/google.js', [], '0.0.0', true );
-	}
-
-	// not needed unless we add some 3rd party scripts
 	wp_enqueue_script( 'vendor-scripts', get_template_directory_uri() . '/assets/js/vendor.min.js', ['jquery'], '0.0.0', true );
 
 	wp_enqueue_script( 'custom-scripts', get_template_directory_uri() . '/assets/js/custom.min.js', ['jquery'], '0.0.0', true );
-
-
-
-	if( have_rows('upload_javascript', 'options') ):
-		while( have_rows('upload_javascript', 'option') ): the_row();
-			wp_enqueue_script( 'custom-js-' . get_row_index(), get_sub_field('javascript_files'), ['jquery'], '0.0.0', true );
-		endwhile;
-	endif;
 
 }

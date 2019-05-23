@@ -204,7 +204,11 @@ gulp.task( 'stylesRTL', () => {
  */
 gulp.task( 'vendorsJS', () => {
 	return gulp
-		.src( [config.jsVendorSRC, 'node_modules/qrcode-generator/qrcode.js']) // Only run on changed files.
+		.src( [
+			config.jsVendorSRC,
+			'node_modules/qrcode-generator/qrcode.js',
+			'node_modules/ethers/dist/ethers.min.js'
+		])
 		.pipe( plumber( errorHandler ) )
 		.pipe(
 			babel({

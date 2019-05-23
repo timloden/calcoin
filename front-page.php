@@ -2,20 +2,11 @@
 /**
  * Default front page
  *
- * @package CAWeb_Standard
+ * @package CalCoin
  */
 get_header();
 ?>
 <!-- blank home page -->
-
-	<?php
-	while ( have_posts() ) :
-		the_post();
-
-		get_template_part( 'template-parts/content', 'page' );
-
-	endwhile; // End of the loop.
-	?>
-
+<h1>Home</h1>
 <?php
 get_footer();

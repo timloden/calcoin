@@ -7,49 +7,8 @@ add_action('admin_head', 'acf_styles');
 
 function acf_styles() {
   echo '<style>
-	.menu-item-depth-0 [data-name="item_size"], .menu-item-depth-0 [data-name="description"] {
-		display: none;
-	}
-
-	.menu-item-depth-0 .menu-layout-image {
-		width: 100%;
-
-	}
-
-	.menu-item-depth-1 [data-name="menu_layout"], .menu-item-depth-1 [data-name="sub_link_size"] {
-		display: none;
-	}
-
-	.menu-item-depth-1 .menu-layout-image {
-		display: none;
-	}
-
-	li.cacm_profile_banner:before, li.cacm_card:before, li.cacm_panel:before, li.cacm_content_slider:before, li.cacm_gallery:before, li.cacm_media_slider:before, li.cacm_figure_with_caption:before, li.cacm_featured_narrative:before, li.cacm_blockquote:before, li.cacm_testimonial:before, li.cacm_accordion:before, li.cacm_accordion_list:before {
-		font-family: "CaGov"!important;
-		content: "\e658"!important;
-	}
-
-	.wp-admin #wpadminbar #wp-admin-bar-site-name>.ab-item:before {
-		content: "\e600";
-		font-family: "CaGov" !important;
-	}
-
-	// .et-db #et-boc .et-fb-modules-list li[class*="et_fb_"] {
-	//     display: none;
-	// }
-
 
   </style>';
-}
-
-
-/* Add icon fonts to admin area
---------------------------------------------------------------------------------------*/
-
-add_action( 'admin_enqueue_scripts', 'load_admin_style' );
-
-function load_admin_style() {
-	wp_enqueue_style( 'admin_fonts_css', get_template_directory_uri() . '/assets/scss/cagov/cagov.font-only.css', false, '1.0.0' );
 }
 
 
@@ -59,8 +18,6 @@ function load_admin_style() {
 add_action( 'login_enqueue_scripts', 'custom_login_logo' );
 
 function custom_login_logo() {
-	$general_settings = get_field('general_settings', 'option');
-	$logo = $general_settings['organization_logo'];
 	?>
 
 	<style type="text/css">
@@ -81,12 +38,6 @@ function custom_login_logo() {
 		.login #nav, .login #backtoblog {
 			text-align: center;
 		}
-
-		<?php if ($logo): ?>
-			#login h1 a, .login h1 a, body.login div#login h1 a {
-				background-image: url(<?php echo($logo['url']); ?>) !important;
-			}
-		<?php endif; ?>
 
 	</style>
 <?php }

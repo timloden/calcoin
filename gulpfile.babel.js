@@ -207,21 +207,23 @@ gulp.task( 'vendorsJS', () => {
 		.src( [
 			config.jsVendorSRC,
 			'node_modules/qrcode-generator/qrcode.js',
-			'node_modules/ethers/dist/ethers.min.js'
+			'node_modules/ethers/dist/ethers.min.js',
+			'node_modules/wowjs/dist/wow.min.js',
+			'node_modules/senna/build/globals/senna-debug.js'
 		])
 		.pipe( plumber( errorHandler ) )
-		.pipe(
-			babel({
-				presets: [
-					[
-						'@babel/preset-env', // Preset to compile your modern JS to ES5.
-						{
-							targets: { browsers: config.BROWSERS_LIST } // Target browser list to support.
-						}
-					]
-				]
-			})
-		)
+		// .pipe(
+		// 	babel({
+		// 		presets: [
+		// 			[
+		// 				'@babel/preset-env', // Preset to compile your modern JS to ES5.
+		// 				{
+		// 					targets: { browsers: config.BROWSERS_LIST } // Target browser list to support.
+		// 				}
+		// 			]
+		// 		]
+		// 	})
+		// )
 		.pipe( remember( config.jsVendorSRC ) ) // Bring all files back to stream.
 		.pipe( concat( config.jsVendorFile + '.js' ) )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.

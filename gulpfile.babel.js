@@ -204,13 +204,7 @@ gulp.task( 'stylesRTL', () => {
  */
 gulp.task( 'vendorsJS', () => {
 	return gulp
-		.src( [
-			config.jsVendorSRC,
-			'node_modules/qrcode-generator/qrcode.js',
-			'node_modules/ethers/dist/ethers.min.js',
-			'node_modules/wowjs/dist/wow.min.js',
-			'node_modules/senna/build/globals/senna-debug.js'
-		])
+		.src( config.jsVendorSRC, { since: gulp.lastRun( 'vendorsJS' ) })
 		.pipe( plumber( errorHandler ) )
 		// .pipe(
 		// 	babel({

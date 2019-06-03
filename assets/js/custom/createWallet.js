@@ -7,12 +7,12 @@
 		var wallet = ethers.Wallet.createRandom();
 		$( ".address" ).html(wallet.address);
 		$( ".key" ).html(wallet.privateKey);
-		var typeNumber = 20;
+		var typeNumber = 0;
 		var errorCorrectionLevel = 'L';
 		var qr = qrcode(typeNumber, errorCorrectionLevel);
 		qr.addData(wallet.address);
 		qr.make();
-		document.getElementById('placeHolder').innerHTML = qr.createImgTag();
+		document.getElementById('placeHolder').innerHTML = qr.createImgTag('10','0','Address QR Code');
 	}
 
 	$( ".generate-wallet" ).click(function() {

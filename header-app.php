@@ -1,6 +1,6 @@
 <?php
 /**
- * The header for our theme
+ * The header for our app section
  *
  * This is the template that displays all of the <head> section and everything up until <div id="content">
  *
@@ -8,6 +8,9 @@
  *
  * @package CalCoin
  */
+$user = wp_get_current_user();
+$user_id = $user->ID;
+$address = get_field('wallet_address', 'user_' . $user_id);
 
 ?>
 
@@ -19,13 +22,9 @@
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
+
 </head>
 
 <body <?php body_class(); ?>>
-<header>
-	<div class="row">
-		<div class="columns small-6">
-			<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/login-logo.png">
-		</div>
-	</div>
-</header>
+
+<main id="swup" class="transition-fade">

@@ -21,26 +21,17 @@ function custom_login_logo() {
 	?>
 
 	<style type="text/css">
-		#login h1 a, .login h1 a, body.login div#login h1 a {
-			background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/assets/img/login-logo.png) !important;
-			height: 80px;
-			width: 100%;
-			background-size: auto;
-			background-repeat: no-repeat;
-			background-size: contain;
-			padding-bottom: 0;
-		}
-
-		.login #nav {
-			font-weight: bold;
-		}
-
-		.login #nav, .login #backtoblog {
-			text-align: center;
-		}
 
 	</style>
-<?php }
+<?php
+
+// remove default styles
+wp_dequeue_style( 'login' );
+
+// add in our stylesheet
+wp_enqueue_style( 'ccalcoin', get_stylesheet_uri(), [], '0.0.0' );
+
+}
 
 
 /* Change "Logged in as" text
@@ -67,4 +58,5 @@ function remove_wp_logo( $wp_admin_bar ) {
 	$wp_admin_bar->remove_node( 'wp-logo' );
 	$wp_admin_bar->remove_node( 'comments' );
 }
+
 

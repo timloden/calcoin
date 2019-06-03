@@ -27,4 +27,8 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 /* # Global
 --------------------------------------------------------------*/
+@import 'global/foundation.min';
+@import 'global/gravity-forms';
+@import 'global/swup';
 @import 'components/header';
+@import 'components/footer';

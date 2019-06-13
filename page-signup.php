@@ -7,7 +7,6 @@
  * @package CalCoin
  */
 
-acf_form_head();
 get_header();
 
 ?>

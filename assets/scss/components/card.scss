@@ -1,0 +1,32 @@
+.card {
+	border: none;
+	box-shadow: $shadow;
+	background: $white;
+	margin-top: 1em;
+	border-radius: $full-radius;
+
+	.card-header {
+		display: flex;
+		width: 100%;
+		padding: 1em;
+		font-size: 14px;
+
+		.card-header-title {
+			width: 50%;
+			font-weight: 700;
+		}
+
+		.card-header-action {
+			width: 50%;
+			text-align: right;
+
+			a {
+				color: $dark-gray;
+			}
+		}
+	}
+
+	&.card-padded {
+		padding: 1em;
+	}
+}

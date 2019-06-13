@@ -1,0 +1,61 @@
+.send-form {
+	padding: 1em;
+
+	.input-group>:last-child.input-group-button>* {
+		border-radius: $full-radius;
+	}
+
+	.send-to-field {
+		display: flex;
+
+		input {
+			font-size: 12px;
+		}
+	}
+
+	.button.small {
+		margin-left: 10px;
+	}
+}
+
+.send-amount {
+	margin: 1em 0 2em;
+
+	label {
+		text-align: center;
+	}
+
+	input {
+		width: 200px;
+		margin: 0 auto;
+		text-align: center;
+		font-size: 40px;
+		font-weight: 700;
+	}
+}
+
+.scanner {
+	display: none;
+	background: $white;
+
+	p {
+		margin: 0;
+		text-align: right;
+
+		a {
+			padding: 0 1em 0 0;
+			color: $gray;
+		}
+	}
+
+	#reader {
+		margin: 0 auto;
+		padding: 1em;
+
+		video {
+			background-color: $white;
+			border-radius: $full-radius;
+			box-shadow: $shadow;
+		}
+	}
+}

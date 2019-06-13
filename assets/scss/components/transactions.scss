@@ -1,0 +1,30 @@
+ul.transaction-list {
+	list-style: none;
+	margin-left: 0;
+
+	.transaction {
+		display: flex;
+		width: 100%;
+		padding: 1em;
+		border-top: 1px solid $light-gray;
+
+		.tran-source {
+			width: 75%;
+
+			.vendor-name {
+				margin-bottom: 0;
+			}
+
+			.vendor-meta {
+				font-size: 12px;
+				color: $light-gray;
+				margin-bottom: 0;
+			}
+		}
+
+		.tran-total {
+			width: 25%;
+			text-align: right;
+		}
+	}
+}

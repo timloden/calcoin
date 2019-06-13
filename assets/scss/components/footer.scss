@@ -7,3 +7,73 @@ footer.app {
     	margin-bottom: 0;
     }
 }
+
+.app-nav {
+	display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    background: $white;
+    align-items: flex-end;
+    height: 55px;
+	box-shadow: $shadow;
+	list-style: none;
+	margin: 0;
+
+	li {
+		width: 20%;
+		height: 55px;
+		text-align: center;
+
+		a {
+	    	color: $gray;
+	    	font-size: 30px;
+	    	height: 55px;
+	    	text-align: center;
+	    	position: relative;
+	    	display: block;
+	    }
+
+	    &.current_page_item {
+
+	    	a {
+	    		color: $primary;
+
+	    		&:before {
+		    		content: "";
+					position: absolute;
+					left: 20px;
+					top: 0;
+					height: 2px;
+					width: 50%;
+		    		border-top: 2px solid $primary;
+	    		}
+	    	}
+
+	    }
+
+	    .wallet-placeholder {
+	    	opacity: 0;
+	    }
+
+	    &.wallet {
+	    	height: 65px;
+			align-self: center;
+
+	    	a {
+	    		background-color: $primary;
+				color: $white;
+				font-size: 40px;
+				border-radius: $top-radius;
+				height: 65px;
+	    	}
+
+
+		}
+	}
+
+
+
+
+}
+
+

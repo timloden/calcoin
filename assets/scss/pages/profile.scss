@@ -1,0 +1,43 @@
+#gform_submit_button_2 {
+	//display: none;
+}
+
+#acf-profile-image-form {
+
+	.acf-label {
+		display: none;
+	}
+
+	.acf-image-uploader {
+		text-align: center;
+    	display: flex;
+
+    	.hide-if-value {
+			width: 100%;
+		}
+	}
+
+	.acf-image-uploader .image-wrap {
+		float: none;
+		margin: 0 auto;
+
+
+	}
+
+	.acf-form-submit {
+		text-align: center;
+	}
+
+	.button {
+		background-color: $light-gray;
+		color: $gray;
+		font-size: 14px;
+		box-shadow: none;
+	}
+
+	[type='file'] {
+		border-bottom: 1px solid $light-gray;
+		font-size: 14px;
+		padding: 0 0 10px;
+	}
+}

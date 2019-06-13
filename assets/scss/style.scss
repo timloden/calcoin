@@ -7,15 +7,13 @@ Description: CA State standard theme
 Version: 0.0.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
-Text Domain: caweb-standard
+Text Domain: calcoin
 
-GitHub Theme URI: https://github.com/timloden/CAWeb-Standard
+GitHub Theme URI: https://github.com/timloden/calcoin
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 
-CAWeb Standard is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
-Underscores is distributed under the terms of the GNU GPL v2 or later.
 */
 
 /* # External
@@ -30,5 +28,19 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 @import 'global/foundation.min';
 @import 'global/gravity-forms';
 @import 'global/swup';
+@import 'global/app';
+@import 'global/odometer';
+@import 'global/line-awesome';
+@import 'global/variables';
+@import 'global/typography';
 @import 'components/header';
 @import 'components/footer';
+@import 'components/card';
+@import 'components/forms';
+@import 'components/transactions';
+@import 'components/wallet';
+
+@import 'pages/dashboard';
+@import 'pages/send';
+@import 'pages/transactions';
+@import 'pages/profile';

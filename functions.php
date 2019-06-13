@@ -80,5 +80,27 @@ function remove_admin_bar() {
 	if (!current_user_can('administrator') && !is_admin()) {
 	  show_admin_bar(false);
 	}
+
+	show_admin_bar(false);
 }
 
+
+
+add_filter("gform_submit_button_2", "form_submit_button", 10, 2);
+
+function form_submit_button($button, $form){
+    return "<div class='button-container single-button'><button class='button button-primary' id='gform_submit_button_{$form['id']}'><span>Save</button></div>";
+}
+
+add_filter( 'gform_pre_submission_filter_2', 'dw_show_confirmation_and_form' );
+function dw_show_confirmation_and_form( $form ) {
+	$shortcode = '[gravityform id="' . $form['id'] . '" title="false" description="false"]';
+
+	if ( array_key_exists( 'confirmations', $form ) ) {
+		foreach ( $form['confirmations'] as $key => $confirmation ) {
+			$form['confirmations'][ $key ]['message'] = $shortcode . '<div class="confirmation-message animated fadeOut delay-2s">' . $form['confirmations'][ $key ]['message'] . '</div>';
+		}
+	}
+
+	return $form;
+}

@@ -1,3 +1,19 @@
 header {
-	padding: 1em 0;
+	display: flex;
+	text-align: center;
+	height: 55px;
+	box-shadow: $shadow;
+	position: fixed;
+	width: 100%;
+	z-index: 99999;
+	background: $white;
+
+	h1 {
+		font-size: 20px;
+		font-weight: 700;
+		display: block;
+		margin: 0;
+		width: 100%;
+		align-self: center;
+	}
 }

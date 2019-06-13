@@ -22,10 +22,5 @@
 </head>
 
 <body <?php body_class(); ?>>
-<header>
-	<div class="row">
-		<div class="columns small-6">
-			<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/login-logo.png">
-		</div>
-	</div>
-</header>
+
+<main>

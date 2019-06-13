@@ -28,5 +28,9 @@
 
 	&.card-padded {
 		padding: 1em;
+
+		.card-header {
+			padding: 0 0 1em;
+		}
 	}
 }

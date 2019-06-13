@@ -4,7 +4,7 @@ Theme URI: https://caweb.cdt.ca.gov/
 Author: CAWeb Publishing
 Author URI: https://caweb.cdt.ca.gov/
 Description: CA State standard theme
-Version: 0.0.0
+Version: 0.0.1
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: calcoin
@@ -1630,11 +1630,13 @@ footer.app .button-group{margin-bottom:0}
 .card .card-header .card-header-action{width:50%;text-align:right}
 .card .card-header .card-header-action a{color:#323a45}
 .card.card-padded{padding:1em}
+.card.card-padded .card-header{padding:0 0 1em}
 .button-container{display:-webkit-box;display:-ms-flexbox;display:flex;width:100%;-ms-flex-line-pack:distribute;align-content:space-around;margin-top:1em}
 .button-container div{width:50%}
 .button-container div a{display:block;margin-bottom:0}
 .button-container div:first-child{margin-right:10px;margin-left:1em}
 .button-container div:last-child{margin-left:10px;margin-right:1em}
+.button-container.single-button .button{width:100%;display:block}
 .button-container.single-button .button:first-child{margin:0}
 .button-container.single-button .button:last-child{margin:0}
 .button{border-radius:10px;background:#848484;-webkit-box-shadow:0 0 5px 0 rgba(0,0,0,0.1);box-shadow:0 0 5px 0 rgba(0,0,0,0.1);font-size:16px;color:#fff;letter-spacing:0;text-align:center;font-weight:700}
@@ -1686,6 +1688,10 @@ ul.transaction-list .transaction .tran-total{width:25%;text-align:right}
 #acf-profile-image-form .acf-form-submit{text-align:center}
 #acf-profile-image-form .button{background-color:#d8d8d8;color:#848484;font-size:14px;-webkit-box-shadow:none;box-shadow:none}
 #acf-profile-image-form [type='file']{border-bottom:1px solid #d8d8d8;font-size:14px;padding:0 0 10px}
+#wp-submit{display:block;width:100%}
+.forgot-password{text-align:center;font-size:12px;font-weight:bold}
+.reset-form p{font-size:14px}
+.reset-form .button{width:100%;margin-bottom:0}
 @media(prefers-reduced-motion){.animated{-webkit-animation:unset !important;animation:unset !important;-webkit-transition:none !important;transition:none !important}
 }@media screen and (orientation:landscape){.hide-for-portrait,.show-for-landscape{display:block !important}
 .hide-for-landscape,.show-for-portrait{display:none !important}

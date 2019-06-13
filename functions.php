@@ -85,12 +85,24 @@ function remove_admin_bar() {
 }
 
 
+/* Gravity form submit buttons
+--------------------------------------------------------------------------------------*/
 
 add_filter("gform_submit_button_2", "form_submit_button", 10, 2);
 
 function form_submit_button($button, $form){
     return "<div class='button-container single-button'><button class='button button-primary' id='gform_submit_button_{$form['id']}'><span>Save</button></div>";
 }
+
+add_filter("gform_submit_button_1", "form_submit_button_register", 10, 2);
+
+function form_submit_button_register($button, $form){
+    return "<div class='button-container single-button'><button class='button button-primary' id='gform_submit_button_{$form['id']}'><span>Signup</button></div>";
+}
+
+
+/* Gravity form update profile
+--------------------------------------------------------------------------------------*/
 
 add_filter( 'gform_pre_submission_filter_2', 'dw_show_confirmation_and_form' );
 function dw_show_confirmation_and_form( $form ) {
@@ -103,4 +115,14 @@ function dw_show_confirmation_and_form( $form ) {
 	}
 
 	return $form;
+}
+
+
+/* Login url redirect
+--------------------------------------------------------------------------------------*/
+
+add_filter( 'login_url', 'my_login_page', 10, 2 );
+
+function my_login_page( $login_url, $redirect ) {
+  return home_url( '/login/' );
 }

@@ -39,7 +39,7 @@ function caweb_scripts() {
 add_filter( 'body_class', 'custom_class' );
 
 function custom_class( $classes ) {
-    if ( is_page_template( 'page-dashboard.php' ) || is_page_template( 'page-send.php' ) || is_page_template( 'page-transactions.php' ) || is_page_template( 'page-profile.php' ) ) {
+    if ( !is_front_page() ) {
         $classes[] = 'app';
     }
     return $classes;

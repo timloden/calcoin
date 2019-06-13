@@ -15,7 +15,8 @@ function my_login_redirect( $redirect_to, $request, $user ) {
 
             return get_permalink($data_login->ID);
         } else {
-            return admin_url();
+            //return admin_url();
+            return get_permalink($data_login->ID);
         }
     } else {
         return $redirect_to;

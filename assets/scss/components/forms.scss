@@ -28,6 +28,9 @@
 		//margin-bottom: 1em;
 
 		.button {
+			width: 100%;
+			display: block;
+
 			&:first-child {
 				margin: 0;
 			}

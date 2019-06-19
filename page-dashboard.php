@@ -92,6 +92,18 @@ get_header('app');
 
 new WOW().init();
 
+(function ($) {
+
+	$(document).ready(function() {
+
+		setTimeout( function() {
+		    $('.odometer').html(100000);
+		}, 0);
+
+	});
+
+})(jQuery);
+
 var options = {
     chart: {
         height: 200,

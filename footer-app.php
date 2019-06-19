@@ -62,18 +62,14 @@ $address = '0x89F156CA9efFe59eD2e2D933d708Ae876d124d77';
 
 		<?php if ($address) : ?>
 
-		var typeNumber = 0;
-		var errorCorrectionLevel = 'L';
+		var typeNumber = 2;
+		var errorCorrectionLevel = 'Q';
 		var qr = qrcode(typeNumber, errorCorrectionLevel);
 		qr.addData(<?php echo $address; ?>);
 		qr.make();
 		document.getElementById('wallet-qr').innerHTML = qr.createImgTag('10','0','Address QR Code');
 
 		<?php endif; ?>
-
-		setTimeout( function() {
-		    $('.odometer').html(100000);
-		}, 0);
 
 	});
 

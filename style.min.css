@@ -1673,6 +1673,7 @@ ul.transaction-list .transaction .tran-total{width:25%;text-align:right}
 .scanner{display:none;background:#fff}
 .scanner p{margin:0;text-align:right}
 .scanner p a{padding:0 1em 0 0;color:#848484}
+.scanner.animated{display:block}
 .scanner #reader{margin:0 auto;padding:1em}
 .scanner #reader video{background-color:#fff;border-radius:10px;-webkit-box-shadow:0 0 5px 0 rgba(0,0,0,0.1);box-shadow:0 0 5px 0 rgba(0,0,0,0.1)}
 .transaction-filter{width:100%;margin-bottom:0}

@@ -48,6 +48,10 @@
 		}
 	}
 
+	&.animated {
+		display: block;
+	}
+
 	#reader {
 		margin: 0 auto;
 		padding: 1em;

@@ -118,11 +118,71 @@ function dw_show_confirmation_and_form( $form ) {
 }
 
 
-/* Login url redirect
+/* Custom login
 --------------------------------------------------------------------------------------*/
 
-add_filter( 'login_url', 'my_login_page', 10, 2 );
+/* Main redirection of the default login page */
 
-function my_login_page( $login_url, $redirect ) {
-  return home_url( '/login/' );
+function redirect_login_page() {
+	$login_page  = home_url('/login/');
+	$page_viewed = basename($_SERVER['REQUEST_URI']);
+
+	if($page_viewed == "wp-login.php" && $_SERVER['REQUEST_METHOD'] == 'GET') {
+		wp_redirect($login_page);
+		exit;
+	}
 }
+add_action('init','redirect_login_page');
+
+/* Where to go if a login failed */
+function custom_login_failed() {
+	$login_page  = home_url('/login/');
+	wp_redirect($login_page . '?login=failed');
+	exit;
+}
+add_action('wp_login_failed', 'custom_login_failed');
+
+/* Where to go if any of the fields were empty */
+function verify_user_pass($user, $username, $password) {
+	$login_page  = home_url('/login/');
+	if($username == "" || $password == "") {
+		wp_redirect($login_page . "?login=empty");
+		exit;
+	}
+}
+add_filter('authenticate', 'verify_user_pass', 1, 3);
+
+/* What to do on logout */
+function logout_redirect() {
+	$login_page  = home_url('/login/');
+	wp_redirect($login_page . "?login=false");
+	exit;
+}
+add_action('wp_logout','logout_redirect');
+
+/* If user is subscriber role, send them to the dashboard on login
+--------------------------------------------------------------------------------------*/
+
+function my_login_redirect( $redirect_to, $request, $user ) {
+    //is there a user to check?
+    global $user;
+
+    if ( isset( $user->roles ) && is_array( $user->roles ) ) {
+
+        if ( in_array( 'subscriber', $user->roles ) ) {
+            // redirect them to the default place
+            $data_login = get_page_by_title('Dashboard');
+
+            return get_permalink($data_login->ID);
+        } else {
+        	$data_login = get_page_by_title('Dashboard');
+            //return admin_url();
+            return get_permalink($data_login->ID);
+        }
+    } else {
+        return $redirect_to;
+    }
+}
+
+add_filter( 'login_redirect', 'my_login_redirect', 10, 3 );
+

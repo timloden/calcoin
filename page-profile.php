@@ -97,10 +97,19 @@ $settings = array(
 <div class="row">
 	<div class="columns">
 		<div class="card card-padded">
+			<?php if ( is_user_logged_in() ) : ?>
+
 			<div class="profile-image">
 				<?php acf_form( $settings ); ?>
 			</div>
+
 			<?php gravity_form(2, false, false, false, '', true, 12); ?>
+
+			<?php else : ?>
+
+			<p class="text-center">You must be logged in to have a profile</p>
+
+			<?php endif; ?>
 		</div>
 	</div>
 </div>

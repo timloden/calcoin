@@ -11,490 +11,6 @@
 /*! odometer 0.4.8 */
 (function(){var a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,A,B,C,D,E,F,G=[].slice;q='<span class="odometer-value"></span>',n='<span class="odometer-ribbon"><span class="odometer-ribbon-inner">'+q+"</span></span>",d='<span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner">'+n+"</span></span>",g='<span class="odometer-formatting-mark"></span>',c="(,ddd).dd",h=/^\(?([^)]*)\)?(?:(.)(d+))?$/,i=30,f=2e3,a=20,j=2,e=.5,k=1e3/i,b=1e3/a,o="transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd",y=document.createElement("div").style,p=null!=y.transition||null!=y.webkitTransition||null!=y.mozTransition||null!=y.oTransition,w=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.msRequestAnimationFrame,l=window.MutationObserver||window.WebKitMutationObserver||window.MozMutationObserver,s=function(a){var b;return b=document.createElement("div"),b.innerHTML=a,b.children[0]},v=function(a,b){return a.className=a.className.replace(new RegExp("(^| )"+b.split(" ").join("|")+"( |$)","gi")," ")},r=function(a,b){return v(a,b),a.className+=" "+b},z=function(a,b){var c;return null!=document.createEvent?(c=document.createEvent("HTMLEvents"),c.initEvent(b,!0,!0),a.dispatchEvent(c)):void 0},u=function(){var a,b;return null!=(a=null!=(b=window.performance)&&"function"==typeof b.now?b.now():void 0)?a:+new Date},x=function(a,b){return null==b&&(b=0),b?(a*=Math.pow(10,b),a+=.5,a=Math.floor(a),a/=Math.pow(10,b)):Math.round(a)},A=function(a){return 0>a?Math.ceil(a):Math.floor(a)},t=function(a){return a-x(a)},C=!1,(B=function(){var a,b,c,d,e;if(!C&&null!=window.jQuery){for(C=!0,d=["html","text"],e=[],b=0,c=d.length;c>b;b++)a=d[b],e.push(function(a){var b;return b=window.jQuery.fn[a],window.jQuery.fn[a]=function(a){var c;return null==a||null==(null!=(c=this[0])?c.odometer:void 0)?b.apply(this,arguments):this[0].odometer.update(a)}}(a));return e}})(),setTimeout(B,0),m=function(){function a(b){var c,d,e,g,h,i,l,m,n,o,p=this;if(this.options=b,this.el=this.options.el,null!=this.el.odometer)return this.el.odometer;this.el.odometer=this,m=a.options;for(d in m)g=m[d],null==this.options[d]&&(this.options[d]=g);null==(h=this.options).duration&&(h.duration=f),this.MAX_VALUES=this.options.duration/k/j|0,this.resetFormat(),this.value=this.cleanValue(null!=(n=this.options.value)?n:""),this.renderInside(),this.render();try{for(o=["innerHTML","innerText","textContent"],i=0,l=o.length;l>i;i++)e=o[i],null!=this.el[e]&&!function(a){return Object.defineProperty(p.el,a,{get:function(){var b;return"innerHTML"===a?p.inside.outerHTML:null!=(b=p.inside.innerText)?b:p.inside.textContent},set:function(a){return p.update(a)}})}(e)}catch(q){c=q,this.watchForMutations()}}return a.prototype.renderInside=function(){return this.inside=document.createElement("div"),this.inside.className="odometer-inside",this.el.innerHTML="",this.el.appendChild(this.inside)},a.prototype.watchForMutations=function(){var a,b=this;if(null!=l)try{return null==this.observer&&(this.observer=new l(function(a){var c;return c=b.el.innerText,b.renderInside(),b.render(b.value),b.update(c)})),this.watchMutations=!0,this.startWatchingMutations()}catch(c){a=c}},a.prototype.startWatchingMutations=function(){return this.watchMutations?this.observer.observe(this.el,{childList:!0}):void 0},a.prototype.stopWatchingMutations=function(){var a;return null!=(a=this.observer)?a.disconnect():void 0},a.prototype.cleanValue=function(a){var b;return"string"==typeof a&&(a=a.replace(null!=(b=this.format.radix)?b:".","<radix>"),a=a.replace(/[.,]/g,""),a=a.replace("<radix>","."),a=parseFloat(a,10)||0),x(a,this.format.precision)},a.prototype.bindTransitionEnd=function(){var a,b,c,d,e,f,g=this;if(!this.transitionEndBound){for(this.transitionEndBound=!0,b=!1,e=o.split(" "),f=[],c=0,d=e.length;d>c;c++)a=e[c],f.push(this.el.addEventListener(a,function(){return b?!0:(b=!0,setTimeout(function(){return g.render(),b=!1,z(g.el,"odometerdone")},0),!0)},!1));return f}},a.prototype.resetFormat=function(){var a,b,d,e,f,g,i,j;if(a=null!=(i=this.options.format)?i:c,a||(a="d"),d=h.exec(a),!d)throw new Error("Odometer: Unparsable digit format");return j=d.slice(1,4),g=j[0],f=j[1],b=j[2],e=(null!=b?b.length:void 0)||0,this.format={repeating:g,radix:f,precision:e}},a.prototype.render=function(a){var b,c,d,e,f,g,h;for(null==a&&(a=this.value),this.stopWatchingMutations(),this.resetFormat(),this.inside.innerHTML="",f=this.options.theme,b=this.el.className.split(" "),e=[],g=0,h=b.length;h>g;g++)c=b[g],c.length&&((d=/^odometer-theme-(.+)$/.exec(c))?f=d[1]:/^odometer(-|$)/.test(c)||e.push(c));return e.push("odometer"),p||e.push("odometer-no-transitions"),f?e.push("odometer-theme-"+f):e.push("odometer-auto-theme"),this.el.className=e.join(" "),this.ribbons={},this.formatDigits(a),this.startWatchingMutations()},a.prototype.formatDigits=function(a){var b,c,d,e,f,g,h,i,j,k;if(this.digits=[],this.options.formatFunction)for(d=this.options.formatFunction(a),j=d.split("").reverse(),f=0,h=j.length;h>f;f++)c=j[f],c.match(/0-9/)?(b=this.renderDigit(),b.querySelector(".odometer-value").innerHTML=c,this.digits.push(b),this.insertDigit(b)):this.addSpacer(c);else for(e=!this.format.precision||!t(a)||!1,k=a.toString().split("").reverse(),g=0,i=k.length;i>g;g++)b=k[g],"."===b&&(e=!0),this.addDigit(b,e)},a.prototype.update=function(a){var b,c=this;return a=this.cleanValue(a),(b=a-this.value)?(v(this.el,"odometer-animating-up odometer-animating-down odometer-animating"),b>0?r(this.el,"odometer-animating-up"):r(this.el,"odometer-animating-down"),this.stopWatchingMutations(),this.animate(a),this.startWatchingMutations(),setTimeout(function(){return c.el.offsetHeight,r(c.el,"odometer-animating")},0),this.value=a):void 0},a.prototype.renderDigit=function(){return s(d)},a.prototype.insertDigit=function(a,b){return null!=b?this.inside.insertBefore(a,b):this.inside.children.length?this.inside.insertBefore(a,this.inside.children[0]):this.inside.appendChild(a)},a.prototype.addSpacer=function(a,b,c){var d;return d=s(g),d.innerHTML=a,c&&r(d,c),this.insertDigit(d,b)},a.prototype.addDigit=function(a,b){var c,d,e,f;if(null==b&&(b=!0),"-"===a)return this.addSpacer(a,null,"odometer-negation-mark");if("."===a)return this.addSpacer(null!=(f=this.format.radix)?f:".",null,"odometer-radix-mark");if(b)for(e=!1;;){if(!this.format.repeating.length){if(e)throw new Error("Bad odometer format without digits");this.resetFormat(),e=!0}if(c=this.format.repeating[this.format.repeating.length-1],this.format.repeating=this.format.repeating.substring(0,this.format.repeating.length-1),"d"===c)break;this.addSpacer(c)}return d=this.renderDigit(),d.querySelector(".odometer-value").innerHTML=a,this.digits.push(d),this.insertDigit(d)},a.prototype.animate=function(a){return p&&"count"!==this.options.animation?this.animateSlide(a):this.animateCount(a)},a.prototype.animateCount=function(a){var c,d,e,f,g,h=this;if(d=+a-this.value)return f=e=u(),c=this.value,(g=function(){var i,j,k;return u()-f>h.options.duration?(h.value=a,h.render(),void z(h.el,"odometerdone")):(i=u()-e,i>b&&(e=u(),k=i/h.options.duration,j=d*k,c+=j,h.render(Math.round(c))),null!=w?w(g):setTimeout(g,b))})()},a.prototype.getDigitCount=function(){var a,b,c,d,e,f;for(d=1<=arguments.length?G.call(arguments,0):[],a=e=0,f=d.length;f>e;a=++e)c=d[a],d[a]=Math.abs(c);return b=Math.max.apply(Math,d),Math.ceil(Math.log(b+1)/Math.log(10))},a.prototype.getFractionalDigitCount=function(){var a,b,c,d,e,f,g;for(e=1<=arguments.length?G.call(arguments,0):[],b=/^\-?\d*\.(\d*?)0*$/,a=f=0,g=e.length;g>f;a=++f)d=e[a],e[a]=d.toString(),c=b.exec(e[a]),null==c?e[a]=0:e[a]=c[1].length;return Math.max.apply(Math,e)},a.prototype.resetDigits=function(){return this.digits=[],this.ribbons=[],this.inside.innerHTML="",this.resetFormat()},a.prototype.animateSlide=function(a){var b,c,d,f,g,h,i,j,k,l,m,n,o,p,q,s,t,u,v,w,x,y,z,B,C,D,E;if(s=this.value,j=this.getFractionalDigitCount(s,a),j&&(a*=Math.pow(10,j),s*=Math.pow(10,j)),d=a-s){for(this.bindTransitionEnd(),f=this.getDigitCount(s,a),g=[],b=0,m=v=0;f>=0?f>v:v>f;m=f>=0?++v:--v){if(t=A(s/Math.pow(10,f-m-1)),i=A(a/Math.pow(10,f-m-1)),h=i-t,Math.abs(h)>this.MAX_VALUES){for(l=[],n=h/(this.MAX_VALUES+this.MAX_VALUES*b*e),c=t;h>0&&i>c||0>h&&c>i;)l.push(Math.round(c)),c+=n;l[l.length-1]!==i&&l.push(i),b++}else l=function(){E=[];for(var a=t;i>=t?i>=a:a>=i;i>=t?a++:a--)E.push(a);return E}.apply(this);for(m=w=0,y=l.length;y>w;m=++w)k=l[m],l[m]=Math.abs(k%10);g.push(l)}for(this.resetDigits(),D=g.reverse(),m=x=0,z=D.length;z>x;m=++x)for(l=D[m],this.digits[m]||this.addDigit(" ",m>=j),null==(u=this.ribbons)[m]&&(u[m]=this.digits[m].querySelector(".odometer-ribbon-inner")),this.ribbons[m].innerHTML="",0>d&&(l=l.reverse()),o=C=0,B=l.length;B>C;o=++C)k=l[o],q=document.createElement("div"),q.className="odometer-value",q.innerHTML=k,this.ribbons[m].appendChild(q),o===l.length-1&&r(q,"odometer-last-value"),0===o&&r(q,"odometer-first-value");return 0>t&&this.addDigit("-"),p=this.inside.querySelector(".odometer-radix-mark"),null!=p&&p.parent.removeChild(p),j?this.addSpacer(this.format.radix,this.digits[j-1],"odometer-radix-mark"):void 0}},a}(),m.options=null!=(E=window.odometerOptions)?E:{},setTimeout(function(){var a,b,c,d,e;if(window.odometerOptions){d=window.odometerOptions,e=[];for(a in d)b=d[a],e.push(null!=(c=m.options)[a]?(c=m.options)[a]:c[a]=b);return e}},0),m.init=function(){var a,b,c,d,e,f;if(null!=document.querySelectorAll){for(b=document.querySelectorAll(m.options.selector||".odometer"),f=[],c=0,d=b.length;d>c;c++)a=b[c],f.push(a.odometer=new m({el:a,value:null!=(e=a.innerText)?e:a.textContent}));return f}},null!=(null!=(F=document.documentElement)?F.doScroll:void 0)&&null!=document.createEventObject?(D=document.onreadystatechange,document.onreadystatechange=function(){return"complete"===document.readyState&&m.options.auto!==!1&&m.init(),null!=D?D.apply(this,arguments):void 0}):document.addEventListener("DOMContentLoaded",function(){return m.options.auto!==!1?m.init():void 0},!1),"function"==typeof define&&define.amd?define([],function(){return m}):"undefined"!=typeof exports&&null!==exports?module.exports=m:window.Odometer=m}).call(this);
 
-// (function e(t,n){if(typeof exports==="object"&&typeof module==="object")module.exports=n();else if(typeof define==="function"&&define.amd)define([],n);else if(typeof exports==="object")exports["Swup"]=n();else t["Swup"]=n()})(window,function(){return function(e){var t={};function n(r){if(t[r]){return t[r].exports}var i=t[r]={i:r,l:false,exports:{}};e[r].call(i.exports,i,i.exports,n);i.l=true;return i.exports}n.m=e;n.c=t;n.d=function(e,t,r){if(!n.o(e,t)){Object.defineProperty(e,t,{enumerable:true,get:r})}};n.r=function(e){if(typeof Symbol!=="undefined"&&Symbol.toStringTag){Object.defineProperty(e,Symbol.toStringTag,{value:"Module"})}Object.defineProperty(e,"__esModule",{value:true})};n.t=function(e,t){if(t&1)e=n(e);if(t&8)return e;if(t&4&&typeof e==="object"&&e&&e.__esModule)return e;var r=Object.create(null);n.r(r);Object.defineProperty(r,"default",{enumerable:true,value:e});if(t&2&&typeof e!="string")for(var i in e)n.d(r,i,function(t){return e[t]}.bind(null,i));return r};n.n=function(e){var t=e&&e.__esModule?function t(){return e["default"]}:function t(){return e};n.d(t,"a",t);return t};n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)};n.p="";return n(n.s=2)}([function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});t.Link=t.markSwupElements=t.getCurrentUrl=t.transitionEnd=t.fetch=t.getDataFromHtml=t.createHistoryRecord=t.classify=undefined;var r=n(8);var i=w(r);var a=n(9);var o=w(a);var s=n(10);var u=w(s);var l=n(11);var c=w(l);var f=n(12);var d=w(f);var h=n(13);var p=w(h);var v=n(14);var g=w(v);var m=n(15);var y=w(m);function w(e){return e&&e.__esModule?e:{default:e}}var b=t.classify=i.default;var E=t.createHistoryRecord=o.default;var P=t.getDataFromHtml=u.default;var _=t.fetch=c.default;var k=t.transitionEnd=d.default;var S=t.getCurrentUrl=p.default;var O=t.markSwupElements=g.default;var j=t.Link=y.default},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=t.query=function e(t){var n=arguments.length>1&&arguments[1]!==undefined?arguments[1]:document;if(typeof t!=="string"){return t}return n.querySelector(t)};var i=t.queryAll=function e(t){var n=arguments.length>1&&arguments[1]!==undefined?arguments[1]:document;if(typeof t!=="string"){return t}return Array.prototype.slice.call(n.querySelectorAll(t))}},function(e,t,n){"use strict";var r=n(3);var i=a(r);function a(e){return e&&e.__esModule?e:{default:e}}e.exports=i.default},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n){if(Object.prototype.hasOwnProperty.call(n,r)){e[r]=n[r]}}}return e};var i=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||false;r.configurable=true;if("value"in r)r.writable=true;Object.defineProperty(e,r.key,r)}}return function(t,n,r){if(n)e(t.prototype,n);if(r)e(t,r);return t}}();var a=n(4);var o=M(a);var s=n(6);var u=M(s);var l=n(7);var c=M(l);var f=n(16);var d=M(f);var h=n(17);var p=M(h);var v=n(18);var g=M(v);var m=n(19);var y=M(m);var w=n(20);var b=M(w);var E=n(21);var P=M(E);var _=n(22);var k=M(_);var S=n(23);var O=n(1);var j=n(0);function M(e){return e&&e.__esModule?e:{default:e}}function H(e,t){if(!(e instanceof t)){throw new TypeError("Cannot call a class as a function")}}var L=function(){function e(t){H(this,e);var n={animateHistoryBrowsing:false,animationSelector:'[class*="transition-"]',linkSelector:'a[href^="'+window.location.origin+'"]:not([data-no-swup]), a[href^="/"]:not([data-no-swup]), a[href^="#"]:not([data-no-swup])',cache:true,containers:["#swup"],requestHeaders:{"X-Requested-With":"swup",Accept:"text/html, application/xhtml+xml"},plugins:[],skipPopStateHandling:function e(t){return!(t.state&&t.state.source==="swup")}};var i=r({},n,t);this._handlers={animationInDone:[],animationInStart:[],animationOutDone:[],animationOutStart:[],animationSkipped:[],clickLink:[],contentReplaced:[],disabled:[],enabled:[],openPageInNewTab:[],pageLoaded:[],pageRetrievedFromCache:[],pageView:[],popState:[],samePage:[],samePageWithHash:[],serverError:[],transitionStart:[],transitionEnd:[],willReplaceContent:[]};this.scrollToElement=null;this.preloadPromise=null;this.options=i;this.plugins=[];this.transition={};this.delegatedListeners={};this.cache=new u.default;this.cache.swup=this;this.loadPage=c.default;this.renderPage=d.default;this.triggerEvent=p.default;this.on=g.default;this.off=y.default;this.updateTransition=b.default;this.getAnimationPromises=P.default;this.getPageData=k.default;this.log=function(){};this.use=S.use;this.unuse=S.unuse;this.findPlugin=S.findPlugin;this.enable()}i(e,[{key:"enable",value:function e(){var t=this;if(typeof Promise==="undefined"){console.warn("Promise is not supported");return}this.delegatedListeners.click=(0,o.default)(document,this.options.linkSelector,"click",this.linkClickHandler.bind(this));window.addEventListener("popstate",this.popStateHandler.bind(this));var n=(0,j.getDataFromHtml)(document.documentElement.outerHTML,this.options.containers);n.url=n.responseURL=(0,j.getCurrentUrl)();if(this.options.cache){this.cache.cacheUrl(n)}(0,j.markSwupElements)(document.documentElement,this.options.containers);this.options.plugins.forEach(function(e){t.use(e)});window.history.replaceState(Object.assign({},window.history.state,{url:window.location.href,random:Math.random(),source:"swup"}),document.title,window.location.href);this.triggerEvent("enabled");document.documentElement.classList.add("swup-enabled");this.triggerEvent("pageView")}},{key:"destroy",value:function e(){var t=this;this.delegatedListeners.click.destroy();this.delegatedListeners.mouseover.destroy();window.removeEventListener("popstate",this.popStateHandler.bind(this));this.cache.empty();this.options.plugins.forEach(function(e){t.unuse(e)});(0,O.queryAll)("[data-swup]").forEach(function(e){delete e.dataset.swup});this.off();this.triggerEvent("disabled");document.documentElement.classList.remove("swup-enabled")}},{key:"linkClickHandler",value:function e(t){if(!t.metaKey&&!t.ctrlKey&&!t.shiftKey&&!t.altKey){if(t.button===0){this.triggerEvent("clickLink",t);t.preventDefault();var n=new j.Link(t.delegateTarget);if(n.getAddress()==(0,j.getCurrentUrl)()||n.getAddress()==""){if(n.getHash()!=""){this.triggerEvent("samePageWithHash",t);var r=document.querySelector(n.getHash());if(r!=null){history.replaceState({url:n.getAddress()+n.getHash(),random:Math.random(),source:"swup"},document.title,n.getAddress()+n.getHash())}else{console.warn("Element for offset not found ("+n.getHash()+")")}}else{this.triggerEvent("samePage",t)}}else{if(n.getHash()!=""){this.scrollToElement=n.getHash()}var i=t.delegateTarget.dataset.swupTransition;this.loadPage({url:n.getAddress(),customTransition:i},false)}}}else{this.triggerEvent("openPageInNewTab",t)}}},{key:"popStateHandler",value:function e(t){if(this.options.skipPopStateHandling(t))return;var n=new j.Link(t.state?t.state.url:window.location.pathname);if(n.getHash()!==""){this.scrollToElement=n.getHash()}else{t.preventDefault()}this.triggerEvent("popState",t);this.loadPage({url:n.getAddress()},t)}}]);return e}();t.default=L},function(e,t,n){var r=n(5);function i(e,t,n,r,i){var o=a.apply(this,arguments);e.addEventListener(n,o,i);return{destroy:function(){e.removeEventListener(n,o,i)}}}function a(e,t,n,i){return function(n){n.delegateTarget=r(n.target,t);if(n.delegateTarget){i.call(e,n)}}}e.exports=i},function(e,t){var n=9;if(typeof Element!=="undefined"&&!Element.prototype.matches){var r=Element.prototype;r.matches=r.matchesSelector||r.mozMatchesSelector||r.msMatchesSelector||r.oMatchesSelector||r.webkitMatchesSelector}function i(e,t){while(e&&e.nodeType!==n){if(typeof e.matches==="function"&&e.matches(t)){return e}e=e.parentNode}}e.exports=i},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||false;r.configurable=true;if("value"in r)r.writable=true;Object.defineProperty(e,r.key,r)}}return function(t,n,r){if(n)e(t.prototype,n);if(r)e(t,r);return t}}();function i(e,t){if(!(e instanceof t)){throw new TypeError("Cannot call a class as a function")}}var a=t.Cache=function(){function e(){i(this,e);this.pages={};this.last=null}r(e,[{key:"cacheUrl",value:function e(t){if(t.url in this.pages===false){this.pages[t.url]=t}this.last=this.pages[t.url];this.swup.log("Cache ("+Object.keys(this.pages).length+")",this.pages)}},{key:"getPage",value:function e(t){return this.pages[t]}},{key:"getCurrentPage",value:function e(){return this.getPage(window.location.pathname+window.location.search)}},{key:"exists",value:function e(t){return t in this.pages}},{key:"empty",value:function e(){this.pages={};this.last=null;this.swup.log("Cache cleared")}},{key:"remove",value:function e(t){delete this.pages[t]}}]);return e}();t.default=a},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n){if(Object.prototype.hasOwnProperty.call(n,r)){e[r]=n[r]}}}return e};var i=n(0);var a=function e(t,n){var a=this;var o=[],s=void 0;var u=function e(){a.triggerEvent("animationOutStart");document.documentElement.classList.add("is-changing");document.documentElement.classList.add("is-leaving");document.documentElement.classList.add("is-animating");if(n){document.documentElement.classList.add("is-popstate")}document.documentElement.classList.add("to-"+(0,i.classify)(t.url));o=a.getAnimationPromises("out");Promise.all(o).then(function(){a.triggerEvent("animationOutDone")});if(!n){var r=void 0;if(a.scrollToElement!=null){r=t.url+a.scrollToElement}else{r=t.url}(0,i.createHistoryRecord)(r)}};this.triggerEvent("transitionStart",n);if(t.customTransition!=null){this.updateTransition(window.location.pathname,t.url,t.customTransition);document.documentElement.classList.add("to-"+(0,i.classify)(t.customTransition))}else{this.updateTransition(window.location.pathname,t.url)}if(!n||this.options.animateHistoryBrowsing){u()}else{this.triggerEvent("animationSkipped")}if(this.cache.exists(t.url)){s=new Promise(function(e){e()});this.triggerEvent("pageRetrievedFromCache")}else{if(!this.preloadPromise||this.preloadPromise.route!=t.url){s=new Promise(function(e,n){(0,i.fetch)(r({},t,{headers:a.options.requestHeaders}),function(r){if(r.status===500){a.triggerEvent("serverError");n(t.url);return}else{var i=a.getPageData(r);if(i!=null){i.url=t.url}else{n(t.url);return}a.cache.cacheUrl(i);a.triggerEvent("pageLoaded")}e()})})}else{s=this.preloadPromise}}Promise.all(o.concat([s])).then(function(){a.renderPage(a.cache.getPage(t.url),n);a.preloadPromise=null}).catch(function(e){a.options.skipPopStateHandling=function(){window.location=e;return true};window.history.go(-1)})};t.default=a},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=function e(t){var n=t.toString().toLowerCase().replace(/\s+/g,"-").replace(/\//g,"-").replace(/[^\w\-]+/g,"").replace(/\-\-+/g,"-").replace(/^-+/,"").replace(/-+$/,"");if(n[0]==="/")n=n.splice(1);if(n==="")n="homepage";return n};t.default=r},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=function e(t){window.history.pushState({url:t||window.location.href.split(window.location.hostname)[1],random:Math.random(),source:"swup"},document.getElementsByTagName("title")[0].innerText,t||window.location.href.split(window.location.hostname)[1])};t.default=r},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"?function(e){return typeof e}:function(e){return e&&typeof Symbol==="function"&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};var i=n(1);var a=function e(t,n){var a=t.replace("<body",'<div id="swupBody"').replace("</body>","</div>");var o=document.createElement("div");o.innerHTML=a;var s=[];var u=function e(t){if(o.querySelector(n[t])==null){return{v:null}}else{(0,i.queryAll)(n[t]).forEach(function(e,r){(0,i.queryAll)(n[t],o)[r].dataset.swup=s.length;s.push((0,i.queryAll)(n[t],o)[r].outerHTML)})}};for(var l=0;l<n.length;l++){var c=u(l);if((typeof c==="undefined"?"undefined":r(c))==="object")return c.v}var f={title:o.querySelector("title").innerText,pageClass:o.querySelector("#swupBody").className,originalContent:t,blocks:s};o.innerHTML="";o=null;return f};t.default=a},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n){if(Object.prototype.hasOwnProperty.call(n,r)){e[r]=n[r]}}}return e};var i=function e(t){var n=arguments.length>1&&arguments[1]!==undefined?arguments[1]:false;var i={url:window.location.pathname+window.location.search,method:"GET",data:null,headers:{}};var a=r({},i,t);var o=new XMLHttpRequest;o.onreadystatechange=function(){if(o.readyState===4){if(o.status!==500){n(o)}else{n(o)}}};o.open(a.method,a.url,true);Object.keys(a.headers).forEach(function(e){o.setRequestHeader(e,a.headers[e])});o.send(a.data);return o};t.default=i},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=function e(){var t=document.createElement("div");var n={WebkitTransition:"webkitTransitionEnd",MozTransition:"transitionend",OTransition:"oTransitionEnd otransitionend",transition:"transitionend"};for(var r in n){if(t.style[r]!==undefined){return n[r]}}return false};t.default=r},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=function e(){return window.location.pathname+window.location.search};t.default=r},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=n(1);var i=function e(t,n){var i=0;var a=function e(a){if(t.querySelector(n[a])==null){console.warn("Element "+n[a]+" is not in current page.")}else{(0,r.queryAll)(n[a]).forEach(function(e,o){(0,r.queryAll)(n[a],t)[o].dataset.swup=i;i++})}};for(var o=0;o<n.length;o++){a(o)}};t.default=i},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||false;r.configurable=true;if("value"in r)r.writable=true;Object.defineProperty(e,r.key,r)}}return function(t,n,r){if(n)e(t.prototype,n);if(r)e(t,r);return t}}();function i(e,t){if(!(e instanceof t)){throw new TypeError("Cannot call a class as a function")}}var a=function(){function e(t){i(this,e);if(t instanceof Element||t instanceof SVGElement){this.link=t}else{this.link=document.createElement("a");this.link.href=t}}r(e,[{key:"getPath",value:function e(){var t=this.link.pathname;if(t[0]!=="/"){t="/"+t}return t}},{key:"getAddress",value:function e(){var t=this.link.pathname+this.link.search;if(this.link.getAttribute("xlink:href")){t=this.link.getAttribute("xlink:href")}if(t[0]!=="/"){t="/"+t}return t}},{key:"getHash",value:function e(){return this.link.hash}}]);return e}();t.default=a},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n){if(Object.prototype.hasOwnProperty.call(n,r)){e[r]=n[r]}}}return e};var i=n(1);var a=n(0);var o=function e(t,n){var i=this;document.documentElement.classList.remove("is-leaving");var o=new a.Link(t.responseURL);if(window.location.pathname!==o.getPath()){window.history.replaceState({url:o.getPath(),random:Math.random(),source:"swup"},document.title,o.getPath());this.cache.cacheUrl(r({},t,{url:o.getPath()}))}if(!n||this.options.animateHistoryBrowsing){document.documentElement.classList.add("is-rendering")}this.triggerEvent("willReplaceContent",n);for(var s=0;s<t.blocks.length;s++){document.body.querySelector('[data-swup="'+s+'"]').outerHTML=t.blocks[s]}document.title=t.title;this.triggerEvent("contentReplaced",n);this.triggerEvent("pageView",n);if(!this.options.cache){this.cache.empty()}setTimeout(function(){if(!n||i.options.animateHistoryBrowsing){i.triggerEvent("animationInStart");document.documentElement.classList.remove("is-animating")}},10);var u=this.getAnimationPromises("in");if(!n||this.options.animateHistoryBrowsing){Promise.all(u).then(function(){i.triggerEvent("animationInDone");i.triggerEvent("transitionEnd",n);document.documentElement.className.split(" ").forEach(function(e){if(new RegExp("^to-").test(e)||e==="is-changing"||e==="is-rendering"||e==="is-popstate"){document.documentElement.classList.remove(e)}})})}else{this.triggerEvent("transitionEnd",n)}this.scrollToElement=null};t.default=o},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=function e(t,n){this._handlers[t].forEach(function(e){try{e(n)}catch(e){console.error(e)}});var r=new CustomEvent("swup:"+t,{detail:t});document.dispatchEvent(r)};t.default=r},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=function e(t,n){if(this._handlers[t]){this._handlers[t].push(n)}else{console.warn("Unsupported event "+t+".")}};t.default=r},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=function e(t,n){var r=this;if(t!=null){if(n!=null){if(this._handlers[t]&&this._handlers[t].filter(function(e){return e===n}).length){var i=this._handlers[t].filter(function(e){return e===n})[0];var a=this._handlers[t].indexOf(i);if(a>-1){this._handlers[t].splice(a,1)}}else{console.warn("Handler for event '"+t+"' no found.")}}else{this._handlers[t]=[]}}else{Object.keys(this._handlers).forEach(function(e){r._handlers[e]=[]})}};t.default=r},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=function e(t,n,r){this.transition={from:t,to:n,custom:r}};t.default=r},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=n(1);var i=n(0);var a=function e(){var t=[];var n=(0,r.queryAll)(this.options.animationSelector);n.forEach(function(e){var n=new Promise(function(t){e.addEventListener((0,i.transitionEnd)(),function(n){if(e==n.target){t()}})});t.push(n)});return t};t.default=a},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=n(0);var i=function e(t){var n=t.responseText;var i=(0,r.getDataFromHtml)(n,this.options.containers);if(i){i.responseURL=t.responseURL?t.responseURL:window.location.href}else{console.warn("Received page is invalid.");return null}return i};t.default=i},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=t.use=function e(t){if(!t.isSwupPlugin){console.warn("Not swup plugin instance "+t+".");return}this.plugins.push(t);t.swup=this;if(typeof t._beforeMount==="function"){t._beforeMount()}t.mount();return this.plugins};var i=t.unuse=function e(t){var n=void 0;if(typeof t==="string"){n=this.plugins.find(function(e){return t===e.name})}else{n=t}if(!n){console.warn("No such plugin.");return}n.unmount();if(typeof n._afterUnmount==="function"){n._afterUnmount()}var r=this.plugins.indexOf(n);this.plugins.splice(r,1);return this.plugins};var a=t.findPlugin=function e(t){return this.plugins.find(function(e){return t===e.name})}}])});
-
-/**
- * what-input - A global utility for tracking the current input method (mouse, keyboard or touch).
- * @version v5.1.3
- * @link https://github.com/ten1seven/what-input
- * @license MIT
- */
-(function webpackUniversalModuleDefinition(root, factory) {
-	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory();
-	else if(typeof define === 'function' && define.amd)
-		define("whatInput", [], factory);
-	else if(typeof exports === 'object')
-		exports["whatInput"] = factory();
-	else
-		root["whatInput"] = factory();
-})(this, function() {
-return /******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
-
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			exports: {},
-/******/ 			id: moduleId,
-/******/ 			loaded: false
-/******/ 		};
-
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
-
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-
-
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports) {
-
-	'use strict';
-
-	module.exports = function () {
-	  /*
-	   * bail out if there is no document or window
-	   * (i.e. in a node/non-DOM environment)
-	   *
-	   * Return a stubbed API instead
-	   */
-	  if (typeof document === 'undefined' || typeof window === 'undefined') {
-	    return {
-	      // always return "initial" because no interaction will ever be detected
-	      ask: function ask() {
-	        return 'initial';
-	      },
-
-	      // always return null
-	      element: function element() {
-	        return null;
-	      },
-
-	      // no-op
-	      ignoreKeys: function ignoreKeys() {},
-
-	      // no-op
-	      specificKeys: function specificKeys() {},
-
-	      // no-op
-	      registerOnChange: function registerOnChange() {},
-
-	      // no-op
-	      unRegisterOnChange: function unRegisterOnChange() {}
-	    };
-	  }
-
-	  /*
-	   * variables
-	   */
-
-	  // cache document.documentElement
-	  var docElem = document.documentElement;
-
-	  // currently focused dom element
-	  var currentElement = null;
-
-	  // last used input type
-	  var currentInput = 'initial';
-
-	  // last used input intent
-	  var currentIntent = currentInput;
-
-	  // check for sessionStorage support
-	  // then check for session variables and use if available
-	  try {
-	    if (window.sessionStorage.getItem('what-input')) {
-	      currentInput = window.sessionStorage.getItem('what-input');
-	    }
-
-	    if (window.sessionStorage.getItem('what-intent')) {
-	      currentIntent = window.sessionStorage.getItem('what-intent');
-	    }
-	  } catch (e) {}
-
-	  // event buffer timer
-	  var eventTimer = null;
-
-	  // form input types
-	  var formInputs = ['input', 'select', 'textarea'];
-
-	  // empty array for holding callback functions
-	  var functionList = [];
-
-	  // list of modifier keys commonly used with the mouse and
-	  // can be safely ignored to prevent false keyboard detection
-	  var ignoreMap = [16, // shift
-	  17, // control
-	  18, // alt
-	  91, // Windows key / left Apple cmd
-	  93 // Windows menu / right Apple cmd
-	  ];
-
-	  var specificMap = [];
-
-	  // mapping of events to input types
-	  var inputMap = {
-	    keydown: 'keyboard',
-	    keyup: 'keyboard',
-	    mousedown: 'mouse',
-	    mousemove: 'mouse',
-	    MSPointerDown: 'pointer',
-	    MSPointerMove: 'pointer',
-	    pointerdown: 'pointer',
-	    pointermove: 'pointer',
-	    touchstart: 'touch'
-
-	    // boolean: true if touch buffer is active
-	  };var isBuffering = false;
-
-	  // boolean: true if the page is being scrolled
-	  var isScrolling = false;
-
-	  // store current mouse position
-	  var mousePos = {
-	    x: null,
-	    y: null
-
-	    // map of IE 10 pointer events
-	  };var pointerMap = {
-	    2: 'touch',
-	    3: 'touch', // treat pen like touch
-	    4: 'mouse'
-
-	    // check support for passive event listeners
-	  };var supportsPassive = false;
-
-	  try {
-	    var opts = Object.defineProperty({}, 'passive', {
-	      get: function get() {
-	        supportsPassive = true;
-	      }
-	    });
-
-	    window.addEventListener('test', null, opts);
-	  } catch (e) {}
-
-	  /*
-	   * set up
-	   */
-
-	  var setUp = function setUp() {
-	    // add correct mouse wheel event mapping to `inputMap`
-	    inputMap[detectWheel()] = 'mouse';
-
-	    addListeners();
-	    doUpdate('input');
-	    doUpdate('intent');
-	  };
-
-	  /*
-	   * events
-	   */
-
-	  var addListeners = function addListeners() {
-	    // `pointermove`, `MSPointerMove`, `mousemove` and mouse wheel event binding
-	    // can only demonstrate potential, but not actual, interaction
-	    // and are treated separately
-	    var options = supportsPassive ? { passive: true } : false;
-
-	    // pointer events (mouse, pen, touch)
-	    if (window.PointerEvent) {
-	      window.addEventListener('pointerdown', setInput);
-	      window.addEventListener('pointermove', setIntent);
-	    } else if (window.MSPointerEvent) {
-	      window.addEventListener('MSPointerDown', setInput);
-	      window.addEventListener('MSPointerMove', setIntent);
-	    } else {
-	      // mouse events
-	      window.addEventListener('mousedown', setInput);
-	      window.addEventListener('mousemove', setIntent);
-
-	      // touch events
-	      if ('ontouchstart' in window) {
-	        window.addEventListener('touchstart', eventBuffer, options);
-	        window.addEventListener('touchend', setInput);
-	      }
-	    }
-
-	    // mouse wheel
-	    window.addEventListener(detectWheel(), setIntent, options);
-
-	    // keyboard events
-	    window.addEventListener('keydown', eventBuffer);
-	    window.addEventListener('keyup', eventBuffer);
-
-	    // focus events
-	    window.addEventListener('focusin', setElement);
-	    window.addEventListener('focusout', clearElement);
-	  };
-
-	  // checks conditions before updating new input
-	  var setInput = function setInput(event) {
-	    // only execute if the event buffer timer isn't running
-	    if (!isBuffering) {
-	      var eventKey = event.which;
-	      var value = inputMap[event.type];
-
-	      if (value === 'pointer') {
-	        value = pointerType(event);
-	      }
-
-	      var ignoreMatch = !specificMap.length && ignoreMap.indexOf(eventKey) === -1;
-
-	      var specificMatch = specificMap.length && specificMap.indexOf(eventKey) !== -1;
-
-	      var shouldUpdate = value === 'keyboard' && eventKey && (ignoreMatch || specificMatch) || value === 'mouse' || value === 'touch';
-
-	      if (currentInput !== value && shouldUpdate) {
-	        currentInput = value;
-
-	        try {
-	          window.sessionStorage.setItem('what-input', currentInput);
-	        } catch (e) {}
-
-	        doUpdate('input');
-	      }
-
-	      if (currentIntent !== value && shouldUpdate) {
-	        // preserve intent for keyboard typing in form fields
-	        var activeElem = document.activeElement;
-	        var notFormInput = activeElem && activeElem.nodeName && formInputs.indexOf(activeElem.nodeName.toLowerCase()) === -1;
-
-	        if (notFormInput) {
-	          currentIntent = value;
-
-	          try {
-	            window.sessionStorage.setItem('what-intent', currentIntent);
-	          } catch (e) {}
-
-	          doUpdate('intent');
-	        }
-	      }
-	    }
-	  };
-
-	  // updates the doc and `inputTypes` array with new input
-	  var doUpdate = function doUpdate(which) {
-	    docElem.setAttribute('data-what' + which, which === 'input' ? currentInput : currentIntent);
-
-	    fireFunctions(which);
-	  };
-
-	  // updates input intent for `mousemove` and `pointermove`
-	  var setIntent = function setIntent(event) {
-	    // test to see if `mousemove` happened relative to the screen to detect scrolling versus mousemove
-	    detectScrolling(event);
-
-	    // only execute if the event buffer timer isn't running
-	    // or scrolling isn't happening
-	    if (!isBuffering && !isScrolling) {
-	      var value = inputMap[event.type];
-	      if (value === 'pointer') {
-	        value = pointerType(event);
-	      }
-
-	      if (currentIntent !== value) {
-	        currentIntent = value;
-
-	        try {
-	          window.sessionStorage.setItem('what-intent', currentIntent);
-	        } catch (e) {}
-
-	        doUpdate('intent');
-	      }
-	    }
-	  };
-
-	  var setElement = function setElement(event) {
-	    if (!event.target.nodeName) {
-	      // If nodeName is undefined, clear the element
-	      // This can happen if click inside an <svg> element.
-	      clearElement();
-	      return;
-	    }
-
-	    currentElement = event.target.nodeName.toLowerCase();
-	    docElem.setAttribute('data-whatelement', currentElement);
-
-	    if (event.target.classList && event.target.classList.length) {
-	      docElem.setAttribute('data-whatclasses', event.target.classList.toString().replace(' ', ','));
-	    }
-	  };
-
-	  var clearElement = function clearElement() {
-	    currentElement = null;
-
-	    docElem.removeAttribute('data-whatelement');
-	    docElem.removeAttribute('data-whatclasses');
-	  };
-
-	  // buffers events that frequently also fire mouse events
-	  var eventBuffer = function eventBuffer(event) {
-	    // set the current input
-	    setInput(event);
-
-	    // clear the timer if it happens to be running
-	    window.clearTimeout(eventTimer);
-
-	    // set the isBuffering to `true`
-	    isBuffering = true;
-
-	    // run the timer
-	    eventTimer = window.setTimeout(function () {
-	      // if the timer runs out, set isBuffering back to `false`
-	      isBuffering = false;
-	    }, 100);
-	  };
-
-	  /*
-	   * utilities
-	   */
-
-	  var pointerType = function pointerType(event) {
-	    if (typeof event.pointerType === 'number') {
-	      return pointerMap[event.pointerType];
-	    } else {
-	      // treat pen like touch
-	      return event.pointerType === 'pen' ? 'touch' : event.pointerType;
-	    }
-	  };
-
-	  // detect version of mouse wheel event to use
-	  // via https://developer.mozilla.org/en-US/docs/Web/Events/wheel
-	  var detectWheel = function detectWheel() {
-	    var wheelType = void 0;
-
-	    // Modern browsers support "wheel"
-	    if ('onwheel' in document.createElement('div')) {
-	      wheelType = 'wheel';
-	    } else {
-	      // Webkit and IE support at least "mousewheel"
-	      // or assume that remaining browsers are older Firefox
-	      wheelType = document.onmousewheel !== undefined ? 'mousewheel' : 'DOMMouseScroll';
-	    }
-
-	    return wheelType;
-	  };
-
-	  // runs callback functions
-	  var fireFunctions = function fireFunctions(type) {
-	    for (var i = 0, len = functionList.length; i < len; i++) {
-	      if (functionList[i].type === type) {
-	        functionList[i].fn.call(undefined, type === 'input' ? currentInput : currentIntent);
-	      }
-	    }
-	  };
-
-	  // finds matching element in an object
-	  var objPos = function objPos(match) {
-	    for (var i = 0, len = functionList.length; i < len; i++) {
-	      if (functionList[i].fn === match) {
-	        return i;
-	      }
-	    }
-	  };
-
-	  var detectScrolling = function detectScrolling(event) {
-	    if (mousePos['x'] !== event.screenX || mousePos['y'] !== event.screenY) {
-	      isScrolling = false;
-
-	      mousePos['x'] = event.screenX;
-	      mousePos['y'] = event.screenY;
-	    } else {
-	      isScrolling = true;
-	    }
-	  };
-
-	  /*
-	   * init
-	   */
-
-	  // don't start script unless browser cuts the mustard
-	  // (also passes if polyfills are used)
-	  if ('addEventListener' in window && Array.prototype.indexOf) {
-	    setUp();
-	  }
-
-	  /*
-	   * api
-	   */
-
-	  return {
-	    // returns string: the current input type
-	    // opt: 'intent'|'input'
-	    // 'input' (default): returns the same value as the `data-whatinput` attribute
-	    // 'intent': includes `data-whatintent` value if it's different than `data-whatinput`
-	    ask: function ask(opt) {
-	      return opt === 'intent' ? currentIntent : currentInput;
-	    },
-
-	    // returns string: the currently focused element or null
-	    element: function element() {
-	      return currentElement;
-	    },
-
-	    // overwrites ignored keys with provided array
-	    ignoreKeys: function ignoreKeys(arr) {
-	      ignoreMap = arr;
-	    },
-
-	    // overwrites specific char keys to update on
-	    specificKeys: function specificKeys(arr) {
-	      specificMap = arr;
-	    },
-
-	    // attach functions to input and intent "events"
-	    // funct: function to fire on change
-	    // eventType: 'input'|'intent'
-	    registerOnChange: function registerOnChange(fn, eventType) {
-	      functionList.push({
-	        fn: fn,
-	        type: eventType || 'input'
-	      });
-	    },
-
-	    unRegisterOnChange: function unRegisterOnChange(fn) {
-	      var position = objPos(fn);
-
-	      if (position || position === 0) {
-	        functionList.splice(position, 1);
-	      }
-	    }
-	  };
-	}();
-
-/***/ })
-/******/ ])
-});
-;
-/*! WOW - v1.1.2 - 2016-04-08
-* Copyright (c) 2016 Matthieu Aussaguel;*/(function(){var a,b,c,d,e,f=function(a,b){return function(){return a.apply(b,arguments)}},g=[].indexOf||function(a){for(var b=0,c=this.length;c>b;b++)if(b in this&&this[b]===a)return b;return-1};b=function(){function a(){}return a.prototype.extend=function(a,b){var c,d;for(c in b)d=b[c],null==a[c]&&(a[c]=d);return a},a.prototype.isMobile=function(a){return/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(a)},a.prototype.createEvent=function(a,b,c,d){var e;return null==b&&(b=!1),null==c&&(c=!1),null==d&&(d=null),null!=document.createEvent?(e=document.createEvent("CustomEvent"),e.initCustomEvent(a,b,c,d)):null!=document.createEventObject?(e=document.createEventObject(),e.eventType=a):e.eventName=a,e},a.prototype.emitEvent=function(a,b){return null!=a.dispatchEvent?a.dispatchEvent(b):b in(null!=a)?a[b]():"on"+b in(null!=a)?a["on"+b]():void 0},a.prototype.addEvent=function(a,b,c){return null!=a.addEventListener?a.addEventListener(b,c,!1):null!=a.attachEvent?a.attachEvent("on"+b,c):a[b]=c},a.prototype.removeEvent=function(a,b,c){return null!=a.removeEventListener?a.removeEventListener(b,c,!1):null!=a.detachEvent?a.detachEvent("on"+b,c):delete a[b]},a.prototype.innerHeight=function(){return"innerHeight"in window?window.innerHeight:document.documentElement.clientHeight},a}(),c=this.WeakMap||this.MozWeakMap||(c=function(){function a(){this.keys=[],this.values=[]}return a.prototype.get=function(a){var b,c,d,e,f;for(f=this.keys,b=d=0,e=f.length;e>d;b=++d)if(c=f[b],c===a)return this.values[b]},a.prototype.set=function(a,b){var c,d,e,f,g;for(g=this.keys,c=e=0,f=g.length;f>e;c=++e)if(d=g[c],d===a)return void(this.values[c]=b);return this.keys.push(a),this.values.push(b)},a}()),a=this.MutationObserver||this.WebkitMutationObserver||this.MozMutationObserver||(a=function(){function a(){"undefined"!=typeof console&&null!==console&&console.warn("MutationObserver is not supported by your browser."),"undefined"!=typeof console&&null!==console&&console.warn("WOW.js cannot detect dom mutations, please call .sync() after loading new content.")}return a.notSupported=!0,a.prototype.observe=function(){},a}()),d=this.getComputedStyle||function(a,b){return this.getPropertyValue=function(b){var c;return"float"===b&&(b="styleFloat"),e.test(b)&&b.replace(e,function(a,b){return b.toUpperCase()}),(null!=(c=a.currentStyle)?c[b]:void 0)||null},this},e=/(\-([a-z]){1})/g,this.WOW=function(){function e(a){null==a&&(a={}),this.scrollCallback=f(this.scrollCallback,this),this.scrollHandler=f(this.scrollHandler,this),this.resetAnimation=f(this.resetAnimation,this),this.start=f(this.start,this),this.scrolled=!0,this.config=this.util().extend(a,this.defaults),null!=a.scrollContainer&&(this.config.scrollContainer=document.querySelector(a.scrollContainer)),this.animationNameCache=new c,this.wowEvent=this.util().createEvent(this.config.boxClass)}return e.prototype.defaults={boxClass:"wow",animateClass:"animated",offset:0,mobile:!0,live:!0,callback:null,scrollContainer:null},e.prototype.init=function(){var a;return this.element=window.document.documentElement,"interactive"===(a=document.readyState)||"complete"===a?this.start():this.util().addEvent(document,"DOMContentLoaded",this.start),this.finished=[]},e.prototype.start=function(){var b,c,d,e;if(this.stopped=!1,this.boxes=function(){var a,c,d,e;for(d=this.element.querySelectorAll("."+this.config.boxClass),e=[],a=0,c=d.length;c>a;a++)b=d[a],e.push(b);return e}.call(this),this.all=function(){var a,c,d,e;for(d=this.boxes,e=[],a=0,c=d.length;c>a;a++)b=d[a],e.push(b);return e}.call(this),this.boxes.length)if(this.disabled())this.resetStyle();else for(e=this.boxes,c=0,d=e.length;d>c;c++)b=e[c],this.applyStyle(b,!0);return this.disabled()||(this.util().addEvent(this.config.scrollContainer||window,"scroll",this.scrollHandler),this.util().addEvent(window,"resize",this.scrollHandler),this.interval=setInterval(this.scrollCallback,50)),this.config.live?new a(function(a){return function(b){var c,d,e,f,g;for(g=[],c=0,d=b.length;d>c;c++)f=b[c],g.push(function(){var a,b,c,d;for(c=f.addedNodes||[],d=[],a=0,b=c.length;b>a;a++)e=c[a],d.push(this.doSync(e));return d}.call(a));return g}}(this)).observe(document.body,{childList:!0,subtree:!0}):void 0},e.prototype.stop=function(){return this.stopped=!0,this.util().removeEvent(this.config.scrollContainer||window,"scroll",this.scrollHandler),this.util().removeEvent(window,"resize",this.scrollHandler),null!=this.interval?clearInterval(this.interval):void 0},e.prototype.sync=function(b){return a.notSupported?this.doSync(this.element):void 0},e.prototype.doSync=function(a){var b,c,d,e,f;if(null==a&&(a=this.element),1===a.nodeType){for(a=a.parentNode||a,e=a.querySelectorAll("."+this.config.boxClass),f=[],c=0,d=e.length;d>c;c++)b=e[c],g.call(this.all,b)<0?(this.boxes.push(b),this.all.push(b),this.stopped||this.disabled()?this.resetStyle():this.applyStyle(b,!0),f.push(this.scrolled=!0)):f.push(void 0);return f}},e.prototype.show=function(a){return this.applyStyle(a),a.className=a.className+" "+this.config.animateClass,null!=this.config.callback&&this.config.callback(a),this.util().emitEvent(a,this.wowEvent),this.util().addEvent(a,"animationend",this.resetAnimation),this.util().addEvent(a,"oanimationend",this.resetAnimation),this.util().addEvent(a,"webkitAnimationEnd",this.resetAnimation),this.util().addEvent(a,"MSAnimationEnd",this.resetAnimation),a},e.prototype.applyStyle=function(a,b){var c,d,e;return d=a.getAttribute("data-wow-duration"),c=a.getAttribute("data-wow-delay"),e=a.getAttribute("data-wow-iteration"),this.animate(function(f){return function(){return f.customStyle(a,b,d,c,e)}}(this))},e.prototype.animate=function(){return"requestAnimationFrame"in window?function(a){return window.requestAnimationFrame(a)}:function(a){return a()}}(),e.prototype.resetStyle=function(){var a,b,c,d,e;for(d=this.boxes,e=[],b=0,c=d.length;c>b;b++)a=d[b],e.push(a.style.visibility="visible");return e},e.prototype.resetAnimation=function(a){var b;return a.type.toLowerCase().indexOf("animationend")>=0?(b=a.target||a.srcElement,b.className=b.className.replace(this.config.animateClass,"").trim()):void 0},e.prototype.customStyle=function(a,b,c,d,e){return b&&this.cacheAnimationName(a),a.style.visibility=b?"hidden":"visible",c&&this.vendorSet(a.style,{animationDuration:c}),d&&this.vendorSet(a.style,{animationDelay:d}),e&&this.vendorSet(a.style,{animationIterationCount:e}),this.vendorSet(a.style,{animationName:b?"none":this.cachedAnimationName(a)}),a},e.prototype.vendors=["moz","webkit"],e.prototype.vendorSet=function(a,b){var c,d,e,f;d=[];for(c in b)e=b[c],a[""+c]=e,d.push(function(){var b,d,g,h;for(g=this.vendors,h=[],b=0,d=g.length;d>b;b++)f=g[b],h.push(a[""+f+c.charAt(0).toUpperCase()+c.substr(1)]=e);return h}.call(this));return d},e.prototype.vendorCSS=function(a,b){var c,e,f,g,h,i;for(h=d(a),g=h.getPropertyCSSValue(b),f=this.vendors,c=0,e=f.length;e>c;c++)i=f[c],g=g||h.getPropertyCSSValue("-"+i+"-"+b);return g},e.prototype.animationName=function(a){var b;try{b=this.vendorCSS(a,"animation-name").cssText}catch(c){b=d(a).getPropertyValue("animation-name")}return"none"===b?"":b},e.prototype.cacheAnimationName=function(a){return this.animationNameCache.set(a,this.animationName(a))},e.prototype.cachedAnimationName=function(a){return this.animationNameCache.get(a)},e.prototype.scrollHandler=function(){return this.scrolled=!0},e.prototype.scrollCallback=function(){var a;return!this.scrolled||(this.scrolled=!1,this.boxes=function(){var b,c,d,e;for(d=this.boxes,e=[],b=0,c=d.length;c>b;b++)a=d[b],a&&(this.isVisible(a)?this.show(a):e.push(a));return e}.call(this),this.boxes.length||this.config.live)?void 0:this.stop()},e.prototype.offsetTop=function(a){for(var b;void 0===a.offsetTop;)a=a.parentNode;for(b=a.offsetTop;a=a.offsetParent;)b+=a.offsetTop;return b},e.prototype.isVisible=function(a){var b,c,d,e,f;return c=a.getAttribute("data-wow-offset")||this.config.offset,f=this.config.scrollContainer&&this.config.scrollContainer.scrollTop||window.pageYOffset,e=f+Math.min(this.element.clientHeight,this.util().innerHeight())-c,d=this.offsetTop(a),b=d+a.clientHeight,e>=d&&b>=f},e.prototype.util=function(){return null!=this._util?this._util:this._util=new b},e.prototype.disabled=function(){return!this.config.mobile&&this.util().isMobile(navigator.userAgent)},e}()}).call(this);
 //---------------------------------------------------------------------
 //
 // QR Code Generator for JavaScript
@@ -2757,3 +2273,488 @@ var qrcode = function() {
 }(function () {
 		return qrcode;
 }));
+
+// (function e(t,n){if(typeof exports==="object"&&typeof module==="object")module.exports=n();else if(typeof define==="function"&&define.amd)define([],n);else if(typeof exports==="object")exports["Swup"]=n();else t["Swup"]=n()})(window,function(){return function(e){var t={};function n(r){if(t[r]){return t[r].exports}var i=t[r]={i:r,l:false,exports:{}};e[r].call(i.exports,i,i.exports,n);i.l=true;return i.exports}n.m=e;n.c=t;n.d=function(e,t,r){if(!n.o(e,t)){Object.defineProperty(e,t,{enumerable:true,get:r})}};n.r=function(e){if(typeof Symbol!=="undefined"&&Symbol.toStringTag){Object.defineProperty(e,Symbol.toStringTag,{value:"Module"})}Object.defineProperty(e,"__esModule",{value:true})};n.t=function(e,t){if(t&1)e=n(e);if(t&8)return e;if(t&4&&typeof e==="object"&&e&&e.__esModule)return e;var r=Object.create(null);n.r(r);Object.defineProperty(r,"default",{enumerable:true,value:e});if(t&2&&typeof e!="string")for(var i in e)n.d(r,i,function(t){return e[t]}.bind(null,i));return r};n.n=function(e){var t=e&&e.__esModule?function t(){return e["default"]}:function t(){return e};n.d(t,"a",t);return t};n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)};n.p="";return n(n.s=2)}([function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});t.Link=t.markSwupElements=t.getCurrentUrl=t.transitionEnd=t.fetch=t.getDataFromHtml=t.createHistoryRecord=t.classify=undefined;var r=n(8);var i=w(r);var a=n(9);var o=w(a);var s=n(10);var u=w(s);var l=n(11);var c=w(l);var f=n(12);var d=w(f);var h=n(13);var p=w(h);var v=n(14);var g=w(v);var m=n(15);var y=w(m);function w(e){return e&&e.__esModule?e:{default:e}}var b=t.classify=i.default;var E=t.createHistoryRecord=o.default;var P=t.getDataFromHtml=u.default;var _=t.fetch=c.default;var k=t.transitionEnd=d.default;var S=t.getCurrentUrl=p.default;var O=t.markSwupElements=g.default;var j=t.Link=y.default},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=t.query=function e(t){var n=arguments.length>1&&arguments[1]!==undefined?arguments[1]:document;if(typeof t!=="string"){return t}return n.querySelector(t)};var i=t.queryAll=function e(t){var n=arguments.length>1&&arguments[1]!==undefined?arguments[1]:document;if(typeof t!=="string"){return t}return Array.prototype.slice.call(n.querySelectorAll(t))}},function(e,t,n){"use strict";var r=n(3);var i=a(r);function a(e){return e&&e.__esModule?e:{default:e}}e.exports=i.default},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n){if(Object.prototype.hasOwnProperty.call(n,r)){e[r]=n[r]}}}return e};var i=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||false;r.configurable=true;if("value"in r)r.writable=true;Object.defineProperty(e,r.key,r)}}return function(t,n,r){if(n)e(t.prototype,n);if(r)e(t,r);return t}}();var a=n(4);var o=M(a);var s=n(6);var u=M(s);var l=n(7);var c=M(l);var f=n(16);var d=M(f);var h=n(17);var p=M(h);var v=n(18);var g=M(v);var m=n(19);var y=M(m);var w=n(20);var b=M(w);var E=n(21);var P=M(E);var _=n(22);var k=M(_);var S=n(23);var O=n(1);var j=n(0);function M(e){return e&&e.__esModule?e:{default:e}}function H(e,t){if(!(e instanceof t)){throw new TypeError("Cannot call a class as a function")}}var L=function(){function e(t){H(this,e);var n={animateHistoryBrowsing:false,animationSelector:'[class*="transition-"]',linkSelector:'a[href^="'+window.location.origin+'"]:not([data-no-swup]), a[href^="/"]:not([data-no-swup]), a[href^="#"]:not([data-no-swup])',cache:true,containers:["#swup"],requestHeaders:{"X-Requested-With":"swup",Accept:"text/html, application/xhtml+xml"},plugins:[],skipPopStateHandling:function e(t){return!(t.state&&t.state.source==="swup")}};var i=r({},n,t);this._handlers={animationInDone:[],animationInStart:[],animationOutDone:[],animationOutStart:[],animationSkipped:[],clickLink:[],contentReplaced:[],disabled:[],enabled:[],openPageInNewTab:[],pageLoaded:[],pageRetrievedFromCache:[],pageView:[],popState:[],samePage:[],samePageWithHash:[],serverError:[],transitionStart:[],transitionEnd:[],willReplaceContent:[]};this.scrollToElement=null;this.preloadPromise=null;this.options=i;this.plugins=[];this.transition={};this.delegatedListeners={};this.cache=new u.default;this.cache.swup=this;this.loadPage=c.default;this.renderPage=d.default;this.triggerEvent=p.default;this.on=g.default;this.off=y.default;this.updateTransition=b.default;this.getAnimationPromises=P.default;this.getPageData=k.default;this.log=function(){};this.use=S.use;this.unuse=S.unuse;this.findPlugin=S.findPlugin;this.enable()}i(e,[{key:"enable",value:function e(){var t=this;if(typeof Promise==="undefined"){console.warn("Promise is not supported");return}this.delegatedListeners.click=(0,o.default)(document,this.options.linkSelector,"click",this.linkClickHandler.bind(this));window.addEventListener("popstate",this.popStateHandler.bind(this));var n=(0,j.getDataFromHtml)(document.documentElement.outerHTML,this.options.containers);n.url=n.responseURL=(0,j.getCurrentUrl)();if(this.options.cache){this.cache.cacheUrl(n)}(0,j.markSwupElements)(document.documentElement,this.options.containers);this.options.plugins.forEach(function(e){t.use(e)});window.history.replaceState(Object.assign({},window.history.state,{url:window.location.href,random:Math.random(),source:"swup"}),document.title,window.location.href);this.triggerEvent("enabled");document.documentElement.classList.add("swup-enabled");this.triggerEvent("pageView")}},{key:"destroy",value:function e(){var t=this;this.delegatedListeners.click.destroy();this.delegatedListeners.mouseover.destroy();window.removeEventListener("popstate",this.popStateHandler.bind(this));this.cache.empty();this.options.plugins.forEach(function(e){t.unuse(e)});(0,O.queryAll)("[data-swup]").forEach(function(e){delete e.dataset.swup});this.off();this.triggerEvent("disabled");document.documentElement.classList.remove("swup-enabled")}},{key:"linkClickHandler",value:function e(t){if(!t.metaKey&&!t.ctrlKey&&!t.shiftKey&&!t.altKey){if(t.button===0){this.triggerEvent("clickLink",t);t.preventDefault();var n=new j.Link(t.delegateTarget);if(n.getAddress()==(0,j.getCurrentUrl)()||n.getAddress()==""){if(n.getHash()!=""){this.triggerEvent("samePageWithHash",t);var r=document.querySelector(n.getHash());if(r!=null){history.replaceState({url:n.getAddress()+n.getHash(),random:Math.random(),source:"swup"},document.title,n.getAddress()+n.getHash())}else{console.warn("Element for offset not found ("+n.getHash()+")")}}else{this.triggerEvent("samePage",t)}}else{if(n.getHash()!=""){this.scrollToElement=n.getHash()}var i=t.delegateTarget.dataset.swupTransition;this.loadPage({url:n.getAddress(),customTransition:i},false)}}}else{this.triggerEvent("openPageInNewTab",t)}}},{key:"popStateHandler",value:function e(t){if(this.options.skipPopStateHandling(t))return;var n=new j.Link(t.state?t.state.url:window.location.pathname);if(n.getHash()!==""){this.scrollToElement=n.getHash()}else{t.preventDefault()}this.triggerEvent("popState",t);this.loadPage({url:n.getAddress()},t)}}]);return e}();t.default=L},function(e,t,n){var r=n(5);function i(e,t,n,r,i){var o=a.apply(this,arguments);e.addEventListener(n,o,i);return{destroy:function(){e.removeEventListener(n,o,i)}}}function a(e,t,n,i){return function(n){n.delegateTarget=r(n.target,t);if(n.delegateTarget){i.call(e,n)}}}e.exports=i},function(e,t){var n=9;if(typeof Element!=="undefined"&&!Element.prototype.matches){var r=Element.prototype;r.matches=r.matchesSelector||r.mozMatchesSelector||r.msMatchesSelector||r.oMatchesSelector||r.webkitMatchesSelector}function i(e,t){while(e&&e.nodeType!==n){if(typeof e.matches==="function"&&e.matches(t)){return e}e=e.parentNode}}e.exports=i},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||false;r.configurable=true;if("value"in r)r.writable=true;Object.defineProperty(e,r.key,r)}}return function(t,n,r){if(n)e(t.prototype,n);if(r)e(t,r);return t}}();function i(e,t){if(!(e instanceof t)){throw new TypeError("Cannot call a class as a function")}}var a=t.Cache=function(){function e(){i(this,e);this.pages={};this.last=null}r(e,[{key:"cacheUrl",value:function e(t){if(t.url in this.pages===false){this.pages[t.url]=t}this.last=this.pages[t.url];this.swup.log("Cache ("+Object.keys(this.pages).length+")",this.pages)}},{key:"getPage",value:function e(t){return this.pages[t]}},{key:"getCurrentPage",value:function e(){return this.getPage(window.location.pathname+window.location.search)}},{key:"exists",value:function e(t){return t in this.pages}},{key:"empty",value:function e(){this.pages={};this.last=null;this.swup.log("Cache cleared")}},{key:"remove",value:function e(t){delete this.pages[t]}}]);return e}();t.default=a},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n){if(Object.prototype.hasOwnProperty.call(n,r)){e[r]=n[r]}}}return e};var i=n(0);var a=function e(t,n){var a=this;var o=[],s=void 0;var u=function e(){a.triggerEvent("animationOutStart");document.documentElement.classList.add("is-changing");document.documentElement.classList.add("is-leaving");document.documentElement.classList.add("is-animating");if(n){document.documentElement.classList.add("is-popstate")}document.documentElement.classList.add("to-"+(0,i.classify)(t.url));o=a.getAnimationPromises("out");Promise.all(o).then(function(){a.triggerEvent("animationOutDone")});if(!n){var r=void 0;if(a.scrollToElement!=null){r=t.url+a.scrollToElement}else{r=t.url}(0,i.createHistoryRecord)(r)}};this.triggerEvent("transitionStart",n);if(t.customTransition!=null){this.updateTransition(window.location.pathname,t.url,t.customTransition);document.documentElement.classList.add("to-"+(0,i.classify)(t.customTransition))}else{this.updateTransition(window.location.pathname,t.url)}if(!n||this.options.animateHistoryBrowsing){u()}else{this.triggerEvent("animationSkipped")}if(this.cache.exists(t.url)){s=new Promise(function(e){e()});this.triggerEvent("pageRetrievedFromCache")}else{if(!this.preloadPromise||this.preloadPromise.route!=t.url){s=new Promise(function(e,n){(0,i.fetch)(r({},t,{headers:a.options.requestHeaders}),function(r){if(r.status===500){a.triggerEvent("serverError");n(t.url);return}else{var i=a.getPageData(r);if(i!=null){i.url=t.url}else{n(t.url);return}a.cache.cacheUrl(i);a.triggerEvent("pageLoaded")}e()})})}else{s=this.preloadPromise}}Promise.all(o.concat([s])).then(function(){a.renderPage(a.cache.getPage(t.url),n);a.preloadPromise=null}).catch(function(e){a.options.skipPopStateHandling=function(){window.location=e;return true};window.history.go(-1)})};t.default=a},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=function e(t){var n=t.toString().toLowerCase().replace(/\s+/g,"-").replace(/\//g,"-").replace(/[^\w\-]+/g,"").replace(/\-\-+/g,"-").replace(/^-+/,"").replace(/-+$/,"");if(n[0]==="/")n=n.splice(1);if(n==="")n="homepage";return n};t.default=r},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=function e(t){window.history.pushState({url:t||window.location.href.split(window.location.hostname)[1],random:Math.random(),source:"swup"},document.getElementsByTagName("title")[0].innerText,t||window.location.href.split(window.location.hostname)[1])};t.default=r},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"?function(e){return typeof e}:function(e){return e&&typeof Symbol==="function"&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};var i=n(1);var a=function e(t,n){var a=t.replace("<body",'<div id="swupBody"').replace("</body>","</div>");var o=document.createElement("div");o.innerHTML=a;var s=[];var u=function e(t){if(o.querySelector(n[t])==null){return{v:null}}else{(0,i.queryAll)(n[t]).forEach(function(e,r){(0,i.queryAll)(n[t],o)[r].dataset.swup=s.length;s.push((0,i.queryAll)(n[t],o)[r].outerHTML)})}};for(var l=0;l<n.length;l++){var c=u(l);if((typeof c==="undefined"?"undefined":r(c))==="object")return c.v}var f={title:o.querySelector("title").innerText,pageClass:o.querySelector("#swupBody").className,originalContent:t,blocks:s};o.innerHTML="";o=null;return f};t.default=a},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n){if(Object.prototype.hasOwnProperty.call(n,r)){e[r]=n[r]}}}return e};var i=function e(t){var n=arguments.length>1&&arguments[1]!==undefined?arguments[1]:false;var i={url:window.location.pathname+window.location.search,method:"GET",data:null,headers:{}};var a=r({},i,t);var o=new XMLHttpRequest;o.onreadystatechange=function(){if(o.readyState===4){if(o.status!==500){n(o)}else{n(o)}}};o.open(a.method,a.url,true);Object.keys(a.headers).forEach(function(e){o.setRequestHeader(e,a.headers[e])});o.send(a.data);return o};t.default=i},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=function e(){var t=document.createElement("div");var n={WebkitTransition:"webkitTransitionEnd",MozTransition:"transitionend",OTransition:"oTransitionEnd otransitionend",transition:"transitionend"};for(var r in n){if(t.style[r]!==undefined){return n[r]}}return false};t.default=r},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=function e(){return window.location.pathname+window.location.search};t.default=r},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=n(1);var i=function e(t,n){var i=0;var a=function e(a){if(t.querySelector(n[a])==null){console.warn("Element "+n[a]+" is not in current page.")}else{(0,r.queryAll)(n[a]).forEach(function(e,o){(0,r.queryAll)(n[a],t)[o].dataset.swup=i;i++})}};for(var o=0;o<n.length;o++){a(o)}};t.default=i},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||false;r.configurable=true;if("value"in r)r.writable=true;Object.defineProperty(e,r.key,r)}}return function(t,n,r){if(n)e(t.prototype,n);if(r)e(t,r);return t}}();function i(e,t){if(!(e instanceof t)){throw new TypeError("Cannot call a class as a function")}}var a=function(){function e(t){i(this,e);if(t instanceof Element||t instanceof SVGElement){this.link=t}else{this.link=document.createElement("a");this.link.href=t}}r(e,[{key:"getPath",value:function e(){var t=this.link.pathname;if(t[0]!=="/"){t="/"+t}return t}},{key:"getAddress",value:function e(){var t=this.link.pathname+this.link.search;if(this.link.getAttribute("xlink:href")){t=this.link.getAttribute("xlink:href")}if(t[0]!=="/"){t="/"+t}return t}},{key:"getHash",value:function e(){return this.link.hash}}]);return e}();t.default=a},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n){if(Object.prototype.hasOwnProperty.call(n,r)){e[r]=n[r]}}}return e};var i=n(1);var a=n(0);var o=function e(t,n){var i=this;document.documentElement.classList.remove("is-leaving");var o=new a.Link(t.responseURL);if(window.location.pathname!==o.getPath()){window.history.replaceState({url:o.getPath(),random:Math.random(),source:"swup"},document.title,o.getPath());this.cache.cacheUrl(r({},t,{url:o.getPath()}))}if(!n||this.options.animateHistoryBrowsing){document.documentElement.classList.add("is-rendering")}this.triggerEvent("willReplaceContent",n);for(var s=0;s<t.blocks.length;s++){document.body.querySelector('[data-swup="'+s+'"]').outerHTML=t.blocks[s]}document.title=t.title;this.triggerEvent("contentReplaced",n);this.triggerEvent("pageView",n);if(!this.options.cache){this.cache.empty()}setTimeout(function(){if(!n||i.options.animateHistoryBrowsing){i.triggerEvent("animationInStart");document.documentElement.classList.remove("is-animating")}},10);var u=this.getAnimationPromises("in");if(!n||this.options.animateHistoryBrowsing){Promise.all(u).then(function(){i.triggerEvent("animationInDone");i.triggerEvent("transitionEnd",n);document.documentElement.className.split(" ").forEach(function(e){if(new RegExp("^to-").test(e)||e==="is-changing"||e==="is-rendering"||e==="is-popstate"){document.documentElement.classList.remove(e)}})})}else{this.triggerEvent("transitionEnd",n)}this.scrollToElement=null};t.default=o},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=function e(t,n){this._handlers[t].forEach(function(e){try{e(n)}catch(e){console.error(e)}});var r=new CustomEvent("swup:"+t,{detail:t});document.dispatchEvent(r)};t.default=r},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=function e(t,n){if(this._handlers[t]){this._handlers[t].push(n)}else{console.warn("Unsupported event "+t+".")}};t.default=r},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=function e(t,n){var r=this;if(t!=null){if(n!=null){if(this._handlers[t]&&this._handlers[t].filter(function(e){return e===n}).length){var i=this._handlers[t].filter(function(e){return e===n})[0];var a=this._handlers[t].indexOf(i);if(a>-1){this._handlers[t].splice(a,1)}}else{console.warn("Handler for event '"+t+"' no found.")}}else{this._handlers[t]=[]}}else{Object.keys(this._handlers).forEach(function(e){r._handlers[e]=[]})}};t.default=r},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=function e(t,n,r){this.transition={from:t,to:n,custom:r}};t.default=r},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=n(1);var i=n(0);var a=function e(){var t=[];var n=(0,r.queryAll)(this.options.animationSelector);n.forEach(function(e){var n=new Promise(function(t){e.addEventListener((0,i.transitionEnd)(),function(n){if(e==n.target){t()}})});t.push(n)});return t};t.default=a},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=n(0);var i=function e(t){var n=t.responseText;var i=(0,r.getDataFromHtml)(n,this.options.containers);if(i){i.responseURL=t.responseURL?t.responseURL:window.location.href}else{console.warn("Received page is invalid.");return null}return i};t.default=i},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=t.use=function e(t){if(!t.isSwupPlugin){console.warn("Not swup plugin instance "+t+".");return}this.plugins.push(t);t.swup=this;if(typeof t._beforeMount==="function"){t._beforeMount()}t.mount();return this.plugins};var i=t.unuse=function e(t){var n=void 0;if(typeof t==="string"){n=this.plugins.find(function(e){return t===e.name})}else{n=t}if(!n){console.warn("No such plugin.");return}n.unmount();if(typeof n._afterUnmount==="function"){n._afterUnmount()}var r=this.plugins.indexOf(n);this.plugins.splice(r,1);return this.plugins};var a=t.findPlugin=function e(t){return this.plugins.find(function(e){return t===e.name})}}])});
+
+/**
+ * what-input - A global utility for tracking the current input method (mouse, keyboard or touch).
+ * @version v5.1.3
+ * @link https://github.com/ten1seven/what-input
+ * @license MIT
+ */
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define("whatInput", [], factory);
+	else if(typeof exports === 'object')
+		exports["whatInput"] = factory();
+	else
+		root["whatInput"] = factory();
+})(this, function() {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+
+
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	module.exports = function () {
+	  /*
+	   * bail out if there is no document or window
+	   * (i.e. in a node/non-DOM environment)
+	   *
+	   * Return a stubbed API instead
+	   */
+	  if (typeof document === 'undefined' || typeof window === 'undefined') {
+	    return {
+	      // always return "initial" because no interaction will ever be detected
+	      ask: function ask() {
+	        return 'initial';
+	      },
+
+	      // always return null
+	      element: function element() {
+	        return null;
+	      },
+
+	      // no-op
+	      ignoreKeys: function ignoreKeys() {},
+
+	      // no-op
+	      specificKeys: function specificKeys() {},
+
+	      // no-op
+	      registerOnChange: function registerOnChange() {},
+
+	      // no-op
+	      unRegisterOnChange: function unRegisterOnChange() {}
+	    };
+	  }
+
+	  /*
+	   * variables
+	   */
+
+	  // cache document.documentElement
+	  var docElem = document.documentElement;
+
+	  // currently focused dom element
+	  var currentElement = null;
+
+	  // last used input type
+	  var currentInput = 'initial';
+
+	  // last used input intent
+	  var currentIntent = currentInput;
+
+	  // check for sessionStorage support
+	  // then check for session variables and use if available
+	  try {
+	    if (window.sessionStorage.getItem('what-input')) {
+	      currentInput = window.sessionStorage.getItem('what-input');
+	    }
+
+	    if (window.sessionStorage.getItem('what-intent')) {
+	      currentIntent = window.sessionStorage.getItem('what-intent');
+	    }
+	  } catch (e) {}
+
+	  // event buffer timer
+	  var eventTimer = null;
+
+	  // form input types
+	  var formInputs = ['input', 'select', 'textarea'];
+
+	  // empty array for holding callback functions
+	  var functionList = [];
+
+	  // list of modifier keys commonly used with the mouse and
+	  // can be safely ignored to prevent false keyboard detection
+	  var ignoreMap = [16, // shift
+	  17, // control
+	  18, // alt
+	  91, // Windows key / left Apple cmd
+	  93 // Windows menu / right Apple cmd
+	  ];
+
+	  var specificMap = [];
+
+	  // mapping of events to input types
+	  var inputMap = {
+	    keydown: 'keyboard',
+	    keyup: 'keyboard',
+	    mousedown: 'mouse',
+	    mousemove: 'mouse',
+	    MSPointerDown: 'pointer',
+	    MSPointerMove: 'pointer',
+	    pointerdown: 'pointer',
+	    pointermove: 'pointer',
+	    touchstart: 'touch'
+
+	    // boolean: true if touch buffer is active
+	  };var isBuffering = false;
+
+	  // boolean: true if the page is being scrolled
+	  var isScrolling = false;
+
+	  // store current mouse position
+	  var mousePos = {
+	    x: null,
+	    y: null
+
+	    // map of IE 10 pointer events
+	  };var pointerMap = {
+	    2: 'touch',
+	    3: 'touch', // treat pen like touch
+	    4: 'mouse'
+
+	    // check support for passive event listeners
+	  };var supportsPassive = false;
+
+	  try {
+	    var opts = Object.defineProperty({}, 'passive', {
+	      get: function get() {
+	        supportsPassive = true;
+	      }
+	    });
+
+	    window.addEventListener('test', null, opts);
+	  } catch (e) {}
+
+	  /*
+	   * set up
+	   */
+
+	  var setUp = function setUp() {
+	    // add correct mouse wheel event mapping to `inputMap`
+	    inputMap[detectWheel()] = 'mouse';
+
+	    addListeners();
+	    doUpdate('input');
+	    doUpdate('intent');
+	  };
+
+	  /*
+	   * events
+	   */
+
+	  var addListeners = function addListeners() {
+	    // `pointermove`, `MSPointerMove`, `mousemove` and mouse wheel event binding
+	    // can only demonstrate potential, but not actual, interaction
+	    // and are treated separately
+	    var options = supportsPassive ? { passive: true } : false;
+
+	    // pointer events (mouse, pen, touch)
+	    if (window.PointerEvent) {
+	      window.addEventListener('pointerdown', setInput);
+	      window.addEventListener('pointermove', setIntent);
+	    } else if (window.MSPointerEvent) {
+	      window.addEventListener('MSPointerDown', setInput);
+	      window.addEventListener('MSPointerMove', setIntent);
+	    } else {
+	      // mouse events
+	      window.addEventListener('mousedown', setInput);
+	      window.addEventListener('mousemove', setIntent);
+
+	      // touch events
+	      if ('ontouchstart' in window) {
+	        window.addEventListener('touchstart', eventBuffer, options);
+	        window.addEventListener('touchend', setInput);
+	      }
+	    }
+
+	    // mouse wheel
+	    window.addEventListener(detectWheel(), setIntent, options);
+
+	    // keyboard events
+	    window.addEventListener('keydown', eventBuffer);
+	    window.addEventListener('keyup', eventBuffer);
+
+	    // focus events
+	    window.addEventListener('focusin', setElement);
+	    window.addEventListener('focusout', clearElement);
+	  };
+
+	  // checks conditions before updating new input
+	  var setInput = function setInput(event) {
+	    // only execute if the event buffer timer isn't running
+	    if (!isBuffering) {
+	      var eventKey = event.which;
+	      var value = inputMap[event.type];
+
+	      if (value === 'pointer') {
+	        value = pointerType(event);
+	      }
+
+	      var ignoreMatch = !specificMap.length && ignoreMap.indexOf(eventKey) === -1;
+
+	      var specificMatch = specificMap.length && specificMap.indexOf(eventKey) !== -1;
+
+	      var shouldUpdate = value === 'keyboard' && eventKey && (ignoreMatch || specificMatch) || value === 'mouse' || value === 'touch';
+
+	      if (currentInput !== value && shouldUpdate) {
+	        currentInput = value;
+
+	        try {
+	          window.sessionStorage.setItem('what-input', currentInput);
+	        } catch (e) {}
+
+	        doUpdate('input');
+	      }
+
+	      if (currentIntent !== value && shouldUpdate) {
+	        // preserve intent for keyboard typing in form fields
+	        var activeElem = document.activeElement;
+	        var notFormInput = activeElem && activeElem.nodeName && formInputs.indexOf(activeElem.nodeName.toLowerCase()) === -1;
+
+	        if (notFormInput) {
+	          currentIntent = value;
+
+	          try {
+	            window.sessionStorage.setItem('what-intent', currentIntent);
+	          } catch (e) {}
+
+	          doUpdate('intent');
+	        }
+	      }
+	    }
+	  };
+
+	  // updates the doc and `inputTypes` array with new input
+	  var doUpdate = function doUpdate(which) {
+	    docElem.setAttribute('data-what' + which, which === 'input' ? currentInput : currentIntent);
+
+	    fireFunctions(which);
+	  };
+
+	  // updates input intent for `mousemove` and `pointermove`
+	  var setIntent = function setIntent(event) {
+	    // test to see if `mousemove` happened relative to the screen to detect scrolling versus mousemove
+	    detectScrolling(event);
+
+	    // only execute if the event buffer timer isn't running
+	    // or scrolling isn't happening
+	    if (!isBuffering && !isScrolling) {
+	      var value = inputMap[event.type];
+	      if (value === 'pointer') {
+	        value = pointerType(event);
+	      }
+
+	      if (currentIntent !== value) {
+	        currentIntent = value;
+
+	        try {
+	          window.sessionStorage.setItem('what-intent', currentIntent);
+	        } catch (e) {}
+
+	        doUpdate('intent');
+	      }
+	    }
+	  };
+
+	  var setElement = function setElement(event) {
+	    if (!event.target.nodeName) {
+	      // If nodeName is undefined, clear the element
+	      // This can happen if click inside an <svg> element.
+	      clearElement();
+	      return;
+	    }
+
+	    currentElement = event.target.nodeName.toLowerCase();
+	    docElem.setAttribute('data-whatelement', currentElement);
+
+	    if (event.target.classList && event.target.classList.length) {
+	      docElem.setAttribute('data-whatclasses', event.target.classList.toString().replace(' ', ','));
+	    }
+	  };
+
+	  var clearElement = function clearElement() {
+	    currentElement = null;
+
+	    docElem.removeAttribute('data-whatelement');
+	    docElem.removeAttribute('data-whatclasses');
+	  };
+
+	  // buffers events that frequently also fire mouse events
+	  var eventBuffer = function eventBuffer(event) {
+	    // set the current input
+	    setInput(event);
+
+	    // clear the timer if it happens to be running
+	    window.clearTimeout(eventTimer);
+
+	    // set the isBuffering to `true`
+	    isBuffering = true;
+
+	    // run the timer
+	    eventTimer = window.setTimeout(function () {
+	      // if the timer runs out, set isBuffering back to `false`
+	      isBuffering = false;
+	    }, 100);
+	  };
+
+	  /*
+	   * utilities
+	   */
+
+	  var pointerType = function pointerType(event) {
+	    if (typeof event.pointerType === 'number') {
+	      return pointerMap[event.pointerType];
+	    } else {
+	      // treat pen like touch
+	      return event.pointerType === 'pen' ? 'touch' : event.pointerType;
+	    }
+	  };
+
+	  // detect version of mouse wheel event to use
+	  // via https://developer.mozilla.org/en-US/docs/Web/Events/wheel
+	  var detectWheel = function detectWheel() {
+	    var wheelType = void 0;
+
+	    // Modern browsers support "wheel"
+	    if ('onwheel' in document.createElement('div')) {
+	      wheelType = 'wheel';
+	    } else {
+	      // Webkit and IE support at least "mousewheel"
+	      // or assume that remaining browsers are older Firefox
+	      wheelType = document.onmousewheel !== undefined ? 'mousewheel' : 'DOMMouseScroll';
+	    }
+
+	    return wheelType;
+	  };
+
+	  // runs callback functions
+	  var fireFunctions = function fireFunctions(type) {
+	    for (var i = 0, len = functionList.length; i < len; i++) {
+	      if (functionList[i].type === type) {
+	        functionList[i].fn.call(undefined, type === 'input' ? currentInput : currentIntent);
+	      }
+	    }
+	  };
+
+	  // finds matching element in an object
+	  var objPos = function objPos(match) {
+	    for (var i = 0, len = functionList.length; i < len; i++) {
+	      if (functionList[i].fn === match) {
+	        return i;
+	      }
+	    }
+	  };
+
+	  var detectScrolling = function detectScrolling(event) {
+	    if (mousePos['x'] !== event.screenX || mousePos['y'] !== event.screenY) {
+	      isScrolling = false;
+
+	      mousePos['x'] = event.screenX;
+	      mousePos['y'] = event.screenY;
+	    } else {
+	      isScrolling = true;
+	    }
+	  };
+
+	  /*
+	   * init
+	   */
+
+	  // don't start script unless browser cuts the mustard
+	  // (also passes if polyfills are used)
+	  if ('addEventListener' in window && Array.prototype.indexOf) {
+	    setUp();
+	  }
+
+	  /*
+	   * api
+	   */
+
+	  return {
+	    // returns string: the current input type
+	    // opt: 'intent'|'input'
+	    // 'input' (default): returns the same value as the `data-whatinput` attribute
+	    // 'intent': includes `data-whatintent` value if it's different than `data-whatinput`
+	    ask: function ask(opt) {
+	      return opt === 'intent' ? currentIntent : currentInput;
+	    },
+
+	    // returns string: the currently focused element or null
+	    element: function element() {
+	      return currentElement;
+	    },
+
+	    // overwrites ignored keys with provided array
+	    ignoreKeys: function ignoreKeys(arr) {
+	      ignoreMap = arr;
+	    },
+
+	    // overwrites specific char keys to update on
+	    specificKeys: function specificKeys(arr) {
+	      specificMap = arr;
+	    },
+
+	    // attach functions to input and intent "events"
+	    // funct: function to fire on change
+	    // eventType: 'input'|'intent'
+	    registerOnChange: function registerOnChange(fn, eventType) {
+	      functionList.push({
+	        fn: fn,
+	        type: eventType || 'input'
+	      });
+	    },
+
+	    unRegisterOnChange: function unRegisterOnChange(fn) {
+	      var position = objPos(fn);
+
+	      if (position || position === 0) {
+	        functionList.splice(position, 1);
+	      }
+	    }
+	  };
+	}();
+
+/***/ })
+/******/ ])
+});
+;
+/*! WOW - v1.1.2 - 2016-04-08
+* Copyright (c) 2016 Matthieu Aussaguel;*/(function(){var a,b,c,d,e,f=function(a,b){return function(){return a.apply(b,arguments)}},g=[].indexOf||function(a){for(var b=0,c=this.length;c>b;b++)if(b in this&&this[b]===a)return b;return-1};b=function(){function a(){}return a.prototype.extend=function(a,b){var c,d;for(c in b)d=b[c],null==a[c]&&(a[c]=d);return a},a.prototype.isMobile=function(a){return/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(a)},a.prototype.createEvent=function(a,b,c,d){var e;return null==b&&(b=!1),null==c&&(c=!1),null==d&&(d=null),null!=document.createEvent?(e=document.createEvent("CustomEvent"),e.initCustomEvent(a,b,c,d)):null!=document.createEventObject?(e=document.createEventObject(),e.eventType=a):e.eventName=a,e},a.prototype.emitEvent=function(a,b){return null!=a.dispatchEvent?a.dispatchEvent(b):b in(null!=a)?a[b]():"on"+b in(null!=a)?a["on"+b]():void 0},a.prototype.addEvent=function(a,b,c){return null!=a.addEventListener?a.addEventListener(b,c,!1):null!=a.attachEvent?a.attachEvent("on"+b,c):a[b]=c},a.prototype.removeEvent=function(a,b,c){return null!=a.removeEventListener?a.removeEventListener(b,c,!1):null!=a.detachEvent?a.detachEvent("on"+b,c):delete a[b]},a.prototype.innerHeight=function(){return"innerHeight"in window?window.innerHeight:document.documentElement.clientHeight},a}(),c=this.WeakMap||this.MozWeakMap||(c=function(){function a(){this.keys=[],this.values=[]}return a.prototype.get=function(a){var b,c,d,e,f;for(f=this.keys,b=d=0,e=f.length;e>d;b=++d)if(c=f[b],c===a)return this.values[b]},a.prototype.set=function(a,b){var c,d,e,f,g;for(g=this.keys,c=e=0,f=g.length;f>e;c=++e)if(d=g[c],d===a)return void(this.values[c]=b);return this.keys.push(a),this.values.push(b)},a}()),a=this.MutationObserver||this.WebkitMutationObserver||this.MozMutationObserver||(a=function(){function a(){"undefined"!=typeof console&&null!==console&&console.warn("MutationObserver is not supported by your browser."),"undefined"!=typeof console&&null!==console&&console.warn("WOW.js cannot detect dom mutations, please call .sync() after loading new content.")}return a.notSupported=!0,a.prototype.observe=function(){},a}()),d=this.getComputedStyle||function(a,b){return this.getPropertyValue=function(b){var c;return"float"===b&&(b="styleFloat"),e.test(b)&&b.replace(e,function(a,b){return b.toUpperCase()}),(null!=(c=a.currentStyle)?c[b]:void 0)||null},this},e=/(\-([a-z]){1})/g,this.WOW=function(){function e(a){null==a&&(a={}),this.scrollCallback=f(this.scrollCallback,this),this.scrollHandler=f(this.scrollHandler,this),this.resetAnimation=f(this.resetAnimation,this),this.start=f(this.start,this),this.scrolled=!0,this.config=this.util().extend(a,this.defaults),null!=a.scrollContainer&&(this.config.scrollContainer=document.querySelector(a.scrollContainer)),this.animationNameCache=new c,this.wowEvent=this.util().createEvent(this.config.boxClass)}return e.prototype.defaults={boxClass:"wow",animateClass:"animated",offset:0,mobile:!0,live:!0,callback:null,scrollContainer:null},e.prototype.init=function(){var a;return this.element=window.document.documentElement,"interactive"===(a=document.readyState)||"complete"===a?this.start():this.util().addEvent(document,"DOMContentLoaded",this.start),this.finished=[]},e.prototype.start=function(){var b,c,d,e;if(this.stopped=!1,this.boxes=function(){var a,c,d,e;for(d=this.element.querySelectorAll("."+this.config.boxClass),e=[],a=0,c=d.length;c>a;a++)b=d[a],e.push(b);return e}.call(this),this.all=function(){var a,c,d,e;for(d=this.boxes,e=[],a=0,c=d.length;c>a;a++)b=d[a],e.push(b);return e}.call(this),this.boxes.length)if(this.disabled())this.resetStyle();else for(e=this.boxes,c=0,d=e.length;d>c;c++)b=e[c],this.applyStyle(b,!0);return this.disabled()||(this.util().addEvent(this.config.scrollContainer||window,"scroll",this.scrollHandler),this.util().addEvent(window,"resize",this.scrollHandler),this.interval=setInterval(this.scrollCallback,50)),this.config.live?new a(function(a){return function(b){var c,d,e,f,g;for(g=[],c=0,d=b.length;d>c;c++)f=b[c],g.push(function(){var a,b,c,d;for(c=f.addedNodes||[],d=[],a=0,b=c.length;b>a;a++)e=c[a],d.push(this.doSync(e));return d}.call(a));return g}}(this)).observe(document.body,{childList:!0,subtree:!0}):void 0},e.prototype.stop=function(){return this.stopped=!0,this.util().removeEvent(this.config.scrollContainer||window,"scroll",this.scrollHandler),this.util().removeEvent(window,"resize",this.scrollHandler),null!=this.interval?clearInterval(this.interval):void 0},e.prototype.sync=function(b){return a.notSupported?this.doSync(this.element):void 0},e.prototype.doSync=function(a){var b,c,d,e,f;if(null==a&&(a=this.element),1===a.nodeType){for(a=a.parentNode||a,e=a.querySelectorAll("."+this.config.boxClass),f=[],c=0,d=e.length;d>c;c++)b=e[c],g.call(this.all,b)<0?(this.boxes.push(b),this.all.push(b),this.stopped||this.disabled()?this.resetStyle():this.applyStyle(b,!0),f.push(this.scrolled=!0)):f.push(void 0);return f}},e.prototype.show=function(a){return this.applyStyle(a),a.className=a.className+" "+this.config.animateClass,null!=this.config.callback&&this.config.callback(a),this.util().emitEvent(a,this.wowEvent),this.util().addEvent(a,"animationend",this.resetAnimation),this.util().addEvent(a,"oanimationend",this.resetAnimation),this.util().addEvent(a,"webkitAnimationEnd",this.resetAnimation),this.util().addEvent(a,"MSAnimationEnd",this.resetAnimation),a},e.prototype.applyStyle=function(a,b){var c,d,e;return d=a.getAttribute("data-wow-duration"),c=a.getAttribute("data-wow-delay"),e=a.getAttribute("data-wow-iteration"),this.animate(function(f){return function(){return f.customStyle(a,b,d,c,e)}}(this))},e.prototype.animate=function(){return"requestAnimationFrame"in window?function(a){return window.requestAnimationFrame(a)}:function(a){return a()}}(),e.prototype.resetStyle=function(){var a,b,c,d,e;for(d=this.boxes,e=[],b=0,c=d.length;c>b;b++)a=d[b],e.push(a.style.visibility="visible");return e},e.prototype.resetAnimation=function(a){var b;return a.type.toLowerCase().indexOf("animationend")>=0?(b=a.target||a.srcElement,b.className=b.className.replace(this.config.animateClass,"").trim()):void 0},e.prototype.customStyle=function(a,b,c,d,e){return b&&this.cacheAnimationName(a),a.style.visibility=b?"hidden":"visible",c&&this.vendorSet(a.style,{animationDuration:c}),d&&this.vendorSet(a.style,{animationDelay:d}),e&&this.vendorSet(a.style,{animationIterationCount:e}),this.vendorSet(a.style,{animationName:b?"none":this.cachedAnimationName(a)}),a},e.prototype.vendors=["moz","webkit"],e.prototype.vendorSet=function(a,b){var c,d,e,f;d=[];for(c in b)e=b[c],a[""+c]=e,d.push(function(){var b,d,g,h;for(g=this.vendors,h=[],b=0,d=g.length;d>b;b++)f=g[b],h.push(a[""+f+c.charAt(0).toUpperCase()+c.substr(1)]=e);return h}.call(this));return d},e.prototype.vendorCSS=function(a,b){var c,e,f,g,h,i;for(h=d(a),g=h.getPropertyCSSValue(b),f=this.vendors,c=0,e=f.length;e>c;c++)i=f[c],g=g||h.getPropertyCSSValue("-"+i+"-"+b);return g},e.prototype.animationName=function(a){var b;try{b=this.vendorCSS(a,"animation-name").cssText}catch(c){b=d(a).getPropertyValue("animation-name")}return"none"===b?"":b},e.prototype.cacheAnimationName=function(a){return this.animationNameCache.set(a,this.animationName(a))},e.prototype.cachedAnimationName=function(a){return this.animationNameCache.get(a)},e.prototype.scrollHandler=function(){return this.scrolled=!0},e.prototype.scrollCallback=function(){var a;return!this.scrolled||(this.scrolled=!1,this.boxes=function(){var b,c,d,e;for(d=this.boxes,e=[],b=0,c=d.length;c>b;b++)a=d[b],a&&(this.isVisible(a)?this.show(a):e.push(a));return e}.call(this),this.boxes.length||this.config.live)?void 0:this.stop()},e.prototype.offsetTop=function(a){for(var b;void 0===a.offsetTop;)a=a.parentNode;for(b=a.offsetTop;a=a.offsetParent;)b+=a.offsetTop;return b},e.prototype.isVisible=function(a){var b,c,d,e,f;return c=a.getAttribute("data-wow-offset")||this.config.offset,f=this.config.scrollContainer&&this.config.scrollContainer.scrollTop||window.pageYOffset,e=f+Math.min(this.element.clientHeight,this.util().innerHeight())-c,d=this.offsetTop(a),b=d+a.clientHeight,e>=d&&b>=f},e.prototype.util=function(){return null!=this._util?this._util:this._util=new b},e.prototype.disabled=function(){return!this.config.mobile&&this.util().isMobile(navigator.userAgent)},e}()}).call(this);

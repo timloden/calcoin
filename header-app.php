@@ -15,6 +15,8 @@ if ( !is_user_logged_in() ) {
 
 $user = wp_get_current_user();
 $user_id = $user->ID;
+
+global $address;
 $address = get_field('wallet_address', 'user_' . $user_id);
 
 ?>

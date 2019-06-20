@@ -95,11 +95,15 @@ new WOW().init();
 (function ($) {
 
 	$(document).ready(function() {
+		walletAddress = '<?php echo esc_attr($address); ?>';
+		balance = getBalance(walletAddress);
 
-		setTimeout( function() {
-		    $('.odometer').html(100000);
-		}, 0);
-
+		balance.then((value) => {
+			//console.log('in page: ' + value);
+			setTimeout( function() {
+		    	$('.odometer').html(value);
+			}, 0);
+		});
 	});
 
 })(jQuery);

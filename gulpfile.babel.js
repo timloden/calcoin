@@ -258,6 +258,9 @@ gulp.task( 'customJS', () => {
 							targets: { browsers: config.BROWSERS_LIST } // Target browser list to support.
 						}
 					]
+				],
+				plugins: [
+					'@babel/plugin-transform-runtime',
 				]
 			})
 		)

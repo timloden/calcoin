@@ -1,10 +1,11 @@
 "use strict";
 
 // Blockchain endpoint
+// connection variables
 var url = "https://calcoin.blockchain.azure.com:3200/2eR_wZ-TYGrZ46Tcrp4WJFuM";
-var provider = new ethers.providers.JsonRpcProvider(url); //console.log(provider);
+var provider = new ethers.providers.JsonRpcProvider(url);
+var signer = provider.getSigner(0); //contract abi
 
-var signer = provider.getSigner(0);
 var abi = [{
   "constant": false,
   "inputs": [{
@@ -396,22 +397,16 @@ var abi = [{
   "payable": false,
   "stateMutability": "view",
   "type": "function"
-}];
-var contractAddress = "0xD417B4D1E6ba919ec4640C159Fe3097794f67254"; //let contract = new ethers.Contract(contractAddress, abi, provider);
-//let balance = contract.balanceOf('0x84554f3B06b94673b36A0352fC100D6ce7F3AE80');
-//console.log(balance);
+}]; // contract variables
 
-var privateKey = '0xF4DACEFDCFD9196040BA6EB35156CE8E7EE3C199E162B370448037020B49FC40';
-var wallet = new ethers.Wallet(privateKey, provider);
-var balancePromise = wallet.getBalance();
-balancePromise.then(function (balance) {
-  //console.log(ethers.Utils.bigNumberify(balance));
-  console.log(balance);
-});
-var transactionCountPromise = wallet.getTransactionCount();
-transactionCountPromise.then(function (transactionCount) {
-  console.log(transactionCount);
-}); // create wallet
+var contractAddress = "0x22B6fc253CE1066448a32e59a698e760D181cd76";
+var contract = new ethers.Contract(contractAddress, abi, provider); //let privateKey = '0xF4DACEFDCFD9196040BA6EB35156CE8E7EE3C199E162B370448037020B49FC40';
+//let wallet = new ethers.Wallet(privateKey, provider);
+//let transactionCountPromise = wallet.getTransactionCount();
+// transactionCountPromise.then((transactionCount) => {
+//     console.log(transactionCount);
+// });
+// create wallet
 
 function createWallet() {
   var randomWallet = ethers.Wallet.createRandom(); //let tempPrivateKey = '0xa2f67698c270a8fc0bbd2bc6a3af4a20b13810e1b4077c78f9cc98aa1056b7b1';
@@ -420,8 +415,60 @@ function createWallet() {
   console.log(walletWithProvider);
   $(".address").html(randomWallet.address);
   $(".key").html(randomWallet.privateKey);
-} // function getBalance() {
-// }
+} // get wallet calcoin balance
+
+
+function getBalance(targetAddress) {
+  //test address let targetAddress = "0xe58bdddb1da06a9bf6c47d25069007e4fcec46b9";
+  var balancePromise = contract.balanceOf(targetAddress);
+  var Balance = balancePromise.then(function (balance) {
+    var currentBalance = balance.toString();
+    return currentBalance;
+  }, function (reason) {
+    console.log('No balance found for: ' + targetAddress);
+  });
+  return Balance;
+}
+
+var myAddress = '0xe58bdddb1da06a9bf6c47d25069007e4fcec46b9'; // A filter from me to anyone
+
+var filterFromMe = contract.filters.Transfer(myAddress); //console.log(filterFromMe);
+// A filter from anyone to me
+
+var filterToMe = contract.filters.Transfer(null, myAddress);
+console.log(filterToMe); // A filter from me AND to me
+
+var filterFromMeToMe = contract.filters.Transfer(myAddress, myAddress);
+contract.on(filterFromMe, function (fromAddress, toAddress, value, event) {
+  console.log('I sent', value);
+});
+contract.on(filterToMe, function (fromAddress, toAddress, value, event) {
+  console.log('I received', value);
+});
+contract.on(filterFromMeToMe, function (fromAddress, toAddress, value, event) {
+  console.log('Myself to me', value);
+});
+
+function getAllTransactions(targetAddress) {}
+
+function sendCoins(toAddress) {// contract function: transfer
+}
+
+function sendToken(req, res, wallet, abi, ico_address) {
+  var to = req.query.to;
+  var amount = req.query.amount; //var contract = new ethers.Contract(ico_address, abi, wallet);
+  // How many tokens?
+
+  var numberOfDecimals = 18;
+  var numberOfTokens = ethers.utils.parseUnits(amount, numberOfDecimals); // Send tokens
+
+  contract.transfer(to, numberOfTokens).then(function (transaction) {
+    res.send(transaction);
+  }).catch(function (e) {
+    res.status(400);
+    res.send(e.responseText);
+  });
+}
 "use strict";
 
 // Init foundation

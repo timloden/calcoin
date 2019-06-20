@@ -28,6 +28,21 @@ get_header();
 	</div>
 </div>
 
+<script>
+    let randomWallet = ethers.Wallet.createRandom();
+
+	//let walletWithProvider = new ethers.Wallet(randomWallet.privateKey, provider);
+
+	//console.log(walletWithProvider);
+
+	jQuery( ".address input" ).val(randomWallet.address);
+	jQuery( ".key input" ).val(randomWallet.privateKey);
+
+	jQuery(document).bind("gform_confirmation_loaded", function (e, form_id) {
+		createWallet(randomWallet.privateKey);
+	});
+</script>
+
 <?php
 
 get_footer();

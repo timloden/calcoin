@@ -32,24 +32,19 @@ let contract = new ethers.Contract(contractAddress, abi, provider);
 
 // create wallet
 
-function createWallet() {
+function createWallet(privateKey) {
 
-	let randomWallet = ethers.Wallet.createRandom();
+	//let randomWallet = ethers.Wallet.createRandom();
 
-	//let tempPrivateKey = '0xa2f67698c270a8fc0bbd2bc6a3af4a20b13810e1b4077c78f9cc98aa1056b7b1';
-
-	let walletWithProvider = new ethers.Wallet(tempPrivateKey, provider);
-
-	console.log(walletWithProvider);
-
-	$( ".address" ).html(randomWallet.address);
-	$( ".key" ).html(randomWallet.privateKey);
+	let walletWithProvider = new ethers.Wallet(privateKey, provider);
 }
 
 // get wallet calcoin balance
 
 function getBalance(targetAddress) {
-	//test address let targetAddress = "0xe58bdddb1da06a9bf6c47d25069007e4fcec46b9";
+	// test address (4000 balance) 0xe58bdddb1da06a9bf6c47d25069007e4fcec46b9
+	// new wallet 0xF2FC7E11542f4701EDD460690BCAdA42613FB600
+
 	const balancePromise = contract.balanceOf(targetAddress);
 
 	let Balance = balancePromise.then((balance) => {
@@ -82,13 +77,16 @@ let filterFromMe = contract.filters.Transfer(myAddress);
 // A filter from anyone to me
 let filterToMe = contract.filters.Transfer(null, myAddress);
 
-console.log(filterToMe);
+//console.log(filterToMe);
 
 
 
 
 // A filter from me AND to me
 let filterFromMeToMe = contract.filters.Transfer(myAddress, myAddress);
+
+//console.log(filterFromMeToMe.topics);
+
 
 contract.on(filterFromMe, (fromAddress, toAddress, value, event) => {
     console.log('I sent', value);
@@ -114,22 +112,77 @@ function sendCoins(toAddress) {
 	// contract function: transfer
 }
 
-function sendToken(req, res, wallet, abi, ico_address) {
-  var to = req.query.to;
-  var amount = req.query.amount;
+function sendToken() {
 
-  //var contract = new ethers.Contract(ico_address, abi, wallet);
+	var fromAddress = document.getElementById('from-address').value;
+	var fromPrivateKey = document.getElementById('from-private-key').value;
 
-  // How many tokens?
-  var numberOfDecimals = 18;
-  var numberOfTokens = ethers.utils.parseUnits(amount, numberOfDecimals);
+	var targetAddress = document.getElementById('cam-qr-result').value;
+	var amount = document.getElementById('coin-amount').value;
 
-  // Send tokens
-  contract.transfer(to, numberOfTokens).then(function(transaction) {
-    res.send(transaction);
-  })
-  .catch(function(e){
-    res.status(400);
-    res.send(e.responseText);
-  })
+	var wallet = new ethers.Wallet(fromPrivateKey, provider);
+
+	var contract = new ethers.Contract(contractAddress, abi, wallet);
+
+	// How many tokens?
+	//var numberOfDecimals = 18;
+	//var numberOfTokens = ethers.utils.parseUnits(amount, numberOfDecimals);
+
+	// Listen for Transfer events (triggered after the transaction)
+
+	contract.ontransfer = function(from, to, amount) {
+	    //var text = ethers.utils.formatEther(amount);
+	    console.log("Transfer");
+	    console.log("  From:   ", from);
+	    console.log("  To:     ", to);
+	    console.log("  Amount: ", text);
+
+	    // Transfer
+	    //  From:   0x59DEa134510ebce4a0c7146595dc8A61Eb9D0D79
+	    //  To:     0x851b9167B7cbf772D38eFaf89705b35022880A07
+	    //  Amount: 1.0
+	}
+	// Get the balance of the wallet before the transfer
+	contract.balanceOf(wallet.address).then(function(balance) {
+	    var text = ethers.utils.formatEther(balance);
+	    console.log("Balance Before:", text);
+
+	    // Balance Before: 3.141592653589793238
+	})
+
+	// Transfer 1.0 token to another address (we have 18 decimals)
+	//var targetAddress = "0x851b9167B7cbf772D38eFaf89705b35022880A07";
+
+	//var amount = ethers.utils.parseUnits('1.0', 18);
+	contract.transfer(targetAddress, amount).then(function(tx) {
+	    // Show the pending transaction
+	    console.log(tx);
+	    // {
+	    //     hash: 0x820cc57bc7...0dbe181ba1,
+	    //     gasPrice: BigNumber("0x2540be400"),
+	    //     gasLimit: BigNumber("0x16e360"),
+	    //     value: BigNumber("0x0"),
+	    //     data: "0xa9059cbb" +
+	    //           "000000000000000000000000851b9167" +
+	    //           "b7cbf772d38efaf89705b35022880a07" +
+	    //           "00000000000000000000000000000000" +
+	    //           "00000000000000000de0b6b3a7640000",
+	    //     to: "0x334eec1482109Bd802D9e72A447848de3bCc1063",
+	    //     v: 37,
+	    //     r: "0x3fce72962a...a19b611de2",
+	    //     s: "0x16f9b70010...0b67a5d396",
+	    //     chainId: 1
+	    //     from: "0x59DEa134510ebce4a0c7146595dc8A61Eb9D0D79"
+	    // }
+	    // Wait until the transaction is mined...
+	    return tx.wait();
+	}).then(function(tx) {
+	    console.log('Mined Transaction in block: ', tx.blockNumber);
+	    // Get the balance of the wallet after the transfer
+	    contract.balanceOf(wallet.address).then(function(balance) {
+	        var text = ethers.utils.formatUnits(balance, 18);
+	        console.log("Balance After:", text);
+	        // Balance After: 2.141592653589793238
+	    })
+	});
 }

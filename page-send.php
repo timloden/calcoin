@@ -8,6 +8,11 @@
  */
 
 get_header('app');
+$user = wp_get_current_user();
+$user_id = $user->ID;
+
+$private_key = get_field('private_key', 'user_' . $user_id);
+
 ?>
 <!--
 <div>
@@ -21,7 +26,7 @@ get_header('app');
 <script type="module">
     import QrScanner from "/wp-content/themes/calcoin/assets/js/vendor/lib/qr-scanner.min.js";
     QrScanner.WORKER_PATH = '/wp-content/themes/calcoin/assets/js/vendor/lib/qr-scanner-worker.min.js';
-    
+
     const video = document.getElementById('qr-video');
     const camQrResult = document.getElementById('cam-qr-result');
 
@@ -30,19 +35,19 @@ get_header('app');
     }
 
     const scanner = new QrScanner(video, result => setResult(camQrResult, result));
-    
+
     let camera = document.getElementById('scanner');
-        
+
     document.getElementById('open-camera').addEventListener('click', ()=> {
-	    
+
 	    camera.classList.add('animated', 'fadeIn', 'faster');
 	    scanner.start();
 	});
-	
+
 	document.getElementById('close-camera').addEventListener('click', ()=> {
-	    
+
 	    camera.classList.remove('animated', 'fadeIn', 'faster');
-	    
+
 	});
 </script>
 
@@ -67,17 +72,19 @@ get_header('app');
 				<form>
 					<label>Send to:</label>
 					<div class="send-to-field">
-						<input id="cam-qr-result" class="send-address" type="text" placeholder="0x4B4D...">
+						<input type="hidden" value="<?php echo esc_attr($private_key); ?>" id="from-private-key">
+						<input type="hidden" value="<?php echo esc_attr($address); ?>" id="from-address">
+						<input id="cam-qr-result" class="send-address" type="text" placeholder="0x4B4D..." value="0xF2FC7E11542f4701EDD460690BCAdA42613FB600">
 						<a id="open-camera" class="button small open-camera"><i class="la la-camera"></i></a>
 					</div>
 
 					<div class="send-amount">
 						<label>How much do you want to send?</label>
-						<input type="text" placeholder="0">
+						<input id="coin-amount" type="text" placeholder="0" value="100">
 					</div>
 				</form>
 				<div class="button-container single-button">
-					<a class="button button-primary" href="/send">Send CalCoin <i class="la la-money"></i></a>
+					<a href="#" onclick="sendToken()" class="button button-primary" href="/send">Send CalCoin <i class="la la-money"></i></a>
 				</div>
 			</div>
 
@@ -87,21 +94,7 @@ get_header('app');
 </div>
 
 <script>
-/*
-(function ($) {
-	$( '.open-camera' ).click(function() {
-		$('.scanner').toggle().addClass('animated fadeIn faster');
-	});
 
-	$( '.close-camera' ).click(function() {
-		$('.scanner').hide();
-		$('#reader').html5_qrcode_stop();
-	});
-
-
-
-})(jQuery);
-*/
 </script>
 
  <?php

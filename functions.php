@@ -117,6 +117,24 @@ function dw_show_confirmation_and_form( $form ) {
 	return $form;
 }
 
+/* Gravity forms login after signup
+--------------------------------------------------------------------------------------*/
+
+add_action( 'gform_user_registered', 'vc_gf_registration_autologin',  10, 4 );
+
+function vc_gf_registration_autologin( $user_id, $user_config, $entry, $password ) {
+	$user = get_userdata( $user_id );
+	$user_login = $user->user_login;
+	$user_password = $password;
+
+	wp_signon( array(
+	'user_login' => $user_login,
+	'user_password' =>  $user_password,
+	'remember' => false
+
+	) );
+}
+
 
 /* Custom login
 --------------------------------------------------------------------------------------*/
@@ -159,6 +177,7 @@ function logout_redirect() {
 	exit;
 }
 add_action('wp_logout','logout_redirect');
+
 
 /* If user is subscriber role, send them to the dashboard on login
 --------------------------------------------------------------------------------------*/

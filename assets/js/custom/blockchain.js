@@ -134,10 +134,6 @@ function sendToken() {
 
 	var contract = new ethers.Contract(contractAddress, abi, wallet);
 
-	// How many tokens?
-	//var numberOfDecimals = 18;
-	//var numberOfTokens = ethers.utils.parseUnits(amount, numberOfDecimals);
-
 	// Listen for Transfer events (triggered after the transaction)
 
 	contract.ontransfer = function(from, to, amount) {
@@ -188,8 +184,6 @@ function sendToken() {
 
 	    return tx.wait();
 	}).then(function(tx) {
-
-
 	    console.log('Mined Transaction in block: ', tx.blockNumber);
 	    // Get the balance of the wallet after the transfer
 	    contract.balanceOf(wallet.address).then(function(balance) {
@@ -207,5 +201,12 @@ function sendToken() {
 	    	sendAlertMessage.innerHTML = '<i class="la la-thumbs-up"></i> Transfer completed!';
 
 	    })
+	}).catch(error => {
+		console.log('nope');
+		sendAlert.classList.remove('hide');
+	    sendAlertMessage.innerHTML = '<i class="la la-thumbs-down"></i> Unable to transfer';
+	    sendButton.innerHTML = 'Send CalCoin <i class="la la-money"></i>';
+	    sendButton.classList.remove('disabled');
+	    sendButton.setAttribute( "onClick", "sendToken()" );
 	});
 }

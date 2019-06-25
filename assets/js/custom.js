@@ -466,10 +466,7 @@ function sendToken() {
   var targetAddress = document.getElementById('cam-qr-result').value;
   var amount = document.getElementById('coin-amount').value;
   var wallet = new ethers.Wallet(fromPrivateKey, provider);
-  var contract = new ethers.Contract(contractAddress, abi, wallet); // How many tokens?
-  //var numberOfDecimals = 18;
-  //var numberOfTokens = ethers.utils.parseUnits(amount, numberOfDecimals);
-  // Listen for Transfer events (triggered after the transaction)
+  var contract = new ethers.Contract(contractAddress, abi, wallet); // Listen for Transfer events (triggered after the transaction)
 
   contract.ontransfer = function (from, to, amount) {
     //var text = ethers.utils.formatEther(amount);
@@ -527,6 +524,13 @@ function sendToken() {
       sendAlert.classList.remove('hide');
       sendAlertMessage.innerHTML = '<i class="la la-thumbs-up"></i> Transfer completed!';
     });
+  }).catch(function (error) {
+    console.log('nope');
+    sendAlert.classList.remove('hide');
+    sendAlertMessage.innerHTML = '<i class="la la-thumbs-down"></i> Unable to transfer';
+    sendButton.innerHTML = 'Send CalCoin <i class="la la-money"></i>';
+    sendButton.classList.remove('disabled');
+    sendButton.setAttribute("onClick", "sendToken()");
   });
 }
 "use strict";

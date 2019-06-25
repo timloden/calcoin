@@ -54,12 +54,22 @@ $private_key = get_field('private_key', 'user_' . $user_id);
 <div class="row">
 	<div class="columns">
 		<div class="card">
-			<div class="card-header">
+			<!-- <div class="card-header">
 				<div class="card-header-title">
 					<span>Available balance:</span>
 				</div>
 				<div class="card-header-action">
 					100000
+				</div>
+			</div> -->
+			<div id="send-alert" class="animated fadeIn faster hide card-header" data-closable>
+				<div class="card-header-title">
+					<span id="send-alert-message"></span>
+				</div>
+				<div class="card-header-action">
+					<button type="button" data-close>
+					    <i class="la la-close"></i>
+					</button>
 				</div>
 			</div>
 			<div id="scanner" class="scanner">
@@ -84,7 +94,7 @@ $private_key = get_field('private_key', 'user_' . $user_id);
 					</div>
 				</form>
 				<div class="button-container single-button">
-					<a href="#" onclick="sendToken()" class="button button-primary" href="/send">Send CalCoin <i class="la la-money"></i></a>
+					<a id="send-coin-button" onclick="sendToken()" class="button button-primary">Send CalCoin <i class="la la-money"></i></a>
 				</div>
 			</div>
 

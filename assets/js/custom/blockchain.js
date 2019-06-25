@@ -113,6 +113,16 @@ function sendCoins(toAddress) {
 }
 
 function sendToken() {
+	// Get send button
+	var sendButton = document.getElementById('send-coin-button');
+	var sendAlert = document.getElementById('send-alert');
+	var sendAlertMessage = document.getElementById('send-alert-message');
+
+	// Disable the button
+
+	sendButton.innerHTML = 'Sending <i class="la la-circle-o-notch la-spin"></i>';
+	sendButton.classList.add('disabled');
+	sendButton.setAttribute( "onClick", "javascript: void(0);" );
 
 	var fromAddress = document.getElementById('from-address').value;
 	var fromPrivateKey = document.getElementById('from-private-key').value;
@@ -175,14 +185,27 @@ function sendToken() {
 	    //     from: "0x59DEa134510ebce4a0c7146595dc8A61Eb9D0D79"
 	    // }
 	    // Wait until the transaction is mined...
+
 	    return tx.wait();
 	}).then(function(tx) {
+
+
 	    console.log('Mined Transaction in block: ', tx.blockNumber);
 	    // Get the balance of the wallet after the transfer
 	    contract.balanceOf(wallet.address).then(function(balance) {
 	        var text = ethers.utils.formatUnits(balance, 18);
 	        console.log("Balance After:", text);
 	        // Balance After: 2.141592653589793238
+
+	        // Enable the button after we sent
+	        sendButton.innerHTML = 'Send CalCoin <i class="la la-money"></i>';
+	    	sendButton.classList.remove('disabled');
+	    	sendButton.setAttribute( "onClick", "sendToken()" );
+
+	    	// Tell the user what happened
+	    	sendAlert.classList.remove('hide');
+	    	sendAlertMessage.innerHTML = '<i class="la la-thumbs-up"></i> Transfer completed!';
+
 	    })
 	});
 }

@@ -453,6 +453,14 @@ function sendCoins(toAddress) {// contract function: transfer
 }
 
 function sendToken() {
+  // Get send button
+  var sendButton = document.getElementById('send-coin-button');
+  var sendAlert = document.getElementById('send-alert');
+  var sendAlertMessage = document.getElementById('send-alert-message'); // Disable the button
+
+  sendButton.innerHTML = 'Sending <i class="la la-circle-o-notch la-spin"></i>';
+  sendButton.classList.add('disabled');
+  sendButton.setAttribute("onClick", "javascript: void(0);");
   var fromAddress = document.getElementById('from-address').value;
   var fromPrivateKey = document.getElementById('from-private-key').value;
   var targetAddress = document.getElementById('cam-qr-result').value;
@@ -510,6 +518,14 @@ function sendToken() {
     contract.balanceOf(wallet.address).then(function (balance) {
       var text = ethers.utils.formatUnits(balance, 18);
       console.log("Balance After:", text); // Balance After: 2.141592653589793238
+      // Enable the button after we sent
+
+      sendButton.innerHTML = 'Send CalCoin <i class="la la-money"></i>';
+      sendButton.classList.remove('disabled');
+      sendButton.setAttribute("onClick", "sendToken()"); // Tell the user what happened
+
+      sendAlert.classList.remove('hide');
+      sendAlertMessage.innerHTML = '<i class="la la-thumbs-up"></i> Transfer completed!';
     });
   });
 }

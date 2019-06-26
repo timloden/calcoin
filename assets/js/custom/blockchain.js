@@ -1,8 +1,6 @@
 
 // Blockchain endpoint
 
-// connection variables
-
 const url = "https://calcoin.blockchain.azure.com:3200/2eR_wZ-TYGrZ46Tcrp4WJFuM";
 const provider = new ethers.providers.JsonRpcProvider(url);
 const signer = provider.getSigner(0);
@@ -64,10 +62,10 @@ function getBalance(targetAddress) {
 }
 
 
-let myAddress = '0xe58bdddb1da06a9bf6c47d25069007e4fcec46b9';
+let myAddress = '0x22B6fc253CE1066448a32e59a698e760D181cd76';
 
 // A filter from me to anyone
-let filterFromMe = contract.filters.Transfer(myAddress);
+//let filterFromMe = contract.filters.Transfer(myAddress);
 
 //console.log(filterFromMe);
 
@@ -88,17 +86,18 @@ let filterFromMeToMe = contract.filters.Transfer(myAddress, myAddress);
 //console.log(filterFromMeToMe.topics);
 
 
-contract.on(filterFromMe, (fromAddress, toAddress, value, event) => {
-    console.log('I sent', value);
-});
 
-contract.on(filterToMe, (fromAddress, toAddress, value, event) => {
-    console.log('I received', value);
-});
+// contract.on(filterFromMe, (fromAddress, toAddress, value, event) => {
+//     console.log('I sent', value);
+// });
 
-contract.on(filterFromMeToMe, (fromAddress, toAddress, value, event) => {
-    console.log('Myself to me', value);
-});
+// contract.on(filterToMe, (fromAddress, toAddress, value, event) => {
+//     console.log('I received', value);
+// });
+
+// contract.on(filterFromMeToMe, (fromAddress, toAddress, value, event) => {
+//     console.log('Myself to me', value);
+// });
 
 
 

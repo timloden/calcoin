@@ -45,6 +45,8 @@ const concat = require( 'gulp-concat' ); // Concatenates JS files.
 const uglify = require( 'gulp-uglify' ); // Minifies JS files.
 const babel = require( 'gulp-babel' ); // Compiles ESNext to browser compatible JS.
 
+const webpack = require('webpack-stream');
+
 // Image related plugins.
 const imagemin = require( 'gulp-imagemin' ); // Minify PNG, JPEG, GIF and SVG images with imagemin.
 

@@ -12,6 +12,9 @@ get_header('app');
 $user = wp_get_current_user();
 $user_id = $user->ID;
 
+$private_key = get_field('private_key', 'user_' . $user_id);
+$wallet = get_field('wallet_address', 'user_' . $user_id);
+
 $settings = array(
 
 	/* (string) Unique identifier for the form. Defaults to 'acf-form' */
@@ -113,6 +116,21 @@ $settings = array(
 		</div>
 	</div>
 </div>
+
+<?php if ( is_user_logged_in() ) : ?>
+<div class="row">
+	<div class="columns">
+		<div class="card card-padded">
+			<p><em>Dev purposes only</em></p>
+			<p>Wallet:</p>
+			<p style="font-size: 14px;"><?php echo $wallet; ?></p>
+			<P>Private:</p>
+			<p style="font-size: 9px;"><?php echo $private_key; ?></P>
+
+		</div>
+	</div>
+</div>
+<?php endif; ?>
 
 <script>
 (function ($) {

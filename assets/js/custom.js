@@ -1,7 +1,6 @@
 "use strict";
 
 // Blockchain endpoint
-// connection variables
 var url = "https://calcoin.blockchain.azure.com:3200/2eR_wZ-TYGrZ46Tcrp4WJFuM";
 var provider = new ethers.providers.JsonRpcProvider(url);
 var signer = provider.getSigner(0); //contract abi
@@ -427,25 +426,24 @@ function getBalance(targetAddress) {
   return Balance;
 }
 
-var myAddress = '0xe58bdddb1da06a9bf6c47d25069007e4fcec46b9'; // A filter from me to anyone
-
-var filterFromMe = contract.filters.Transfer(myAddress); //console.log(filterFromMe);
+var myAddress = '0x22B6fc253CE1066448a32e59a698e760D181cd76'; // A filter from me to anyone
+//let filterFromMe = contract.filters.Transfer(myAddress);
+//console.log(filterFromMe);
 // A filter from anyone to me
 
 var filterToMe = contract.filters.Transfer(null, myAddress); //console.log(filterToMe);
 // A filter from me AND to me
 
 var filterFromMeToMe = contract.filters.Transfer(myAddress, myAddress); //console.log(filterFromMeToMe.topics);
-
-contract.on(filterFromMe, function (fromAddress, toAddress, value, event) {
-  console.log('I sent', value);
-});
-contract.on(filterToMe, function (fromAddress, toAddress, value, event) {
-  console.log('I received', value);
-});
-contract.on(filterFromMeToMe, function (fromAddress, toAddress, value, event) {
-  console.log('Myself to me', value);
-});
+// contract.on(filterFromMe, (fromAddress, toAddress, value, event) => {
+//     console.log('I sent', value);
+// });
+// contract.on(filterToMe, (fromAddress, toAddress, value, event) => {
+//     console.log('I received', value);
+// });
+// contract.on(filterFromMeToMe, (fromAddress, toAddress, value, event) => {
+//     console.log('Myself to me', value);
+// });
 
 function getAllTransactions(targetAddress) {}
 
@@ -542,6 +540,11 @@ function sendToken() {
 // Create QR Code
 "use strict";
 "use strict";
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _web = _interopRequireDefault(require("web3"));
 "use strict";
 
 (function ($) {

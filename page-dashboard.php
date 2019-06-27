@@ -9,6 +9,11 @@
 
 get_header('app');
 ?>
+<script>
+
+
+
+</script>
 <div class="dashboard">
 	<div class="row">
 		<div class="columns">
@@ -35,7 +40,12 @@ get_header('app');
 						<a href="/transactions">All transactions <i class="la la-arrow-right"></i></a>
 					</div>
 				</div>
-				<ul class="transaction-list">
+
+				<div id="transaction-list">
+
+				</div>
+
+				<!-- <ul class="transaction-list">
 					<li class="transaction wow slideInLeft faster">
 						<div class="tran-source">
 							<p class="vendor-name">Farmers Market</p>
@@ -81,7 +91,7 @@ get_header('app');
 							-35 CC
 						</div>
 					</li>
-				</ul>
+				</ul> -->
 			</div>
 
 		</div>
@@ -107,6 +117,35 @@ new WOW().init();
 	});
 
 })(jQuery);
+
+let allTransactions = getAllTransactions('0xf2fc7e11542f4701edd460690bcada42613fb600').then((transactions) => {
+
+	//console.log(transactions);
+
+	let tokenCount = transactions.map((transaction) => ({ to: transaction.returnValues.to, from: transaction.returnValues.from, tokens: transaction.returnValues.tokens, block: transaction.blockHash }));
+
+	tokenCount.reverse();
+
+	console.log(tokenCount);
+	// output
+
+	const txt =
+    `<ul class="transaction-list">
+        ${tokenCount.map(trans => `
+        	<li class="transaction wow slideInLeft faster">
+				<div class="tran-source">
+					<p class="vendor-name">${trans.to}</p>
+					<p class="vendor-name">${trans.from}</p>
+					<p class="vendor-meta">${getBlockTime(trans.block).then((time) => { console.log(time) } )}</p>
+				</div>
+				<div class="tran-total">${trans.tokens} CC</div>
+			</li>`).join('')}
+    </ul>`
+
+	document.getElementById("transaction-list").innerHTML = txt;
+});
+
+
 
 var options = {
     chart: {

@@ -32,8 +32,6 @@ let contract = new ethers.Contract(contractAddress, abi, provider);
 
 function createWallet(privateKey) {
 
-	//let randomWallet = ethers.Wallet.createRandom();
-
 	let walletWithProvider = new ethers.Wallet(privateKey, provider);
 }
 
@@ -64,52 +62,6 @@ function getBalance(targetAddress) {
 
 let myAddress = '0x22B6fc253CE1066448a32e59a698e760D181cd76';
 
-// A filter from me to anyone
-//let filterFromMe = contract.filters.Transfer(myAddress);
-
-//console.log(filterFromMe);
-
-
-
-
-// A filter from anyone to me
-let filterToMe = contract.filters.Transfer(null, myAddress);
-
-//console.log(filterToMe);
-
-
-
-
-// A filter from me AND to me
-let filterFromMeToMe = contract.filters.Transfer(myAddress, myAddress);
-
-//console.log(filterFromMeToMe.topics);
-
-
-
-// contract.on(filterFromMe, (fromAddress, toAddress, value, event) => {
-//     console.log('I sent', value);
-// });
-
-// contract.on(filterToMe, (fromAddress, toAddress, value, event) => {
-//     console.log('I received', value);
-// });
-
-// contract.on(filterFromMeToMe, (fromAddress, toAddress, value, event) => {
-//     console.log('Myself to me', value);
-// });
-
-
-
-function getAllTransactions(targetAddress) {
-
-}
-
-
-
-function sendCoins(toAddress) {
-	// contract function: transfer
-}
 
 function sendToken() {
 	// Get send button

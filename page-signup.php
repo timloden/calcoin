@@ -10,13 +10,9 @@
 get_header();
 
 ?>
+
 <div class="row align-center">
-	<div class="columns small-10">
-		<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/login-logo.png">
-	</div>
-</div>
-<div class="row">
-	<div class="columns">
+	<div class="columns large-6 small-10">
 		<div class="card card-padded">
 			<div class="card-header">
 				<div class="card-header-title">

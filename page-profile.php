@@ -97,8 +97,8 @@ $settings = array(
 );
 ?>
 
-<div class="row">
-	<div class="columns">
+<div class="row align-center">
+	<div class="large-6 columns">
 		<div class="card card-padded">
 			<?php if ( is_user_logged_in() ) : ?>
 

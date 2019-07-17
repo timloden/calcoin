@@ -50,7 +50,7 @@ $why_use_subtitle = get_field( "why_use_subtitle" );
 		<div class="video-container">
 
 			<div class="video-overlay"></div>
-			<video autoplay preload loop muted>
+			<video autoplay preload loop muted playsinline>
 				<source src="https://calcoin.azureedge.net/media/calcoin-video-hero.mp4" type="video/mp4">
 			</video>
 		</div>
@@ -58,7 +58,7 @@ $why_use_subtitle = get_field( "why_use_subtitle" );
 	</div>
 </div>
 <section id="learn" class="learn-section">
-	<div class="row">
+	<div class="row align-center">
 
 		<?php if( have_rows('how_blocks') ): $count = 0; $count_text = 0; $count_image = 0 ?>
 
@@ -111,7 +111,7 @@ $why_use_subtitle = get_field( "why_use_subtitle" );
 				</div>
 			</div>
 		</div>
-		<div class="small-12 medium-12 large-4 columns">
+		<div class="small-8 medium-12 large-4 columns">
 			<?php while( have_rows('how_blocks') ): the_row();
 
 				$icon_title = get_sub_field('icon_title');

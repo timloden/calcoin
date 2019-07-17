@@ -20,8 +20,8 @@ $wallet_address = get_field('wallet_address', 'user_' . $user_id);
 
 </script>
 <div class="dashboard">
-	<div class="row">
-		<div class="columns">
+	<div class="row align-center">
+		<div class="large-6 columns">
 
 			<div class="card">
 				<div class="wallet-total">

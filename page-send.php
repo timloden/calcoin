@@ -22,13 +22,14 @@ $private_key = get_field('private_key', 'user_' . $user_id);
     const video = document.getElementById('qr-video');
     const camQrResult = document.getElementById('cam-qr-result');
 
-    function setResult(label, result) {
-        label.value = result;
-    }
-
     const scanner = new QrScanner(video, result => setResult(camQrResult, result));
 
     let camera = document.getElementById('scanner');
+
+    function setResult(label, result) {
+        label.value = result;
+        camera.classList.remove('animated', 'fadeIn', 'faster');
+    }
 
     document.getElementById('open-camera').addEventListener('click', ()=> {
 
@@ -43,8 +44,8 @@ $private_key = get_field('private_key', 'user_' . $user_id);
 	});
 </script>
 
-<div class="row">
-	<div class="columns">
+<div class="row align-center">
+	<div class="large-6 columns">
 		<div class="card">
 			<div id="send-alert" class="animated fadeIn faster hide card-header" data-closable>
 				<div class="card-header-title">

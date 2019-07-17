@@ -9,8 +9,8 @@
 
 get_header('app');
 ?>
-<div class="row">
-	<div class="columns">
+<div class="row align-center">
+	<div class="large-6 columns">
 		<div class="card">
 			<div id="chart"></div>
 		</div>
@@ -20,7 +20,7 @@ get_header('app');
 				<div class="expanded button-group transaction-filter">
 					<a id="all-transactions" class="button active">All</a>
 					<a id="sent-transactions" class="button inactive">Sent</a>
-					<a id="recieved-transactions" class="button inactive">Recieved</a>
+					<a id="recieved-transactions" class="button inactive">Received</a>
 				</div>
 			</div>
 

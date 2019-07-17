@@ -4,7 +4,7 @@ Theme URI: https://caweb.cdt.ca.gov/
 Author: CAWeb Publishing
 Author URI: https://caweb.cdt.ca.gov/
 Description: CA State standard theme
-Version: 0.0.8
+Version: 0.0.9
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: calcoin
@@ -1748,7 +1748,7 @@ header.home .buttons .button{-webkit-box-shadow:none;box-shadow:none;margin-bott
 .hero-arrow{-webkit-animation:MoveUpDown 1s infinite alternate;animation:MoveUpDown 1s infinite alternate;display:block}
 .hero{display:-webkit-box;display:-ms-flexbox;display:flex;background-color:#fff;min-height:100vh;position:relative;z-index:1;overflow:hidden;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 .hero a{color:#fff}
-.hero .hero-content{position:relative;z-index:10;color:#fff;width:100%;text-align:center}
+.hero .hero-content{position:relative;z-index:10;color:#fff;width:100%;text-align:center;padding-top:20%}
 .hero .hero-content h1{color:#fff;font-weight:700}
 .hero .hero-content p{color:#fff}
 .hero .hero-content .create-account-button{margin-top:1em}

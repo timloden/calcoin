@@ -24,19 +24,6 @@ add_action( 'wp_enqueue_scripts', 'caweb_scripts' );
 
 function caweb_scripts() {
 
-	if ( is_page_template( 'page-send.php' ) ) {
-		
-		//wp_enqueue_script( 'qr-scanner', get_template_directory_uri() . '', [], '0.0.0', true );
-		
-		//wp_enqueue_script( 'jquery-3', 'https://code.jquery.com/jquery-3.3.1.min.js', [], '0.0.0', true );
-		
-		//wp_enqueue_script( 'instascan-adapter', get_template_directory_uri() . '/assets/js/vendor/lib/qr-scanner.min.js', [], '0.0.0', true );
-		//wp_enqueue_script( 'qrcodescanner', get_template_directory_uri() . '/assets/js/vendor/lib/qr-scanner-worker.min.js', [], '0.0.0', true );
-	 	//wp_enqueue_script( 'instascan', get_template_directory_uri() . '/assets/js/vendor/lib/QrCodeHtmlScanner/external/instascan.js', ['jquery'], '0.0.0', true );
-	 	
-	 	//wp_enqueue_script( 'instacam-combined', get_template_directory_uri() . '/assets/js/vendor/lib/jsqrcode-combined.min.js', ['jquery'], '0.0.0', false );
-	}
-
 	wp_enqueue_script( 'vendor-scripts', get_template_directory_uri() . '/assets/js/vendor.min.js', ['jquery'], '0.0.0', false );
 
 	wp_enqueue_script( 'custom-scripts', get_template_directory_uri() . '/assets/js/custom.min.js', ['jquery'], '0.0.0', false );

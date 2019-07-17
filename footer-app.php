@@ -11,9 +11,7 @@
 
 $user = wp_get_current_user();
 $user_id = $user->ID;
-//$address = get_field('wallet_address', 'user_' . $user_id);
-
-$address = '0x89F156CA9efFe59eD2e2D933d708Ae876d124d77';
+$address = get_field('wallet_address', 'user_' . $user_id);
 
 ?>
 

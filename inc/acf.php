@@ -33,3 +33,16 @@ function my_acf_settings_dir( $dir ) {
 
 // 4. Include ACF
 include_once( get_stylesheet_directory() . '/acf/acf.php' );
+
+
+if( function_exists('acf_add_options_page') ) {
+
+	acf_add_options_page(array(
+		'page_title' 	=> 'CalCoin Settings',
+		'menu_title'	=> 'CalCoin Settings',
+		'menu_slug' 	=> 'theme-general-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+
+}

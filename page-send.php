@@ -14,14 +14,6 @@ $user_id = $user->ID;
 $private_key = get_field('private_key', 'user_' . $user_id);
 
 ?>
-<!--
-<div>
-    <b>Device has camera: </b>
-    <span id="cam-has-camera"></span>
-    <br>
-    <video muted playsinline id="qr-video" style="width: 300px;"></video>
-</div>
--->
 
 <script type="module">
     import QrScanner from "/wp-content/themes/calcoin/assets/js/vendor/lib/qr-scanner.min.js";
@@ -54,14 +46,6 @@ $private_key = get_field('private_key', 'user_' . $user_id);
 <div class="row">
 	<div class="columns">
 		<div class="card">
-			<!-- <div class="card-header">
-				<div class="card-header-title">
-					<span>Available balance:</span>
-				</div>
-				<div class="card-header-action">
-					100000
-				</div>
-			</div> -->
 			<div id="send-alert" class="animated fadeIn faster hide card-header" data-closable>
 				<div class="card-header-title">
 					<span id="send-alert-message"></span>
@@ -84,13 +68,13 @@ $private_key = get_field('private_key', 'user_' . $user_id);
 					<div class="send-to-field">
 						<input type="hidden" value="<?php echo esc_attr($private_key); ?>" id="from-private-key">
 						<input type="hidden" value="<?php echo esc_attr($address); ?>" id="from-address">
-						<input id="cam-qr-result" class="send-address" type="text" placeholder="0x4B4D..." value="0xF2FC7E11542f4701EDD460690BCAdA42613FB600">
+						<input id="cam-qr-result" class="send-address" type="text" placeholder="0x4B4D...">
 						<a id="open-camera" class="button small open-camera"><i class="la la-camera"></i></a>
 					</div>
 
 					<div class="send-amount">
 						<label>How much do you want to send?</label>
-						<input id="coin-amount" type="text" placeholder="0" value="100">
+						<input id="coin-amount" type="text" placeholder="0">
 					</div>
 				</form>
 				<div class="button-container single-button">

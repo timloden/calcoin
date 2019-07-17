@@ -47,7 +47,7 @@
 	background: $gray;
 	box-shadow: $shadow;
 	font-size: 16px;
-	color: #FFFFFF;
+	color: $white;
 	letter-spacing: 0;
 	text-align: center;
 	font-weight: 700;
@@ -58,6 +58,16 @@
 
 	&.button-secondary {
 		background: $secondary;
+	}
+
+	&.button-white {
+		background: $white;
+		color: $primary;
+	}
+
+	&.button-hollow {
+		background: transparent;
+		color: $white;
 	}
 
 	&.small {

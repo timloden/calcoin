@@ -34,7 +34,7 @@ $address = get_field('wallet_address', 'user_' . $user_id);
 
 <body <?php body_class(); ?>>
 
-<header>
+<header class="app">
 	<h1><?php echo esc_html( get_the_title() ); ?></h1>
 </header>
 <main id="swup" class="transition-fade">

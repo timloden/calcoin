@@ -8,6 +8,11 @@
  */
 
 get_header('app');
+
+$user = wp_get_current_user();
+$user_id = $user->ID;
+
+$wallet_address = get_field('wallet_address', 'user_' . $user_id);
 ?>
 <script>
 
@@ -44,54 +49,6 @@ get_header('app');
 				<div id="transaction-list">
 
 				</div>
-
-				<!-- <ul class="transaction-list">
-					<li class="transaction wow slideInLeft faster">
-						<div class="tran-source">
-							<p class="vendor-name">Farmers Market</p>
-							<p class="vendor-meta">06/06/19 | 10:39 AM</p>
-						</div>
-						<div class="tran-total">
-							-35 CC
-						</div>
-					</li>
-					<li class="transaction wow slideInLeft faster">
-						<div class="tran-source">
-							<p class="vendor-name">Farmers Market</p>
-							<p class="vendor-meta">06/06/19 | 10:39 AM</p>
-						</div>
-						<div class="tran-total">
-							-35 CC
-						</div>
-					</li>
-					<li class="transaction wow slideInLeft faster">
-						<div class="tran-source">
-							<p class="vendor-name">Farmers Market</p>
-							<p class="vendor-meta">06/06/19 | 10:39 AM</p>
-						</div>
-						<div class="tran-total">
-							-35 CC
-						</div>
-					</li>
-					<li class="transaction wow slideInLeft faster">
-						<div class="tran-source">
-							<p class="vendor-name">Farmers Market</p>
-							<p class="vendor-meta">06/06/19 | 10:39 AM</p>
-						</div>
-						<div class="tran-total">
-							-35 CC
-						</div>
-					</li>
-					<li class="transaction wow slideInLeft faster">
-						<div class="tran-source">
-							<p class="vendor-name">Farmers Market</p>
-							<p class="vendor-meta">06/06/19 | 10:39 AM</p>
-						</div>
-						<div class="tran-total">
-							-35 CC
-						</div>
-					</li>
-				</ul> -->
 			</div>
 
 		</div>
@@ -105,7 +62,7 @@ new WOW().init();
 (function ($) {
 
 	$(document).ready(function() {
-		walletAddress = '<?php echo esc_attr($address); ?>';
+		walletAddress = '<?php echo esc_attr($wallet_address); ?>';
 		balance = getBalance(walletAddress);
 
 		balance.then((value) => {
@@ -118,7 +75,7 @@ new WOW().init();
 
 })(jQuery);
 
-let allTransactions = getAllTransactions('0xf2fc7e11542f4701edd460690bcada42613fb600').then((transactions) => {
+let allTransactions = getAllTransactions('<?php echo esc_attr($wallet_address); ?>').then((transactions) => {
 
 	//console.log(transactions);
 
@@ -126,7 +83,7 @@ let allTransactions = getAllTransactions('0xf2fc7e11542f4701edd460690bcada42613f
 
 	tokenCount.reverse();
 
-	console.log(tokenCount);
+	//console.log(tokenCount);
 	// output
 
 	const txt =
@@ -134,8 +91,8 @@ let allTransactions = getAllTransactions('0xf2fc7e11542f4701edd460690bcada42613f
         ${tokenCount.map(trans => `
         	<li class="transaction wow slideInLeft faster">
 				<div class="tran-source">
-					<p class="vendor-name">${trans.to}</p>
-					<p class="vendor-name">${trans.from}</p>
+					<p class="vendor-name">To: ${trans.to}</p>
+					<p class="vendor-name">From: ${trans.from}</p>
 					<p class="vendor-meta">${getBlockTime(trans.block).then((time) => { console.log(time) } )}</p>
 				</div>
 				<div class="tran-total">${trans.tokens} CC</div>

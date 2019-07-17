@@ -334,15 +334,35 @@ section {
 			padding: 15px 0 10px;
 		}
 	}
+
+	.why-button {
+		padding-top: 5em;
+	}
 }
 
 .footer-section {
 	footer {
-		border-top: 1px solid $light-gray;
-		padding: 5em 0 0;
+		//padding: 5em 0 0;
 
 		.footer-logo {
 			max-width: 200px;
+		}
+
+		.footer-links {
+			display: flex;
+			justify-content: center;
+			padding: 2em 0;
+
+			a {
+				padding: 0 1em;
+				border-right: 1px solid $light-gray;
+				color: $dark-gray;
+
+				&:last-child{
+					border-right: none;
+				}
+			}
+
 		}
 	}
 }

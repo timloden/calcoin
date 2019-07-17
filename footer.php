@@ -15,7 +15,7 @@
 		<div class="columns">
 			<footer class="text-center">
 				<p><img class="footer-logo" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/calcoin-full-logo.png"></p>
-				<p><a href="/signup">Create Account</a><a href="/login">Login</a></p>
+				<p class="footer-links"><a href="/signup">Create Account</a><a href="/login">Login</a></p>
 				<p class="copyright">&copy; <?php echo date("Y"); ?> DSIA Academy</p>
 			</footer>
 		</div>

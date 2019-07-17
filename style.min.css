@@ -4,7 +4,7 @@ Theme URI: https://caweb.cdt.ca.gov/
 Author: CAWeb Publishing
 Author URI: https://caweb.cdt.ca.gov/
 Description: CA State standard theme
-Version: 0.0.6
+Version: 0.0.7
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: calcoin
@@ -1791,8 +1791,11 @@ section.blue-section p:last-child{margin-bottom:3em}
 .why-section .why-block{text-align:center}
 .why-section .why-block i{font-size:50px}
 .why-section .why-block h3{font-size:18px;font-weight:bold;padding:15px 0 10px}
-.footer-section footer{border-top:1px solid #d8d8d8;padding:5em 0 0}
+.why-section .why-button{padding-top:5em}
 .footer-section footer .footer-logo{max-width:200px}
+.footer-section footer .footer-links{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;padding:2em 0}
+.footer-section footer .footer-links a{padding:0 1em;border-right:1px solid #d8d8d8;color:#323a45}
+.footer-section footer .footer-links a:last-child{border-right:0}
 @media(prefers-reduced-motion){.animated{-webkit-animation:unset !important;animation:unset !important;-webkit-transition:none !important;transition:none !important}
 }@media screen and (orientation:landscape){.hide-for-portrait,.show-for-landscape{display:block !important}
 .hide-for-landscape,.show-for-portrait{display:none !important}

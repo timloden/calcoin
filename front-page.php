@@ -5,7 +5,18 @@
  * @package CalCoin
  */
 get_header();
+$hero_title = get_field( "hero_title" );
+$hero_sub_title = get_field( "hero_sub_title" );
+$hero_button_text = get_field( "hero_button_text" );
+$hero_button_url = get_field( "hero_button_url" );
 
+$cta_title = get_field( "cta_title" );
+$cta_description= get_field( "cta_description" );
+$cta_link_text = get_field( "cta_link_text" );
+$cta_link_url = get_field( "cta_link_url" );
+
+$why_use_title = get_field( "why_use_title" );
+$why_use_subtitle = get_field( "why_use_subtitle" );
 ?>
 <div class="row">
 	<div class="small-12 columns header-wrapper">
@@ -22,9 +33,9 @@ get_header();
 	<div class="hero-content">
 		<div class="row align-center">
 			<div class="large-8 columns">
-				<h1>Your Digital Benefits</h1>
-				<p>CalCoin is a digital currency that the state sends to you instead of paper vouchers for programs such as WIC, CalFresh and FMNP. You spend this currency in approved stores using your CalCoin wallet on your phone.</p>
-				<a class="button button-white create-account-button" href="/signup">Create Your Account</a>
+				<h1><?php echo esc_attr($hero_title); ?></h1>
+				<p><?php echo esc_attr($hero_sub_title); ?></p>
+				<a class="button button-white create-account-button" href="<?php echo esc_url($hero_button_url); ?>"><?php echo esc_attr($hero_button_text); ?></a>
 			</div>
 		</div>
 		<div class="row hero-continue">
@@ -48,68 +59,74 @@ get_header();
 </div>
 <section id="learn" class="learn-section">
 	<div class="row">
-		<div class="small-12 medium-12 large-8 columns">
-			<h2 class="text-center"><strong>How does CalCoin work?</strong></h2>
-			<!-- <div class="divider"></div> -->
 
+		<?php if( have_rows('how_blocks') ): $count = 0; $count_text = 0; $count_image = 0 ?>
+
+		<div class="small-12 medium-12 large-8 columns">
+
+			<h2 class="text-center"><strong>How does CalCoin work?</strong></h2>
 
 			<div class="row large-up-3 what-tabs">
+
+				<?php while( have_rows('how_blocks') ): the_row();
+
+					$icon = get_sub_field('icon');
+					$icon_title = get_sub_field('icon_title');
+
+				?>
+
 				<div class="column text-center">
 					<div class="card">
-						<a class="what-is-tab is-active" id="signup">
-							<i class="la la-user"></i>
-							Signup
+						<a class="what-is-tab <?php if (!$count) { echo('is-active'); } ?>" id="<?php echo esc_attr($icon_title); ?>">
+							<i class="la <?php echo esc_attr($icon); ?>"></i>
+							<?php echo esc_attr($icon_title); ?>
 						</a>
 					</div>
 				</div>
-				<div class="column text-center">
-					<div class="card">
-						<a class="what-is-tab" id="recieve">
-							<i class="la la-mobile-phone"></i>
-							Recieve
-						</a>
-					</div>
-				</div>
-				<div class="column text-center">
-					<div class="card">
-						<a class="what-is-tab" id="spend">
-							<i class="la la-qrcode"></i>
-							Spend
-						</a>
-					</div>
-				</div>
+
+				<?php
+				$count++;
+				endwhile; ?>
+
 			</div>
+
+
+
 			<div class="row">
 				<div class="column what-is-content">
-					<div id="signup-text" class="what-is-text is-active text-center">
-						<h3>Signup for a free digital wallet</h3>
-						<p>Create your account and connect your existing benefits to your CalCoin account for free.</p>
+					<?php while( have_rows('how_blocks') ): the_row();
+
+						$icon_title = get_sub_field('icon_title');
+						$title = get_sub_field('title');
+						$description = get_sub_field('description');
+
+					?>
+					<div id="<?php echo esc_attr($icon_title); ?>-text" class="what-is-text <?php if (!$count_text) { echo('is-active'); } ?> text-center">
+						<h3><?php echo esc_attr($title); ?></h3>
+						<p><?php echo esc_attr($description); ?></p>
 					</div>
-					<div id="recieve-text" class="what-is-text text-center">
-						<h3>Recieve your benefits directly</h3>
-						<p>CalCoin are sent to your digital wallet directly instead of paper checks or vouchers.</p>
-					</div>
-					<div id="spend-text" class="what-is-text text-center">
-						<h3>Spend at locations all of California</h3>
-						<p>Use CalCoin at any participating retail location or farmers market that accepts CalCoin.</p>
-					</div>
-					<div class="what-is-button text-center">
-						<a class="button button-primary" href="/signup">Get Started Today</a>
-					</div>
+					<?php
+					$count_text++;
+					endwhile; ?>
 				</div>
 			</div>
 		</div>
 		<div class="small-12 medium-12 large-4 columns">
-			<div id="signup-image" class="what-is-screen is-active">
-				<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/dashboard-screen.png">
+			<?php while( have_rows('how_blocks') ): the_row();
+
+				$icon_title = get_sub_field('icon_title');
+				$image = get_sub_field('image');
+
+			?>
+			<div id="<?php echo esc_attr($icon_title); ?>-image" class="what-is-screen <?php if (!$count_image) { echo('is-active'); } ?>">
+				<img src="<?php echo esc_url($image['url']); ?>">
 			</div>
-			<div id="recieve-image" class="what-is-screen">
-				<img class="mobile-screen" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/wallet-overlay-screen.png">
-			</div>
-			<div id="spend-image" class="what-is-screen">
-				<img class="mobile-screen" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/wallet-overlay-screen.png">
-			</div>
+			<?php
+			$count_image++;
+			endwhile; ?>
 		</div>
+
+		<?php endif; ?>
 	</div>
 	<div class="row align-center logos">
 		<div class="small-12 medium-12 large-3 columns text-center">
@@ -126,54 +143,55 @@ get_header();
 <section class="blue-section">
 	<div class="row">
 		<div class="small-12 medium-12 large-6 columns">
-			<h3>Learn how CalCoin saves California money</h3>
-			<p>CalCoin is a digital currency that the state sends to you instead of paper vouchers for programs such as WIC, CalFresh and FMNP. You spend this currency in approved stores using your CalCoin wallet on your phone.</p>
-			<p><a href="#">See the CalCoin presentation <i class="la la-angle-right"></i></a></p>
+			<h3><?php echo esc_attr($cta_title); ?></h3>
+			<p><?php echo esc_attr($cta_description); ?></p>
+			<p><a href="<?php echo esc_attr($cta_link_url); ?>"><?php echo esc_attr($cta_link_text); ?> <i class="la la-angle-right"></i></a></p>
 		</div>
 		<div class="small-12 medium-12 large-6 columns align-self-bottom">
+			<?php if( have_rows('cta_images') ): ?>
 			<div class="whitepaper-images">
-				<div class="wow animated fadeInRight faster"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/half-screenshot-1.png"></div>
-				<div class="wow animated fadeInUp faster"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/half-screenshot-tall.png"></div>
-				<div class="wow animated fadeInLeft faster"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/half-screenshot-1.png"></div>
+
+				<?php while( have_rows('cta_images') ): the_row();
+
+					$image = get_sub_field('image');
+
+				?>
+					<div class="wow animated fadeInUp faster"><img src="<?php echo esc_url($image['url']); ?>"></div>
+				<?php endwhile; ?>
+
 			</div>
+			<?php endif; ?>
 		</div>
 </section>
 <section class="why-section">
 	<div class="row">
 		<div class="small-12 columns">
-			<h2><strong>Why use CalCoin?</strong></h2>
-			<p>CalCoin is a digital currency that the state sends to you instead of paper vouchers for programs such as WIC, CalFresh and FMNP. You spend this currency in approved stores using your CalCoin wallet on your phone.</p>
+			<h2><strong><?php echo esc_attr($why_use_title); ?></strong></h2>
+			<p><?php echo esc_attr($why_use_subtitle); ?></p>
 
+			<?php if( have_rows('why_use_blocks') ): ?>
 			<div class="row why-blocks">
+				<?php while( have_rows('why_use_blocks') ): the_row();
+
+					$icon = get_sub_field('icon');
+					$title = get_sub_field('title');
+					$subtitle = get_sub_field('subtitle');
+
+				?>
+
 				<div class="small-12 medium-12 large-3 columns">
 					<div class="why-block">
-						<i class="la la-money"></i>
-						<h3>Saves money</h3>
-						<p>You spend this currency in approved stores.</p>
+						<i class="la <?php echo esc_attr($icon); ?>"></i>
+						<h3><?php echo esc_attr($title); ?></h3>
+						<p><?php echo esc_attr($subtitle); ?></p>
 					</div>
 				</div>
-				<div class="small-12 medium-12 large-3 columns">
-					<div class="why-block">
-						<i class="la la-shopping-cart"></i>
-						<h3>Easier for retailers</h3>
-						<p>You spend this currency in approved stores.</p>
-					</div>
-				</div>
-				<div class="small-12 medium-12 large-3 columns">
-					<div class="why-block">
-						<i class="la la-unlock"></i>
-						<h3>Secure payments</h3>
-						<p>You spend this currency in approved stores.</p>
-					</div>
-				</div>
-				<div class="small-12 medium-12 large-3 columns">
-					<div class="why-block last">
-						<i class="la la-tachometer"></i>
-						<h3>Instant funds</h3>
-						<p>You spend this currency in approved stores.</p>
-					</div>
-				</div>
+
+				<?php endwhile; ?>
+
 			</div>
+			<?php endif; ?>
+			<p class="why-button"><a class="button create-account-button" href="<?php echo esc_url($hero_button_url); ?>"><?php echo esc_attr($hero_button_text); ?></a></p>
 		</div>
 	</div>
 </section>

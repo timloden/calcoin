@@ -399,13 +399,7 @@ var abi = [{
 }]; // contract variables
 
 var contractAddress = "0x22B6fc253CE1066448a32e59a698e760D181cd76";
-var contract = new ethers.Contract(contractAddress, abi, provider); //let privateKey = '0xF4DACEFDCFD9196040BA6EB35156CE8E7EE3C199E162B370448037020B49FC40';
-//let wallet = new ethers.Wallet(privateKey, provider);
-//let transactionCountPromise = wallet.getTransactionCount();
-// transactionCountPromise.then((transactionCount) => {
-//     console.log(transactionCount);
-// });
-// create wallet
+var contract = new ethers.Contract(contractAddress, abi, provider); // create wallet
 
 function createWallet(privateKey) {
   var walletWithProvider = new ethers.Wallet(privateKey, provider);
@@ -413,8 +407,6 @@ function createWallet(privateKey) {
 
 
 function getBalance(targetAddress) {
-  // test address (4000 balance) 0xe58bdddb1da06a9bf6c47d25069007e4fcec46b9
-  // new wallet 0xF2FC7E11542f4701EDD460690BCAdA42613FB600
   var balancePromise = contract.balanceOf(targetAddress);
   var Balance = balancePromise.then(function (balance) {
     var currentBalance = balance.toString();
@@ -424,8 +416,6 @@ function getBalance(targetAddress) {
   });
   return Balance;
 }
-
-var myAddress = '0x22B6fc253CE1066448a32e59a698e760D181cd76';
 
 function sendToken() {
   // Get send button

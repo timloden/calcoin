@@ -4,7 +4,7 @@ Theme URI: https://caweb.cdt.ca.gov/
 Author: CAWeb Publishing
 Author URI: https://caweb.cdt.ca.gov/
 Description: CA State standard theme
-Version: 0.0.9
+Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: calcoin
@@ -1716,7 +1716,7 @@ ul.transaction-list .transaction .tran-total{width:25%;text-align:right}
 .send-amount{margin:1em 0 2em}
 .send-amount label{text-align:center}
 .send-amount input{width:200px;margin:0 auto;text-align:center;font-size:40px;font-weight:700}
-.scanner{display:none;background:#fff}
+.scanner{display:none;background:#fff;-webkit-transition:opacity 2s ease-in-out;transition:opacity 2s ease-in-out}
 .scanner p{margin:0;text-align:right}
 .scanner p a{padding:0 1em 0 0;color:#848484}
 .scanner.animated{display:block}
@@ -1748,7 +1748,7 @@ header.home .buttons .button{-webkit-box-shadow:none;box-shadow:none;margin-bott
 .hero-arrow{-webkit-animation:MoveUpDown 1s infinite alternate;animation:MoveUpDown 1s infinite alternate;display:block}
 .hero{display:-webkit-box;display:-ms-flexbox;display:flex;background-color:#fff;min-height:100vh;position:relative;z-index:1;overflow:hidden;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 .hero a{color:#fff}
-.hero .hero-content{position:relative;z-index:10;color:#fff;width:100%;text-align:center;padding-top:20%}
+.hero .hero-content{position:relative;z-index:10;color:#fff;width:100%;text-align:center}
 .hero .hero-content h1{color:#fff;font-weight:700}
 .hero .hero-content p{color:#fff}
 .hero .hero-content .create-account-button{margin-top:1em}
@@ -2001,9 +2001,9 @@ table.stack td{border-top:0}
 .stack-for-small .media-object-section{padding:0;padding-bottom:1rem;-ms-flex-preferred-size:100%;flex-basis:100%;max-width:100%}
 .stack-for-small .media-object-section img{width:100%}
 .reveal{top:0;right:0;bottom:0;left:0;width:100%;max-width:none;height:100%;min-height:100%;margin-left:0;border:0;border-radius:0}
-}@media screen and (max-width:39.9375em){.hero{min-height:100vh}
+}@media screen and (max-width:39.9375em){.hero .hero-content{padding-top:20%}
 .hero .hero-content h1{font-size:40px}
-.hero .hero-content .hero-continue{margin-top:15em}
+.hero .hero-content .hero-continue{margin-top:10em}
 }@media print{*{background:0 0 !important;-webkit-box-shadow:none !important;box-shadow:none !important;color:#000 !important;text-shadow:none !important}
 .show-for-print{display:block !important}
 .hide-for-print{display:none !important}

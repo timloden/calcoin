@@ -10,7 +10,7 @@
  */
 
 if ( !is_user_logged_in() ) {
-    //wp_redirect( home_url( '/login/' ) );
+    wp_redirect( home_url( '/login/' ) );
 }
 
 $user = wp_get_current_user();

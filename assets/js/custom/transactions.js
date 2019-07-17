@@ -1,5 +1,5 @@
 
-const web3 = new Web3(Web3.currentProvider || new Web3.providers.WebsocketProvider('ws://calcoin.blockchain.azure.com:3300/2eR_wZ-TYGrZ46Tcrp4WJFuM'), null, {});
+const web3 = new Web3(Web3.currentProvider || new Web3.providers.WebsocketProvider('wss://calcoin.blockchain.azure.com:3300/2eR_wZ-TYGrZ46Tcrp4WJFuM'), null, {});
 
 //contract abi
 
